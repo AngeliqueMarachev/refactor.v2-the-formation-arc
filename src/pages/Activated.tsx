@@ -80,7 +80,7 @@ const PHASES = [
       "You're not broken. Your body is protecting you.",
       "You are allowed to need time.",
       "You are learning to stand differently.",
-      "Activation does not remove your authority.",
+      "Emotions don't remove your authority.",
     ],
   },
   {
