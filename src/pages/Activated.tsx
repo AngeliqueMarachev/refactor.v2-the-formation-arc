@@ -478,7 +478,7 @@ const Activated = () => {
             <p className="text-primary font-normal">A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
-              Reorientation can be used independently when you need to quickly interrupt a spiral.
+              Reorientation is used daily to establish a rhythm that honors your process, and independently when you need to quickly interrupt a spiral.
             </p>
             <p className="text-text-body">It is also used daily to establish a rhythm that honors the process.</p>
           </div>
