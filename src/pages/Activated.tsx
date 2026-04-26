@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { sanitizeText } from "@/lib/sanitize";
@@ -103,6 +103,7 @@ type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
 const Activated = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, refreshOnboardingState } = useAuth();
 
   const { data: existingScript, isLoading: scriptLoading } = useQuery({
@@ -140,6 +141,26 @@ const Activated = () => {
       wakeLock.disable();
     }
   };
+
+  const resetInProgressReorientation = () => {
+    setScreen("entry");
+    setPhaseIndex(0);
+    setSelections(Array(6).fill(null));
+    setCustomTexts(Array(6).fill(""));
+    setUseCustom(Array(6).fill(false));
+    setSaving(false);
+    setRevealedCount(1);
+    setJustRevealed(null);
+    setScriptComplete(false);
+    wakeLock.disable();
+    navigate("/activated", { replace: true, state: null });
+  };
+
+  useEffect(() => {
+    if (location.state?.resetReorientation) {
+      resetInProgressReorientation();
+    }
+  }, [location.state]);
 
   useEffect(() => {
     if (scriptLoading) return;
