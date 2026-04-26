@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { ensureUsageStats } from "@/lib/usage-stats";
+import { validateProductionAuthRedirectOrigin } from "@/lib/auth-redirects";
 
 interface AuthContextType {
   session: Session | null;
@@ -86,6 +87,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    validateProductionAuthRedirectOrigin();
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
