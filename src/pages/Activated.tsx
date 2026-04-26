@@ -10,6 +10,7 @@ import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
+import { incrementUsageStat } from "@/lib/usage-stats";
 
 const PHASES = [
   {
@@ -261,7 +262,7 @@ const Activated = () => {
       updated_at: new Date().toISOString(),
     });
 
-    await supabase.rpc("increment_stat", { stat_name: "reorient_return_count", user_id_input: user.id });
+    await incrementUsageStat("reorient_return_count", user.id);
     await refreshOnboardingState();
 
     setSaving(false);
@@ -288,7 +289,7 @@ const Activated = () => {
     const handleUseComplete = async () => {
       if (!user) return;
       setSaving(true);
-      await supabase.rpc("increment_stat", { stat_name: "reorient_return_count", user_id_input: user.id });
+      await incrementUsageStat("reorient_return_count", user.id);
 
       setSaving(false);
       wakeLock.disable();
