@@ -471,8 +471,8 @@ const Activated = () => {
             <p className="text-text-body">
               Each time you move through this sequence you:
               <ul className="list-disc list-inside space-y-1 pl-2">
-                <li> interrupt negative cycles</li>
-                <li> update expectations</li>
+                <li>interrupt negative cycles</li>
+                <li>update expectations</li>
                 <li>strengthen internal authority</li>
                 <li>stabilize identity over time</li>
               </ul>
