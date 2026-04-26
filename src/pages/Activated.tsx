@@ -480,7 +480,7 @@ const Activated = () => {
             <p className="text-text-body">
               Reorientation is used daily to establish a rhythm that honors your process, and independently when you need to quickly interrupt a spiral.
             </p>
-            <p className="text-text-body">It is also used daily to establish a rhythm that honors the process.</p>
+            <p className="text-text-body">As you build your reorientation, let it build your spirit. Choose in faith. Speak with conviction.</p>
           </div>
 
           <Button
