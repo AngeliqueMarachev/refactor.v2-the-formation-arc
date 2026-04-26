@@ -455,21 +455,12 @@ const Activated = () => {
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Reorienting on Truth</h1>
           <div className="space-y-4 leading-relaxed">
-            <p className="text-text-body">
-              {" "}
-              Before the brain can update expectations, it must first register safety. Rehearsing your Reorientation
-              signals stability to the nervous system, allowing the mind to become receptive. A receptive system forms
-              steadier expectations more easily.
-            </p>
+            <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
 
-            <p>Fear can accelerate perception.</p>
+            <p>Reorientation signals stability to the nervous system, allowing the mind to become receptive. </p>
 
-            <p>As your mind begins predicting danger, your body prepares for survival.</p>
+            <p>A receptive system forms steadier expectations more easily.</p>
 
-            <p>This can feel intense, especially when it appears suddenly.</p>
-            <p className="text-text-body">
-              Often, what you are experiencing is often a learned protection pattern, not a present threat.
-            </p>
             <p className="text-primary">
               The Reorientation process helps you interrupt the spiral and retrain how your brain interprets these
               moments.
