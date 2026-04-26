@@ -50,10 +50,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     setOnboardingStateLoading(true);
 
+    const reorientTemplates = supabase.from("reorient_templates") as any;
     const [{ data: profile }, { data: templates }] = await Promise.all([
       supabase.from("profiles").select("core_orientation_seen").eq("id", userId).single(),
-      supabase
-        .from("reorient_templates")
+      reorientTemplates
         .select("id")
         .eq("user_id", userId)
         .eq("is_active", true)
