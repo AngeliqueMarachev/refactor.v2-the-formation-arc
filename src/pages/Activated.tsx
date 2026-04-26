@@ -456,7 +456,7 @@ const Activated = () => {
           <h1 className="tracking-tight mb-8">Reorienting to Truth</h1>
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
-            <p className="text-secondary-foreground">
+            <p className="text-primary">
               When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking, and
               retrain the brain to respond to life in ways that better serve us.
             </p>
@@ -470,12 +470,12 @@ const Activated = () => {
               </ul>
             </p>
 
-            <p className="text-secondary-foreground">
+            <p className="text-primary">
               When we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
               become receptive.
             </p>
 
-            <p className="text-secondary-foreground">A receptive system forms steadier expectations more easily.</p>
+            <p className="text-primary">A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
               Reorientation can be used independently when you need to quickly interrupt a spiral.
