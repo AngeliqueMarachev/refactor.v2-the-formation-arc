@@ -141,7 +141,7 @@ const DailyFormation = () => {
                 className="mt-4 pt-[15px] pb-[28px]"
               />
               <p className="text-secondary-foreground text-base">Daily Formation follows a simple rhythm:</p>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAYER</h2>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">1. PRAYER</h2>
               <p className="text-text-body text-base">
                 Your body responds to signals of safety before conscious thoughts fully form.
               </p>
