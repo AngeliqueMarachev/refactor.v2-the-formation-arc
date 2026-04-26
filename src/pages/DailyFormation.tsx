@@ -308,6 +308,58 @@ const DailyFormation = () => {
     );
   }
 
+  // REFRAMING STORY INTRO
+  if (screen === "reframing-story") {
+    return (
+      <div className="flex min-h-screen flex-col pb-20">
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
+          <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Reframing your story</h1>
+
+          <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
+            <p>
+              Your brain stores experiences as networks of meaning, making memory vital for setting and maintaining
+              expectations.
+            </p>
+
+            <p>
+              Remembrance is a divine principle Jesus taught us. Recalling a positive memory in your life is a powerful
+              way to recall God’s faithfulness into remembrance, and enter into communion with Him.
+            </p>
+
+            <p>
+              When a memory is recalled, the neural network connected to it becomes open to new association, responding
+              in real time. As positive meaning expands, the brain registers safety and connection, producing DOSE
+              chemistry.
+            </p>
+
+            <p>
+              Repeated exposure to these signals retrains the nervous system to update expectations as we begin to
+              surrender to God’s will for us.
+            </p>
+
+            <p className="text-primary">
+              We begin to embody joy, health and grace with greater ease, until eventually, we are separated from trauma,
+              disconnected from old patterns, and established on Truth.
+            </p>
+
+            <p>
+              It’s important to know that when the nervous system has been under strain, creativity is obscured and access
+              to memory can narrow. With practice, however, access widens.
+            </p>
+          </div>
+        </main>
+
+        <div className="sticky bottom-20 px-5 pb-4 pt-2 bg-background/95 backdrop-blur content-container">
+          <Button className="w-full" size="lg" onClick={() => setScreen("create-anchor")}>
+            Continue
+          </Button>
+        </div>
+
+        <BottomNav />
+      </div>
+    );
+  }
+
   // CREATE ANCHOR
   if (screen === "create-anchor") {
     const totalSteps = 4;
