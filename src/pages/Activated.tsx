@@ -464,7 +464,7 @@ const Activated = () => {
             </div>
           )}
         </main>
-        <BottomNav />
+        <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
       </div>
     );
   }
@@ -518,7 +518,7 @@ const Activated = () => {
             Begin Reorientation
           </Button>
         </main>
-        <BottomNav />
+        <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
       </div>
     );
   }
@@ -634,7 +634,7 @@ const Activated = () => {
         </Button>
       </div>
 
-      <BottomNav />
+      <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
     </div>
   );
 };
