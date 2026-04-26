@@ -49,7 +49,7 @@ const PHASES = [
     ],
     customLabel: "Write your own statement",
     options: [
-      "The season that trained this response is in the past.",
+      "The season that taught my body to respond like this is in the past.",
       "I survived that chapter. This is a different moment.",
       "My nervous system is remembering the past, but I am safe now.",
       "In the past, I believed the lies, but now I know I can align with Truth.",
