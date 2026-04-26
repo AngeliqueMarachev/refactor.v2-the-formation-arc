@@ -144,7 +144,7 @@ const DailyFormation = () => {
     return (
       <div className="flex min-h-screen flex-col pb-20">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-10 mx-0 mt-[20px]">Daily Formation follows a simple rhythm</h1>
+          <h1 className="tracking-tight mb-10 mx-0 mt-[20px]">Daily Formation</h1>
 
           <div className="relative">
             {rhythmSteps.map((step, index) => (
