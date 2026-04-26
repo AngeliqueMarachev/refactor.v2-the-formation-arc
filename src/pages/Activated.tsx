@@ -475,7 +475,7 @@ const Activated = () => {
               become receptive.
             </p>
 
-            <p>A receptive system forms steadier expectations more easily.</p>
+            <p className="text-primary">A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
               Reorientation can be used independently when you need to quickly interrupt a spiral.
