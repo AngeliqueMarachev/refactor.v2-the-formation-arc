@@ -470,12 +470,12 @@ const Activated = () => {
               </ul>
             </p>
 
-            <p>
+            <p className="text-primary">
               When we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
               become receptive.
             </p>
 
-            <p>A receptive system forms steadier expectations more easily.</p>
+            <p className="text-primary">A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
               Reorientation can be used independently when you need to quickly interrupt a spiral.
