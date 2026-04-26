@@ -59,7 +59,7 @@ const PHASES = [
     title: "Choose Your Agreement",
     introduction: [
       "Protective patterns offer an interpretation of this moment.",
-      "Choose the statement that reflects what you agree with.",
+      "Break agreements with the lies. Choose a statement that reflects Truth.",
     ],
     customLabel: "Write your own statement",
     options: [
