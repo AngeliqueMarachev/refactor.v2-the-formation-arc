@@ -28,9 +28,7 @@ const DailyFormation = () => {
   const { user } = useAuth();
   const screenParam = searchParams.get("screen");
 
-  const [screen, setScreen] = useState<Screen>(
-    screenParam === "create-anchor" ? "create-anchor" : "reorientation",
-  );
+  const [screen, setScreen] = useState<Screen>(screenParam === "create-anchor" ? "create-anchor" : "reorientation");
 
   const [loading, setLoading] = useState(true);
 
@@ -134,55 +132,61 @@ const DailyFormation = () => {
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Daily formation begins with stability</h1>
 
           <div className="space-y-4 leading-relaxed mb-10">
-              <WakeLockToggle
-                enabled={wakeLockToggle}
-                onToggle={handleWakeLockToggle}
-                isSupported={wakeLock.isSupported}
-                className="mt-4 pt-[15px] pb-[28px]"
-              />
-              <p className="text-secondary-foreground text-base">Daily Formation follows a simple rhythm:</p>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">1. PRAYER</h2>
-              <p className="text-text-body text-base">
-                Your body responds to signals of safety before conscious thoughts fully form.
-              </p>
+            <WakeLockToggle
+              enabled={wakeLockToggle}
+              onToggle={handleWakeLockToggle}
+              isSupported={wakeLock.isSupported}
+              className="mt-4 pt-[15px] pb-[28px]"
+            />
+            <p className="text-secondary-foreground text-base">Daily Formation follows a simple rhythm:</p>
+            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
+            <p>We give thanks to God for His kindness and release the outcomes of this process into His hands.</p>
+            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
+            <p>We give thanks to God for His kindness and release the outcomes of this process into His hands.</p>
+            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
+            <p>We give thanks to God for His kindness and release the outcomes of this process into His hands.</p>
+            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">1. PRAYER</h2>
+            <p className="text-text-body text-base">
+              Your body responds to signals of safety before conscious thoughts fully form.
+            </p>
 
-              <p className="text-secondary-foreground">
-                Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
-              </p>
+            <p className="text-secondary-foreground">
+              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
+            </p>
 
-              <p>The nervous system responds strongly to perceived:</p>
+            <p>The nervous system responds strongly to perceived:</p>
 
-              <ul className="list-disc list-inside space-y-1 pl-2">
-                <li>safety</li>
-                <li>connection</li>
-                <li>support</li>
-              </ul>
+            <ul className="list-disc list-inside space-y-1 pl-2">
+              <li>safety</li>
+              <li>connection</li>
+              <li>support</li>
+            </ul>
 
-              <p className="text-primary font-normal">Prayer communicates support to your system.</p>
+            <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
-              <p>It signals that you are not alone in this moment.</p>
+            <p>It signals that you are not alone in this moment.</p>
 
-              <p>When the system senses support, internal pressure decreases.</p>
-              <p>
-                Reduced pressure allows the system to soften.
-                <br />A softened system becomes more receptive to change.
-              </p>
+            <p>When the system senses support, internal pressure decreases.</p>
+            <p>
+              Reduced pressure allows the system to soften.
+              <br />A softened system becomes more receptive to change.
+            </p>
 
-              <p>
-                You do not need the right words.
-                <br />
-                You do not need the right feeling.
-              </p>
+            <p>
+              You do not need the right words.
+              <br />
+              You do not need the right feeling.
+            </p>
 
-              <p className="text-primary font-normal">
-                Pause, give thanks, and entrust God with the outcomes of this moment.
-              </p>
+            <p className="text-primary font-normal">
+              Pause, give thanks, and entrust God with the outcomes of this moment.
+            </p>
 
-              <div className="pt-6">
-                <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                  I've given this to God
-                </Button>
-              </div>
+            <div className="pt-6">
+              <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
+                I've given this to God
+              </Button>
+            </div>
           </div>
         </main>
 
