@@ -456,15 +456,14 @@ const Activated = () => {
           <h1 className="tracking-tight mb-8">Reorienting on Truth</h1>
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
-
-            <p>Reorientation signals stability to the nervous system, allowing the mind to become receptive. </p>
-
-            <p>A receptive system forms steadier expectations more easily.</p>
-
             <p className="text-primary">
               The Reorientation process helps you interrupt the spiral and retrain how your brain interprets these
               moments.
             </p>
+
+            <p>Reorientation signals stability to the nervous system, allowing the mind to become receptive. </p>
+
+            <p>A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
               Each time you move through this sequence you:
