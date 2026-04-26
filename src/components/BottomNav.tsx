@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { House, Compass, AudioLines, LibraryBig } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useKeyboardVisible } from "@/hooks/use-keyboard-visible";
 import { useAuth } from "@/lib/auth";
 import {
