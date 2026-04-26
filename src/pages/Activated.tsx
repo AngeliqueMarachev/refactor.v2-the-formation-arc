@@ -471,7 +471,7 @@ const Activated = () => {
             </p>
 
             <p>
-              Every time we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
+              When we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
               become receptive.
             </p>
 
