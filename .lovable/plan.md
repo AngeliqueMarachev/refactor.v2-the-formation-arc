@@ -1,56 +1,41 @@
+Plan to implement guarded navigation for users without a saved Reorientation:
 
+1. Add an unsaved Reorientation reset path
+- In the Create Reorientation screen (`/activated`), add a way to reset the in-progress local state back to the beginning:
+  - screen: introduction / entry screen
+  - phase index: 0
+  - selections: empty
+  - custom text: empty
+  - custom toggles: false
+  - reveal/script practice state reset
+  - wake lock disabled if active
+- This will ensure “Continue” discards partial progress without saving anything.
 
-## Plan: Track Formation Behaviors with Atomic Increments
+2. Update bottom navigation interception
+- Modify the shared bottom nav component so that when `hasActiveReorientation` is false, any bottom navigation tap opens a confirmation modal instead of navigating immediately.
+- This includes tapping Home, Formation, Reorient, Anchors, and any current/active tab.
+- Completed users (`hasActiveReorientation === true`) will keep the existing normal navigation behavior.
 
-### Task 1 — Database migration
+3. Add the confirmation modal using the existing design system
+- Use the app’s existing Alert/Dialog UI components and Button styles.
+- Modal message:
+  “Your reorientation isn’t saved yet. Leaving now will discard your progress. Do you want to continue?”
+- Primary action: “Continue”
+- Secondary action: “Stay”
+- “Stay” closes the modal and keeps the user on the current screen.
+- “Continue” resets in-progress Reorientation state and redirects to the start of `/activated`.
 
-Add column and create RPC function:
+4. Add a safety guard for non-navigation entry points
+- Keep route guards in `App.tsx` ensuring users without a saved Reorientation cannot access protected routes like Home, Daily Formation, Anchor Library, or Reorientation practice via direct URL, refresh, saved route restoration, or browser history.
+- Adjust the redirect target to explicitly bring them to the start of the Create Reorientation flow, including the introduction screen.
 
-```sql
--- New column
-ALTER TABLE public.usage_stats
-  ADD COLUMN anchor_recall_count integer NOT NULL DEFAULT 0;
+5. Avoid changing the rest of the UI
+- No visual redesign beyond the modal.
+- No database schema changes are needed, because saved status is already determined from the active saved Reorientation template.
 
--- Atomic increment with allow-list validation
-CREATE OR REPLACE FUNCTION public.increment_stat(stat_name text, user_id_input uuid)
-RETURNS void
-LANGUAGE plpgsql
-SECURITY DEFINER
-SET search_path = public
-AS $$
-BEGIN
-  IF stat_name NOT IN ('reorient_return_count', 'anchors_created', 'anchor_recall_count') THEN
-    RAISE EXCEPTION 'Invalid stat name: %', stat_name;
-  END IF;
-
-  EXECUTE format(
-    'UPDATE public.usage_stats SET %I = %I + 1 WHERE user_id = $1',
-    stat_name, stat_name
-  ) USING user_id_input;
-END;
-$$;
-```
-
-### Task 2 — Increment logic
-
-| File | Where | Call |
-|---|---|---|
-| `src/pages/DailyFormation.tsx` | After successful `anchor_entries.insert()` in `handleSaveAnchor` (new anchors only) | `supabase.rpc('increment_stat', { stat_name: 'anchors_created', user_id_input: user.id })` |
-| `src/pages/Anchors.tsx` | In `handleRecallDone`, after `session_count` update | `supabase.rpc('increment_stat', { stat_name: 'anchor_recall_count', user_id_input: user.id })` |
-| `src/pages/Activated.tsx` | Replace existing read-then-write with same RPC pattern | `supabase.rpc('increment_stat', { stat_name: 'reorient_return_count', user_id_input: user.id })` |
-
-### Task 3 — Progress card UI (`src/pages/Index.tsx`)
-
-- Add `anchor_recall_count` to the fetched fields (query already selects `*`).
-- Display 3 horizontal metrics: **Reorientations**, **Anchors**, **Recalls** — same circle-indicator style, adjusted gap.
-
-### Files changed
-
-| File | Change |
-|---|---|
-| Migration (new) | Add column + `increment_stat` RPC with allow-list |
-| `src/pages/DailyFormation.tsx` | Increment `anchors_created` after insert |
-| `src/pages/Anchors.tsx` | Increment `anchor_recall_count` in `handleRecallDone` |
-| `src/pages/Activated.tsx` | Migrate to atomic RPC |
-| `src/pages/Index.tsx` | Show 3 metrics |
-
+Technical notes
+- Likely files to change:
+  - `src/components/BottomNav.tsx`
+  - `src/pages/Activated.tsx`
+  - possibly `src/App.tsx` for route guard precision
+- The current app already tracks completion using `hasActiveReorientation` from the auth/onboarding state, so this implementation will build on that rather than adding new persistence.
