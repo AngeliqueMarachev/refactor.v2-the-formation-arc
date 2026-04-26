@@ -341,7 +341,7 @@ const AnchorRecall = ({
 
       {/* Back + Continue */}
       {selectedScene && (
-        <div className="px-5 pb-4 pt-2 content-container space-y-2">
+        <div className="bottom-cta-flow px-5 pt-2 content-container space-y-2">
           <Button className="w-full" size="lg" variant="secondary" onClick={() => setSelectedScene(null)}>
             Back
           </Button>

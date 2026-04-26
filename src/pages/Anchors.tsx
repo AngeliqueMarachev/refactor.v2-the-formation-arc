@@ -74,7 +74,7 @@ const Anchors = () => {
   // ── Recall Prompt ──
   if (view === "recall-prompt" && selected) {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col items-center justify-center px-5 text-center content-container">
           <WakeLockToggle
             enabled={wakeLockToggle}
@@ -104,7 +104,7 @@ const Anchors = () => {
     const canTruncate = selected.scene_text.length > maxChars;
 
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <header className="px-5 pt-8 pb-2 content-container">
           <button
             onClick={() => {
@@ -190,7 +190,7 @@ const Anchors = () => {
   const isEmpty = !loading && anchors.length === 0;
 
   return (
-    <div className="flex min-h-screen flex-col pb-20">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
         <h1 className="tracking-tight font-serif">Anchor Recall</h1>
         <p className="text-supporting mt-1 text-primary">Return to ​Anchors that help you expect steadiness.</p>
