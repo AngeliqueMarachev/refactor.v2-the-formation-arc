@@ -27,8 +27,18 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function OrientationGate({ children }: { children: React.ReactNode }) {
-  const { orientationSeen } = useAuth();
-  if (!orientationSeen) return <Navigate to="/onboarding" replace />;
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
+  if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
+  return <>{children}</>;
+}
+
+function ReorientationGate({ children }: { children: React.ReactNode }) {
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
+  if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
 }
 
@@ -65,10 +75,10 @@ const App = () => (
             <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
             <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
             <Route path="/activated" element={<ProtectedRoute><Activated /></ProtectedRoute>} />
-            <Route path="/daily-formation" element={<ProtectedRoute><DailyFormation /></ProtectedRoute>} />
-            <Route path="/anchors" element={<ProtectedRoute><Anchors /></ProtectedRoute>} />
-            <Route path="/daily-formation/reorientation-complete" element={<ProtectedRoute><ReorientationComplete /></ProtectedRoute>} />
-            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationRehearsal /></ProtectedRoute>} />
+            <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/daily-formation/reorientation-complete" element={<ProtectedRoute><ReorientationGate><ReorientationComplete /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
