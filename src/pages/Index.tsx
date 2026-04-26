@@ -16,7 +16,10 @@ const Index = () => {
   const { data: profile, isLoading: profileLoading } = useQuery({
     queryKey: ["profile", user?.id],
     queryFn: async () => {
-      const { data } = await supabase.from("profiles").select("*").eq("id", user!.id).single();
+      const { data, error } = await supabase.from("profiles").select("*").eq("id", user!.id).maybeSingle();
+      if (error) {
+        console.error("Failed to load profile", error);
+      }
       return data;
     },
     enabled: !!user,
