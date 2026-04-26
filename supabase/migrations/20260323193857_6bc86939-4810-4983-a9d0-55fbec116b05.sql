@@ -1,0 +1,1 @@
+ALTER TABLE public.anchor_entries ADD COLUMN anchor_title text;

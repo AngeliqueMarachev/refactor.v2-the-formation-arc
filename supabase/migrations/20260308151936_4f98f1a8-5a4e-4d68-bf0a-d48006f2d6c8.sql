@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles ADD COLUMN core_orientation_seen boolean NOT NULL DEFAULT false;
