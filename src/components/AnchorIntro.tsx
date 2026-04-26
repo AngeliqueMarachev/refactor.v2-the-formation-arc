@@ -42,8 +42,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-          <div className="content-container space-y-2">
+        <div className="bottom-cta-flow px-5 pt-2 content-container space-y-2">
+          <div className="space-y-2">
             <Button className="w-full" size="lg" onClick={() => setStep(1)}>
               Continue
             </Button>
@@ -98,8 +98,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-          <div className="content-container">
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
+          <div>
             <Button className="w-full" size="lg" onClick={() => setStep(2)}>
               Continue
             </Button>
@@ -156,8 +156,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
         </div>
       </main>
 
-      <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-        <div className="content-container">
+      <div className="bottom-cta-flow px-5 pt-2 content-container">
+        <div>
           <Button className="w-full" size="lg" onClick={onComplete}>
             Continue
           </Button>
