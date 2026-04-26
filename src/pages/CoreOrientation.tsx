@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 
 const CoreOrientation = () => {
   const navigate = useNavigate();
-  const { setOrientationSeen } = useAuth();
+  const { hasActiveReorientation, setOrientationSeen } = useAuth();
 
   const handleEnter = () => {
     setOrientationSeen(true);
-    navigate("/activated", { replace: true });
+    navigate(hasActiveReorientation ? "/" : "/activated", { replace: true });
   };
 
   return (
