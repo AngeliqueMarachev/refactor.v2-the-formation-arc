@@ -6,7 +6,7 @@ const TIMESTAMP_KEY = "last_route_ts";
 const SIX_HOURS_MS = 6 * 60 * 60 * 1000;
 
 // Routes that should NOT be saved/restored
-const EXCLUDED_ROUTES = ["/auth", "/reset-password", "/onboarding"];
+const EXCLUDED_ROUTES = ["/auth", "/reset-password", "/onboarding", "/activated"];
 
 /** Persist the current route + timestamp on every navigation. */
 export function useRoutePersistence() {
