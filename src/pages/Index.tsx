@@ -71,7 +71,7 @@ const Index = () => {
           </button>
         </div>
         <div className="flex justify-center mt-2">
-          <img src={logo} alt="The Formation Arc" className="h-32 w-auto" />
+          <img src={logo} alt="The Formation Arc" className="w-full max-w-48 h-auto object-contain" />
         </div>
       </header>
 
