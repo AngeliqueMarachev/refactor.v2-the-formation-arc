@@ -12,6 +12,7 @@ import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
+import { incrementUsageStat } from "@/lib/usage-stats";
 
 type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "reframing-story" | "create-anchor" | "completion";
 
@@ -113,8 +114,10 @@ const DailyFormation = () => {
       where_is_god: sanitizeText(whereIsGod, { maxLength: 2000, multiline: true }),
     });
 
-    if (!error) {
-      await supabase.rpc("increment_stat", { stat_name: "anchors_created", user_id_input: user.id });
+    if (error) {
+      console.error("Failed to save anchor", error);
+    } else {
+      await incrementUsageStat("anchors_created", user.id);
     }
 
     setSaving(false);

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { ensureUsageStats } from "@/lib/usage-stats";
 
 interface AuthContextType {
   session: Session | null;
@@ -51,14 +52,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setOnboardingStateLoading(true);
 
     const reorientTemplates = supabase.from("reorient_templates") as any;
-    const [{ data: profile }, { data: templates }] = await Promise.all([
-      supabase.from("profiles").select("core_orientation_seen").eq("id", userId).single(),
+    const [{ data: profile, error: profileError }, { data: templates }] = await Promise.all([
+      supabase.from("profiles").select("core_orientation_seen").eq("id", userId).maybeSingle(),
       reorientTemplates
         .select("id")
         .eq("user_id", userId)
         .eq("is_active", true)
         .limit(1),
     ]);
+
+    if (profileError) {
+      console.error("Failed to load profile onboarding state", profileError);
+    }
 
     const hasSeenOrientation = !!profile?.core_orientation_seen || sessionStorage.getItem(SESSION_KEY) === "true";
     setOrientationSeenState(hasSeenOrientation);
@@ -101,6 +106,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (loading) return;
+    if (session?.user?.id) {
+      ensureUsageStats(session.user.id);
+    }
     refreshOnboardingState();
   }, [loading, session?.user?.id]);
 

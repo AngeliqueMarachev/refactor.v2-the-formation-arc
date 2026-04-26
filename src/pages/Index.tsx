@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 import { Compass, AudioLines, LibraryBig } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
-import Logo from "@/assets/logo.svg?react";
+import { ensureUsageStats } from "@/lib/usage-stats";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -16,7 +16,10 @@ const Index = () => {
   const { data: profile, isLoading: profileLoading } = useQuery({
     queryKey: ["profile", user?.id],
     queryFn: async () => {
-      const { data } = await supabase.from("profiles").select("*").eq("id", user!.id).single();
+      const { data, error } = await supabase.from("profiles").select("*").eq("id", user!.id).maybeSingle();
+      if (error) {
+        console.error("Failed to load profile", error);
+      }
       return data;
     },
     enabled: !!user,
@@ -25,7 +28,11 @@ const Index = () => {
   const { data: stats } = useQuery({
     queryKey: ["usage_stats", user?.id],
     queryFn: async () => {
-      const { data } = await supabase.from("usage_stats").select("*").eq("user_id", user!.id).single();
+      await ensureUsageStats(user!.id);
+      const { data, error } = await supabase.from("usage_stats").select("*").eq("user_id", user!.id).maybeSingle();
+      if (error) {
+        console.error("Failed to load usage_stats", error);
+      }
       return data;
     },
     enabled: !!user,

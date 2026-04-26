@@ -11,6 +11,7 @@ import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
+import { incrementUsageStat } from "@/lib/usage-stats";
 
 interface AnchorEntry {
   id: string;
@@ -62,11 +63,14 @@ const Anchors = () => {
 
   const handleRecallDone = async () => {
     if (!selected || !user) return;
-    await supabase
+    const { error: updateError } = await supabase
       .from("anchor_entries")
       .update({ session_count: selected.session_count + 1 })
       .eq("id", selected.id);
-    await supabase.rpc('increment_stat', { stat_name: 'anchor_recall_count', user_id_input: user.id });
+    if (updateError) {
+      console.error("Failed to update anchor recall session count", updateError);
+    }
+    await incrementUsageStat("anchor_recall_count", user.id);
     wakeLock.disable();
     navigate("/");
   };
