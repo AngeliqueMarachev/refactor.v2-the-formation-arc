@@ -457,11 +457,14 @@ const Activated = () => {
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
             <p className="text-primary">
-              The Reorientation process helps you interrupt the spiral and retrain how your brain interprets these
-              moments.
+              When we reorient ourselves to what God says about us, we interrupt destructive thought loops, retraining
+              the brain how to respond in ways that better serve us.
             </p>
 
-            <p>Reorientation signals stability to the nervous system, allowing the mind to become receptive. </p>
+            <p>
+              Every time we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
+              become receptive.
+            </p>
 
             <p>A receptive system forms steadier expectations more easily.</p>
 
