@@ -30,7 +30,7 @@ const PHASES = [
     title: "Expose The Mechanism",
     introduction: [
       "What you feel is real.",
-      "This step names what your nervous system is doing behind the reaction.",
+      "This step separates your emotional state from your physical state.",
       "Choose the explanation that fits best.",
     ],
     customLabel: "Write your own explanation",
