@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
@@ -126,6 +126,25 @@ const DailyFormation = () => {
 
   // DAILY RHYTHM INTRO
   if (screen === "daily-rhythm") {
+    const rhythmContainerRef = useRef<HTMLDivElement>(null);
+    const finalStepTextRef = useRef<HTMLParagraphElement>(null);
+    const [connectorHeight, setConnectorHeight] = useState(0);
+
+    useLayoutEffect(() => {
+      const updateConnectorHeight = () => {
+        if (!rhythmContainerRef.current || !finalStepTextRef.current) return;
+
+        const containerTop = rhythmContainerRef.current.getBoundingClientRect().top;
+        const finalTextBottom = finalStepTextRef.current.getBoundingClientRect().bottom;
+        setConnectorHeight(Math.max(0, finalTextBottom - containerTop - 16));
+      };
+
+      updateConnectorHeight();
+      window.addEventListener("resize", updateConnectorHeight);
+
+      return () => window.removeEventListener("resize", updateConnectorHeight);
+    }, []);
+
     const rhythmSteps = [
       {
         title: "PRAY",
@@ -172,18 +191,27 @@ const DailyFormation = () => {
             Daily formation follows a simple rhythm:
           </p>
 
-          <div className="relative">
+          <div ref={rhythmContainerRef} className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute left-4 top-4 w-px bg-border/40"
+              style={{ height: connectorHeight }}
+            />
             {rhythmSteps.map((step, index) => (
               <div key={step.title} className="relative flex gap-3">
-                <div className="flex flex-col items-center">
+                <div className="relative z-10 flex flex-col items-center">
                   <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                  {index < rhythmSteps.length - 1 && <div className="w-px flex-1 bg-border/40 my-1" />}
                 </div>
                 <div className={index < rhythmSteps.length - 1 ? "pb-10 flex-1" : "flex-1"}>
                   <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                     {step.title}
                   </h2>
-                  <p className="text-text-body leading-relaxed mt-2">{step.body}</p>
+                  <p
+                    ref={index === rhythmSteps.length - 1 ? finalStepTextRef : undefined}
+                    className="text-text-body leading-relaxed mt-2"
+                  >
+                    {step.body}
+                  </p>
                 </div>
               </div>
             ))}
