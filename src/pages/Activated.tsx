@@ -58,7 +58,7 @@ const PHASES = [
   {
     title: "Choose Your Agreement",
     introduction: [
-      "Fear offers an interpretation of this moment.",
+      "Protective patterns offer an interpretation of this moment.",
       "Choose the statement that reflects what you agree with.",
     ],
     customLabel: "Write your own statement",
