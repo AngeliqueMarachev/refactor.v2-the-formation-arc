@@ -534,9 +534,7 @@ const Activated = () => {
 
           <div className="space-y-4 leading-relaxed mb-10">
             <p className="text-text-body">
-              Over time, returning becomes more natural.
-              <br />
-              Steadiness becomes more familiar.
+              Over time, returning will becomes more natural, and steadiness will becomes more familiar.
             </p>
           </div>
         </main>
