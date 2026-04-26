@@ -477,8 +477,10 @@ const Activated = () => {
                 <li>stabilize identity over time</li>
               </ul>
             </p>
-            <p className="text-text-body">You do not need to rush.</p>
-            <p className="text-text-body">Just begin.</p>
+            <p className="text-text-body">
+              Reorientation can be used independently when you need to quickly interrupt a spiral.
+            </p>
+            <p className="text-text-body">It is also used daily to establish a rhythm that honors our process.</p>
           </div>
 
           <Button
