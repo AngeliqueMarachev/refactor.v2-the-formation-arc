@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { House, Compass, AudioLines, LibraryBig } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useKeyboardVisible } from "@/hooks/use-keyboard-visible";
+import { useAuth } from "@/lib/auth";
 
 const tabs = [
   { label: "Home", icon: House, path: "/" },
@@ -14,6 +15,16 @@ const BottomNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const keyboardVisible = useKeyboardVisible();
+  const { hasActiveReorientation } = useAuth();
+
+  const handleNavigate = (path: string) => {
+    if (!hasActiveReorientation && path !== "/activated") {
+      navigate("/activated");
+      return;
+    }
+
+    navigate(path);
+  };
 
   if (keyboardVisible) return null;
 
@@ -32,7 +43,7 @@ const BottomNav = () => {
           return (
             <button
               key={tab.path}
-              onClick={() => navigate(tab.path)}
+              onClick={() => handleNavigate(tab.path)}
               className="nav-tab flex flex-col items-center gap-1 text-xs group"
               data-active={active || undefined}
               style={{
