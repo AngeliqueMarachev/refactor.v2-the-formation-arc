@@ -144,7 +144,7 @@ const DailyFormation = () => {
     return (
       <div className="flex min-h-screen flex-col pb-20">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-4 mx-0 mt-[20px]">Daily Formation</h1>
+          <h1 className="tracking-tight mb-4 mx-0 mt-[20px]">The science behind daily formation</h1>
 
           <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-12">
             <p className="text-secondary-foreground">
