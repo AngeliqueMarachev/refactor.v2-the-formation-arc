@@ -145,6 +145,29 @@ const DailyFormation = () => {
       <div className="flex min-h-screen flex-col pb-20">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-4 mx-0 mt-[20px]">Daily Formation</h1>
+
+          <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-12">
+            <p className="text-secondary-foreground">
+              Every time you have a feeling, good or bad, a chemical is released into your system. This creates an
+              emotional signature, a measurable frequency, that changes the body over time.
+            </p>
+
+            <p>
+              Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
+              when we experience disorder. They create low frequency emotional signatures, which deplete our resources,
+              often leading to a weakened immune system and eventually, chronic symptoms.
+            </p>
+            <p>
+              Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
+              the body when we experience alignment. They create high frequency emotional signatures, which support and
+              heal the body, and help us feel safe.
+            </p>
+            <p className="text-primary">
+              The Daily Formation practice is designed to provide the nervous system with new, positive information to
+              produce life-giving DOSE chemistry, which counteracts the effects of CAN chemistry stored in the body.
+            </p>
+          </div>
+
           <p className="text-secondary-foreground leading-relaxed mb-10">
             Daily formation follows a simple rhythm:
           </p>
