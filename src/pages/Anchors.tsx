@@ -248,7 +248,7 @@ const Anchors = () => {
               <Button
                 variant="outline"
                 className="w-full border-primary text-primary hover:bg-primary/10"
-                onClick={() => navigate("/daily-formation?skip_intro=true")}
+                onClick={() => navigate("/daily-formation")}
               >
                 Create new anchor
               </Button>
