@@ -138,13 +138,7 @@ const DailyFormation = () => {
               isSupported={wakeLock.isSupported}
               className="mt-4 pt-[15px] pb-[28px]"
             />
-            <p className="text-secondary-foreground text-base">Daily Formation follows a simple rhythm:</p>
-            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">REORIENT</h2>
-            <p>We communicate safety to the nervous system by reorienting to Truth.</p>
-            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">ANCHOR MEMORY</h2>
-            <p>We strengthen a memory that expands expectations of safety and draws us into communion.</p>
-            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
-            <p>We give thanks to God for His kindness and release the outcomes of this process into His hands.</p>
+
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">1. PRAYER</h2>
             <p className="text-text-body text-base">
               Your body responds to signals of safety before conscious thoughts fully form.
