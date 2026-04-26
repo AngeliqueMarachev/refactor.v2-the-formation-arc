@@ -148,18 +148,6 @@ const DailyFormation = () => {
     return <div className="flex min-h-screen items-center justify-center">Loading…</div>;
   }
 
-  // ANCHOR INTRO
-  if (screen === "anchor-intro") {
-    return (
-      <AnchorIntro
-        onComplete={() => {
-          if (wakeLockToggle) wakeLock.enable();
-          setScreen("reorientation");
-        }}
-      />
-    );
-  }
-
   // REORIENTATION ENTRY
   if (screen === "reorientation") {
     const hasLines = lines && Object.values(lines).some((v) => v);
