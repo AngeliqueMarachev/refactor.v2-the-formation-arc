@@ -478,9 +478,12 @@ const Activated = () => {
             <p className="text-primary font-normal">A receptive system forms steadier expectations more easily.</p>
 
             <p className="text-text-body">
-              Reorientation is used daily to establish a rhythm that honors your process, and independently when you need to quickly interrupt a spiral.
+              Reorientation is used daily to establish a rhythm that honors your process, and independently when you
+              need to quickly interrupt a spiral.
             </p>
-            <p className="text-text-body">As you build your reorientation, let it build your spirit. Choose in faith. Speak with conviction.</p>
+            <p className="text-text-body">
+              As you build your reorientation, let it build your spirit. Choose in faith. Speak with conviction.
+            </p>
           </div>
 
           <Button
@@ -518,16 +521,6 @@ const Activated = () => {
           <h1 className="tracking-tight mb-2">You have established reorientation</h1>
           <div className="space-y-4 leading-relaxed mb-8">
             <p className="text-primary">These words create a reliable pathway back to steadiness.</p>
-            <p className="text-text-body">
-              When fear, urgency, or inner pressure rises,
-              <br />
-              return to reorient, moving through each line slowly.
-            </p>
-            <p className="text-text-body">
-              Repetition teaches your nervous system
-              <br />
-              that this moment is safe to experience.
-            </p>
           </div>
 
           <div className="space-y-3 mb-8">
