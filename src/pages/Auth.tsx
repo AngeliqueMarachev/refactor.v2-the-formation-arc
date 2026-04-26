@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "@/assets/formation-arc-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +20,7 @@ const GoogleIcon = () => (
 );
 
 const Auth = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isSignUp, setIsSignUp] = useState(false);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -30,6 +32,15 @@ const Auth = () => {
   const [emailError, setEmailError] = useState("");
   const [authMessage, setAuthMessage] = useState("");
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (searchParams.get("confirmed") === "true") {
+      setIsSignUp(false);
+      setIsForgotPassword(false);
+      setAuthMessage("Your email has been confirmed. You can now sign in.");
+      setSearchParams({}, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   const validateEmail = (value: string): string => {
     const trimmed = value.trim();
@@ -98,7 +109,7 @@ const Auth = () => {
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: "https://theformationarc.lovable.app" },
+        options: { emailRedirectTo: "https://theformationarc.lovable.app/auth/callback" },
       });
       if (error) {
         setAuthMessage("We couldn't create your account. Please check your email or password.");
