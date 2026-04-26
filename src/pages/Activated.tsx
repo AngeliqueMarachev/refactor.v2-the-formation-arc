@@ -453,7 +453,7 @@ const Activated = () => {
     return (
       <div className="flex min-h-screen flex-col pb-20">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
-          <h1 className="tracking-tight mb-8">Reorienting on Truth</h1>
+          <h1 className="tracking-tight mb-8">Reorienting to Truth</h1>
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
             <p className="text-secondary-foreground">
