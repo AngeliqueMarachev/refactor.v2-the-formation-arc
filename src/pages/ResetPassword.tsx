@@ -104,7 +104,7 @@ const ResetPassword = () => {
   if (pageState === "verifying") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="w-full max-w-36 h-auto object-contain mb-8" />
+        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
         <p className="text-muted-foreground animate-pulse">Verifying reset link…</p>
       </div>
     );
@@ -114,7 +114,7 @@ const ResetPassword = () => {
   if (pageState === "error") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="w-full max-w-36 h-auto object-contain mb-8" />
+        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
         <div className="w-full max-w-sm space-y-6 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Link Expired</h1>
           <p className="text-sm text-muted-foreground">
@@ -135,7 +135,7 @@ const ResetPassword = () => {
   if (pageState === "success") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="w-full max-w-36 h-auto object-contain mb-8" />
+        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
         <div className="w-full max-w-sm space-y-4 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Password Updated</h1>
           <p className="text-sm text-muted-foreground">
@@ -151,7 +151,7 @@ const ResetPassword = () => {
     <div className="flex min-h-screen flex-col items-center justify-center px-5 pb-12">
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center space-y-4">
-          <img src={logo} alt="The Formation Arc" className="w-full max-w-36 h-auto object-contain mx-auto" />
+          <img src={logo} alt="The Formation Arc" className="h-auto object-contain mx-auto" style={{ width: "min(85vw, 420px)" }} />
           <div className="space-y-1.5">
             <h1 className="text-2xl font-semibold tracking-tight">Set a new password</h1>
             <p className="text-sm text-muted-foreground">Choose a new password</p>

@@ -71,7 +71,7 @@ const Index = () => {
           </button>
         </div>
         <div className="flex justify-center mt-2">
-          <img src={logo} alt="The Formation Arc" className="w-full max-w-48 h-auto object-contain" />
+          <img src={logo} alt="The Formation Arc" className="h-auto object-contain" style={{ width: "min(85vw, 420px)" }} />
         </div>
       </header>
 
