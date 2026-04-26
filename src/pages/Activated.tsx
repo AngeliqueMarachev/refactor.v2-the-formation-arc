@@ -305,7 +305,7 @@ const Activated = () => {
     ];
 
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-2">Your Reorientation</h1>
 
@@ -472,7 +472,7 @@ const Activated = () => {
   // ENTRY
   if (screen === "entry") {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Reorienting to Truth</h1>
           <div className="space-y-4 leading-relaxed">
@@ -537,7 +537,7 @@ const Activated = () => {
     const userSelections = PHASES.map((_, i) => (useCustom[i] ? customTexts[i] : selections[i])?.trim() || "—");
 
     return (
-      <div className="flex min-h-screen flex-col pb-56">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-2">You have established reorientation</h1>
           <div className="space-y-4 leading-relaxed mb-8">
@@ -560,8 +560,8 @@ const Activated = () => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 bg-background px-5 py-4 space-y-3 z-10">
-          <div className="content-container">
+        <div className="bottom-cta-flow px-5 pt-2 space-y-3 content-container">
+          <div>
             <Button className="w-full" size="lg" onClick={handleSave} disabled={saving}>
               {saving ? "Saving…" : "Save Reorientation"}
             </Button>
@@ -579,7 +579,7 @@ const Activated = () => {
   const phase = PHASES[phaseIndex];
 
   return (
-    <div className="flex min-h-screen flex-col pb-20">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
         <p className="text-xs text-text-supporting mb-2">Step {phaseIndex + 1} of 6</p>
         <Progress value={((phaseIndex + 1) / 6) * 100} className="h-1.5 mb-6" />
@@ -629,7 +629,7 @@ const Activated = () => {
         </div>
       </main>
 
-      <div className="px-5 pb-4 pt-2 content-container">
+      <div className="bottom-cta-flow px-5 pt-2 content-container">
         <Button className="w-full" size="lg" disabled={!canContinue} onClick={handleContinue}>
           Continue
         </Button>

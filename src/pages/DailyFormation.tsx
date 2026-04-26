@@ -144,7 +144,7 @@ const DailyFormation = () => {
     ];
 
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">The science behind daily formation</h1>
 
@@ -192,7 +192,7 @@ const DailyFormation = () => {
           </div>
         </main>
 
-        <div className="px-5 pb-4 pt-2 content-container">
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={() => setScreen("reorientation")}>
             Begin Daily Formation
           </Button>
@@ -206,7 +206,7 @@ const DailyFormation = () => {
   // REORIENTATION ENTRY
   if (screen === "reorientation") {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Daily formation begins with stability</h1>
 
@@ -278,7 +278,7 @@ const DailyFormation = () => {
     }
 
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Daily Anchor Loop</h1>
 
@@ -311,7 +311,7 @@ const DailyFormation = () => {
   // REFRAMING STORY INTRO
   if (screen === "reframing-story") {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Reframing your story</h1>
 
@@ -349,7 +349,7 @@ const DailyFormation = () => {
           </div>
         </main>
 
-        <div className="sticky bottom-20 px-5 pb-4 pt-2 bg-background/95 backdrop-blur content-container">
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={() => setScreen("create-anchor")}>
             Continue
           </Button>
@@ -404,7 +404,7 @@ const DailyFormation = () => {
     };
 
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <header className="px-5 pt-8 pb-2 content-container">
           <p className="text-xs text-text-supporting mb-2">
             Step {createStep + 1} of {totalSteps}
@@ -716,7 +716,7 @@ const DailyFormation = () => {
           )}
         </main>
 
-        <div className="px-5 pb-4 pt-2 space-y-2 content-container">
+        <div className="bottom-cta-flow px-5 pt-2 space-y-2 content-container">
           <Button className="w-full" size="lg" variant="secondary" onClick={() => setCreateStep(createStep - 1)}>
             Back
           </Button>
@@ -733,7 +733,7 @@ const DailyFormation = () => {
   // COMPLETION
   if (screen === "completion") {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8 text-lg">You strengthened steadiness today</h1>
 

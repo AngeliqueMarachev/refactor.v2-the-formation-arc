@@ -15,7 +15,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   if (step === 0) {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-40 content-container">
           <h1 className="tracking-tight mb-8">The science behind daily formation</h1>
 
@@ -42,8 +42,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-          <div className="content-container space-y-2">
+        <div className="bottom-cta-flow px-5 pt-2 content-container space-y-2">
+          <div className="space-y-2">
             <Button className="w-full" size="lg" onClick={() => setStep(1)}>
               Continue
             </Button>
@@ -60,7 +60,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   if (step === 1) {
     return (
-      <div className="flex min-h-screen flex-col pb-20">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-32 content-container">
           <h1 className="tracking-tight mb-8">Reframing your story</h1>
 
@@ -98,8 +98,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-          <div className="content-container">
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
+          <div>
             <Button className="w-full" size="lg" onClick={() => setStep(2)}>
               Continue
             </Button>
@@ -113,7 +113,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   // Step 2 — Screen 3
   return (
-    <div className="flex min-h-screen flex-col pb-20">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <main className="flex flex-1 flex-col px-5 pt-10 pb-32 content-container">
         <h1 className="tracking-tight mb-8">Practicing formation daily</h1>
 
@@ -156,8 +156,8 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
         </div>
       </main>
 
-      <div className="fixed bottom-16 left-0 right-0 px-5 pb-4 pt-2 bg-background/95 backdrop-blur-sm">
-        <div className="content-container">
+      <div className="bottom-cta-flow px-5 pt-2 content-container">
+        <div>
           <Button className="w-full" size="lg" onClick={onComplete}>
             Continue
           </Button>

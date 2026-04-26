@@ -117,7 +117,7 @@ const AnchorRecall = ({
   const canContinue = anchorTitle.trim().length > 0 && sceneText.trim().length > 0 && emotionTags.length > 0;
 
   return (
-    <div className="flex min-h-screen flex-col pb-20 text-secondary-foreground">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col text-secondary-foreground">
       <header className="px-5 pt-8 pb-2 content-container">
         <div className="mb-2 h-8" />
         <p className="text-xs text-text-supporting mb-2">Step 1 of {totalSteps}</p>
@@ -341,7 +341,7 @@ const AnchorRecall = ({
 
       {/* Back + Continue */}
       {selectedScene && (
-        <div className="px-5 pb-4 pt-2 content-container space-y-2">
+        <div className="bottom-cta-flow px-5 pt-2 content-container space-y-2">
           <Button className="w-full" size="lg" variant="secondary" onClick={() => setSelectedScene(null)}>
             Back
           </Button>
