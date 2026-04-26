@@ -8,7 +8,7 @@ const CoreOrientation = () => {
 
   const handleEnter = () => {
     setOrientationSeen(true);
-    navigate("/", { replace: true });
+    navigate("/activated", { replace: true });
   };
 
   return (

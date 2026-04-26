@@ -7,7 +7,10 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   orientationSeen: boolean;
+  hasActiveReorientation: boolean;
+  onboardingStateLoading: boolean;
   setOrientationSeen: (v: boolean) => void;
+  refreshOnboardingState: () => Promise<void>;
   signOut: () => Promise<void>;
 }
 
@@ -16,7 +19,10 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   orientationSeen: false,
+  hasActiveReorientation: false,
+  onboardingStateLoading: true,
   setOrientationSeen: () => {},
+  refreshOnboardingState: async () => {},
   signOut: async () => {},
 });
 
@@ -27,9 +33,38 @@ const SESSION_KEY = "orientation_seen_this_session";
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
-  const [, forceUpdate] = useState(0);
+  const [orientationSeen, setOrientationSeenState] = useState(false);
+  const [hasActiveReorientation, setHasActiveReorientation] = useState(false);
+  const [onboardingStateLoading, setOnboardingStateLoading] = useState(true);
 
-  const orientationSeen = sessionStorage.getItem(SESSION_KEY) === "true";
+  const refreshOnboardingState = async () => {
+    const { data: { session: currentSession } } = await supabase.auth.getSession();
+    const userId = currentSession?.user?.id;
+
+    if (!userId) {
+      setOrientationSeenState(false);
+      setHasActiveReorientation(false);
+      setOnboardingStateLoading(false);
+      return;
+    }
+
+    setOnboardingStateLoading(true);
+
+    const reorientTemplates = supabase.from("reorient_templates") as any;
+    const [{ data: profile }, { data: templates }] = await Promise.all([
+      supabase.from("profiles").select("core_orientation_seen").eq("id", userId).single(),
+      reorientTemplates
+        .select("id")
+        .eq("user_id", userId)
+        .eq("is_active", true)
+        .limit(1),
+    ]);
+
+    const hasSeenOrientation = !!profile?.core_orientation_seen || sessionStorage.getItem(SESSION_KEY) === "true";
+    setOrientationSeenState(hasSeenOrientation);
+    setHasActiveReorientation(!!templates && templates.length > 0);
+    setOnboardingStateLoading(false);
+  };
 
   const setOrientationSeen = (v: boolean) => {
     if (v) {
@@ -37,7 +72,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } else {
       sessionStorage.removeItem(SESSION_KEY);
     }
-    forceUpdate((n) => n + 1);
+    setOrientationSeenState(v);
+
+    const userId = session?.user?.id;
+    if (userId) {
+      supabase.from("profiles").update({ core_orientation_seen: v }).eq("id", userId).then(() => undefined);
+    }
   };
 
   useEffect(() => {
@@ -59,15 +99,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+    refreshOnboardingState();
+  }, [loading, session?.user?.id]);
+
   const signOut = async () => {
     sessionStorage.removeItem(SESSION_KEY);
     localStorage.removeItem("last_route");
     localStorage.removeItem("last_route_ts");
+    setOrientationSeenState(false);
+    setHasActiveReorientation(false);
     await supabase.auth.signOut();
   };
 
   return (
-    <AuthContext.Provider value={{ session, user: session?.user ?? null, loading, orientationSeen, setOrientationSeen, signOut }}>
+    <AuthContext.Provider
+      value={{
+        session,
+        user: session?.user ?? null,
+        loading,
+        orientationSeen,
+        hasActiveReorientation,
+        onboardingStateLoading,
+        setOrientationSeen,
+        refreshOnboardingState,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

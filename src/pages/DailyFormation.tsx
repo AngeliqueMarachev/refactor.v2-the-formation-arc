@@ -10,20 +10,10 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import AnchorIntro from "@/components/AnchorIntro";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
 
-type Screen = "anchor-intro" | "reorientation" | "daily-loop" | "create-anchor" | "completion";
-
-interface ReorientLines {
-  line_1: string | null;
-  line_2: string | null;
-  line_3: string | null;
-  line_4: string | null;
-  line_5: string | null;
-  line_6: string | null;
-}
+type Screen = "reorientation" | "daily-loop" | "create-anchor" | "completion";
 
 interface AnchorEntry {
   id: string;
@@ -36,16 +26,14 @@ const DailyFormation = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
-  const skipIntro = searchParams.get("skip_intro") === "true";
   const screenParam = searchParams.get("screen");
 
   const [screen, setScreen] = useState<Screen>(
-    screenParam === "create-anchor" ? "create-anchor" : skipIntro ? "reorientation" : "anchor-intro",
+    screenParam === "create-anchor" ? "create-anchor" : "reorientation",
   );
 
   const [loading, setLoading] = useState(true);
 
-  const [lines, setLines] = useState<ReorientLines | null>(null);
   const [anchors, setAnchors] = useState<AnchorEntry[]>([]);
   const [currentAnchorIndex, setCurrentAnchorIndex] = useState(0);
 
@@ -79,17 +67,6 @@ const DailyFormation = () => {
     if (!user) return;
 
     const fetchData = async () => {
-      const { data: templates } = await supabase
-        .from("reorient_templates")
-        .select("line_1, line_2, line_3, line_4, line_5, line_6")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(1);
-
-      if (templates && templates.length > 0) {
-        setLines(templates[0]);
-      }
-
       const { data: anchorData } = await supabase
         .from("anchor_entries")
         .select("id, scene_text, anchor_phrase, session_count")
@@ -149,30 +126,14 @@ const DailyFormation = () => {
     return <div className="flex min-h-screen items-center justify-center">Loading…</div>;
   }
 
-  // ANCHOR INTRO
-  if (screen === "anchor-intro") {
-    return (
-      <AnchorIntro
-        onComplete={() => {
-          if (wakeLockToggle) wakeLock.enable();
-          setScreen("reorientation");
-        }}
-      />
-    );
-  }
-
   // REORIENTATION ENTRY
   if (screen === "reorientation") {
-    const hasLines = lines && Object.values(lines).some((v) => v);
-
     return (
       <div className="flex min-h-screen flex-col pb-20">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Daily formation begins with stability</h1>
 
-          {hasLines ? (
-            // EXISTING USERS
-            <div className="space-y-4 leading-relaxed mb-10">
+          <div className="space-y-4 leading-relaxed mb-10">
               <WakeLockToggle
                 enabled={wakeLockToggle}
                 onToggle={handleWakeLockToggle}
@@ -221,62 +182,7 @@ const DailyFormation = () => {
                   I've given this to God
                 </Button>
               </div>
-            </div>
-          ) : (
-            // NEW USERS
-            <div className="leading-relaxed mb-10">
-              <p className="text-primary text-base pt-[10px]">
-                Stabilise before you build. Settle your system before training.
-              </p>
-              <p className="text-text-body text-base mt-4">Daily Formation follows a simple rhythm:</p>
-
-              <div className="mt-6 space-y-6">
-                <div>
-                  <h2 className="text-body font-medium uppercase tracking-widest text-primary font-sans mb-2 text-sm">
-                    PRAY
-                  </h2>
-                  <p className="mt-1">
-                    We give thanks to God for His kindness and release the outcomes of this process into His hands.
-                  </p>
-                </div>
-                <div>
-                  <h2 className="text-body font-medium uppercase tracking-widest text-primary font-sans mb-2 text-sm">
-                    REORIENT
-                  </h2>
-                  <p className="mt-1">We communicate safety to the nervous system by reorienting to Truth.</p>
-                </div>
-                <div>
-                  <h2 className="text-body font-medium uppercase tracking-widest text-primary font-sans mb-2 text-sm">
-                    ANCHOR MEMORY
-                  </h2>
-                  <p className="mt-1">
-                    We strengthen a memory that expands expectations of safety and draws us into communion.
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-6">Nothing needs to be forced.</p>
-              <p>Simply remain open and begin.</p>
-
-              <div className="h-4" />
-
-              <p>We’ll create your Reorientation first.</p>
-              <p>Then you’ll return here to continue Daily Formation.</p>
-
-              <div className="pt-6">
-                <Button
-                  className="w-full"
-                  size="lg"
-                  onClick={() => {
-                    sessionStorage.setItem("flow_source", "daily_formation");
-                    navigate("/activated");
-                  }}
-                >
-                  Create my Reorientation
-                </Button>
-              </div>
-            </div>
-          )}
+          </div>
         </main>
 
         <BottomNav />
@@ -721,7 +627,6 @@ const DailyFormation = () => {
             className="mt-10 w-full"
             size="lg"
             onClick={() => {
-              sessionStorage.removeItem("flow_source");
               wakeLock.disable();
               navigate("/");
             }}

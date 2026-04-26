@@ -103,15 +103,16 @@ type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
 const Activated = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, refreshOnboardingState } = useAuth();
 
   const { data: existingScript, isLoading: scriptLoading } = useQuery({
     queryKey: ["reorient_script", user?.id],
     queryFn: async () => {
-      const { data } = await supabase
-        .from("reorient_templates")
+      const reorientTemplates = supabase.from("reorient_templates") as any;
+      const { data } = await reorientTemplates
         .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
         .eq("user_id", user!.id)
+        .eq("is_active", true)
         .order("created_at", { ascending: false })
         .limit(1);
       return data && data.length > 0 ? data[0] : null;
@@ -231,23 +232,20 @@ const Activated = () => {
 
     // Upsert: delete old template then insert new one
     await supabase.from("reorient_templates").delete().eq("user_id", user.id);
-    await supabase.from("reorient_templates").insert({
+    const reorientTemplates = supabase.from("reorient_templates") as any;
+    await reorientTemplates.insert({
       user_id: user.id,
       ...lines,
+      is_active: true,
       updated_at: new Date().toISOString(),
     });
 
     await supabase.rpc("increment_stat", { stat_name: "reorient_return_count", user_id_input: user.id });
+    await refreshOnboardingState();
 
     setSaving(false);
     wakeLock.disable();
-
-    const flowSource = sessionStorage.getItem("flow_source");
-    if (flowSource === "daily_formation") {
-      navigate("/daily-formation/reorientation-complete");
-    } else {
-      navigate("/");
-    }
+    navigate("/");
   };
 
   // LOADING

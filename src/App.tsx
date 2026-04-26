@@ -14,7 +14,6 @@ import DailyFormation from "./pages/DailyFormation";
 import Anchors from "./pages/Anchors";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
-import ReorientationComplete from "./pages/ReorientationComplete";
 import ReorientationRehearsal from "./pages/ReorientationRehearsal";
 
 const queryClient = new QueryClient();
@@ -27,8 +26,25 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function OrientationGate({ children }: { children: React.ReactNode }) {
-  const { orientationSeen } = useAuth();
-  if (!orientationSeen) return <Navigate to="/onboarding" replace />;
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
+  if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
+  return <>{children}</>;
+}
+
+function ReorientationGate({ children }: { children: React.ReactNode }) {
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
+  if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
+  return <>{children}</>;
+}
+
+function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
   return <>{children}</>;
 }
 
@@ -64,11 +80,10 @@ const App = () => (
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
             <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
-            <Route path="/activated" element={<ProtectedRoute><Activated /></ProtectedRoute>} />
-            <Route path="/daily-formation" element={<ProtectedRoute><DailyFormation /></ProtectedRoute>} />
-            <Route path="/anchors" element={<ProtectedRoute><Anchors /></ProtectedRoute>} />
-            <Route path="/daily-formation/reorientation-complete" element={<ProtectedRoute><ReorientationComplete /></ProtectedRoute>} />
-            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationRehearsal /></ProtectedRoute>} />
+            <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
+            <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
