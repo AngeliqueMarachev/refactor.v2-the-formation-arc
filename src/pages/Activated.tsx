@@ -537,7 +537,7 @@ const Activated = () => {
     const userSelections = PHASES.map((_, i) => (useCustom[i] ? customTexts[i] : selections[i])?.trim() || "—");
 
     return (
-      <div className="flex min-h-screen flex-col pb-40">
+      <div className="flex min-h-screen flex-col pb-56">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-2">You have established reorientation</h1>
           <div className="space-y-4 leading-relaxed mb-8">
@@ -560,7 +560,7 @@ const Activated = () => {
           </div>
         </main>
 
-        <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border px-5 py-4 space-y-3 z-10">
+        <div className="fixed bottom-16 left-0 right-0 bg-background px-5 py-4 space-y-3 z-10">
           <div className="content-container">
             <Button className="w-full" size="lg" onClick={handleSave} disabled={saving}>
               {saving ? "Saving…" : "Save Reorientation"}
@@ -570,6 +570,7 @@ const Activated = () => {
             </Button>
           </div>
         </div>
+        <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
       </div>
     );
   }
