@@ -10,11 +10,10 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import AnchorIntro from "@/components/AnchorIntro";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
 
-type Screen = "anchor-intro" | "reorientation" | "daily-loop" | "create-anchor" | "completion";
+type Screen = "reorientation" | "daily-loop" | "create-anchor" | "completion";
 
 interface ReorientLines {
   line_1: string | null;
@@ -36,11 +35,10 @@ const DailyFormation = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
-  const skipIntro = searchParams.get("skip_intro") === "true";
   const screenParam = searchParams.get("screen");
 
   const [screen, setScreen] = useState<Screen>(
-    screenParam === "create-anchor" ? "create-anchor" : skipIntro ? "reorientation" : "anchor-intro",
+    screenParam === "create-anchor" ? "create-anchor" : "reorientation",
   );
 
   const [loading, setLoading] = useState(true);
@@ -79,10 +77,11 @@ const DailyFormation = () => {
     if (!user) return;
 
     const fetchData = async () => {
-      const { data: templates } = await supabase
-        .from("reorient_templates")
+      const reorientTemplates = supabase.from("reorient_templates") as any;
+      const { data: templates } = await reorientTemplates
         .select("line_1, line_2, line_3, line_4, line_5, line_6")
         .eq("user_id", user.id)
+        .eq("is_active", true)
         .order("created_at", { ascending: false })
         .limit(1);
 
