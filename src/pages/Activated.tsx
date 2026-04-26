@@ -471,10 +471,10 @@ const Activated = () => {
             <p className="text-text-body">
               Each time you move through this sequence you:
               <ul className="list-disc list-inside space-y-1 pl-2">
-                <li> interrupt reinforcement</li>
-                <li> update prediction</li>
+                <li> interrupt negative cycles</li>
+                <li> update expectations</li>
                 <li>strengthen internal authority</li>
-                <li>stabilize your identity over time</li>
+                <li>stabilize identity over time</li>
               </ul>
             </p>
             <p className="text-text-body">You do not need to rush.</p>
