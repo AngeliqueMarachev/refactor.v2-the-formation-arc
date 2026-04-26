@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { ensureUsageStats } from "@/lib/usage-stats";
 
 interface AuthContextType {
   session: Session | null;
@@ -101,6 +102,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (loading) return;
+    if (session?.user?.id) {
+      ensureUsageStats(session.user.id);
+    }
     refreshOnboardingState();
   }, [loading, session?.user?.id]);
 
