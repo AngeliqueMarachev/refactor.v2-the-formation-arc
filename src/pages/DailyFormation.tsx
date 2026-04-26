@@ -13,7 +13,7 @@ import AnchorRecall from "@/components/AnchorRecall";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
 
-type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "create-anchor" | "completion";
+type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "reframing-story" | "create-anchor" | "completion";
 
 interface AnchorEntry {
   id: string;
@@ -28,7 +28,9 @@ const DailyFormation = () => {
   const { user } = useAuth();
   const screenParam = searchParams.get("screen");
 
-  const [screen, setScreen] = useState<Screen>(screenParam === "create-anchor" ? "create-anchor" : "daily-rhythm");
+  const [screen, setScreen] = useState<Screen>(
+    screenParam === "create-anchor" ? "create-anchor" : screenParam === "reframing-story" ? "reframing-story" : "daily-rhythm",
+  );
 
   const [loading, setLoading] = useState(true);
 
@@ -59,7 +61,7 @@ const DailyFormation = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [createStep]);
+  }, [createStep, screen]);
 
   useEffect(() => {
     if (!user) return;
