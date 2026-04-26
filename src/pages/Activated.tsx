@@ -460,14 +460,6 @@ const Activated = () => {
               When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking, and
               retrain the brain to respond to life in ways that better serve us.
             </p>
-
-            <p>
-              Every time we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
-              become receptive.
-            </p>
-
-            <p>A receptive system forms steadier expectations more easily.</p>
-
             <p className="text-text-body">
               Each time you move through this sequence you:
               <ul className="mt-2 list-disc list-inside space-y-1 pl-2">
@@ -477,6 +469,14 @@ const Activated = () => {
                 <li>stabilize identity over time</li>
               </ul>
             </p>
+
+            <p>
+              Every time we rehearse reorientation, we signal stability to the nervous system, allowing the mind to
+              become receptive.
+            </p>
+
+            <p>A receptive system forms steadier expectations more easily.</p>
+
             <p className="text-text-body">
               Reorientation can be used independently when you need to quickly interrupt a spiral.
             </p>
