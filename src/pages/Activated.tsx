@@ -455,7 +455,14 @@ const Activated = () => {
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Reorienting on Truth</h1>
           <div className="space-y-4 leading-relaxed">
-            <p className="text-text-body">Fear can accelerate perception.</p>
+            <p className="text-text-body">
+              {" "}
+              Before the brain can update expectations, it must first register safety. Rehearsing your Reorientation
+              signals stability to the nervous system, allowing the mind to become receptive. A receptive system forms
+              steadier expectations more easily.
+            </p>
+
+            <p>Fear can accelerate perception.</p>
 
             <p>As your mind begins predicting danger, your body prepares for survival.</p>
 
