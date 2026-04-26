@@ -146,7 +146,7 @@ const DailyFormation = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-4 mx-0 mt-[20px]">Daily Formation</h1>
           <p className="text-secondary-foreground leading-relaxed mb-10">
-            Daily formation follows a simple rhythm
+            Daily formation follows a simple rhythm:
           </p>
 
           <div className="relative">
