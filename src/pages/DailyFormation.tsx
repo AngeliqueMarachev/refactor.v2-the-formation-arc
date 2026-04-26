@@ -13,7 +13,7 @@ import AnchorRecall from "@/components/AnchorRecall";
 import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
 
-type Screen = "reorientation" | "daily-loop" | "create-anchor" | "completion";
+type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "create-anchor" | "completion";
 
 interface AnchorEntry {
   id: string;
@@ -28,7 +28,7 @@ const DailyFormation = () => {
   const { user } = useAuth();
   const screenParam = searchParams.get("screen");
 
-  const [screen, setScreen] = useState<Screen>(screenParam === "create-anchor" ? "create-anchor" : "reorientation");
+  const [screen, setScreen] = useState<Screen>(screenParam === "create-anchor" ? "create-anchor" : "daily-rhythm");
 
   const [loading, setLoading] = useState(true);
 
@@ -122,6 +122,57 @@ const DailyFormation = () => {
 
   if (loading) {
     return <div className="flex min-h-screen items-center justify-center">Loading…</div>;
+  }
+
+  // DAILY RHYTHM INTRO
+  if (screen === "daily-rhythm") {
+    const rhythmSteps = [
+      {
+        title: "PRAY",
+        body: "We give thanks to God for His kindness and release the outcomes of this process into His hands.",
+      },
+      {
+        title: "REORIENT",
+        body: "We communicate safety to the nervous system by reorienting to Truth.",
+      },
+      {
+        title: "ANCHOR MEMORY",
+        body: "We strengthen a memory that expands expectations of safety and draws us into communion.",
+      },
+    ];
+
+    return (
+      <div className="flex min-h-screen flex-col pb-20">
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
+          <h1 className="tracking-tight mb-10 mx-0 mt-[20px]">Daily Formation follows a simple rhythm</h1>
+
+          <div className="relative">
+            {rhythmSteps.map((step, index) => (
+              <div key={step.title} className="relative flex gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                  {index < rhythmSteps.length - 1 && <div className="w-px flex-1 bg-border/40 my-1" />}
+                </div>
+                <div className={index < rhythmSteps.length - 1 ? "pb-10 flex-1" : "flex-1"}>
+                  <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    {step.title}
+                  </h2>
+                  <p className="text-text-body leading-relaxed mt-2">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+
+        <div className="px-5 pb-4 pt-2 content-container">
+          <Button className="w-full" size="lg" onClick={() => setScreen("reorientation")}>
+            Begin Daily Formation
+          </Button>
+        </div>
+
+        <BottomNav />
+      </div>
+    );
   }
 
   // REORIENTATION ENTRY
