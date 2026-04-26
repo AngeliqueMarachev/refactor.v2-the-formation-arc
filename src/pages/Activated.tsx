@@ -520,7 +520,7 @@ const Activated = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-2">You have established reorientation</h1>
           <div className="space-y-4 leading-relaxed mb-8">
-            <p className="text-primary">These words create a reliable pathway back to steadiness.</p>
+            <p className="text-primary">Rehearse these words to establish a reliable pathway back to steadiness.</p>
           </div>
 
           <div className="space-y-3 mb-8">
