@@ -532,7 +532,7 @@ const Activated = () => {
             ))}
           </div>
 
-          <div className="space-y-4 leading-relaxed mb-10 text-center">
+          <div className="space-y-4 leading-relaxed mb-10">
             <p className="text-text-body">
               Over time, returning becomes more natural.
               <br />
