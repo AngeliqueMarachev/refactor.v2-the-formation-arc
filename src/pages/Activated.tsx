@@ -560,8 +560,8 @@ const Activated = () => {
           </div>
         </main>
 
-        <div className="fixed bottom-16 left-0 right-0 bg-background px-5 py-4 space-y-3 z-10">
-          <div className="content-container">
+        <div className="bottom-cta-flow px-5 pt-2 space-y-3 content-container">
+          <div>
             <Button className="w-full" size="lg" onClick={handleSave} disabled={saving}>
               {saving ? "Saving…" : "Save Reorientation"}
             </Button>
