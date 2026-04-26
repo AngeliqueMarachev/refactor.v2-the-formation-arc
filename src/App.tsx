@@ -14,7 +14,6 @@ import DailyFormation from "./pages/DailyFormation";
 import Anchors from "./pages/Anchors";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
-import ReorientationComplete from "./pages/ReorientationComplete";
 import ReorientationRehearsal from "./pages/ReorientationRehearsal";
 
 const queryClient = new QueryClient();
