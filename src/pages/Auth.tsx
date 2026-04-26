@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
+import { getAuthRedirectUrl } from "@/lib/auth-redirects";
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -92,9 +93,8 @@ const Auth = () => {
     setLoading(true);
 
     if (isForgotPassword) {
-      const liveDomain = "https://theformationarc.lovable.app";
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${liveDomain}/reset-password`,
+        redirectTo: getAuthRedirectUrl("/reset-password"),
       });
       if (error) {
         setAuthMessage("We couldn't send the reset link. Please check your email and try again.");
@@ -109,7 +109,7 @@ const Auth = () => {
       const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: "https://theformationarc.lovable.app/auth/callback" },
+        options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
       });
       if (error) {
         setAuthMessage("We couldn't create your account. Please check your email or password.");
