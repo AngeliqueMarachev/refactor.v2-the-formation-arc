@@ -90,8 +90,8 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
             Your reorientation isn’t saved yet. Leaving now will discard your progress. Do you want to continue?
           </AlertDialogDescription>
           <AlertDialogFooter>
-            <AlertDialogCancel className="border-primary text-primary hover:bg-primary/10">Stay</AlertDialogCancel>
-            <AlertDialogAction onClick={handleContinue}>Continue</AlertDialogAction>
+            <AlertDialogCancel className="w-[8.875rem] border-primary text-primary hover:bg-primary/10">Stay</AlertDialogCancel>
+            <AlertDialogAction className="w-[8.875rem]" onClick={handleContinue}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
