@@ -15,15 +15,6 @@ import WakeLockToggle from "@/components/WakeLockToggle";
 
 type Screen = "reorientation" | "daily-loop" | "create-anchor" | "completion";
 
-interface ReorientLines {
-  line_1: string | null;
-  line_2: string | null;
-  line_3: string | null;
-  line_4: string | null;
-  line_5: string | null;
-  line_6: string | null;
-}
-
 interface AnchorEntry {
   id: string;
   scene_text: string;
@@ -43,7 +34,6 @@ const DailyFormation = () => {
 
   const [loading, setLoading] = useState(true);
 
-  const [lines, setLines] = useState<ReorientLines | null>(null);
   const [anchors, setAnchors] = useState<AnchorEntry[]>([]);
   const [currentAnchorIndex, setCurrentAnchorIndex] = useState(0);
 
@@ -77,18 +67,6 @@ const DailyFormation = () => {
     if (!user) return;
 
     const fetchData = async () => {
-      const reorientTemplates = supabase.from("reorient_templates") as any;
-      const { data: templates } = await reorientTemplates
-        .select("line_1, line_2, line_3, line_4, line_5, line_6")
-        .eq("user_id", user.id)
-        .eq("is_active", true)
-        .order("created_at", { ascending: false })
-        .limit(1);
-
-      if (templates && templates.length > 0) {
-        setLines(templates[0]);
-      }
-
       const { data: anchorData } = await supabase
         .from("anchor_entries")
         .select("id, scene_text, anchor_phrase, session_count")
@@ -649,7 +627,6 @@ const DailyFormation = () => {
             className="mt-10 w-full"
             size="lg"
             onClick={() => {
-              sessionStorage.removeItem("flow_source");
               wakeLock.disable();
               navigate("/");
             }}
