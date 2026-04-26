@@ -470,7 +470,7 @@ const Activated = () => {
               </ul>
             </p>
 
-            <p className="text-primary font-normal">
+            <p className="text-secondary-foreground font-normal">
               When we rehearse reorientation, we signal stability to the nervous system, allowing the mind to become
               receptive.
             </p>
