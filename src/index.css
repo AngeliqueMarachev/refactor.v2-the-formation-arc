@@ -165,6 +165,14 @@
     width: 100%;
   }
 
+  .screen-with-bottom-nav {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .bottom-cta-flow {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
   /* Desktop: increase vertical breathing room */
   @media (min-width: 768px) {
     .content-container {
