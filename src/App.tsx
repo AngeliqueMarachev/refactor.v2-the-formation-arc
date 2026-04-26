@@ -42,6 +42,13 @@ function ReorientationGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
+  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
+  return <>{children}</>;
+}
+
 function AuthRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return null;
@@ -74,10 +81,9 @@ const App = () => (
             <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
             <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
             <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
-            <Route path="/activated" element={<ProtectedRoute><Activated /></ProtectedRoute>} />
+            <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
             <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
             <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/daily-formation/reorientation-complete" element={<ProtectedRoute><ReorientationGate><ReorientationComplete /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
