@@ -105,7 +105,7 @@ const ReorientationRehearsal = () => {
 
         <div className="pt-4 space-y-6">
           <div className="space-y-3">
-            <Button className="w-full" size="lg" onClick={() => navigate("/daily-formation?screen=create-anchor")}>
+            <Button className="w-full" size="lg" onClick={() => navigate("/daily-formation?screen=reframing-story")}>
               Find a Memory
             </Button>
             <Button className="w-full" size="lg" variant="secondary" onClick={() => navigate("/anchors")}>
