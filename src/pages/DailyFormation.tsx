@@ -47,6 +47,9 @@ const DailyFormation = () => {
   const [saving, setSaving] = useState(false);
   const wakeLock = useWakeLock();
   const [wakeLockToggle, setWakeLockToggle] = useState(true);
+  const rhythmContainerRef = useRef<HTMLDivElement>(null);
+  const finalStepTextRef = useRef<HTMLParagraphElement>(null);
+  const [connectorHeight, setConnectorHeight] = useState(0);
 
   const handleWakeLockToggle = (value: boolean) => {
     setWakeLockToggle(value);
@@ -78,6 +81,23 @@ const DailyFormation = () => {
 
     fetchData();
   }, [user]);
+
+  useLayoutEffect(() => {
+    if (screen !== "daily-rhythm") return;
+
+    const updateConnectorHeight = () => {
+      if (!rhythmContainerRef.current || !finalStepTextRef.current) return;
+
+      const containerTop = rhythmContainerRef.current.getBoundingClientRect().top;
+      const finalTextBottom = finalStepTextRef.current.getBoundingClientRect().bottom;
+      setConnectorHeight(Math.max(0, finalTextBottom - containerTop - 16));
+    };
+
+    updateConnectorHeight();
+    window.addEventListener("resize", updateConnectorHeight);
+
+    return () => window.removeEventListener("resize", updateConnectorHeight);
+  }, [screen]);
 
   const handleDailyLoopDone = async () => {
     if (!user || anchors.length === 0) return;
@@ -126,25 +146,6 @@ const DailyFormation = () => {
 
   // DAILY RHYTHM INTRO
   if (screen === "daily-rhythm") {
-    const rhythmContainerRef = useRef<HTMLDivElement>(null);
-    const finalStepTextRef = useRef<HTMLParagraphElement>(null);
-    const [connectorHeight, setConnectorHeight] = useState(0);
-
-    useLayoutEffect(() => {
-      const updateConnectorHeight = () => {
-        if (!rhythmContainerRef.current || !finalStepTextRef.current) return;
-
-        const containerTop = rhythmContainerRef.current.getBoundingClientRect().top;
-        const finalTextBottom = finalStepTextRef.current.getBoundingClientRect().bottom;
-        setConnectorHeight(Math.max(0, finalTextBottom - containerTop - 16));
-      };
-
-      updateConnectorHeight();
-      window.addEventListener("resize", updateConnectorHeight);
-
-      return () => window.removeEventListener("resize", updateConnectorHeight);
-    }, []);
-
     const rhythmSteps = [
       {
         title: "PRAY",
