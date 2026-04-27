@@ -153,7 +153,6 @@ const Auth = () => {
             <p className="text-primary not-italic font-normal">Overcome Fear. Restore identity.</p>
             <p></p>
             <p className="text-base not-italic">A practice for retraining distress and strengthening stability.</p>
-            <hr></hr>
           </div>
           <h1 className="font-semibold text-foreground font-sans text-lg rounded-none tracking-wide leading-7">
             {isSignUp ? "CREATE AN ACCOUNT" : "SIGN IN"}
