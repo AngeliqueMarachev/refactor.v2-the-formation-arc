@@ -137,6 +137,9 @@ const Auth = () => {
             <p></p>
             <p className="text-base not-italic">A practice for retraining distress and strengthening stability.</p>
           </div>
+          <h1 className="text-xl font-semibold text-foreground">
+            {isSignUp ? "Create an account" : "Sign in"}
+          </h1>
         </div>
 
         {/* Google Login Button */}
@@ -152,7 +155,7 @@ const Auth = () => {
             }}
           >
             <GoogleIcon />
-            <span>{googleLoading ? "..." : "Continue with Google"}</span>
+            <span>{googleLoading ? "..." : isSignUp ? "Sign up with Google" : "Sign in with Google"}</span>
           </button>
         </div>
 
