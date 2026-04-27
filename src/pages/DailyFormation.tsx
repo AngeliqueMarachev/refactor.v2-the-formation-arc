@@ -159,8 +159,9 @@ const DailyFormation = () => {
 
             <p>
               Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
-              when we experience disorder. They create low frequency emotional signatures, which deplete our resources,
-              often leading to a weakened immune system and eventually, chronic symptoms.
+              when we experience disorder. </p>
+              <p>They create low frequency emotional signatures, which deplete our resources,
+              often leading to a weakened immune system and eventually, chronic symptoms.</p>
             </p>
             <p>
               Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
