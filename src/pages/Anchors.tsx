@@ -27,14 +27,14 @@ interface AnchorEntry {
   created_at: string;
 }
 
-type View = "list" | "detail" | "recall-prompt";
+type View = "intro" | "list" | "detail" | "recall-prompt";
 
 const Anchors = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [anchors, setAnchors] = useState<AnchorEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState<View>("list");
+  const [view, setView] = useState<View>("intro");
   const [selected, setSelected] = useState<AnchorEntry | null>(null);
   const [sceneExpanded, setSceneExpanded] = useState(false);
   const wakeLock = useWakeLock();
