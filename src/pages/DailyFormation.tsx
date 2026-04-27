@@ -594,7 +594,7 @@ const DailyFormation = () => {
                 </p>
                 
                 </div>
-                <p className="font-normal text-primary">Your Anchor Phrase updates that template.</p>
+                <p className="font-normal text-primary">Your Anchor Phrase updates an old template that no longer serves you.</p>
                 <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
                 <p className="text-text-body">Examples of Anchor Phrases: </p>
 
