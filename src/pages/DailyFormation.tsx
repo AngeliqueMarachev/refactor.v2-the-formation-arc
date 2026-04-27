@@ -138,7 +138,7 @@ const DailyFormation = () => {
       },
       {
         title: "REORIENT",
-        body: "We communicate safety to the nervous system by reorienting to Truth.",
+        body: "Repetition strengthens new associations",
       },
       {
         title: "ANCHOR MEMORY",
@@ -232,16 +232,10 @@ const DailyFormation = () => {
             </p>
 
           <p>
-              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
+              Much of what shapes fear or peace happens below conscious awareness, in systems your body designed to protect you.
             </p>
 
-            <p>The nervous system responds strongly to perceived:</p>
-
-            <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>safety</li>
-              <li>connection</li>
-              <li>support</li>
-            </ul>
+            <p>The nervous system responds strongly to signals of safety, connection and support.</p>
 
             <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
@@ -330,8 +324,7 @@ const DailyFormation = () => {
             </p>
 
             <p>
-              Remembrance is a divine principle Jesus taught us.</p>
-              <p>Recalling a positive memory in your life is a powerful
+              Remembrance is a divine principle Jesus taught us. Recalling a positive memory in your life is a powerful
               way to recall God’s faithfulness into remembrance, and enter into communion with Him.
             </p>
 
