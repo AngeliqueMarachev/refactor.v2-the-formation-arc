@@ -205,7 +205,7 @@ const Anchors = () => {
 
               <div>
                 <p className="text-text-body leading-relaxed">
-                  This phrase helps your nervous system remember what this moment meant.
+                  Anchor phrases help your nervous system remember the true meaning of moments in your life.
                 </p>
                 <div className="h-4" aria-hidden="true" />
                 <p className="text-text-body leading-relaxed">
