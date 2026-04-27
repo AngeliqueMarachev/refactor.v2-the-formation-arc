@@ -370,7 +370,7 @@ const DailyFormation = () => {
 
   // CREATE ANCHOR
   if (screen === "create-anchor") {
-    const totalSteps = 4;
+    const totalSteps = 3;
 
     if (createStep === 0) {
       return (
@@ -578,7 +578,7 @@ const DailyFormation = () => {
             </div>
           )}
 
-          {/* Step 2: Anchor Phrase */}
+          {/* Step 3: Anchor Phrase */}
           {createStep === 2 && (
             <div className="space-y-4">
               <h2 className="font-semibold tracking-tight text-3xl">Create an Anchor Phrase</h2>
@@ -617,7 +617,7 @@ const DailyFormation = () => {
             </div>
           )}
 
-          {/* Step 3: Use your Anchor Phrase */}
+          {/* Future Step: Use your Anchor Phrase */}
           {createStep === 3 && (
             <div>
               <h2 className="font-semibold tracking-tight text-3xl mb-6">Use your Anchor Phrase</h2>
@@ -727,7 +727,7 @@ const DailyFormation = () => {
             Back
           </Button>
           <Button className="w-full" size="lg" disabled={!canProceed() || saving} onClick={handleNext}>
-            {saving ? "Saving…" : createStep === totalSteps - 1 ? "Save Anchor" : "Continue"}
+            {saving ? "Saving…" : "Continue"}
           </Button>
         </div>
 
