@@ -50,8 +50,20 @@ const Auth = () => {
   const handleExistingAccount = () => {
     setIsSignUp(false);
     setIsForgotPassword(false);
-    setAuthMessage("An account already exists with this email. Please sign in or reset your password.");
+    setAuthMessage("An account already exists with this email. You can sign in or reset your password.");
     window.requestAnimationFrame(() => passwordInputRef.current?.focus());
+  };
+
+  const isDuplicateAccountError = (error: any, data?: any) => {
+    const message = error?.message?.toLowerCase() ?? "";
+    return (
+      error?.code === "user_already_exists" ||
+      error?.status === 422 ||
+      message.includes("already registered") ||
+      message.includes("already exists") ||
+      message.includes("already been registered") ||
+      data?.user?.identities?.length === 0
+    );
   };
 
   useEffect(() => {
@@ -131,11 +143,7 @@ const Auth = () => {
         password,
         options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
       });
-      const isExistingAccountError =
-        error?.code === "user_already_exists" ||
-        error?.message?.toLowerCase().includes("already registered") ||
-        error?.message?.toLowerCase().includes("already exists") ||
-        data.user?.identities?.length === 0;
+      const isExistingAccountError = isDuplicateAccountError(error, data);
 
       if (isExistingAccountError) {
         handleExistingAccount();
