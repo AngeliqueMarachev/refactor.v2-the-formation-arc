@@ -600,9 +600,9 @@ const DailyFormation = () => {
 
               <div className="pt-2">
                 <div className="space-y-1 text-text-body">
-                  <p>I believed I was forgotten, but I was not as alone.</p>
-                  <p>I felt afraid, yet I endured.</p>
-                  <p className="pb-[25px]">I felt abandoned, but I was being championed.</p>
+                  <p className="text-lg">I thought I was forgotten, but I was not as alone.</p>
+                  <p className="text-lg">Even though I was afraid, I endured.</p>
+                  <p className="pb-[25px] text-lg">I felt abandoned, but I was being championed.</p>
                 </div>
                 <Textarea
                   placeholder="Write your anchor phrase…"
