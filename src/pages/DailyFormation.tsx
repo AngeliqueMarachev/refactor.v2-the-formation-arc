@@ -592,18 +592,17 @@ const DailyFormation = () => {
                 <p className="text-text-body text-primary">
                   Your brain remembers stories. But it stabilizes around summaries.{" "}
                 </p>
-              </div>
-              <p className="font-normal text-primary">
-                Your Anchor Phrase updates an old template that no longer serves you.
-              </p>
-              <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
-              <p className="text-text-body">Examples of Anchor Phrases: </p>
+                
+                </div>
+                <p className="font-normal text-primary">Your Anchor Phrase updates an old template that no longer serves you.</p>
+                <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
+                <p className="text-text-body">Examples of Anchor Phrases: </p>
 
               <div className="pt-2">
                 <div className="space-y-1 text-text-body">
                   <p className="text-lg">I thought I was forgotten, but I was not as alone.</p>
                   <p className="text-lg">Even though I was afraid, I endured.</p>
-                  <p className="text-lg">I felt abandoned, but I was being championed.</p>
+                  <p className="pb-[25px] text-lg">I felt abandoned, but I was being championed.</p>
                 </div>
                 <Textarea
                   placeholder="Write your anchor phrase…"
