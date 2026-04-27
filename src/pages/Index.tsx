@@ -110,7 +110,7 @@ const Index = () => {
             <div className="px-5 pb-4 pt-3">
               <div className="flex justify-center gap-6">
                 {[
-                  { value: String(anchorsCreated), label: "​Anchors" },
+                  { value: String(anchorsCreated), label: "Anchors" },
                   { value: String(reorientations), label: "Reorientations" },
                   { value: String(recalls), label: "Recalls" },
                 ].map((metric) => (
