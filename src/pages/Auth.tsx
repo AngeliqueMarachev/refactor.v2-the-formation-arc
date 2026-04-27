@@ -233,14 +233,14 @@ const Auth = () => {
                 setAuthMessage("");
                 setIsForgotPassword(true);
               }}
-              className="w-full text-center text-xs text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3"
+              className="w-full text-center text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3 text-sm"
             >
               Forgot password?
             </button>
           )}
 
           {isForgotPassword ? (
-            <p className="text-center text-sm text-text-supporting mt-2">
+            <p className="text-center text-text-supporting mt-2 text-base">
               <button
                 type="button"
                 onClick={() => {
@@ -253,7 +253,7 @@ const Auth = () => {
               </button>
             </p>
           ) : (
-            <p className="text-center text-sm text-text-supporting mt-2">
+            <p className="text-center text-text-supporting mt-2 text-base">
               {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
               <button
                 type="button"
