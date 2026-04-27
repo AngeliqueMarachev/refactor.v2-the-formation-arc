@@ -237,7 +237,9 @@ const DailyFormation = () => {
               Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
 
-            <p className="text-primary">The nervous system responds strongly to signals of safety, connection and support.</p>
+            <p className="text-primary">
+              The nervous system responds strongly to signals of safety, connection and support.
+            </p>
 
             <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
@@ -428,7 +430,7 @@ const DailyFormation = () => {
                 <br />
                 Sometimes a memory holds more than we first noticed.
                 <br />
-                Allow new understanding to emerge naturally
+                Allow new understanding to emerge naturally.
               </p>
 
               {/* Vertical pathway container */}
