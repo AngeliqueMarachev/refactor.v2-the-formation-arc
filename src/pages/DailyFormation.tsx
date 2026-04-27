@@ -612,6 +612,9 @@ const DailyFormation = () => {
                     onChange={(e) => setAnchorPhrase(e.target.value)}
                     className="min-h-[80px]"
                   />
+                  <p className="pt-3 text-text-body leading-relaxed">
+                    You’ll use this phrase in specific moments. You’ll learn how in Anchors.
+                  </p>
                 </div>
               </div>
             </div>
