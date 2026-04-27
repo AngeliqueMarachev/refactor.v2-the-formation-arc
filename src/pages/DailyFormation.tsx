@@ -727,7 +727,7 @@ const DailyFormation = () => {
             Back
           </Button>
           <Button className="w-full" size="lg" disabled={!canProceed() || saving} onClick={handleNext}>
-            {saving ? "Saving…" : "Continue"}
+            {saving ? "Saving…" : createStep === 2 ? "Save Anchor" : "Continue"}
           </Button>
         </div>
 
