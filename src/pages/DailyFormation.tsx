@@ -138,7 +138,7 @@ const DailyFormation = () => {
       },
       {
         title: "REORIENT",
-        body: "Repetition strengthens new associations",
+        body: "We communicate safety to the nervous system by reorienting to Truth.",
       },
       {
         title: "ANCHOR MEMORY",
@@ -173,13 +173,13 @@ const DailyFormation = () => {
               They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
             </p>
             <p className="text-primary">
-              The Daily Formation practice is designed to provide the nervous system with new, positive information to
-              produce life-giving DOSE chemistry, which counteracts the effects of CAN chemistry stored in the body.
+              Daily formation provides the nervous system with new, positive information, producing life-giving DOSE
+              chemistry to counteract the effects of CAN chemistry stored in the body.
             </p>
           </div>
 
           <p className="text-secondary-foreground leading-relaxed mb-10">
-            Daily formation follows a simple rhythm:
+            It follows a simple rhythm:
           </p>
 
           <div className="relative">
@@ -187,7 +187,7 @@ const DailyFormation = () => {
               <div key={step.title} className="relative flex gap-3">
                 <div className="flex flex-col items-center">
                   <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                  {index < rhythmSteps.length - 1 && <div className="w-px flex-1 bg-border/40 my-1" />}
+                  <div className="w-px flex-1 bg-border/40 my-1" />
                 </div>
                 <div className={index < rhythmSteps.length - 1 ? "pb-10 flex-1" : "flex-1"}>
                   <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
@@ -227,15 +227,21 @@ const DailyFormation = () => {
             />
 
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAYER</h2>
-              <p className="text-secondary-foreground">
+            <p className="text-text-body text-base">
               Your body responds to signals of safety before conscious thoughts fully form.
             </p>
 
-          <p>
-              Much of what shapes fear or peace happens below conscious awareness, in systems your body designed to protect you.
+            <p className="text-secondary-foreground">
+              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
 
-            <p>The nervous system responds strongly to signals of safety, connection and support.</p>
+            <p>The nervous system responds strongly to perceived:</p>
+
+            <ul className="list-disc list-inside space-y-1 pl-2">
+              <li>safety</li>
+              <li>connection</li>
+              <li>support</li>
+            </ul>
 
             <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
