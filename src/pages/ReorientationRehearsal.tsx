@@ -112,7 +112,7 @@ const ReorientationRehearsal = () => {
         </div>
 
         <div className="pt-4 space-y-6">
-          <div className="text-center">
+        
             <p className="text-text-body text-sm mt-4">
               Now you will expand a memory to strengthen your expectations of safety.
             </p>
