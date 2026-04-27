@@ -599,7 +599,7 @@ const DailyFormation = () => {
               <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
 
               <div className="pt-2">
-                <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 border-secondary text-text-body">
+                <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 text-text-body border-primary">
                   <p className="mb-2 text-lg font-medium text-text-heading text-primary">
                     Examples of Anchor Phrases:{" "}
                   </p>
