@@ -137,13 +137,13 @@ const Auth = () => {
             <p></p>
             <p className="text-base not-italic">A practice for retraining distress and strengthening stability.</p>
           </div>
-          <h1 className="text-xl font-semibold text-foreground font-sans">
+          <h1 className="font-semibold text-foreground font-sans text-lg rounded-none">
             {isSignUp ? "Create an account" : "​Sign in"}
           </h1>
         </div>
 
         {/* Google Login Button */}
-        <div className="pt-[8px]">
+        <div className="pt-0">
           <button
             type="button"
             onClick={handleGoogleLogin}
