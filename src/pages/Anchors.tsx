@@ -198,7 +198,7 @@ const Anchors = () => {
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <ScrollArea className="flex-1 px-5">
           <div className="pt-8 pb-8 content-container">
-            <h1 className="tracking-tight font-serif">Anchor Recall</h1>
+            <h1 className="tracking-tight font-serif">Anchor phrases build foundation</h1>
             <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
             <p className="text-supporting mt-1">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
             <div className="h-6" aria-hidden="true" />
@@ -324,7 +324,7 @@ const Anchors = () => {
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
-        <h1 className="tracking-tight font-serif">Anchor Recall</h1>
+        <h1 className="tracking-tight font-serif">Anchor phrases build foundation</h1>
       </header>
 
       {isEmpty ? (
