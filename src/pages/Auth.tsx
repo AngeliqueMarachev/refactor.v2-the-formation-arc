@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "@/assets/formation-arc-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
@@ -44,7 +44,15 @@ const Auth = () => {
   const [emailTouched, setEmailTouched] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [authMessage, setAuthMessage] = useState("");
+  const passwordInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  const handleExistingAccount = () => {
+    setIsSignUp(false);
+    setIsForgotPassword(false);
+    setAuthMessage("An account already exists with this email. Please sign in or reset your password.");
+    window.requestAnimationFrame(() => passwordInputRef.current?.focus());
+  };
 
   useEffect(() => {
     if (searchParams.get("confirmed") === "true") {
@@ -118,12 +126,20 @@ const Auth = () => {
     }
 
     if (isSignUp) {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
       });
-      if (error) {
+      const isExistingAccountError =
+        error?.code === "user_already_exists" ||
+        error?.message?.toLowerCase().includes("already registered") ||
+        error?.message?.toLowerCase().includes("already exists") ||
+        data.user?.identities?.length === 0;
+
+      if (isExistingAccountError) {
+        handleExistingAccount();
+      } else if (error) {
         setAuthMessage("We couldn't create your account. Please check your email or password.");
       } else {
         toast({ title: "Check your email", description: "We sent you a confirmation link." });
@@ -210,6 +226,7 @@ const Auth = () => {
                   id="password"
                   type={showPassword ? "text" : "password"}
                   value={password}
+                  ref={passwordInputRef}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={6}
