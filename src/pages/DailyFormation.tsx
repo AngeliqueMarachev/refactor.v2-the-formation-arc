@@ -592,14 +592,7 @@ const DailyFormation = () => {
                 <p className="text-text-body text-primary">
                   Your brain remembers stories. But it stabilizes around summaries.{" "}
                 </p>
-                <p className="text-text-body">​Many memories trained your nervous system to expect something.</p>
-                <p className="text-text-body"></p>
-                <div className="space-y-1 text-text-body">
-                  <ul className="list-disc list-inside space-y-1 pl-2">
-                    <li>I am alone.</li>
-                    <li>I am not supported.</li>
-                    <li>I am not enough.</li>
-                  </ul>
+                
                 </div>
                 <p className="font-normal text-primary">Your Anchor Phrase updates that template.</p>
                 <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
