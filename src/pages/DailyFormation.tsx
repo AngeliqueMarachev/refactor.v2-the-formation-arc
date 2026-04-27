@@ -590,7 +590,7 @@ const DailyFormation = () => {
                   ANCHOR RECALL
                 </h2>
                 <p className="text-text-body text-primary">
-                  Your brain remembers stories. But it stabilizes around summaries.{" "}
+                  Your brain remembers stories. But it stabilizes around summaries.
                 </p>
               </div>
               <p className="font-normal text-primary">

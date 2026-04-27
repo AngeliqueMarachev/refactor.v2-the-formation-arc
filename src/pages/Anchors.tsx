@@ -197,9 +197,9 @@ const Anchors = () => {
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
         <h1 className="tracking-tight font-serif">Anchor Recall</h1>
-        <p className="text-supporting mt-1 text-primary">Return to ​Anchors that help you expect steadiness.</p>
-        <p className="text-supporting mt-1">​Anchors deepen with repetition. Tap an anchor to revisit the memory. </p>
-        <p className="text-supporting mt-1 text-xs">​</p>
+        <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
+        <p className="text-supporting mt-1">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
+        <div className="h-4" aria-hidden="true" />
       </header>
 
       {isEmpty ? (
@@ -209,10 +209,10 @@ const Anchors = () => {
           </div>
           <h2 className="font-semibold">Create an Anchor</h2>
           <p className="max-w-xs text-supporting">
-            ​Anchors are memories and phrases that help your nervous system learn steadiness.
+            Anchors are memories and phrases that help your nervous system learn steadiness.
           </p>
-          <p className="max-w-xs text-supporting">​Anchors are created during Daily Formation.</p>
-          <p className="max-w-xs text-supporting">Your library will grow over time as you create new ​anchors.</p>
+          <p className="max-w-xs text-supporting">Anchors are created during Daily Formation.</p>
+          <p className="max-w-xs text-supporting">Your library will grow over time as you create new anchors.</p>
           <p className="max-w-xs text-supporting">
             Each time you return to an anchor, the pathway becomes easier to access and safety is reinforced.
           </p>
