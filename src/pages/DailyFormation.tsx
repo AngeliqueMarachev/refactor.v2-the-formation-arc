@@ -159,27 +159,24 @@ const DailyFormation = () => {
 
             <p>
               Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
-              when we experience disorder.
-            </p>
-            <p>
-              They create low frequency emotional signatures, which deplete our resources, often leading to a weakened
-              immune system and eventually, chronic symptoms.
+              when we experience disorder. </p>
+              <p>They create low frequency emotional signatures, which deplete our resources,
+              often leading to a weakened immune system and eventually, chronic symptoms.</p>
             </p>
             <p>
               Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
-              the body when we experience alignment.
-            </p>
-            <p>
-              They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
+              the body when we experience alignment. </p>
+          <p>They create high frequency emotional signatures, which support and
+              heal the body, and help us feel safe.
             </p>
             <p className="text-primary">
-              Daily formation provides the nervous system with new, positive information, producing life-giving DOSE
-              chemistry to counteract the effects of CAN chemistry stored in the body.
+              The Daily Formation practice is designed to provide the nervous system with new, positive information to
+              produce life-giving DOSE chemistry, which counteracts the effects of CAN chemistry stored in the body.
             </p>
           </div>
 
           <p className="text-secondary-foreground leading-relaxed mb-10">
-            It follows a simple rhythm:
+            Daily formation follows a simple rhythm:
           </p>
 
           <div className="relative">
@@ -187,7 +184,7 @@ const DailyFormation = () => {
               <div key={step.title} className="relative flex gap-3">
                 <div className="flex flex-col items-center">
                   <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                  <div className="w-px flex-1 bg-border/40 my-1" />
+                  {index < rhythmSteps.length - 1 && <div className="w-px flex-1 bg-border/40 my-1" />}
                 </div>
                 <div className={index < rhythmSteps.length - 1 ? "pb-10 flex-1" : "flex-1"}>
                   <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
@@ -227,11 +224,11 @@ const DailyFormation = () => {
             />
 
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAYER</h2>
-            <p className="text-text-body text-base">
+              <p className="text-secondary-foreground">
               Your body responds to signals of safety before conscious thoughts fully form.
             </p>
 
-            <p className="text-secondary-foreground">
+          <p>
               Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
 
