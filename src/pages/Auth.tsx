@@ -156,7 +156,7 @@ const Auth = () => {
             <hr></hr>
           </div>
           <h1 className="font-semibold text-foreground font-sans text-lg rounded-none tracking-wide leading-7">
-            {isSignUp ? "Create an account" : "SIGN IN"}
+            {isSignUp ? "CREATE AN ACCOUNT" : "SIGN IN"}
           </h1>
         </div>
 
