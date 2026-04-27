@@ -740,36 +740,54 @@ const DailyFormation = () => {
   if (screen === "completion") {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
-          <h1 className="tracking-tight mb-8 text-lg">You strengthened steadiness today</h1>
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
+          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">Practicing formation daily</h1>
 
-          <div className="space-y-4 leading-relaxed">
-            <p className="text-text-body">Today you:</p>
+          <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg">
+            <p>There are three principles to neuroplasticity:</p>
 
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Interrupted automatic threat prediction</li>
+            <div>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">FOCUS</h2>
+              <p>Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.</p>
+            </div>
 
-              <li>Stabilized a meaningful memory</li>
+            <div>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">ASSOCIATION</h2>
+              <p>
+                Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see
+                yourself as a new creation, alive in victory.
+              </p>
+            </div>
 
-              <li>Strengthened steadiness</li>
-            </ul>
+            <div>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">REPETITION</h2>
+              <p>Change requires repetition to strengthen new neural pathways. Each repetition builds on the last.</p>
+            </div>
 
-            <p className="text-primary font-medium pt-2">Each return trains your nervous system to expect stability.</p>
+            <p>
+              When we apply this framework together with God by aligning with Truth, we break our agreements with the
+              lies we’ve accepted.
+            </p>
 
-            <p>Small returns create lasting formation.</p>
+            <p className="text-primary">
+              Repeated DOSE chemistry released into the body drives changes in the brain long term, and we begin to
+              experience true transformation.
+            </p>
           </div>
+        </main>
 
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button
-            className="mt-10 w-full"
+            className="w-full"
             size="lg"
             onClick={() => {
               wakeLock.disable();
               navigate("/");
             }}
           >
-            Carry this forward
+            Return to today
           </Button>
-        </main>
+        </div>
 
         <BottomNav />
       </div>
