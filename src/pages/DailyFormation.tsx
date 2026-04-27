@@ -179,7 +179,7 @@ const DailyFormation = () => {
           </div>
 
           <p className="text-secondary-foreground leading-relaxed mb-10">
-            Daily formation follows a simple rhythm:
+            It follows a simple rhythm:
           </p>
 
           <div className="relative">
