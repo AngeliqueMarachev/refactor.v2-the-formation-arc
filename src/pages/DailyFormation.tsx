@@ -232,7 +232,7 @@ const DailyFormation = () => {
             </p>
 
           <p>
-              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
+              Much of what shapes fear or peace happens below conscious awareness, in systems your body designed to protect you.
             </p>
 
             <p>The nervous system responds strongly to perceived:</p>
