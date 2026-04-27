@@ -154,7 +154,7 @@ const Auth = () => {
             <p></p>
             <p className="text-base not-italic">A practice for retraining distress and strengthening stability.</p>
           </div>
-          <h1 className="font-semibold text-foreground font-sans text-lg rounded-none tracking-wide leading-7">
+          <h1 className="text-foreground font-sans rounded-none tracking-wide leading-7 text-base font-medium">
             {isSignUp ? "CREATE AN ACCOUNT" : "SIGN IN"}
           </h1>
         </div>
