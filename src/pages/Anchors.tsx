@@ -190,8 +190,136 @@ const Anchors = () => {
     );
   }
 
-  // ── List View ──
+  // ── Intro View ──
   const isEmpty = !loading && anchors.length === 0;
+
+  if (view === "intro") {
+    return (
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+        <ScrollArea className="flex-1 px-5">
+          <div className="pt-8 pb-8 content-container">
+            <h1 className="tracking-tight font-serif">Anchor Recall</h1>
+            <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
+            <p className="text-supporting mt-1">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
+            <div className="h-6" aria-hidden="true" />
+            <section aria-labelledby="anchor-usage-heading">
+              <h2 id="anchor-usage-heading" className="font-semibold tracking-tight text-2xl">
+                How to use your Anchor
+              </h2>
+
+              <div className="h-5" aria-hidden="true" />
+
+              <div>
+                <p className="text-text-body leading-relaxed">
+                  This phrase helps your nervous system remember what this moment meant.
+                </p>
+                <div className="h-4" aria-hidden="true" />
+                <p className="text-text-body leading-relaxed">
+                  It isn't something you repeat all day. It has three specific uses.
+                </p>
+              </div>
+
+              <div className="h-8" aria-hidden="true" />
+
+              <div className="relative">
+                <div className="relative flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                    <div className="w-px flex-1 bg-border/40 my-1" />
+                  </div>
+                  <div className="pb-8 flex-1">
+                    <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                      DAILY MOMENT
+                    </h3>
+                    <p className="text-text-body leading-relaxed mt-2">
+                      Attach it to one daily moment that already happens, for example:
+                    </p>
+                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
+                      <ul className="list-disc list-inside space-y-1 pl-2">
+                        <li>Before you brush your teeth</li>
+                        <li>When you close your laptop</li>
+                        <li>After you get into bed</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                    <div className="w-px flex-1 bg-border/40 my-1" />
+                  </div>
+                  <div className="pb-8 flex-1">
+                    <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                      DURING MOMENTS OF CONTRACTION
+                    </h3>
+                    <p className="text-text-body leading-relaxed mt-2">
+                      Use your phrase when your system begins to tighten, for example:
+                    </p>
+                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
+                      <ul className="list-disc list-inside space-y-1 pl-2">
+                        <li>Tension</li>
+                        <li>Shame</li>
+                        <li>Fear</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                    <div className="w-px flex-1 bg-border/40 my-1" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                      OLD THOUGHT PATTERNS
+                    </h3>
+                    <p className="text-text-body leading-relaxed mt-2">
+                      Use your phrase when familiar internal narratives begin to surface, for example:
+                    </p>
+                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
+                      <ul className="list-disc list-inside space-y-1 pl-2">
+                        <li>I am alone</li>
+                        <li>I am not enough</li>
+                        <li>This will end badly</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-8" aria-hidden="true" />
+
+              <div className="rounded-2xl p-6 border border-solid bg-muted border-secondary">
+                <p className="text-muted-foreground font-semibold text-base mb-5">IN THAT MOMENT</p>
+                <div className="text-text-body space-y-4" style={{ lineHeight: "1.7" }}>
+                  <p className="font-medium">Pause for 10 seconds.</p>
+                  <p>Recall the memory briefly.</p>
+                  <p>Say your phrase once.</p>
+                </div>
+                <div className="h-8" aria-hidden="true" />
+                <p className="text-text-body leading-relaxed">A wider meaning sits inside a narrow moment.</p>
+              </div>
+
+              <div className="h-8" aria-hidden="true" />
+
+              <p className="text-text-heading font-medium leading-relaxed">
+                Over time, the nervous system begins to expect steadiness.
+              </p>
+            </section>
+            <div className="h-8" aria-hidden="true" />
+            <Button className="w-full" onClick={() => setView("list")}>
+              Choose an Anchor
+            </Button>
+          </div>
+        </ScrollArea>
+        <BottomNav />
+      </div>
+    );
+  }
+
+  // ── List View ──
 
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
