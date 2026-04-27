@@ -603,9 +603,9 @@ const DailyFormation = () => {
                   <p className="mb-2 text-lg font-medium text-text-heading text-primary">
                     Examples of Anchor Phrases:{" "}
                   </p>
-                  <p className="text-lg italic">I thought I was forgotten, but I was not as alone.</p>
-                  <p className="text-lg italic">Even though I was afraid, I endured.</p>
-                  <p className="text-lg italic">I felt abandoned, but I was being championed.</p>
+                  <p className="text-lg italic text-muted-foreground">I thought I was forgotten, but I was not as alone.</p>
+                  <p className="text-lg italic text-muted-foreground">Even though I was afraid, I endured.</p>
+                  <p className="text-lg italic text-muted-foreground">I felt abandoned, but I was being championed.</p>
                 </div>
                 <Textarea
                   placeholder="Write your anchor phrase…"
