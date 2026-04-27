@@ -209,7 +209,7 @@ const Anchors = () => {
                 </p>
                 <div className="h-4" aria-hidden="true" />
                 <p className="text-text-body leading-relaxed">
-                  It isn't something you repeat all day. It has three specific uses.
+                  An anchor phrase isn't something you repeat all day. It has three specific uses.
                 </p>
               </div>
 
