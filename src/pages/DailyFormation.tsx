@@ -173,8 +173,8 @@ const DailyFormation = () => {
               They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
             </p>
             <p className="text-primary">
-              Daily formation provides the nervous system with new, positive information to produce life-giving DOSE
-              chemistry, to counteract the effects of CAN chemistry stored in the body.
+              Daily formation provides the nervous system with new, positive information, producing life-giving DOSE
+              chemistry to counteract the effects of CAN chemistry stored in the body.
             </p>
           </div>
 
