@@ -67,13 +67,13 @@ const ReorientationRehearsal = () => {
         <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[22px]">
           REORIENTATION
         </h2>
-        <p className="text-text-body mt-4 text-base">
+        <p className="text-text-body text-sm mt-4">
           Before the brain can update expectations, it must first register safety.
         </p>
-        <p className="text-text-body mt-3 text-base">
+        <p className="text-text-body text-sm mt-3">
           Rehearsing your Reorientation signals stability to the nervous system, allowing the mind to become receptive.
         </p>
-        <p className="text-primary mt-3 text-base">A receptive system forms steadier expectations more easily.</p>
+        <p className="text-primary text-sm mt-3">A receptive system forms steadier expectations more easily.</p>
         <div className="mb-6" />
 
         <p className="text-text-supporting text-sm mb-0">Tap each step.</p>
@@ -111,10 +111,11 @@ const ReorientationRehearsal = () => {
           })}
         </div>
 
-        <div className="pt-4 space-y-6">
+        <p className="text-text-body text-sm mt-4">
            
            
-            <p className="text-muted-foreground">Now you will expand a memory to strengthen your expectations of safety.</p>
+            <p>Now you will expand your memories and strengthen your expectations of safety.</p>
+          </div>
           <div className="space-y-3">
             <Button className="w-full" size="lg" onClick={() => navigate("/daily-formation?screen=reframing-story")}>
               Find a Memory
