@@ -138,7 +138,7 @@ const DailyFormation = () => {
       },
       {
         title: "REORIENT",
-        body: "We communicate safety to the nervous system by reorienting to Truth.",
+        body: "Repetition strengthens new associations",
       },
       {
         title: "ANCHOR MEMORY",
