@@ -111,11 +111,8 @@ const ReorientationRehearsal = () => {
           })}
         </div>
 
-        <p className="text-text-body text-sm mt-4">
-           
-           
-            <p>Now you will expand your memories and strengthen your expectations of safety.</p>
-          </div>
+        <div className="pt-4 space-y-6">
+          <p className="text-muted-foreground">Now you will expand a memory to strengthen your expectations of safety.</p>
           <div className="space-y-3">
             <Button className="w-full" size="lg" onClick={() => navigate("/daily-formation?screen=reframing-story")}>
               Find a Memory
