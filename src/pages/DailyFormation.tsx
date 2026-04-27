@@ -237,13 +237,7 @@ const DailyFormation = () => {
               Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
 
-            <p>The nervous system responds strongly to perceived:</p>
-
-            <ul className="list-disc list-inside space-y-1 pl-2">
-              <li>safety</li>
-              <li>connection</li>
-              <li>support</li>
-            </ul>
+            <p>The nervous system responds strongly to signals of safety, connection and support.</p>
 
             <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
