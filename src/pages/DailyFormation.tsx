@@ -159,15 +159,18 @@ const DailyFormation = () => {
 
             <p>
               Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
-              when we experience disorder. </p>
-              <p>They create low frequency emotional signatures, which deplete our resources,
-              often leading to a weakened immune system and eventually, chronic symptoms.</p>
+              when we experience disorder.
+            </p>
+            <p>
+              They create low frequency emotional signatures, which deplete our resources, often leading to a weakened
+              immune system and eventually, chronic symptoms.
             </p>
             <p>
               Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
-              the body when we experience alignment. </p>
-          <p>They create high frequency emotional signatures, which support and
-              heal the body, and help us feel safe.
+              the body when we experience alignment.
+            </p>
+            <p>
+              They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
             </p>
             <p className="text-primary">
               The Daily Formation practice is designed to provide the nervous system with new, positive information to
