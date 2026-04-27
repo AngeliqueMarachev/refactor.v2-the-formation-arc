@@ -202,11 +202,7 @@ const Anchors = () => {
             <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
             <p className="text-supporting mt-1">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
             <div className="h-6" aria-hidden="true" />
-            <section aria-labelledby="anchor-usage-heading">
-              <h2 id="anchor-usage-heading" className="font-semibold tracking-tight text-2xl">
-                How to use your Anchor
-              </h2>
-
+            <section>
               <div className="h-5" aria-hidden="true" />
 
               <div>
