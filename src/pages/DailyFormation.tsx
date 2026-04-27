@@ -30,7 +30,11 @@ const DailyFormation = () => {
   const screenParam = searchParams.get("screen");
 
   const [screen, setScreen] = useState<Screen>(
-    screenParam === "create-anchor" ? "create-anchor" : screenParam === "reframing-story" ? "reframing-story" : "daily-rhythm",
+    screenParam === "create-anchor"
+      ? "create-anchor"
+      : screenParam === "reframing-story"
+        ? "reframing-story"
+        : "daily-rhythm",
   );
 
   const [loading, setLoading] = useState(true);
@@ -178,9 +182,7 @@ const DailyFormation = () => {
             </p>
           </div>
 
-          <p className="text-secondary-foreground leading-relaxed mb-10">
-            It follows a simple rhythm:
-          </p>
+          <p className="text-secondary-foreground leading-relaxed mb-10">It follows a simple rhythm:</p>
 
           <div className="relative">
             {rhythmSteps.map((step, index) => (
@@ -329,9 +331,10 @@ const DailyFormation = () => {
               expectations.
             </p>
 
+            <p>Remembrance is a divine principle Jesus taught us.</p>
             <p>
-              Remembrance is a divine principle Jesus taught us. Recalling a positive memory in your life is a powerful
-              way to recall God’s faithfulness into remembrance, and enter into communion with Him.
+              Recalling a positive memory in your life is a powerful way to recall God’s faithfulness into remembrance,
+              and enter into communion with Him.
             </p>
 
             <p>
@@ -346,13 +349,13 @@ const DailyFormation = () => {
             </p>
 
             <p className="text-primary">
-              We begin to embody joy, health and grace with greater ease, until eventually, we are separated from trauma,
-              disconnected from old patterns, and established on Truth.
+              We begin to embody joy, health and grace with greater ease, until eventually, we are separated from
+              trauma, disconnected from old patterns, and established on Truth.
             </p>
 
             <p>
-              It’s important to know that when the nervous system has been under strain, creativity is obscured and access
-              to memory can narrow. With practice, however, access widens.
+              It’s important to know that when the nervous system has been under strain, creativity is obscured and
+              access to memory can narrow. With practice, however, access widens.
             </p>
           </div>
         </main>
