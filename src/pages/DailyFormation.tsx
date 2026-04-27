@@ -598,7 +598,7 @@ const DailyFormation = () => {
               </p>
               <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
 
-              <div className="pt-2">
+              <div className="pt-2 space-y-6">
                 <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 text-text-body border-primary">
                   <p className="mb-2 text-lg font-medium text-text-heading text-primary">
                     Examples of Anchor Phrases:{" "}
@@ -607,12 +607,15 @@ const DailyFormation = () => {
                   <p className="italic text-muted-foreground text-base">Even though I was afraid, I endured.</p>
                   <p className="italic text-muted-foreground text-base">I felt abandoned, but I was being championed.</p>
                 </div>
-                <Textarea
-                  placeholder="Write your anchor phrase…"
-                  value={anchorPhrase}
-                  onChange={(e) => setAnchorPhrase(e.target.value)}
-                  className="min-h-[80px]"
-                />
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-text-heading text-primary">Write your anchor phrase</label>
+                  <Textarea
+                    placeholder="e.g. I believed no-one noticed, but God was always with me."
+                    value={anchorPhrase}
+                    onChange={(e) => setAnchorPhrase(e.target.value)}
+                    className="min-h-[80px]"
+                  />
+                </div>
               </div>
             </div>
           )}
