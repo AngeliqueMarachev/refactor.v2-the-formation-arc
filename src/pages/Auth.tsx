@@ -137,8 +137,8 @@ const Auth = () => {
             <p></p>
             <p className="text-base not-italic">A practice for retraining distress and strengthening stability.</p>
           </div>
-          <h1 className="text-xl font-semibold text-foreground">
-            {isSignUp ? "Create an account" : "Sign in"}
+          <h1 className="text-xl font-semibold text-foreground font-sans">
+            {isSignUp ? "Create an account" : "​Sign in"}
           </h1>
         </div>
 
