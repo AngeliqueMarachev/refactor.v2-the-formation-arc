@@ -138,7 +138,7 @@ const DailyFormation = () => {
       },
       {
         title: "REORIENT",
-        body: "Repetition strengthens new associations",
+        body: "We communicate safety to the nervous system by reorienting to Truth.",
       },
       {
         title: "ANCHOR MEMORY",
@@ -159,18 +159,15 @@ const DailyFormation = () => {
 
             <p>
               Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
-              when we experience disorder.
-            </p>
-            <p>
-              They create low frequency emotional signatures, which deplete our resources, often leading to a weakened
-              immune system and eventually, chronic symptoms.
+              when we experience disorder. </p>
+              <p>They create low frequency emotional signatures, which deplete our resources,
+              often leading to a weakened immune system and eventually, chronic symptoms.</p>
             </p>
             <p>
               Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
-              the body when we experience alignment.
-            </p>
-            <p>
-              They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
+              the body when we experience alignment. </p>
+          <p>They create high frequency emotional signatures, which support and
+              heal the body, and help us feel safe.
             </p>
             <p className="text-primary">
               The Daily Formation practice is designed to provide the nervous system with new, positive information to
@@ -232,10 +229,16 @@ const DailyFormation = () => {
             </p>
 
           <p>
-              Much of what shapes fear or peace happens below conscious awareness, in systems your body designed to protect you.
+              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
 
-            <p>The nervous system responds strongly to signals of safety, connection and support.</p>
+            <p>The nervous system responds strongly to perceived:</p>
+
+            <ul className="list-disc list-inside space-y-1 pl-2">
+              <li>safety</li>
+              <li>connection</li>
+              <li>support</li>
+            </ul>
 
             <p className="text-primary font-normal">Prayer communicates support to your system.</p>
 
@@ -324,7 +327,8 @@ const DailyFormation = () => {
             </p>
 
             <p>
-              Remembrance is a divine principle Jesus taught us. Recalling a positive memory in your life is a powerful
+              Remembrance is a divine principle Jesus taught us.</p>
+              <p>Recalling a positive memory in your life is a powerful
               way to recall God’s faithfulness into remembrance, and enter into communion with Him.
             </p>
 
