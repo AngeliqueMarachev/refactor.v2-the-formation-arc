@@ -355,8 +355,9 @@ const DailyFormation = () => {
 
             <p>
               It’s important to know that when the nervous system has been under strain, creativity is obscured and
-              access to memory can narrow. With practice, however, access widens.
+              access to memory can narrow.
             </p>
+            <p>With practice, however, access widens.</p>
           </div>
         </main>
 
@@ -600,10 +601,10 @@ const DailyFormation = () => {
 
               <div className="pt-2 space-y-6">
                 <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 text-text-body border-primary">
-                  <p className="mb-2 font-medium text-text-heading text-primary text-sm">
-                    Examples of Anchor Phrases
+                  <p className="mb-2 font-medium text-text-heading text-primary text-sm">Examples of Anchor Phrases</p>
+                  <p className="italic text-muted-foreground text-sm">
+                    I thought I was forgotten, but I was not as alone.
                   </p>
-                  <p className="italic text-muted-foreground text-sm">I thought I was forgotten, but I was not as alone.</p>
                   <p className="italic text-muted-foreground text-sm">Even though I was afraid, I endured.</p>
                   <p className="italic text-muted-foreground text-sm">I felt abandoned, but I was being championed.</p>
                 </div>
