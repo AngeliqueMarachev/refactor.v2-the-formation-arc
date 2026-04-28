@@ -1,28 +1,41 @@
-## Plan to restore the preview
+Plan to implement guarded navigation for users without a saved Reorientation:
 
-The preview is empty because the React app is not mounting. The browser is successfully loading `index.html`, `src/main.tsx`, and `src/index.css`, but the request for `src/App.tsx` is aborting/404ing, so Vite never runs the app. The dark screen you see is only the inline fallback background from `index.html`.
+1. Add an unsaved Reorientation reset path
+- In the Create Reorientation screen (`/activated`), add a way to reset the in-progress local state back to the beginning:
+  - screen: introduction / entry screen
+  - phase index: 0
+  - selections: empty
+  - custom text: empty
+  - custom toggles: false
+  - reveal/script practice state reset
+  - wake lock disabled if active
+- This will ensure “Continue” discards partial progress without saving anything.
 
-## What I will change
+2. Update bottom navigation interception
+- Modify the shared bottom nav component so that when `hasActiveReorientation` is false, any bottom navigation tap opens a confirmation modal instead of navigating immediately.
+- This includes tapping Home, Formation, Reorient, Anchors, and any current/active tab.
+- Completed users (`hasActiveReorientation === true`) will keep the existing normal navigation behavior.
 
-1. **Force the app module to reload cleanly**
-   - Make a small safe edit in `src/App.tsx` so Vite/HMR re-emits the module and clears the stale failed request state.
-   - Keep the dark themed loading screen, but make it visible enough for visual editing if the app is genuinely loading.
+3. Add the confirmation modal using the existing design system
+- Use the app’s existing Alert/Dialog UI components and Button styles.
+- Modal message:
+  “Your reorientation isn’t saved yet. Leaving now will discard your progress. Do you want to continue?”
+- Primary action: “Continue”
+- Secondary action: “Stay”
+- “Stay” closes the modal and keeps the user on the current screen.
+- “Continue” resets in-progress Reorientation state and redirects to the start of `/activated`.
 
-2. **Add a development-visible mount fallback**
-   - Add a tiny non-invasive fallback message inside `#root` in `index.html`, styled with the existing dark palette.
-   - This gives visual feedback if React fails before mounting instead of leaving a completely blank screen.
-   - React will replace it immediately when the app mounts normally.
+4. Add a safety guard for non-navigation entry points
+- Keep route guards in `App.tsx` ensuring users without a saved Reorientation cannot access protected routes like Home, Daily Formation, Anchor Library, or Reorientation practice via direct URL, refresh, saved route restoration, or browser history.
+- Adjust the redirect target to explicitly bring them to the start of the Create Reorientation flow, including the introduction screen.
 
-3. **Make route/loading states less blank**
-   - Ensure loading screens include a centered visible `Loading…` message and not just a dark background.
-   - Preserve all current route guards and authentication behavior.
+5. Avoid changing the rest of the UI
+- No visual redesign beyond the modal.
+- No database schema changes are needed, because saved status is already determined from the active saved Reorientation template.
 
-4. **Verify the preview path**
-   - Reload `/` and confirm the browser no longer reports a failed `/src/App.tsx` request.
-   - Confirm the app UI appears again, or at minimum shows the auth/onboarding/home route instead of an empty fallback background.
-
-## Technical notes
-
-- No database changes are needed.
-- I will not edit the generated backend client files.
-- The previous `index.html` background fallback is not the root cause; it only made the failure less white. The immediate failure is that the app module is not being served/loaded in the preview session.
+Technical notes
+- Likely files to change:
+  - `src/components/BottomNav.tsx`
+  - `src/pages/Activated.tsx`
+  - possibly `src/App.tsx` for route guard precision
+- The current app already tracks completion using `hasActiveReorientation` from the auth/onboarding state, so this implementation will build on that rather than adding new persistence.

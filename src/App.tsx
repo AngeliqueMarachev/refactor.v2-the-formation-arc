@@ -1,9 +1,8 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import type { ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
@@ -20,47 +19,39 @@ import AuthCallback from "./pages/AuthCallback";
 
 const queryClient = new QueryClient();
 
-function LoadingScreen() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-6 text-center text-text-supporting">
-      <p className="text-supporting">Loading…</p>
-    </div>
-  );
-}
-
-function ProtectedRoute({ children }: { children: ReactNode }) {
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <LoadingScreen />;
+  if (loading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
   if (!user) return <Navigate to="/auth" replace />;
   return <>{children}</>;
 }
 
-function OrientationGate({ children }: { children: ReactNode }) {
+function OrientationGate({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <LoadingScreen />;
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
   if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
 }
 
-function ReorientationGate({ children }: { children: ReactNode }) {
+function ReorientationGate({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <LoadingScreen />;
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
   if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
 }
 
-function CreateReorientationRoute({ children }: { children: ReactNode }) {
+function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <LoadingScreen />;
+  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
   if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
   return <>{children}</>;
 }
 
-function AuthRoute({ children }: { children: ReactNode }) {
+function AuthRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <LoadingScreen />;
+  if (loading) return null;
   if (user) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
@@ -80,6 +71,8 @@ function RouteRestorationGate({ children }: { children: React.ReactNode }) {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <Toaster />
+      <Sonner />
       <BrowserRouter>
         <AuthProvider>
           <ScrollToTop />
@@ -96,8 +89,6 @@ const App = () => (
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Toaster />
-          <Sonner />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
