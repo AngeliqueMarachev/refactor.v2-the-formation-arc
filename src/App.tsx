@@ -1,8 +1,6 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import type { ReactNode } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
@@ -27,14 +25,14 @@ function LoadingScreen() {
   );
 }
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <LoadingScreen />;
   if (!user) return <Navigate to="/auth" replace />;
   return <>{children}</>;
 }
 
-function OrientationGate({ children }: { children: React.ReactNode }) {
+function OrientationGate({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
@@ -42,7 +40,7 @@ function OrientationGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function ReorientationGate({ children }: { children: React.ReactNode }) {
+function ReorientationGate({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
@@ -50,14 +48,14 @@ function ReorientationGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
+function CreateReorientationRoute({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
   return <>{children}</>;
 }
 
-function AuthRoute({ children }: { children: React.ReactNode }) {
+function AuthRoute({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <LoadingScreen />;
   if (user) return <Navigate to="/" replace />;
@@ -78,28 +76,24 @@ function RouteRestorationGate({ children }: { children: React.ReactNode }) {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AuthProvider>
-          <ScrollToTop />
-          <RoutePersistenceManager />
-          <Routes>
-            <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
-            <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
-            <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
-            <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </TooltipProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ScrollToTop />
+        <RoutePersistenceManager />
+        <Routes>
+          <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
+          <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
+          <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
+          <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+          <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 
