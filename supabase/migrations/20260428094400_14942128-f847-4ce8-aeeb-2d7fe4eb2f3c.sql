@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS public.email_has_registered_account(text);
