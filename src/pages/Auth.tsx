@@ -178,13 +178,30 @@ const Auth = () => {
             <p></p>
             <p className="text-base not-italic text-primary">A practice for retraining distress and strengthening stability.</p>
           </div>
-          <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium">
-            {isSignUp ? "CREATE AN ACCOUNT" : "SIGN IN"}
-          </h1>
+          <div className="space-y-3">
+            <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium">
+              {isSignUp ? "CREATE AN ACCOUNT" : "SIGN IN"}
+            </h1>
+            {!isForgotPassword && (
+              <p className="text-center text-text-supporting text-base">
+                {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthMessage("");
+                    setIsSignUp(!isSignUp);
+                  }}
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  {isSignUp ? "Sign in" : "Sign up"}
+                </button>
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Google Login Button */}
-        <div className="-mt-3 pt-0">
+        <div className="pt-0">
           <button
             type="button"
             onClick={handleGoogleLogin}
@@ -281,7 +298,7 @@ const Auth = () => {
             </button>
           )}
 
-          {isForgotPassword ? (
+          {isForgotPassword && (
             <p className="text-center text-text-supporting mt-2 text-base">
               <button
                 type="button"
@@ -292,20 +309,6 @@ const Auth = () => {
                 className="text-primary underline-offset-4 hover:underline"
               >
                 Back to sign in
-              </button>
-            </p>
-          ) : (
-            <p className="text-center text-text-supporting mt-2 text-base">
-              {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
-              <button
-                type="button"
-                onClick={() => {
-                  setAuthMessage("");
-                  setIsSignUp(!isSignUp);
-                }}
-                className="text-primary underline-offset-4 hover:underline"
-              >
-                {isSignUp ? "Sign in" : "Sign up"}
               </button>
             </p>
           )}
