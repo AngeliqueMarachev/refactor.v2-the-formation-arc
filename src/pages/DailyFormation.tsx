@@ -204,7 +204,7 @@ const DailyFormation = () => {
 
         <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={() => setScreen("reorientation")}>
-            Begin Daily Formation
+            Start daily formation
           </Button>
         </div>
 
