@@ -151,7 +151,7 @@ const DailyFormation = () => {
     ];
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">The science behind daily formation</h1>
 
@@ -216,9 +216,9 @@ const DailyFormation = () => {
   // REORIENTATION ENTRY
   if (screen === "reorientation") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
-          <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Daily formation begins with stability</h1>
+          <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
           <div className="space-y-4 leading-relaxed mb-10">
             <WakeLockToggle
@@ -284,7 +284,7 @@ const DailyFormation = () => {
     }
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Daily Anchor Loop</h1>
 
@@ -317,7 +317,7 @@ const DailyFormation = () => {
   // REFRAMING STORY INTRO
   if (screen === "reframing-story") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Reframing your story</h1>
 
@@ -412,7 +412,7 @@ const DailyFormation = () => {
     };
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <header className="px-5 pt-8 pb-2 content-container">
           <p className="text-xs text-text-supporting mb-2">
             Step {createStep + 1} of {totalSteps}
@@ -751,11 +751,15 @@ const DailyFormation = () => {
 
             <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">FOCUS</h2>
-              <p>Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.</p>
+              <p>
+                Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.
+              </p>
             </div>
 
             <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">ASSOCIATION</h2>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
+                ASSOCIATION
+              </h2>
               <p>
                 Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see
                 yourself as a new creation, alive in victory.
@@ -763,7 +767,9 @@ const DailyFormation = () => {
             </div>
 
             <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">REPETITION</h2>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
+                REPETITION
+              </h2>
               <p>Change requires repetition to strengthen new neural pathways. Each repetition builds on the last.</p>
             </div>
 
