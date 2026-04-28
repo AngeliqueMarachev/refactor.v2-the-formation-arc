@@ -54,11 +54,11 @@ const Auth = () => {
     window.requestAnimationFrame(() => passwordInputRef.current?.focus());
   };
 
-  const isDuplicateAccountError = (error: any, data?: any) => {
-    const message = error?.message?.toLowerCase() ?? "";
+  const isDuplicateAccountError = (error: unknown, data?: { user?: { identities?: unknown[] | null } | null }) => {
+    const message = error instanceof Error ? error.message.toLowerCase() : "";
     return (
-      error?.code === "user_already_exists" ||
-      error?.status === 422 ||
+      (typeof error === "object" && error !== null && "code" in error && error.code === "user_already_exists") ||
+      (typeof error === "object" && error !== null && "status" in error && error.status === 422) ||
       message.includes("already registered") ||
       message.includes("already exists") ||
       message.includes("already been registered") ||
@@ -108,7 +108,7 @@ const Auth = () => {
       if (result.redirected) {
         return;
       }
-    } catch (err: any) {
+    } catch {
       setAuthMessage("We couldn't sign you in with Google. Please try again.");
     } finally {
       setGoogleLoading(false);
