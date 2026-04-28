@@ -31,6 +31,13 @@ const AuthContext = createContext<AuthContextType>({
 export const useAuth = () => useContext(AuthContext);
 
 const SESSION_KEY = "orientation_seen_this_session";
+const LOAD_TIMEOUT_MS = 3000;
+
+const withTimeout = <T,>(promise: Promise<T>, fallback: T): Promise<T> =>
+  Promise.race([
+    promise,
+    new Promise<T>((resolve) => window.setTimeout(() => resolve(fallback), LOAD_TIMEOUT_MS)),
+  ]);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
@@ -40,7 +47,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [onboardingStateLoading, setOnboardingStateLoading] = useState(true);
 
   const refreshOnboardingState = async () => {
-    const { data: { session: currentSession } } = await supabase.auth.getSession();
+    const { data: { session: currentSession } } = await withTimeout(
+      supabase.auth.getSession(),
+      { data: { session: null }, error: null } as Awaited<ReturnType<typeof supabase.auth.getSession>>,
+    );
     const userId = currentSession?.user?.id;
 
     if (!userId) {
@@ -53,14 +63,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setOnboardingStateLoading(true);
 
     const reorientTemplates = supabase.from("reorient_templates") as any;
-    const [{ data: profile, error: profileError }, { data: templates }] = await Promise.all([
-      supabase.from("profiles").select("core_orientation_seen").eq("id", userId).maybeSingle(),
-      reorientTemplates
-        .select("id")
-        .eq("user_id", userId)
-        .eq("is_active", true)
-        .limit(1),
-    ]);
+    const [{ data: profile, error: profileError }, { data: templates }] = await withTimeout(
+      Promise.all([
+        supabase.from("profiles").select("core_orientation_seen").eq("id", userId).maybeSingle(),
+        reorientTemplates
+          .select("id")
+          .eq("user_id", userId)
+          .eq("is_active", true)
+          .limit(1),
+      ]),
+      [{ data: null, error: null }, { data: null, error: null }] as any,
+    );
 
     if (profileError) {
       console.error("Failed to load profile onboarding state", profileError);
@@ -99,12 +112,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     );
 
+    const loadingFallback = window.setTimeout(() => setLoading(false), LOAD_TIMEOUT_MS);
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
+    }).finally(() => {
+      window.clearTimeout(loadingFallback);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      window.clearTimeout(loadingFallback);
+      subscription.unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
