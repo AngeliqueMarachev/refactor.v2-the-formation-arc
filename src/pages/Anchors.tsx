@@ -320,10 +320,10 @@ const Anchors = () => {
 
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-      <header className="px-5 pt-8 pb-2 content-container">
+      <header className="px-5 pt-8 pb-8 content-container">
         <h1 className="tracking-tight font-serif">Return to an anchor</h1>
-        <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
-        <p className="text-supporting mt-1">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
+        <p className="text-supporting mt-4 text-primary">Return to Anchors that help you expect steadiness.</p>
+        <p className="text-supporting mt-4">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
       </header>
 
       {isEmpty ? (
@@ -350,7 +350,7 @@ const Anchors = () => {
         </main>
       ) : (
         <ScrollArea className="flex-1 px-5">
-          <div className="space-y-4 pt-1 pb-4 content-container">
+          <div className="space-y-8 pt-2 pb-8 content-container">
             {anchors.map((anchor) => (
               <Card
                 key={anchor.id}
@@ -360,7 +360,7 @@ const Anchors = () => {
                   setView("detail");
                 }}
               >
-                <CardContent className="p-5 space-y-3">
+                <CardContent className="p-5 space-y-6">
                   <p className="text-base leading-relaxed text-primary">
                     {anchor.anchor_title ||
                       (anchor.scene_text.length > 120 ? anchor.scene_text.slice(0, 120) + "…" : anchor.scene_text)}
