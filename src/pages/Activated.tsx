@@ -499,7 +499,7 @@ const Activated = () => {
               setScreen("phase");
             }}
           >
-            Begin Reorientation
+            Start reorientation
           </Button>
         </main>
         <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
