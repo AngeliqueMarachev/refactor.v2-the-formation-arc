@@ -2,21 +2,20 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Suspense, lazy, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
-
-const Index = lazy(() => import("./pages/Index"));
-const Auth = lazy(() => import("./pages/Auth"));
-const CoreOrientation = lazy(() => import("./pages/CoreOrientation"));
-const Activated = lazy(() => import("./pages/Activated"));
-const DailyFormation = lazy(() => import("./pages/DailyFormation"));
-const Anchors = lazy(() => import("./pages/Anchors"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const ResetPassword = lazy(() => import("./pages/ResetPassword"));
-const ReorientationRehearsal = lazy(() => import("./pages/ReorientationRehearsal"));
-const AuthCallback = lazy(() => import("./pages/AuthCallback"));
+import Index from "./pages/Index";
+import Auth from "./pages/Auth";
+import CoreOrientation from "./pages/CoreOrientation";
+import Activated from "./pages/Activated";
+import DailyFormation from "./pages/DailyFormation";
+import Anchors from "./pages/Anchors";
+import NotFound from "./pages/NotFound";
+import ResetPassword from "./pages/ResetPassword";
+import ReorientationRehearsal from "./pages/ReorientationRehearsal";
+import AuthCallback from "./pages/AuthCallback";
 
 const queryClient = new QueryClient();
 
@@ -85,20 +84,18 @@ const App = () => (
         <AuthProvider>
           <ScrollToTop />
           <RoutePersistenceManager />
-          <Suspense fallback={<LoadingScreen />}>
-            <Routes>
-              <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
-              <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
-              <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
-              <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
-              <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
-              <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
+            <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
+            <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
+            <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
