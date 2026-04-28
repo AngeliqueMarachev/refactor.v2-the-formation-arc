@@ -190,6 +190,7 @@ const Auth = () => {
                   type="button"
                   onClick={() => {
                     setAuthMessage("");
+                    setForgotPasswordMessage("");
                     setIsSignUp(!isSignUp);
                   }}
                   className="text-primary underline-offset-4 hover:underline"
@@ -302,6 +303,7 @@ const Auth = () => {
               type="button"
               onClick={() => {
                 setAuthMessage("");
+                setForgotPasswordMessage("");
                 setIsForgotPassword(true);
               }}
               className="w-full text-center text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3 text-sm"
@@ -316,6 +318,7 @@ const Auth = () => {
                 type="button"
                 onClick={() => {
                   setAuthMessage("");
+                  setForgotPasswordMessage("");
                   setIsForgotPassword(false);
                 }}
                 className="text-primary underline-offset-4 hover:underline"
