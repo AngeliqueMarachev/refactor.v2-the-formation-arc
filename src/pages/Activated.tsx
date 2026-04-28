@@ -489,14 +489,6 @@ const Activated = () => {
             </p>
 
             <p className="text-primary font-normal">A receptive system forms steadier expectations more easily.</p>
-
-            <p className="text-text-body">
-              Reorient when you need to quickly interrupt a spiral, or daily to establish a rhythm that honors your
-              process.
-            </p>
-            <p className="text-text-body">
-              As you build your reorientation, let it build your spirit. Choose in faith. Speak with conviction.
-            </p>
           </div>
 
           <Button
@@ -507,7 +499,7 @@ const Activated = () => {
               setScreen("phase");
             }}
           >
-            Start reorientation
+            Begin Reorientation
           </Button>
         </main>
         <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
