@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 189 70% 15%;
+    --background: 190 74% 18%;
     --foreground: 48 33% 95%;
 
     --card: 189 60% 18%;
@@ -59,14 +59,14 @@
   }
 
   html {
-    background: #082E36;
+    background: #0C4651;
   }
 
   body {
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     line-height: 1.6;
-    background: linear-gradient(135deg, #0C4651 0%, #082E36 100%);
+    background: #0C4651;
     position: relative;
     color: hsl(var(--text-body));
     min-height: 100vh;
