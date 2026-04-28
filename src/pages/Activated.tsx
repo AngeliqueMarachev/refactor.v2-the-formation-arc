@@ -550,7 +550,7 @@ const Activated = () => {
               {saving ? "Saving…" : "Save reorientation"}
             </Button>
             <Button className="w-full mt-3" size="lg" variant="secondary" onClick={handleEdit}>
-              Edit Reorientation
+              Edit reorientation
             </Button>
           </div>
         </div>
