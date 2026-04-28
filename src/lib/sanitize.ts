@@ -31,8 +31,31 @@ export function sanitizeText(
 }
 
 /**
+ * Sanitize text while the user is typing without trimming meaningful spaces.
+ */
+export function sanitizeTextInput(
+  value: string,
+  options: { maxLength?: number; multiline?: boolean } = {}
+): string {
+  const { maxLength = 2000, multiline = false } = options;
+  const cleaned = multiline
+    ? value.replace(/[^
+\P{C}\n\t]/gu, "")
+    : value.replace(/\p{C}/gu, "");
+
+  return cleaned.slice(0, maxLength);
+}
+
+/**
+ * Keep passwords bounded and free of control characters without trimming or changing case.
+ */
+export function sanitizePasswordInput(value: string): string {
+  return value.replace(/\p{C}/gu, "").slice(0, 128);
+}
+
+/**
  * Sanitize an email address.
  */
 export function sanitizeEmail(value: string): string {
-  return value.trim().toLowerCase().slice(0, 255);
+  return value.replace(/\p{C}/gu, "").trim().toLowerCase().slice(0, 255);
 }
