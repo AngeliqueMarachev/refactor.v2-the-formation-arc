@@ -209,7 +209,7 @@ const Auth = () => {
                   }}
                   className="text-primary underline-offset-4 hover:underline"
                 >
-                  {isSignUp ? "Sign in" : "Sign up"}
+                  {isSignUp ? "Sign in" : "Create an account"}
                 </button>
               </p>
             )}
