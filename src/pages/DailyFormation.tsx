@@ -581,7 +581,7 @@ const DailyFormation = () => {
           {/* Step 3: Anchor Phrase */}
           {createStep === 2 && (
             <div className="space-y-4">
-              <h2 className="font-semibold tracking-tight text-3xl">Create an Anchor Phrase</h2>
+              <h2 className="font-semibold tracking-tight text-3xl">Anchor this moment</h2>
               <div className="space-y-3 leading-relaxed">
                 <h2 className="text-sm font-medium uppercase tracking-widest text-primary font-sans mb-2">
                   ANCHOR RECALL
