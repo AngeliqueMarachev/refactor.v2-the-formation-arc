@@ -407,7 +407,7 @@ const Activated = () => {
                 {/* Section 1 */}
                 <div className="mb-9">
                   <p className="text-primary text-base leading-relaxed font-thin mb-4">
-                    Your nervous system just experienced a different response.
+                    Your nervous system just experienced safety.
                   </p>
                   <p className="text-text-body text-base leading-relaxed mb-3">Each time you return:</p>
                   <ul className="list-disc pl-5 space-y-2.5">
