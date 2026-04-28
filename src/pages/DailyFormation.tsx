@@ -166,7 +166,7 @@ const DailyFormation = () => {
               when we experience disorder.
             </p>
             <p>
-              They create a low frequency emotional signature, which deplete our resources, often leading to a weakened
+              They create low frequency emotional signatures, which deplete our resources, often leading to a weakened
               immune system and eventually, chronic symptoms.
             </p>
             <p>
