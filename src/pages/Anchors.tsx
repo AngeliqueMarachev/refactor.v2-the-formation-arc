@@ -78,7 +78,7 @@ const Anchors = () => {
   // ── Recall Prompt ──
   if (view === "recall-prompt" && selected) {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col items-center justify-center px-5 text-center content-container">
           <WakeLockToggle
             enabled={wakeLockToggle}
@@ -108,7 +108,7 @@ const Anchors = () => {
     const canTruncate = selected.scene_text.length > maxChars;
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <header className="px-5 pt-8 pb-2 content-container">
           <button
             onClick={() => {
@@ -176,10 +176,13 @@ const Anchors = () => {
 
             {/* CTA */}
             <div className="mt-8">
-              <Button onClick={() => {
-                if (wakeLockToggle) wakeLock.enable();
-                setView("recall-prompt");
-              }} className="w-full">
+              <Button
+                onClick={() => {
+                  if (wakeLockToggle) wakeLock.enable();
+                  setView("recall-prompt");
+                }}
+                className="w-full"
+              >
                 Recall This Anchor
               </Button>
             </div>
@@ -195,10 +198,10 @@ const Anchors = () => {
 
   if (view === "intro") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <ScrollArea className="flex-1 px-5">
           <div className="pt-8 pb-8 content-container">
-            <h1 className="tracking-tight font-serif">Anchor phrases build foundation</h1>
+            <h1 className="tracking-tight font-serif">Strengthen your anchor</h1>
             <div className="h-6" aria-hidden="true" />
             <section>
               <div className="h-5" aria-hidden="true" />
@@ -285,7 +288,7 @@ const Anchors = () => {
 
               <div className="h-8" aria-hidden="true" />
 
-              <div className="space-y-2 rounded-lg border p-5 sm:p-6 text-text-body bg-card border-secondary">
+              <div className="rounded-2xl p-6 border border-solid bg-muted border-secondary">
                 <p className="text-muted-foreground font-semibold text-base mb-5">IN THAT MOMENT</p>
                 <div className="text-text-body space-y-4" style={{ lineHeight: "1.7" }}>
                   <p className="font-medium">Pause for 10 seconds.</p>
@@ -316,7 +319,7 @@ const Anchors = () => {
   // ── List View ──
 
   return (
-    <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
         <h1 className="tracking-tight font-serif">Anchor Recall</h1>
         <p className="text-supporting mt-1 text-primary">Return to Anchors that help you expect steadiness.</p>
