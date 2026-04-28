@@ -39,8 +39,7 @@ export function sanitizeTextInput(
 ): string {
   const { maxLength = 2000, multiline = false } = options;
   const cleaned = multiline
-    ? value.replace(/[^
-\P{C}\n\t]/gu, "")
+    ? value.replace(/[^\P{C}\n\t]/gu, "")
     : value.replace(/\p{C}/gu, "");
 
   return cleaned.slice(0, maxLength);
