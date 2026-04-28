@@ -215,7 +215,7 @@ const Auth = () => {
             }}
           >
             <GoogleIcon />
-            <span>{googleLoading ? "..." : isSignUp ? "Sign up with Google" : "Sign in with Google"}</span>
+            <span>{googleLoading ? "..." : "Continue with Google"}</span>
           </button>
         </div>
 
