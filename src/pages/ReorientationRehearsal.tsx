@@ -94,14 +94,14 @@ const ReorientationRehearsal = () => {
                   setGlowingLine(phase.lineIndex);
                   setTimeout(() => setGlowingLine((prev) => (prev === phase.lineIndex ? null : prev)), 800);
                 }}
-                className={`w-full text-left rounded-lg border p-5 transition-all duration-300 ${
+                className={`w-full text-left space-y-2 rounded-lg border p-5 sm:p-6 text-text-body bg-card border-secondary transition-all duration-300 ${
                   glowingLine === phase.lineIndex
                     ? isReturnPhase
-                      ? "border-primary bg-primary/15 text-text-heading shadow-lg shadow-primary/20"
-                      : "border-primary/50 bg-primary/10 text-text-heading shadow-lg shadow-primary/10"
+                      ? "bg-primary/15 shadow-lg shadow-primary/20"
+                      : "bg-primary/10 shadow-lg shadow-primary/10"
                     : isReturnPhase
-                      ? "border-primary/40 bg-primary/8 text-text-heading"
-                      : "border-border/50 bg-card/50 text-text-body hover:border-primary/20"
+                      ? "bg-primary/8"
+                      : "hover:border-primary/20"
                 }`}
               >
                 <p className="text-[10px] font-semibold tracking-widest uppercase mb-2 text-primary">{phase.title}</p>
