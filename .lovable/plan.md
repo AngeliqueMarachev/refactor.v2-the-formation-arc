@@ -1,41 +1,31 @@
-Plan to implement guarded navigation for users without a saved Reorientation:
+The preview is white because the app’s global stylesheet is failing to load in the browser session. The console shows this failed request:
 
-1. Add an unsaved Reorientation reset path
-- In the Create Reorientation screen (`/activated`), add a way to reset the in-progress local state back to the beginning:
-  - screen: introduction / entry screen
-  - phase index: 0
-  - selections: empty
-  - custom text: empty
-  - custom toggles: false
-  - reveal/script practice state reset
-  - wake lock disabled if active
-- This will ensure “Continue” discards partial progress without saving anything.
+```text
+GET /src/index.css 404 / ERR_ABORTED
+```
 
-2. Update bottom navigation interception
-- Modify the shared bottom nav component so that when `hasActiveReorientation` is false, any bottom navigation tap opens a confirmation modal instead of navigating immediately.
-- This includes tapping Home, Formation, Reorient, Anchors, and any current/active tab.
-- Completed users (`hasActiveReorientation === true`) will keep the existing normal navigation behavior.
+Since `src/main.tsx` imports `./index.css`, that failed CSS module prevents the normal app styling from applying. The result is a mostly blank white page even though the Vite dev server itself is running.
 
-3. Add the confirmation modal using the existing design system
-- Use the app’s existing Alert/Dialog UI components and Button styles.
-- Modal message:
-  “Your reorientation isn’t saved yet. Leaving now will discard your progress. Do you want to continue?”
-- Primary action: “Continue”
-- Secondary action: “Stay”
-- “Stay” closes the modal and keeps the user on the current screen.
-- “Continue” resets in-progress Reorientation state and redirects to the start of `/activated`.
+Plan to fix:
 
-4. Add a safety guard for non-navigation entry points
-- Keep route guards in `App.tsx` ensuring users without a saved Reorientation cannot access protected routes like Home, Daily Formation, Anchor Library, or Reorientation practice via direct URL, refresh, saved route restoration, or browser history.
-- Adjust the redirect target to explicitly bring them to the start of the Create Reorientation flow, including the introduction screen.
+1. Inspect the CSS import path and Vite handling
+   - Confirm `src/main.tsx` imports the correct stylesheet.
+   - Check whether the preview proxy is treating `/src/index.css` incorrectly.
 
-5. Avoid changing the rest of the UI
-- No visual redesign beyond the modal.
-- No database schema changes are needed, because saved status is already determined from the active saved Reorientation template.
+2. Add a safe styling fallback
+   - Ensure the document has the app’s dark background even if the CSS module is delayed or fails.
+   - Use a minimal inline fallback in `index.html` or a safe app wrapper so the preview never appears white.
 
-Technical notes
-- Likely files to change:
-  - `src/components/BottomNav.tsx`
-  - `src/pages/Activated.tsx`
-  - possibly `src/App.tsx` for route guard precision
-- The current app already tracks completion using `hasActiveReorientation` from the auth/onboarding state, so this implementation will build on that rather than adding new persistence.
+3. Preserve the existing design system
+   - Keep the current Tailwind theme, fonts, dark background, and mobile-first layout unchanged.
+   - Do not alter the recent Anchor Recall text edits.
+
+4. Re-check the preview after changes
+   - Confirm the app renders with the dark background instead of white.
+   - Check console/network again for any remaining blocking errors.
+
+Technical details:
+
+- Likely file touched: `index.html` for a minimal non-invasive background fallback.
+- Possible file touched: `src/App.tsx` only if a React-level wrapper is needed.
+- No database or backend changes are needed.
