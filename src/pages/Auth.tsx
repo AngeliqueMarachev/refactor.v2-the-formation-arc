@@ -244,6 +244,16 @@ const Auth = () => {
             {emailTouched && emailError && <p className="text-sm text-muted-foreground mt-1">{emailError}</p>}
           </div>
 
+          {isForgotPassword && forgotPasswordMessage && (
+            <div
+              role="status"
+              aria-live="polite"
+              className="rounded-md border border-border/40 bg-muted/40 px-3 py-2 text-sm text-muted-foreground text-center"
+            >
+              {forgotPasswordMessage}
+            </div>
+          )}
+
           {!isForgotPassword && (
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
