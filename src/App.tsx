@@ -19,16 +19,20 @@ import AuthCallback from "./pages/AuthCallback";
 
 const queryClient = new QueryClient();
 
+function LoadingScreen() {
+  return <div className="flex min-h-screen items-center justify-center bg-background text-text-supporting">Loading…</div>;
+}
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (loading) return <LoadingScreen />;
   if (!user) return <Navigate to="/auth" replace />;
   return <>{children}</>;
 }
 
 function OrientationGate({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
   if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
@@ -36,7 +40,7 @@ function OrientationGate({ children }: { children: React.ReactNode }) {
 
 function ReorientationGate({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
   if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
@@ -44,14 +48,14 @@ function ReorientationGate({ children }: { children: React.ReactNode }) {
 
 function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
-  if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
+  if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
   return <>{children}</>;
 }
 
 function AuthRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return null;
+  if (loading) return <LoadingScreen />;
   if (user) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
