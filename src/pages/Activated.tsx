@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
-import { sanitizeText } from "@/lib/sanitize";
+import { sanitizeText, sanitizeTextInput } from "@/lib/sanitize";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -192,7 +192,7 @@ const Activated = () => {
 
   const handleCustomChange = (val: string) => {
     const next = [...customTexts];
-    next[phaseIndex] = val;
+    next[phaseIndex] = sanitizeTextInput(val, { maxLength: 500 });
     setCustomTexts(next);
   };
 
@@ -607,6 +607,7 @@ const Activated = () => {
               placeholder={`${phase.customLabel}…`}
               value={customTexts[phaseIndex]}
               onChange={(e) => handleCustomChange(e.target.value)}
+              maxLength={500}
               className="min-h-[80px]"
               autoFocus
             />
