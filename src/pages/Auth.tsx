@@ -182,7 +182,7 @@ const Auth = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-5 pb-12">
       <div className="w-full max-w-sm space-y-6">
-        <div className="text-center space-y-6">
+        <div className="py-4 max-w-md mx-auto text-left space-y-6">
           <img
             src={logo}
             alt="The Formation Arc"
