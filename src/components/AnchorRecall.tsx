@@ -3,6 +3,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { sanitizeTextInput } from "@/lib/sanitize";
 
 interface AnchorRecallProps {
   anchorTitle: string;
@@ -293,7 +294,8 @@ const AnchorRecall = ({
               <Textarea
                 placeholder="e.g. I am in my grandmother’s garden. The air is cool and still. I can smell the soil and feel the ground beneath my feet. Everything feels unhurried. I feel safe here. I feel held. Nothing is demanding anything from me."
                 value={sceneText}
-                onChange={(e) => onSceneTextChange(e.target.value)}
+                onChange={(e) => onSceneTextChange(sanitizeTextInput(e.target.value, { maxLength: 5000, multiline: true }))}
+                maxLength={5000}
                 className="min-h-[140px]"
               />
             </div>
@@ -306,7 +308,7 @@ const AnchorRecall = ({
               <Input
                 placeholder="He lays me down in green pastures"
                 value={anchorTitle}
-                onChange={(e) => onAnchorTitleChange(e.target.value.slice(0, 60))}
+                onChange={(e) => onAnchorTitleChange(sanitizeTextInput(e.target.value, { maxLength: 60 }))}
                 maxLength={60}
               />
 

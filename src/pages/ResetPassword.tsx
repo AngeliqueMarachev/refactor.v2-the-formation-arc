@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import logo from "@/assets/formation-arc-logo.png";
+import { sanitizePasswordInput } from "@/lib/sanitize";
 
 type PageState = "verifying" | "ready" | "submitting" | "success" | "error";
 
@@ -167,11 +168,12 @@ const ResetPassword = () => {
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => {
-                  setPassword(e.target.value);
+                  setPassword(sanitizePasswordInput(e.target.value));
                   if (fieldErrors.password) setFieldErrors((p) => ({ ...p, password: undefined }));
                 }}
                 required
                 minLength={6}
+                maxLength={128}
                 placeholder="••••••••"
                 className="bg-secondary pr-10"
               />
@@ -198,11 +200,12 @@ const ResetPassword = () => {
                 type={showConfirm ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => {
-                  setConfirmPassword(e.target.value);
+                  setConfirmPassword(sanitizePasswordInput(e.target.value));
                   if (fieldErrors.confirm) setFieldErrors((p) => ({ ...p, confirm: undefined }));
                 }}
                 required
                 minLength={6}
+                maxLength={128}
                 placeholder="••••••••"
                 className="bg-secondary pr-10"
               />

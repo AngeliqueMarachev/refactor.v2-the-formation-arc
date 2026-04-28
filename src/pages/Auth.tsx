@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import logo from "@/assets/formation-arc-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
-import { sanitizeEmail } from "@/lib/sanitize";
+import { sanitizeEmail, sanitizePasswordInput } from "@/lib/sanitize";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -254,9 +254,10 @@ const Auth = () => {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   ref={passwordInputRef}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(sanitizePasswordInput(e.target.value))}
                   required
                   minLength={6}
+                  maxLength={128}
                   placeholder="••••••••"
                   className="bg-secondary pr-10"
                 />

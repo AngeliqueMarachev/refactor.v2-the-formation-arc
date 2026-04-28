@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
-import { sanitizeText } from "@/lib/sanitize";
+import { sanitizeText, sanitizeTextInput } from "@/lib/sanitize";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -377,9 +377,9 @@ const DailyFormation = () => {
         <>
           <AnchorRecall
             anchorTitle={anchorTitle}
-            onAnchorTitleChange={setAnchorTitle}
+            onAnchorTitleChange={(value) => setAnchorTitle(sanitizeTextInput(value, { maxLength: 60 }))}
             sceneText={sceneText}
-            onSceneTextChange={setSceneText}
+            onSceneTextChange={(value) => setSceneText(sanitizeTextInput(value, { maxLength: 5000, multiline: true }))}
             emotionTags={emotionTags}
             onEmotionTagsChange={setEmotionTags}
             onContinue={() => setCreateStep(1)}
@@ -456,7 +456,8 @@ const DailyFormation = () => {
                     <Textarea
                       placeholder="e.g. Creation celebrates me. "
                       value={meaningConclusion}
-                      onChange={(e) => setMeaningConclusion(e.target.value)}
+                      onChange={(e) => setMeaningConclusion(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))}
+                      maxLength={2000}
                       className="min-h-[80px] text-muted-foreground mt-2"
                     />
                   </div>
@@ -480,7 +481,8 @@ const DailyFormation = () => {
                     <Textarea
                       placeholder="e.g. We were full of joy and I saw Jesus thanking God for me!"
                       value={widenedMeaning}
-                      onChange={(e) => setWidenedMeaning(e.target.value)}
+                      onChange={(e) => setWidenedMeaning(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))}
+                      maxLength={2000}
                       className="min-h-[80px] mt-2"
                     />
                   </div>
@@ -609,7 +611,8 @@ const DailyFormation = () => {
                   <Textarea
                     placeholder="e.g. I believed no-one noticed, but God was always with me."
                     value={anchorPhrase}
-                    onChange={(e) => setAnchorPhrase(e.target.value)}
+                    onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
+                    maxLength={500}
                     className="min-h-[80px]"
                   />
                   <p className="pt-3 text-text-body leading-relaxed">
