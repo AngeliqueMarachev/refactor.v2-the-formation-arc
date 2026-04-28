@@ -1,21 +1,22 @@
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Suspense, lazy, type ReactNode } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
-import Index from "./pages/Index";
-import Auth from "./pages/Auth";
-import CoreOrientation from "./pages/CoreOrientation";
-import Activated from "./pages/Activated";
-import DailyFormation from "./pages/DailyFormation";
-import Anchors from "./pages/Anchors";
-import NotFound from "./pages/NotFound";
-import ResetPassword from "./pages/ResetPassword";
-import ReorientationRehearsal from "./pages/ReorientationRehearsal";
-import AuthCallback from "./pages/AuthCallback";
+
+const Index = lazy(() => import("./pages/Index"));
+const Auth = lazy(() => import("./pages/Auth"));
+const CoreOrientation = lazy(() => import("./pages/CoreOrientation"));
+const Activated = lazy(() => import("./pages/Activated"));
+const DailyFormation = lazy(() => import("./pages/DailyFormation"));
+const Anchors = lazy(() => import("./pages/Anchors"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const ReorientationRehearsal = lazy(() => import("./pages/ReorientationRehearsal"));
+const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 
 const queryClient = new QueryClient();
 
@@ -27,14 +28,14 @@ function LoadingScreen() {
   );
 }
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <LoadingScreen />;
   if (!user) return <Navigate to="/auth" replace />;
   return <>{children}</>;
 }
 
-function OrientationGate({ children }: { children: React.ReactNode }) {
+function OrientationGate({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
@@ -42,7 +43,7 @@ function OrientationGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function ReorientationGate({ children }: { children: React.ReactNode }) {
+function ReorientationGate({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
@@ -50,14 +51,14 @@ function ReorientationGate({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function CreateReorientationRoute({ children }: { children: React.ReactNode }) {
+function CreateReorientationRoute({ children }: { children: ReactNode }) {
   const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <LoadingScreen />;
   if (!orientationSeen && !hasActiveReorientation) return <Navigate to="/onboarding" replace />;
   return <>{children}</>;
 }
 
-function AuthRoute({ children }: { children: React.ReactNode }) {
+function AuthRoute({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <LoadingScreen />;
   if (user) return <Navigate to="/" replace />;
