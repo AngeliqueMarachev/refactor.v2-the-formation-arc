@@ -168,7 +168,7 @@ const Auth = () => {
         setAuthMessage(
           accountExists
             ? "We couldn't sign you in. Please check your email or password."
-            : "No account found for this email. Create an account to continue."
+            : "No account found for this email. Please create an account first."
         );
       } else {
         setAuthMessage("");
