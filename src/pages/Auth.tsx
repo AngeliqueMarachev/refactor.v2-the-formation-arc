@@ -190,9 +190,9 @@ const Auth = () => {
             style={{ width: "min(85vw, 420px)" }}
           />
           <div className="space-y-1.5 text-supporting italic leading-relaxed">
-            <p className="text-primary not-italic font-normal">Overcome Fear. Restore identity.</p>
+            <p className="text-primary not-italic font-normal text-center">Overcome Fear. Restore identity.</p>
             <p></p>
-            <p className="text-base not-italic text-destructive-foreground">A practice for retraining distress and strengthening stability.</p>
+            <p className="text-base not-italic text-destructive-foreground text-center">A practice for retraining distress and strengthening stability.</p>
           </div>
           <div className="space-y-3">
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
