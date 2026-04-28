@@ -115,6 +115,15 @@ const Auth = () => {
     }
   };
 
+  const checkAccountExists = async (emailToCheck: string) => {
+    const { data, error } = await supabase.functions.invoke("check-account-exists", {
+      body: { email: emailToCheck },
+    });
+
+    if (error) return true;
+    return data?.exists !== false;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setEmailTouched(true);
@@ -155,7 +164,12 @@ const Auth = () => {
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
-        setAuthMessage("We couldn't sign you in. Please check your email or password.");
+        const accountExists = await checkAccountExists(email);
+        setAuthMessage(
+          accountExists
+            ? "We couldn't sign you in. Please check your email or password."
+            : "No account found for this email. Please create an account first."
+        );
       } else {
         setAuthMessage("");
       }
