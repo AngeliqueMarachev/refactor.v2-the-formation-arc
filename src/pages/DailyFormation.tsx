@@ -319,7 +319,7 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Create a new associations</h1>
+          <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Create new associations</h1>
 
           <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
             <p>
