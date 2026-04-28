@@ -20,7 +20,11 @@ import AuthCallback from "./pages/AuthCallback";
 const queryClient = new QueryClient();
 
 function LoadingScreen() {
-  return <div className="flex min-h-screen items-center justify-center bg-background text-text-supporting">Loading…</div>;
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-6 text-center text-text-supporting">
+      <p className="text-supporting">Loading…</p>
+    </div>
+  );
 }
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
