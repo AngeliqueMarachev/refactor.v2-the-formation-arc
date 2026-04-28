@@ -3,7 +3,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import logo from "@/assets/formation-arc-logo.png";
@@ -19,7 +18,7 @@ const ResetPassword = () => {
   const [pageState, setPageState] = useState<PageState>("verifying");
   const [fieldErrors, setFieldErrors] = useState<{ password?: string; confirm?: string }>({});
   const [errorMessage, setErrorMessage] = useState("");
-  const { toast } = useToast();
+  const [formMessage, setFormMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,6 +75,9 @@ const ResetPassword = () => {
       errors.confirm = "Passwords do not match";
     }
     setFieldErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      setFormMessage("");
+    }
     return Object.keys(errors).length === 0;
   };
 
@@ -88,7 +90,7 @@ const ResetPassword = () => {
 
     if (error) {
       setPageState("ready");
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      setFormMessage("Please choose a password you have not used before.");
     } else {
       setPageState("success");
       // Sign out so user starts fresh, then redirect to auth
@@ -194,6 +196,7 @@ const ResetPassword = () => {
                 onChange={(e) => {
                   setPassword(sanitizePasswordInput(e.target.value));
                   if (fieldErrors.password) setFieldErrors((p) => ({ ...p, password: undefined }));
+                  if (formMessage) setFormMessage("");
                 }}
                 required
                 minLength={6}
@@ -211,7 +214,7 @@ const ResetPassword = () => {
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            {fieldErrors.password && <p className="text-sm text-destructive">{fieldErrors.password}</p>}
+            {fieldErrors.password && <p className="text-sm text-muted-foreground">{fieldErrors.password}</p>}
           </div>
 
           <div className="space-y-2">
@@ -224,6 +227,7 @@ const ResetPassword = () => {
                 onChange={(e) => {
                   setConfirmPassword(sanitizePasswordInput(e.target.value));
                   if (fieldErrors.confirm) setFieldErrors((p) => ({ ...p, confirm: undefined }));
+                  if (formMessage) setFormMessage("");
                 }}
                 required
                 minLength={6}
@@ -241,8 +245,10 @@ const ResetPassword = () => {
                 {showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            {fieldErrors.confirm && <p className="text-sm text-destructive">{fieldErrors.confirm}</p>}
+            {fieldErrors.confirm && <p className="text-sm text-muted-foreground">{fieldErrors.confirm}</p>}
           </div>
+
+          {formMessage && <p className="text-sm text-muted-foreground text-center">{formMessage}</p>}
 
           <Button type="submit" className="w-full" disabled={pageState === "submitting"}>
             {pageState === "submitting" ? "Updating…" : "Update Password"}
