@@ -165,11 +165,12 @@ const Auth = () => {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         const accountExists = await checkAccountExists(email);
-        setAuthMessage(
-          accountExists
-            ? "We couldn't sign you in. Please check your email or password."
-            : "No account found for this email. Create an account to continue."
-        );
+        if (accountExists) {
+          setAuthMessage("We couldn't sign you in. Please check your email or password.");
+        } else {
+          setIsSignUp(true);
+          setAuthMessage("No account found for this email. Create an account to continue.");
+        }
       } else {
         setAuthMessage("");
       }
