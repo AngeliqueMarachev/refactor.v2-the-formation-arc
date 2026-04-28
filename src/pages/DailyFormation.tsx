@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
-import { sanitizeText } from "@/lib/sanitize";
+import { sanitizeText, sanitizeTextInput } from "@/lib/sanitize";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -377,9 +377,9 @@ const DailyFormation = () => {
         <>
           <AnchorRecall
             anchorTitle={anchorTitle}
-            onAnchorTitleChange={setAnchorTitle}
+            onAnchorTitleChange={(value) => setAnchorTitle(sanitizeTextInput(value, { maxLength: 60 }))}
             sceneText={sceneText}
-            onSceneTextChange={setSceneText}
+            onSceneTextChange={(value) => setSceneText(sanitizeTextInput(value, { maxLength: 5000, multiline: true }))}
             emotionTags={emotionTags}
             onEmotionTagsChange={setEmotionTags}
             onContinue={() => setCreateStep(1)}
