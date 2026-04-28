@@ -13,6 +13,20 @@ function RootFallback() {
   );
 }
 
+function showModuleFallback() {
+  const rootElement = document.getElementById("root");
+  if (!rootElement) return;
+
+  rootElement.innerHTML = `
+    <div class="root-module-fallback">
+      <div>
+        <h1>Loading…</h1>
+        <p>Refreshing the practice space.</p>
+      </div>
+    </div>
+  `;
+}
+
 class RootErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
 
@@ -33,6 +47,16 @@ class RootErrorBoundary extends Component<{ children: ReactNode }, { hasError: b
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
+  window.addEventListener("error", (event) => {
+    console.error("Root runtime error", event.error ?? event.message);
+    showModuleFallback();
+  });
+
+  window.addEventListener("unhandledrejection", (event) => {
+    console.error("Root promise rejection", event.reason);
+    showModuleFallback();
+  });
+
   import("./App.tsx")
     .then(({ default: App }) => {
       createRoot(rootElement).render(
@@ -45,13 +69,6 @@ if (rootElement) {
     })
     .catch((error) => {
       console.error("App module failed to load", error);
-      rootElement.innerHTML = `
-        <div class="root-module-fallback">
-          <div>
-            <h1>Loading…</h1>
-            <p>Refreshing the practice space.</p>
-          </div>
-        </div>
-      `;
+      showModuleFallback();
     });
 }
