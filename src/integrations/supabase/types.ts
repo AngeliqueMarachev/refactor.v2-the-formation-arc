@@ -151,6 +151,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      email_has_registered_account: {
+        Args: { email_input: string }
+        Returns: boolean
+      }
       increment_stat: {
         Args: { stat_name: string; user_id_input: string }
         Returns: undefined
