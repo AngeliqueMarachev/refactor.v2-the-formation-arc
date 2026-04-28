@@ -403,7 +403,7 @@ const Activated = () => {
 
           {scriptComplete && (
             <div className="space-y-6" style={{ animation: "fade-in 400ms ease-out forwards" }}>
-              <div className="text-center py-4 max-w-md mx-auto">
+              <div className="text-left py-4 max-w-md mx-auto">
                 {/* Section 1 */}
                 <div className="mb-9 space-y-1.5">
                   <p className="text-text-body text-base leading-relaxed">Fear tried to take over the moment.</p>
