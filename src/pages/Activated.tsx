@@ -464,7 +464,7 @@ const Activated = () => {
   // ENTRY
   if (screen === "entry") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">

@@ -117,7 +117,7 @@ const AnchorRecall = ({
   const canContinue = anchorTitle.trim().length > 0 && sceneText.trim().length > 0 && emotionTags.length > 0;
 
   return (
-    <div className="screen-with-bottom-nav flex min-h-screen flex-col text-secondary-foreground">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col text-secondary-foreground rounded-lg">
       <header className="px-5 pt-8 pb-2 content-container">
         <div className="mb-2 h-8" />
         <p className="text-xs text-text-supporting mb-2">Step 1 of {totalSteps}</p>

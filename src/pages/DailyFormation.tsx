@@ -151,7 +151,7 @@ const DailyFormation = () => {
     ];
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">The science behind daily formation</h1>
 
@@ -216,7 +216,7 @@ const DailyFormation = () => {
   // REORIENTATION ENTRY
   if (screen === "reorientation") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Daily formation begins with stability</h1>
 
@@ -284,7 +284,7 @@ const DailyFormation = () => {
     }
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Daily Anchor Loop</h1>
 
@@ -317,7 +317,7 @@ const DailyFormation = () => {
   // REFRAMING STORY INTRO
   if (screen === "reframing-story") {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Reframing your story</h1>
 
@@ -412,7 +412,7 @@ const DailyFormation = () => {
     };
 
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <header className="px-5 pt-8 pb-2 content-container">
           <p className="text-xs text-text-supporting mb-2">
             Step {createStep + 1} of {totalSteps}

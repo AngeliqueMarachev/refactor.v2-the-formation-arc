@@ -67,7 +67,7 @@ const Index = () => {
   const lastActivityLabel = stats?.last_active_at ? formatDistanceToNow(new Date(stats.last_active_at), { addSuffix: true }) : "—";
 
   return (
-    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
       <header className="relative px-5 pt-6 pb-8 content-container">
         <div className="flex justify-end">
           <button

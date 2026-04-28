@@ -61,7 +61,7 @@ const ReorientationRehearsal = () => {
   }
 
   return (
-    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
       <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
         <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Repetition illuminates receptivity</h1>
         <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[22px]">

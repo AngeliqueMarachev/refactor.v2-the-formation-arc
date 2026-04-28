@@ -15,7 +15,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   if (step === 0) {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-40 content-container">
           <h1 className="tracking-tight mb-8">The science behind daily formation</h1>
 
@@ -60,7 +60,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   if (step === 1) {
     return (
-      <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+      <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-32 content-container">
           <h1 className="tracking-tight mb-8">Reframing your story</h1>
 
@@ -113,7 +113,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
 
   // Step 2 — Screen 3
   return (
-    <div className="screen-with-bottom-nav flex min-h-screen flex-col">
+    <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
       <main className="flex flex-1 flex-col px-5 pt-10 pb-32 content-container">
         <h1 className="tracking-tight mb-8">Practicing formation daily</h1>
 
