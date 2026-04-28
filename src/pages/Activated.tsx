@@ -547,7 +547,7 @@ const Activated = () => {
         <div className="bottom-cta-flow px-5 pt-2 space-y-3 content-container">
           <div>
             <Button className="w-full" size="lg" onClick={handleSave} disabled={saving}>
-              {saving ? "Saving…" : "Save Reorientation"}
+              {saving ? "Saving…" : "Save reorientation"}
             </Button>
             <Button className="w-full mt-3" size="lg" variant="secondary" onClick={handleEdit}>
               Edit Reorientation
