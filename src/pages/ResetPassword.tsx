@@ -24,7 +24,9 @@ const ResetPassword = () => {
 
   useEffect(() => {
     // Listen for PASSWORD_RECOVERY event from Supabase auth
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event) => {
       if (event === "PASSWORD_RECOVERY") {
         setPageState("ready");
       }
@@ -105,7 +107,12 @@ const ResetPassword = () => {
   if (pageState === "verifying") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
+        <img
+          src={logo}
+          alt="The Formation Arc"
+          className="h-auto object-contain mb-8"
+          style={{ width: "min(85vw, 420px)" }}
+        />
         <p className="text-muted-foreground animate-pulse">Verifying reset link…</p>
       </div>
     );
@@ -115,18 +122,23 @@ const ResetPassword = () => {
   if (pageState === "error") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
+        <img
+          src={logo}
+          alt="The Formation Arc"
+          className="h-auto object-contain mb-8"
+          style={{ width: "min(85vw, 420px)" }}
+        />
         <div className="w-full max-w-sm space-y-6 text-center">
-          <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">Link expired</h1>
+          <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
+            LINK EXPIRED
+          </h1>
           <p className="text-sm text-muted-foreground">
             {errorMessage || "This reset link is invalid or has expired."}
           </p>
           <Button onClick={handleRequestNewLink} className="w-full">
             Back to Sign In
           </Button>
-          <p className="text-xs text-muted-foreground">
-            You can request a new password reset from the sign-in screen.
-          </p>
+          <p className="text-xs text-muted-foreground">You can request a new password reset from the sign-in screen.</p>
         </div>
       </div>
     );
@@ -136,12 +148,17 @@ const ResetPassword = () => {
   if (pageState === "success") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5">
-        <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
+        <img
+          src={logo}
+          alt="The Formation Arc"
+          className="h-auto object-contain mb-8"
+          style={{ width: "min(85vw, 420px)" }}
+        />
         <div className="w-full max-w-sm space-y-4 text-center">
-          <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">Password updated</h1>
-          <p className="text-sm text-muted-foreground">
-            Your password has been changed. Redirecting to sign in…
-          </p>
+          <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
+            PASSWORD UPDATED
+          </h1>
+          <p className="text-sm text-muted-foreground">Your password has been changed. Redirecting to sign in…</p>
         </div>
       </div>
     );
@@ -152,9 +169,16 @@ const ResetPassword = () => {
     <div className="flex min-h-screen flex-col items-center justify-center px-5 pb-12">
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center space-y-4">
-          <img src={logo} alt="The Formation Arc" className="h-auto object-contain mx-auto" style={{ width: "min(85vw, 420px)" }} />
+          <img
+            src={logo}
+            alt="The Formation Arc"
+            className="h-auto object-contain mx-auto"
+            style={{ width: "min(85vw, 420px)" }}
+          />
           <div className="space-y-1.5">
-            <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">Set a new password</h1>
+            <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
+              SET A NEW PASSWORD
+            </h1>
             <p className="text-sm text-muted-foreground">Choose a new password</p>
           </div>
         </div>
@@ -187,9 +211,7 @@ const ResetPassword = () => {
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            {fieldErrors.password && (
-              <p className="text-sm text-destructive">{fieldErrors.password}</p>
-            )}
+            {fieldErrors.password && <p className="text-sm text-destructive">{fieldErrors.password}</p>}
           </div>
 
           <div className="space-y-2">
@@ -219,9 +241,7 @@ const ResetPassword = () => {
                 {showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            {fieldErrors.confirm && (
-              <p className="text-sm text-destructive">{fieldErrors.confirm}</p>
-            )}
+            {fieldErrors.confirm && <p className="text-sm text-destructive">{fieldErrors.confirm}</p>}
           </div>
 
           <Button type="submit" className="w-full" disabled={pageState === "submitting"}>
