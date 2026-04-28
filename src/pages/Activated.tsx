@@ -405,14 +405,6 @@ const Activated = () => {
             <div className="space-y-6" style={{ animation: "fade-in 400ms ease-out forwards" }}>
               <div className="text-left py-4 max-w-md mx-auto">
                 {/* Section 1 */}
-                <div className="mb-9 space-y-1.5">
-                  <p className="text-text-body text-base leading-relaxed">Fear tried to take over the moment.</p>
-                  <p className="text-text-body text-base leading-relaxed">
-                    Instead of letting it lead, you returned and guided your system.
-                  </p>
-                </div>
-
-                {/* Section 2 */}
                 <div className="mb-9">
                   <p className="text-primary text-base leading-relaxed font-thin mb-4">
                     Your nervous system just experienced a different response.
@@ -427,7 +419,7 @@ const Activated = () => {
                   </ul>
                 </div>
 
-                {/* Section 3 */}
+                {/* Section 2 */}
                 <div>
                   <p className="text-primary text-base leading-relaxed font-thin mb-1.5">
                     This is how formation happens.
