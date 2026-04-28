@@ -159,7 +159,9 @@ const Auth = () => {
       } else if (error) {
         setAuthMessage("We couldn't create your account. Please check your email or password.");
       } else {
-        toast({ title: "Check your email", description: "We sent you a confirmation link." });
+        setIsSignUp(false);
+        setPassword("");
+        setAuthMessage("Account created. Sign in to continue.");
       }
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
