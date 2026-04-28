@@ -92,6 +92,27 @@
     z-index: 1;
   }
 
+  .root-module-fallback {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: hsl(var(--background));
+    color: hsl(var(--text-supporting));
+    text-align: center;
+  }
+
+  .root-module-fallback h1 {
+    margin: 0 0 12px;
+    font-size: 24px;
+  }
+
+  .root-module-fallback p {
+    margin: 0;
+    color: hsl(var(--text-supporting));
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
