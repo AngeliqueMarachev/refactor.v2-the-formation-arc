@@ -418,13 +418,13 @@ const Activated = () => {
                     Your nervous system just experienced a different response.
                   </p>
                   <p className="text-text-body text-base leading-relaxed mb-3">Each time you return:</p>
-                  <div className="space-y-2.5">
-                    <p className="text-text-body text-base leading-relaxed">Recovery becomes faster.</p>
-                    <p className="text-text-body text-base leading-relaxed">Your system learns steadiness.</p>
-                    <p className="text-text-body text-base leading-relaxed">
+                  <ul className="list-disc pl-5 space-y-2.5">
+                    <li className="text-text-body text-base leading-relaxed">Recovery becomes faster.</li>
+                    <li className="text-text-body text-base leading-relaxed">Your system learns steadiness.</li>
+                    <li className="text-text-body text-base leading-relaxed">
                       Your identity becomes more stable than the moment.
-                    </p>
-                  </div>
+                    </li>
+                  </ul>
                 </div>
 
                 {/* Section 3 */}
