@@ -744,7 +744,7 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">Practicing formation daily</h1>
+          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">This is how you transfrom</h1>
 
           <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg">
             <p>There are three principles to neuroplasticity:</p>
