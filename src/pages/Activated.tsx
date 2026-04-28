@@ -466,7 +466,7 @@ const Activated = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
-          <h1 className="tracking-tight mb-8">Reorienting to Truth</h1>
+          <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
             <p className="text-primary font-normal">
@@ -531,7 +531,7 @@ const Activated = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
-          <h1 className="tracking-tight mb-2">You have established reorientation</h1>
+          <h1 className="tracking-tight mb-2">You returned</h1>
           <div className="space-y-4 leading-relaxed mb-8">
             <p className="text-primary">Rehearse these words to establish a reliable pathway back to steadiness.</p>
           </div>
