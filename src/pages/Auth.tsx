@@ -6,7 +6,6 @@ import { sanitizeEmail, sanitizePasswordInput } from "@/lib/sanitize";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { getAuthRedirectUrl } from "@/lib/auth-redirects";
@@ -44,8 +43,8 @@ const Auth = () => {
   const [emailTouched, setEmailTouched] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [authMessage, setAuthMessage] = useState("");
+  const [forgotPasswordMessage, setForgotPasswordMessage] = useState("");
   const passwordInputRef = useRef<HTMLInputElement>(null);
-  const { toast } = useToast();
 
   const handleExistingAccount = () => {
     setIsSignUp(false);
@@ -90,6 +89,7 @@ const Auth = () => {
   const handleEmailChange = (value: string) => {
     const lower = sanitizeEmail(value);
     setEmail(lower);
+    if (forgotPasswordMessage) setForgotPasswordMessage("");
     if (emailTouched) setEmailError(validateEmail(lower));
   };
 
@@ -119,6 +119,7 @@ const Auth = () => {
     e.preventDefault();
     setEmailTouched(true);
     setAuthMessage("");
+    setForgotPasswordMessage("");
     const error = validateEmail(email);
     setEmailError(error);
     if (error) return;
@@ -128,9 +129,9 @@ const Auth = () => {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: getAuthRedirectUrl("/reset-password"),
       });
-      if (!error) {
-        toast({ title: "Check your email", description: "We sent you a password reset link." });
-      }
+      setForgotPasswordMessage(
+        error ? "We couldn't send the reset link. Please check your email and try again." : "We sent you a password reset link."
+      );
       setLoading(false);
       return;
     }
@@ -189,6 +190,7 @@ const Auth = () => {
                   type="button"
                   onClick={() => {
                     setAuthMessage("");
+                    setForgotPasswordMessage("");
                     setIsSignUp(!isSignUp);
                   }}
                   className="text-primary underline-offset-4 hover:underline"
@@ -243,6 +245,16 @@ const Auth = () => {
             {emailTouched && emailError && <p className="text-sm text-muted-foreground mt-1">{emailError}</p>}
           </div>
 
+          {isForgotPassword && forgotPasswordMessage && (
+            <div
+              role="status"
+              aria-live="polite"
+              className="rounded-md border border-border/40 bg-muted/40 px-3 py-2 text-sm text-muted-foreground text-center"
+            >
+              {forgotPasswordMessage}
+            </div>
+          )}
+
           {!isForgotPassword && (
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
@@ -291,6 +303,7 @@ const Auth = () => {
               type="button"
               onClick={() => {
                 setAuthMessage("");
+                setForgotPasswordMessage("");
                 setIsForgotPassword(true);
               }}
               className="w-full text-center text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3 text-sm"
@@ -305,6 +318,7 @@ const Auth = () => {
                 type="button"
                 onClick={() => {
                   setAuthMessage("");
+                  setForgotPasswordMessage("");
                   setIsForgotPassword(false);
                 }}
                 className="text-primary underline-offset-4 hover:underline"
