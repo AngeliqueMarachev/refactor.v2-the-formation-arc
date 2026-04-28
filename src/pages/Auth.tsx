@@ -128,9 +128,7 @@ const Auth = () => {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: getAuthRedirectUrl("/reset-password"),
       });
-      if (error) {
-        setAuthMessage("We couldn't send the reset link. Please check your email and try again.");
-      } else {
+      if (!error) {
         toast({ title: "Check your email", description: "We sent you a password reset link." });
       }
       setLoading(false);
@@ -278,7 +276,7 @@ const Auth = () => {
             {loading ? "..." : isForgotPassword ? "Send Reset Link" : isSignUp ? "Create account" : "Sign in"}
           </Button>
 
-          {authMessage && (
+          {authMessage && !isForgotPassword && (
             <div
               role="status"
               aria-live="polite"
