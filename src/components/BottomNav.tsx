@@ -16,7 +16,7 @@ const tabs = [
   { label: "Home", icon: House, path: "/" },
   { label: "Formation", icon: AudioLines, path: "/daily-formation" },
   { label: "Reorient", icon: Compass, path: "/activated" },
-  { label: "Anchors", icon: LibraryBig, path: "/anchors" },
+  { label: "Library", icon: LibraryBig, path: "/anchors" },
 ];
 
 interface BottomNavProps {
