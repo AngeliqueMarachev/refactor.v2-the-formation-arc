@@ -26,8 +26,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ classNa
         className,
       )}
       style={{
-        border: "1px solid rgba(168, 192, 168, 0.35)",
-        backgroundColor: "rgba(12, 70, 81, 0.35)",
         color: "hsl(var(--foreground))",
         overflow: "hidden",
       }}
