@@ -54,7 +54,7 @@ const Index = () => {
       path: "/activated",
     },
     {
-      title: "Anchor Recall",
+      title: "Anchor Library",
       subtitle: "Return here to revisit established moments of safety.",
       icon: LibraryBig,
       path: "/anchors",

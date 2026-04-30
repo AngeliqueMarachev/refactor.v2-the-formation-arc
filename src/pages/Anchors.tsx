@@ -321,7 +321,7 @@ const Anchors = () => {
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-8 content-container">
-        <h1 className="tracking-tight font-serif">Return to an anchor</h1>
+        <h1 className="tracking-tight font-serif">Return to your library</h1>
         <p className="text-supporting mt-4 text-primary">Return to Anchors that help you expect steadiness.</p>
         <p className="text-supporting mt-4">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
       </header>
@@ -331,7 +331,7 @@ const Anchors = () => {
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/60">
             <LibraryBig className="h-7 w-7 text-primary" />
           </div>
-          <h2 className="font-semibold">Create an Anchor</h2>
+          <h2 className="font-semibold">Your Library</h2>
           <p className="max-w-xs text-supporting">
             Anchors are memories and phrases that help your nervous system learn steadiness.
           </p>
