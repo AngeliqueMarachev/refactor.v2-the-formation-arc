@@ -201,7 +201,7 @@ const Anchors = () => {
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <ScrollArea className="flex-1 px-5">
           <div className="pt-8 pb-8 content-container">
-            <h1 className="tracking-tight font-serif">Strengthen your anchor</h1>
+            <h1 className="tracking-tight font-serif">Strengthen your anchors</h1>
             <div className="h-6" aria-hidden="true" />
             <section>
               <div className="h-5" aria-hidden="true" />
