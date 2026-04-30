@@ -183,7 +183,7 @@ const Anchors = () => {
                 }}
                 className="w-full"
               >
-                Recall This Anchor
+                Recall this anchor
               </Button>
             </div>
           </div>
