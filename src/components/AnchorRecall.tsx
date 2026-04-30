@@ -296,7 +296,7 @@ const AnchorRecall = ({
                 value={sceneText}
                 onChange={(e) => onSceneTextChange(sanitizeTextInput(e.target.value, { maxLength: 5000, multiline: true }))}
                 maxLength={5000}
-                className="min-h-[140px]"
+                className="min-h-[140px] bg-muted border-secondary border"
               />
             </div>
 
