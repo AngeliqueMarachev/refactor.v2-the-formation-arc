@@ -322,7 +322,7 @@ const Anchors = () => {
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-8 content-container">
         <h1 className="tracking-tight font-serif">Return to your anchors</h1>
-        <p className="text-supporting mt-4 text-primary">Return to Anchors that help you expect steadiness.</p>
+        <p className="text-supporting mt-4 text-primary">Return to the memories that anchor you in steadiness.</p>
         <p className="text-supporting mt-4">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
       </header>
 
