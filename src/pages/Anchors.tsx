@@ -80,12 +80,6 @@ const Anchors = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col items-center justify-center px-5 text-center content-container">
-          <WakeLockToggle
-            enabled={wakeLockToggle}
-            onToggle={handleWakeLockToggle}
-            isSupported={wakeLock.isSupported}
-            className="mb-8 w-full"
-          />
           <div>
             <p className="text-supporting leading-relaxed max-w-xs">Take 10–20 seconds to return to this moment.</p>
             <p className="text-supporting leading-relaxed max-w-xs">Let the feeling become familiar again.</p>
