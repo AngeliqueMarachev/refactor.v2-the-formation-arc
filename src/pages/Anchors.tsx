@@ -307,7 +307,7 @@ const Anchors = () => {
             </section>
             <div className="h-8" aria-hidden="true" />
             <Button className="w-full" onClick={() => setView("list")}>
-              Choose an Anchor
+              Choose an anchor
             </Button>
           </div>
         </ScrollArea>
