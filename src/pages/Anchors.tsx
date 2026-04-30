@@ -339,7 +339,7 @@ const Anchors = () => {
           <p className="max-w-xs text-supporting">
             Anchors are memories and phrases that help your nervous system learn steadiness.
           </p>
-          <p className="max-w-xs text-supporting">Anchors are created during Daily Formation.</p>
+          <p className="max-w-xs text-supporting">Anchors are created during daily formation.</p>
           <p className="max-w-xs text-supporting">Your library will grow over time as you create new anchors.</p>
           <p className="max-w-xs text-supporting">
             Each time you return to an anchor, the pathway becomes easier to access and safety is reinforced.
