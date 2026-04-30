@@ -335,7 +335,7 @@ const Anchors = () => {
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary/60">
             <LibraryBig className="h-7 w-7 text-primary" />
           </div>
-          <h2 className="font-semibold">Your Library is empty</h2>
+          <h2 className="font-semibold">Your anchor library is empty</h2>
           <p className="max-w-xs text-supporting">
             Anchors are memories and phrases that help your nervous system learn steadiness.
           </p>
