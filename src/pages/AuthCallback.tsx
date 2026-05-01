@@ -12,14 +12,22 @@ const AuthCallback = () => {
     const completeConfirmation = async () => {
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
+      const errorParam = params.get("error") || params.get("error_code");
+
+      let confirmationFailed = !!errorParam;
 
       if (code) {
         const { error } = await supabase.auth.exchangeCodeForSession(code);
-        if (error) console.error("Email confirmation callback failed", error);
+        if (error) {
+          console.error("Email confirmation callback failed", error);
+          confirmationFailed = true;
+        }
       }
 
       const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
       const hashType = hashParams.get("type");
+      const hashError = hashParams.get("error") || hashParams.get("error_code");
+      if (hashError) confirmationFailed = true;
 
       if (hashType === "signup" || code) {
         localStorage.removeItem("last_route");
@@ -28,7 +36,7 @@ const AuthCallback = () => {
       }
 
       if (!cancelled) {
-        navigate("/auth?confirmed=true", { replace: true });
+        navigate(confirmationFailed ? "/auth?confirmed=false" : "/auth?confirmed=true", { replace: true });
       }
     };
 
