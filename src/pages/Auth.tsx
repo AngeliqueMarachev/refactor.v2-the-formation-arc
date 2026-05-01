@@ -131,41 +131,59 @@ const Auth = () => {
     if (error) return;
     setLoading(true);
 
-    if (isForgotPassword) {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: getAuthRedirectUrl("/reset-password"),
-      });
-      setForgotPasswordMessage(
-        error ? "We couldn't send the reset link. Please check your email and try again." : "We sent you a password reset link."
-      );
+    const networkErrorMessage = "We couldn't complete this request. Please try again.";
+
+    try {
+      if (isForgotPassword) {
+        try {
+          const { error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: getAuthRedirectUrl("/reset-password"),
+          });
+          setForgotPasswordMessage(
+            error
+              ? "We couldn't send the reset link. Please try again."
+              : "If an account exists for this email, you'll receive a reset link."
+          );
+        } catch {
+          setForgotPasswordMessage("We couldn't send the reset link. Please try again.");
+        }
+        return;
+      }
+
+      if (isSignUp) {
+        try {
+          const { data, error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
+          });
+          const isExistingAccountError = isDuplicateAccountError(error, data);
+
+          if (error || isExistingAccountError) {
+            setAuthMessage("We couldn't create your account. Try signing in or resetting your password.");
+          } else {
+            setIsSignUp(false);
+            setPassword("");
+            setAuthMessage("Account created. Sign in to continue.");
+          }
+        } catch {
+          setAuthMessage(networkErrorMessage);
+        }
+      } else {
+        try {
+          const { error } = await supabase.auth.signInWithPassword({ email, password });
+          if (error) {
+            setAuthMessage("We couldn't sign you in. Please check your email or password.");
+          } else {
+            setAuthMessage("");
+          }
+        } catch {
+          setAuthMessage(networkErrorMessage);
+        }
+      }
+    } finally {
       setLoading(false);
-      return;
     }
-
-    if (isSignUp) {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
-      });
-      const isExistingAccountError = isDuplicateAccountError(error, data);
-
-      if (error || isExistingAccountError) {
-        setAuthMessage("We couldn't create your account. Try signing in or resetting your password.");
-      } else {
-        setIsSignUp(false);
-        setPassword("");
-        setAuthMessage("Account created. Sign in to continue.");
-      }
-    } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        setAuthMessage("We couldn't sign you in. Please check your email or password.");
-      } else {
-        setAuthMessage("");
-      }
-    }
-    setLoading(false);
   };
 
   return (
