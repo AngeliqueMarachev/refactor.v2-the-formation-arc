@@ -66,10 +66,16 @@ const Auth = () => {
   };
 
   useEffect(() => {
-    if (searchParams.get("confirmed") === "true") {
+    const confirmed = searchParams.get("confirmed");
+    if (confirmed === "true") {
       setIsSignUp(false);
       setIsForgotPassword(false);
       setAuthMessage("Your email has been confirmed. You can now sign in.");
+      setSearchParams({}, { replace: true });
+    } else if (confirmed === "false") {
+      setIsSignUp(false);
+      setIsForgotPassword(false);
+      setAuthMessage("This confirmation link is invalid or has expired. Please request a new one.");
       setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
