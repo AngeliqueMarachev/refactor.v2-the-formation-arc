@@ -299,7 +299,7 @@ const Auth = () => {
           )}
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "..." : isForgotPassword ? "Send Reset Link" : isSignUp ? "Create account" : "Sign in"}
+            {loading ? "..." : isForgotPassword ? "Send reset link" : isSignUp ? "Create account" : "Sign in"}
           </Button>
 
           {isForgotPassword && forgotPasswordMessage && (
