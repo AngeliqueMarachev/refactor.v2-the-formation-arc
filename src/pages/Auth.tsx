@@ -142,7 +142,7 @@ const Auth = () => {
           setForgotPasswordMessage(
             error
               ? "We couldn't send the reset link. Please try again."
-              : "If an account exists for this email, you'll receive a reset link."
+              : "If an account exists for this email, you'll receive a reset link.",
           );
         } catch {
           setForgotPasswordMessage("We couldn't send the reset link. Please try again.");
@@ -164,7 +164,7 @@ const Auth = () => {
           } else {
             setIsSignUp(false);
             setPassword("");
-            setAuthMessage("Account created. Sign in to continue.");
+            setAuthMessage("Account created. Check your email to verify your account.");
           }
         } catch {
           setAuthMessage(networkErrorMessage);
@@ -199,7 +199,9 @@ const Auth = () => {
           <div className="space-y-1.5 text-supporting italic leading-relaxed">
             <p className="text-primary not-italic font-normal text-center">Overcome Fear. Restore identity.</p>
             <p></p>
-            <p className="text-base not-italic text-destructive-foreground text-center">A practice for retraining distress and strengthening stability.</p>
+            <p className="text-base not-italic text-destructive-foreground text-center">
+              A practice for retraining distress and strengthening stability.
+            </p>
           </div>
           <div className="space-y-3">
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
