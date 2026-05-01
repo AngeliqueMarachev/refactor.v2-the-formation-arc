@@ -66,10 +66,16 @@ const Auth = () => {
   };
 
   useEffect(() => {
-    if (searchParams.get("confirmed") === "true") {
+    const confirmed = searchParams.get("confirmed");
+    if (confirmed === "true") {
       setIsSignUp(false);
       setIsForgotPassword(false);
       setAuthMessage("Your email has been confirmed. You can now sign in.");
+      setSearchParams({}, { replace: true });
+    } else if (confirmed === "false") {
+      setIsSignUp(false);
+      setIsForgotPassword(false);
+      setAuthMessage("This confirmation link is invalid or has expired. Please request a new one.");
       setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
@@ -144,10 +150,8 @@ const Auth = () => {
       });
       const isExistingAccountError = isDuplicateAccountError(error, data);
 
-      if (isExistingAccountError) {
-        handleExistingAccount();
-      } else if (error) {
-        setAuthMessage("We couldn't create your account. Please check your email or password.");
+      if (error || isExistingAccountError) {
+        setAuthMessage("We couldn't create your account. Try signing in or resetting your password.");
       } else {
         setIsSignUp(false);
         setPassword("");
