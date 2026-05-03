@@ -91,7 +91,7 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
           </AlertDialogDescription>
           <AlertDialogFooter>
             <AlertDialogCancel className="w-[8.875rem] border-primary text-primary hover:bg-primary/10">Stay</AlertDialogCancel>
-            <AlertDialogAction className="w-[8.875rem]" onClick={handleContinue}>Continue</AlertDialogAction>
+            <AlertDialogAction className="w-[8.875rem]" onClick={handleContinue}>Come back later</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
