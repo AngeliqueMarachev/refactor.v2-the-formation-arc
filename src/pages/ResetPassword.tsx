@@ -138,7 +138,7 @@ const ResetPassword = () => {
             {errorMessage || "This reset link is invalid or has expired."}
           </p>
           <Button onClick={handleRequestNewLink} className="w-full">
-            Back to Sign In
+            Back to sign in
           </Button>
           <p className="text-xs text-muted-foreground">You can request a new password reset from the sign-in screen.</p>
         </div>
