@@ -25,7 +25,7 @@ const CoreOrientation = () => {
             Your life experiences shape your interpretation of the world. Your thoughts create your reality, upholding
             this unique interpretation.
           </p>
-          <p>To keep you safe, the brain scans for recognizable patterns that signal danger.</p>
+          
           <p>
             Traumatic events or prolonged stress can program your system to scan for recognizable patterns that signal
             danger in order to protect you. Over time, these patterns become physical structures in the brain and
