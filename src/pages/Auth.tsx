@@ -46,6 +46,16 @@ const Auth = () => {
   const [forgotPasswordMessage, setForgotPasswordMessage] = useState("");
   const passwordInputRef = useRef<HTMLInputElement>(null);
 
+  const resetFormFields = () => {
+    setEmail("");
+    setPassword("");
+    setShowPassword(false);
+    setEmailTouched(false);
+    setEmailError("");
+    setAuthMessage("");
+    setForgotPasswordMessage("");
+  };
+
   const handleExistingAccount = () => {
     setIsSignUp(false);
     setIsForgotPassword(false);
@@ -222,9 +232,9 @@ const Auth = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    setAuthMessage("");
-                    setForgotPasswordMessage("");
-                    setIsSignUp(!isSignUp);
+                    const next = !isSignUp;
+                    resetFormFields();
+                    setIsSignUp(next);
                   }}
                   className="text-primary underline-offset-4 hover:underline"
                 >
@@ -335,8 +345,7 @@ const Auth = () => {
             <button
               type="button"
               onClick={() => {
-                setAuthMessage("");
-                setForgotPasswordMessage("");
+                resetFormFields();
                 setIsForgotPassword(true);
               }}
               className="w-full text-center text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3 text-sm"
@@ -350,9 +359,9 @@ const Auth = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setAuthMessage("");
-                  setForgotPasswordMessage("");
+                  resetFormFields();
                   setIsForgotPassword(false);
+                  setIsSignUp(false);
                 }}
                 className="text-primary underline-offset-4 hover:underline"
               >
