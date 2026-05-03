@@ -251,7 +251,7 @@ const ResetPassword = () => {
           {formMessage && <p className="text-sm text-muted-foreground text-center">{formMessage}</p>}
 
           <Button type="submit" className="w-full" disabled={pageState === "submitting"}>
-            {pageState === "submitting" ? "Updating…" : "Update Password"}
+            {pageState === "submitting" ? "Updating…" : "Update password"}
           </Button>
         </form>
       </div>
