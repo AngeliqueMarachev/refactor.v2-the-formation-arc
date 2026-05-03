@@ -232,9 +232,9 @@ const Auth = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    setAuthMessage("");
-                    setForgotPasswordMessage("");
-                    setIsSignUp(!isSignUp);
+                    const next = !isSignUp;
+                    resetFormFields();
+                    setIsSignUp(next);
                   }}
                   className="text-primary underline-offset-4 hover:underline"
                 >
