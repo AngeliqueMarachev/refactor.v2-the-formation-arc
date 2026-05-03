@@ -166,8 +166,10 @@ const Auth = () => {
           });
           const isExistingAccountError = isDuplicateAccountError(error, data);
 
-          if (error || isExistingAccountError) {
-            setAuthMessage("We couldn't create your account. Try signing in or resetting your password.");
+          if (isExistingAccountError) {
+            setAuthMessage("An account exists for this email address. Try signing in.");
+          } else if (error) {
+            setAuthMessage("We couldn't create your account. Please try again.");
           } else {
             setIsSignUp(false);
             setPassword("");
