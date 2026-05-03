@@ -46,6 +46,16 @@ const Auth = () => {
   const [forgotPasswordMessage, setForgotPasswordMessage] = useState("");
   const passwordInputRef = useRef<HTMLInputElement>(null);
 
+  const resetFormFields = () => {
+    setEmail("");
+    setPassword("");
+    setShowPassword(false);
+    setEmailTouched(false);
+    setEmailError("");
+    setAuthMessage("");
+    setForgotPasswordMessage("");
+  };
+
   const handleExistingAccount = () => {
     setIsSignUp(false);
     setIsForgotPassword(false);
