@@ -93,10 +93,10 @@ const ResetPassword = () => {
       setFormMessage("Please choose a password you have not used before.");
     } else {
       setPageState("success");
-      // Sign out so user starts fresh, then redirect to auth
+      // Sign out so user starts fresh, then redirect to sign-in
       setTimeout(async () => {
         await supabase.auth.signOut();
-        navigate("/auth", { replace: true });
+        navigate("/auth?mode=signin", { replace: true });
       }, 2500);
     }
   };

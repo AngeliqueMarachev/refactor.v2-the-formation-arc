@@ -66,7 +66,14 @@ const Auth = () => {
   };
 
   useEffect(() => {
+    const mode = searchParams.get("mode");
     const confirmed = searchParams.get("confirmed");
+    if (mode === "signin") {
+      setIsSignUp(false);
+      setIsForgotPassword(false);
+      setSearchParams({}, { replace: true });
+      return;
+    }
     if (confirmed === "true") {
       setIsSignUp(false);
       setIsForgotPassword(false);
