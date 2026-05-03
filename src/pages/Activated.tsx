@@ -462,7 +462,7 @@ const Activated = () => {
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
             <p className="text-primary font-normal">
-              When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking, and
+              When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking and
               retrain the brain to respond to life in ways that better serve us.
             </p>
             <p className="text-text-body">
