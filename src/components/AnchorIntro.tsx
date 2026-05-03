@@ -45,7 +45,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
         <div className="bottom-cta-flow px-5 pt-2 content-container space-y-2">
           <div className="space-y-2">
             <Button className="w-full" size="lg" onClick={() => setStep(1)}>
-              Continue
+              Come back later
             </Button>
             <Button className="w-full" size="lg" variant="secondary" onClick={onComplete}>
               Skip
@@ -101,7 +101,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
         <div className="bottom-cta-flow px-5 pt-2 content-container">
           <div>
             <Button className="w-full" size="lg" onClick={() => setStep(2)}>
-              Continue
+              Come back later
             </Button>
           </div>
         </div>
@@ -159,7 +159,7 @@ const AnchorIntro = ({ onComplete }: AnchorIntroProps) => {
       <div className="bottom-cta-flow px-5 pt-2 content-container">
         <div>
           <Button className="w-full" size="lg" onClick={onComplete}>
-            Continue
+            Come back later
           </Button>
         </div>
       </div>
