@@ -359,9 +359,9 @@ const Auth = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setAuthMessage("");
-                  setForgotPasswordMessage("");
+                  resetFormFields();
                   setIsForgotPassword(false);
+                  setIsSignUp(false);
                 }}
                 className="text-primary underline-offset-4 hover:underline"
               >
