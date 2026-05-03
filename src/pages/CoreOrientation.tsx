@@ -27,9 +27,9 @@ const CoreOrientation = () => {
           </p>
           
           <p>
-            Traumatic events or prolonged stress can program your system to scan for recognizable patterns that signal
-            danger in order to protect you. Over time, these patterns become physical structures in the brain and
-            strongholds in our lives.{" "}
+            Traumatic events or prolonged stress can program your system be on constant alert for recognizable patterns
+            that signal danger to proactively protect you. Over time, these patterns become physical structures in the
+            brain and strongholds in our lives.{" "}
           </p>
           <p>
             Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies
