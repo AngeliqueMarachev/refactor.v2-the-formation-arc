@@ -26,14 +26,16 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ classNa
         className,
       )}
       style={{
+        border: "1px solid rgba(168, 192, 168, 0.35)",
+        backgroundColor: "rgba(12, 70, 81, 0.35)",
         color: "hsl(var(--foreground))",
         overflow: "hidden",
       }}
       onFocus={(e) => {
-        (e.target as HTMLTextAreaElement).style.borderColor = "hsl(var(--primary) / 0.6)";
+        (e.target as HTMLTextAreaElement).style.borderColor = "rgba(168, 192, 168, 0.6)";
       }}
       onBlur={(e) => {
-        (e.target as HTMLTextAreaElement).style.borderColor = "";
+        (e.target as HTMLTextAreaElement).style.borderColor = "rgba(168, 192, 168, 0.35)";
       }}
       onInput={(e) => {
         resize(e.target as HTMLTextAreaElement);
