@@ -345,8 +345,7 @@ const Auth = () => {
             <button
               type="button"
               onClick={() => {
-                setAuthMessage("");
-                setForgotPasswordMessage("");
+                resetFormFields();
                 setIsForgotPassword(true);
               }}
               className="w-full text-center text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline mt-3 text-sm"
