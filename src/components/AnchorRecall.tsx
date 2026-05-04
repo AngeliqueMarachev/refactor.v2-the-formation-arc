@@ -241,10 +241,6 @@ const AnchorRecall = ({
                     OBSERVATION
                   </h2>
                   <p className="text-text-body text-base leading-relaxed">Notice where you are.</p>
-                  <p className="text-text-body text-base leading-relaxed">Notice your age in this moment.</p>
-                  <p className="text-text-body text-base leading-relaxed">
-                    Notice whether you are alone or with someone else.
-                  </p>
                 </div>
               </div>
 
