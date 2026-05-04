@@ -498,8 +498,8 @@ const Activated = () => {
           </div>
 
           <div className="space-y-4 leading-relaxed mb-10">
-            <p className="text-text-body">Each time you return, this becomes easier to access.</p>
-            <p>Steadiness becomes more familiar.</p>
+            <p className="text-text-body">Each time you return, patterns becomes easier to interrupt.</p>
+            <p>Steadiness begins to take root.</p>
           </div>
         </main>
 
