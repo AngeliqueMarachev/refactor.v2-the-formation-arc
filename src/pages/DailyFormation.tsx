@@ -355,9 +355,9 @@ const DailyFormation = () => {
               <p className="text-supporting leading-relaxed">
                 Let the meaning of this moment gently unfold.
                 <br />
-                Sometimes a memory holds more than we first noticed.
+                Allow what is already there to become clear.
                 <br />
-                Allow new understanding to emerge naturally.
+                Write a few words that feel true now.
               </p>
 
               {/* Vertical pathway container */}
@@ -372,14 +372,8 @@ const DailyFormation = () => {
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       EXPANSION
                     </h2>
-                    <p className="text-supporting leading-relaxed mt-2">
-                      You may notice new meaning emerging as you stay with the memory.
-                    </p>
-                    <p className="text-supporting leading-relaxed mt-2">
-                      What else becomes visible as you remain in this scene?
-                      <br />
-                      Is there something about this moment, or about yourself, that feels clearer now?
-                    </p>
+                    <p className="text-supporting leading-relaxed mt-2">Stay with the memory.</p>
+                    <p className="text-supporting leading-relaxed mt-2">Let new meaning come into view.</p>
                     <Textarea
                       placeholder="e.g. Creation celebrates me. "
                       value={meaningConclusion}
@@ -403,9 +397,9 @@ const DailyFormation = () => {
                       PRESENCE
                     </h2>
                     <p className="text-supporting leading-relaxed mt-2">
-                      If God were present with you in this moment, how might that have felt?
+                      Let yourself experience this moment with God present.
                       <br />
-                      What changes when the moment is experienced with support?
+                      Notice what changes as you feel supported.
                     </p>
                     <Textarea
                       placeholder="e.g. We were full of joy and I saw Jesus thanking God for me!"
@@ -429,7 +423,7 @@ const DailyFormation = () => {
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       NEARNESS
                     </h2>
-                    <p className="text-supporting leading-relaxed mt-2">How present did God feel in this moment?</p>
+                    <p className="text-supporting leading-relaxed mt-2">Awareness of God</p>
                     <div className="mt-2">
                       <div className="relative flex items-center justify-between px-1 sm:px-4 w-full">
                         {/* Background connector line — spans center of first circle to center of last */}
@@ -498,7 +492,7 @@ const DailyFormation = () => {
                       Imagine this experience as a warmth, a color, or a gentle current.
                     </p>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Allow it to move slowly through you, from your head, through your chest, into your body.
+                      Let it to move slowly through you, from your head, through your chest, into your body.
                     </p>
                     <p className="text-supporting leading-relaxed mt-2">
                       Allow your body to recognize this experience.
