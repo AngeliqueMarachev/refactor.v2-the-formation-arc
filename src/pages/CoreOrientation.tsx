@@ -21,10 +21,8 @@ const CoreOrientation = () => {
 
         {/* Intro text */}
         <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-0 pb-0">
-          <p>
-            Your life experiences shape your interpretation of the world. Your thoughts create your reality, upholding
-            this unique interpretation.
-          </p>
+          <p>Your life experiences shape your interpretation of the world.</p>
+          <p>Your thoughts create your reality, upholding this unique interpretation.</p>
 
           <p>
             Traumatic events or prolonged stress can program your system be on constant alert for recognizable patterns
