@@ -240,7 +240,9 @@ const AnchorRecall = ({
                   <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                     OBSERVATION
                   </h2>
-                  <p className="text-text-body text-base leading-relaxed">Notice where you are.</p>
+                  <p className="text-text-body text-base leading-relaxed">
+                    Where are you? How old are you? Who is with you?
+                  </p>
                 </div>
               </div>
 
