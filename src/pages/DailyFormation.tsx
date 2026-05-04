@@ -372,8 +372,11 @@ const DailyFormation = () => {
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       EXPANSION
                     </h2>
-                    <p className="text-supporting leading-relaxed mt-2">Stay with the memory.</p>
-                    <p className="text-supporting leading-relaxed mt-2">Let new meaning come into view.</p>
+                    <p className="text-supporting leading-relaxed mt-2">
+                      Stay with the memory.
+                      <br />
+                      Let new meaning come into view.
+                    </p>
                     <Textarea
                       placeholder="e.g. Creation celebrates me. "
                       value={meaningConclusion}
@@ -421,9 +424,9 @@ const DailyFormation = () => {
                   </div>
                   <div className="pb-8 flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      NEARNESS
+                      AWARENESS
                     </h2>
-                    <p className="text-supporting leading-relaxed mt-2">Awareness of God</p>
+                    <p className="text-supporting leading-relaxed mt-2">Notice how present God feels in this moment.</p>
                     <div className="mt-2">
                       <div className="relative flex items-center justify-between px-1 sm:px-4 w-full">
                         {/* Background connector line — spans center of first circle to center of last */}
