@@ -497,9 +497,7 @@ const DailyFormation = () => {
                     <p className="text-supporting leading-relaxed mt-2">
                       Let it to move slowly through you, from your head, through your chest, into your body.
                     </p>
-                    <p className="text-supporting leading-relaxed mt-2">
-                      Allow your body to recognize this experience.
-                    </p>
+
                     <p className="text-supporting leading-relaxed mt-2">Take one slow breath here.</p>
                   </div>
                 </div>
