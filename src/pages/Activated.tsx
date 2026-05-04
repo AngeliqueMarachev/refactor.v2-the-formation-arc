@@ -59,16 +59,13 @@ const PHASES = [
   },
   {
     title: "Shepherd Your Soul",
-    introduction: [
-      "Speak to yourself with steadiness and kindness.",
-      "Choose the words that will guide you right now.",
-    ],
+    introduction: ["Be gentle with yourself in this moment.", "Choose what you need to hear."],
     customLabel: "Write your own encouragement",
     options: [
       "You're not broken. Your body is protecting you.",
       "You are allowed to need time.",
       "You are learning to stand differently.",
-      "Emotions don't remove your authority.",
+      "This feeling doesn’t control you.",
     ],
   },
   {
