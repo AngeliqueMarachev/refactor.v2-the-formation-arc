@@ -351,7 +351,7 @@ const DailyFormation = () => {
           {/* Step 1: Meaning */}
           {createStep === 1 && (
             <div className="space-y-4">
-              <h1 className="tracking-tight">Expand your conclusion</h1>
+              <h1 className="tracking-tight">Expand the meaning</h1>
               <p className="text-supporting leading-relaxed">
                 Let the meaning of this moment gently unfold.
                 <br />
