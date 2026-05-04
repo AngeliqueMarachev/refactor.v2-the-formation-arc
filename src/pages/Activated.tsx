@@ -482,9 +482,9 @@ const Activated = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
-          <h1 className="tracking-tight mb-2">You returned</h1>
+          <h1 className="tracking-tight mb-2">You interrupted the pattern</h1>
           <div className="space-y-4 leading-relaxed mb-8">
-            <p className="text-primary">You interrupted the pattern and chose a different response.</p>
+            <p className="text-primary">This is how change begins.</p>
             <p className="text-text-body">Read this slowly.</p>
           </div>
 
@@ -498,9 +498,8 @@ const Activated = () => {
           </div>
 
           <div className="space-y-4 leading-relaxed mb-10">
-            <p className="text-text-body">
-              Over time, returning will becomes more natural, and steadiness will becomes more familiar.
-            </p>
+            <p className="text-text-body">Each time you return, this becomes easier to access.</p>
+            <p>Steadiness becomes more familiar.</p>
           </div>
         </main>
 
