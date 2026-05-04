@@ -308,7 +308,7 @@ const AnchorRecall = ({
             <div className="space-y-2">
               <label className="text-sm font-medium text-text-heading text-primary">Stay with the moment</label>
               <Textarea
-                placeholder="e.g. I am in my grandmother’s garden. The air is cool and still. I can smell the soil and feel the ground beneath my feet. Everything feels unhurried. I feel safe here. I feel held. Nothing is demanding anything from me."
+                placeholder="I am in my grandmother’s garden. The air is cool. I can feel the ground beneath my feet. I feel safe here."
                 value={sceneText}
                 onChange={(e) =>
                   onSceneTextChange(sanitizeTextInput(e.target.value, { maxLength: 5000, multiline: true }))
