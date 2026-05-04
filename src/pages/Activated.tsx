@@ -48,16 +48,13 @@ const PHASES = [
   },
   {
     title: "Choose Your Agreement",
-    introduction: [
-      "Protective patterns offer an interpretation of this moment.",
-      "Break agreements with the lies. Choose a statement that reflects Truth.",
-    ],
+    introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
     customLabel: "Write your own statement",
     options: [
-      "I choose to align with God instead of fear.",
-      "I belong to a Kingdom of peace.",
+      "I choose to align with God, not of fear.",
+      "I am safe in God right now.",
       "No weapon formed against me shall prosper.",
-      "I have a sound mind and not a spirit of fear.",
+      "God has given me a sound mind, not a spirit of fear.",
     ],
   },
   {
