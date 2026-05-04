@@ -156,8 +156,7 @@ const AnchorRecall = ({
           {!selectedScene && selectedCategory && (
             <>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Let your mind wander back to a moment that naturally carries a sense of ease, enjoyment, or simple
-                goodness.
+                Step back to a moment that felt safe, easy, or natural.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Slow this moment down as you let yourself step into it.
