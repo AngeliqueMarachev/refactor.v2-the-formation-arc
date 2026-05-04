@@ -220,9 +220,6 @@ const AnchorRecall = ({
         {/* Visualization guidance + writing field */}
         {selectedScene && (
           <>
-            <p className="text-text-body text-base leading-relaxed">
-              Let the scene come into focus gently. Use your senses to allow the moment to become vivid.
-            </p>
 
             {/* Vertical step structure */}
             <div className="relative">
