@@ -67,15 +67,12 @@ const ReorientationRehearsal = () => {
         <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[22px]">
           REORIENTATION
         </h2>
-        <p className="text-text-body text-sm mt-3">
-          Rehearsing your reorientation signals stability to the nervous system, allowing the mind to become receptive.
-        </p>
-        <p className="text-primary text-sm mt-3">A receptive system forms steadier expectations more easily.</p>
+        <p className="text-text-body text-sm mt-3">Move through your sequence slowly.</p>
         <div className="mb-6" />
 
         <p className="text-text-supporting text-sm mb-0">Tap each step.</p>
         <p className="text-text-supporting text-sm mb-0">Read it slowly.</p>
-        <p className="text-text-supporting text-sm mb-4">Allow the words to settle.</p>
+        <p className="text-text-supporting text-sm mb-4">Let each line settle.</p>
 
         <div className="space-y-6 mb-12">
           {phases.map((phase) => {
