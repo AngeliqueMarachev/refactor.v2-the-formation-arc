@@ -288,7 +288,7 @@ const Activated = () => {
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
-        <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
+        <main className="flex flex-1 flex-col px-5 pt-10 content-container pb-0">
           <h1 className="tracking-tight mb-2 pb-[10px]">Your reorientation path</h1>
 
           <WakeLockToggle
