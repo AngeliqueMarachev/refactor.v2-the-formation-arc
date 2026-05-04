@@ -38,12 +38,12 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
 
 const SCENE_SUGGESTIONS: Record<string, string[]> = {
   "before-life-changed": [
-    "A birthday party you enjoyed",
-    "A holiday you fondly celebrated",
-    "A park you used to play at",
+    "A birthday you enjoyed",
+    "A special holiday",
+    "Your favorite place",
     "Your childhood backyard",
-    "The smell of breakfast on a Saturday morning",
-    "Something else",
+    "The smell of breakfast on a slow morning",
+    "A different memory",
   ],
 
   "places-you-loved": [
