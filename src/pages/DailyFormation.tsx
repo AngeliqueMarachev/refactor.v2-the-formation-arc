@@ -241,23 +241,9 @@ const DailyFormation = () => {
               The nervous system responds strongly to signals of safety, connection and support.
             </p>
 
-            <p className="text-primary font-normal">Prayer communicates support to your system.</p>
-
-            <p>It signals that you are not alone in this moment.</p>
-
-            <p>When the system senses support, internal pressure decreases.</p>
-            <p>
-              Reduced pressure allows the system to soften.
-              <br />A softened system becomes more receptive to change.
-            </p>
-
-            <p>
-              You do not need the right words.
-              <br />
-              You do not need the right feeling.
-            </p>
-
-            <p className="text-primary font-normal">
+            <p className="font-normal text-secondary-foreground">Prayer communicates support to your system.</p>
+...
+            <p className="font-normal text-secondary-foreground">
               Pause, give thanks, and entrust God with the outcomes of this moment.
             </p>
 
@@ -592,7 +578,7 @@ const DailyFormation = () => {
                   Your brain remembers stories. But it stabilizes around summaries.
                 </p>
               </div>
-              <p className="font-normal text-primary">
+              <p className="font-normal text-secondary-foreground">
                 Your Anchor Phrase updates an old template that no longer serves you.
               </p>
               <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
