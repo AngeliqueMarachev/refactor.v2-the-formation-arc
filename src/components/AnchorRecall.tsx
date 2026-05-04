@@ -139,7 +139,7 @@ const AnchorRecall = ({
           {!selectedScene && !selectedCategory && (
             <>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[10px]">
-                REORIENTATION
+                ANCHOR MEMORY
               </h2>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Bring to mind a moment that feels meaningful.
