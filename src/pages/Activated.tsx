@@ -37,16 +37,13 @@ const PHASES = [
   },
   {
     title: "Untangle Time",
-    introduction: [
-      "Separate past learning from present reality.",
-      "Choose the statement that reminds your system that then is not now.",
-    ],
+    introduction: ["This is not the past. This is now.", "Choose what feels true."],
     customLabel: "Write your own statement",
     options: [
-      "The season that taught my body to respond like this is in the past.",
-      "I survived that chapter. This is a different moment.",
-      "My nervous system is remembering the past, but I am safe now.",
-      "In the past, I believed the lies, but now I align with Truth.",
+      "That season is over. This is a different moment.",
+      "I survived that chapter. I am here now.",
+      "My body is remembering, but I am safe now.",
+      "I am not back there. I am here.",
     ],
   },
   {
