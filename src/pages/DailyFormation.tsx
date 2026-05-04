@@ -217,7 +217,7 @@ const DailyFormation = () => {
             <p className="font-normal text-secondary-foreground">Give thanks, and place this moment in God’s hands.</p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                I've given this to God
+                I give this to God
               </Button>
             </div>
           </div>
