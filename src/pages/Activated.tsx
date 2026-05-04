@@ -16,7 +16,7 @@ const PHASES = [
   {
     title: "Line In The Sand",
     introduction: [
-      "Interrupt escalation. Establish internal authority.",
+      "Choose a phrase to pause the moment.",
       "Choose a phrase that helps you pause and find yourself in the present.",
     ],
     customLabel: "Write your own interruption",
