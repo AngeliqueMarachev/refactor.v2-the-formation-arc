@@ -320,11 +320,11 @@ const DailyFormation = () => {
 
     const canProceed = () => {
       if (createStep === 1) {
-        return meaningConclusion.trim().length > 0 && widenedMeaning.trim().length > 0;
-      }
-
-      if (createStep === 2) {
-        return anchorPhrase.trim().length > 0;
+        return (
+          meaningConclusion.trim().length > 0 &&
+          widenedMeaning.trim().length > 0 &&
+          anchorPhrase.trim().length > 0
+        );
       }
 
       return true;
