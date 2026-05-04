@@ -289,7 +289,7 @@ const Activated = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
-          <h1 className="tracking-tight mb-2">Your reorientation path</h1>
+          <h1 className="tracking-tight mb-2 pb-[10px]">Your reorientation path</h1>
 
           <WakeLockToggle
             enabled={wakeLockToggle}
@@ -482,7 +482,7 @@ const Activated = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
-          <h1 className="tracking-tight mb-2">You interrupted the pattern</h1>
+          <h1 className="tracking-tight mb-2 pb-[10px]">You interrupted the pattern</h1>
           <div className="space-y-4 leading-relaxed mb-8">
             <p className="text-primary">This is how change begins.</p>
             <p className="text-text-body">Read this slowly.</p>
