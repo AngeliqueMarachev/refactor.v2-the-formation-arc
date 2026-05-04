@@ -321,9 +321,7 @@ const DailyFormation = () => {
     const canProceed = () => {
       if (createStep === 1) {
         return (
-          meaningConclusion.trim().length > 0 &&
-          widenedMeaning.trim().length > 0 &&
-          anchorPhrase.trim().length > 0
+          meaningConclusion.trim().length > 0 && widenedMeaning.trim().length > 0 && anchorPhrase.trim().length > 0
         );
       }
 
@@ -511,11 +509,8 @@ const DailyFormation = () => {
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       ANCHOR
                     </h2>
-                    <p className="text-supporting leading-relaxed mt-2">
-                      Create a phrase to update the old template that no longer serves you.
-                    </p>
+                    <p className="text-supporting leading-relaxed mt-2">Create a phrase to anchor the memory</p>
                     <div className="mt-4 space-y-2">
-                      <label className="text-sm font-medium text-text-heading text-primary">Anchor phrase</label>
                       <Textarea
                         placeholder="I thought I was forgotten, but I was not as alone."
                         value={anchorPhrase}
@@ -523,9 +518,6 @@ const DailyFormation = () => {
                         maxLength={500}
                         className="min-h-[80px]"
                       />
-                      <p className="text-xs text-text-supporting">
-                        Capture this in a few words to anchor the memory
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -533,7 +525,6 @@ const DailyFormation = () => {
               <div className="h-8" />
             </div>
           )}
-
         </main>
 
         <div className="bottom-cta-flow px-5 pt-2 space-y-2 content-container">
