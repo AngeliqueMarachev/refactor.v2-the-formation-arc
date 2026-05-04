@@ -499,7 +499,7 @@ const Activated = () => {
 
           <div className="space-y-4 leading-relaxed mb-10">
             <p className="text-text-body">Each time you return, old patterns weaken.</p>
-            <p>Steadiness becomes the pattern.</p>
+            <p className="text-primary">Steadiness becomes the pattern.</p>
           </div>
         </main>
 
