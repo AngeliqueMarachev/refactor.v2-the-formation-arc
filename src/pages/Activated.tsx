@@ -29,10 +29,10 @@ const PHASES = [
     introduction: ["This is a pattern. Not a signal of danger.", "Choose what fits."],
     customLabel: "Write your own explanation",
     options: [
-      "My system is misreading this moment as danger.",
-      "My brain is stuck an old prediction loop that no longer serves me.",
+      "My nervous system is trying to protect me.",
+      "My brain is running an old prediction loop.",
       "This is a protective pattern, not a present danger.",
-      "My mind and body are receiving false messages from my brain.",
+      "My system is responding to false messages.",
     ],
   },
   {
