@@ -83,7 +83,6 @@ const EMOTION_OPTIONS = [
   "Grateful",
   "Free",
   "Joy",
-  
 ];
 
 const AnchorRecall = ({
@@ -129,7 +128,7 @@ const AnchorRecall = ({
         {/* Header */}
         <div>
           <h1 className="tracking-tight">
-            Return to a moment
+            Return to a moment of safety
             {selectedScene && selectedScene !== "Something else" && (
               <span className="block font-normal text-text-supporting mt-1 text-primary text-2xl">{selectedScene}</span>
             )}
@@ -142,11 +141,12 @@ const AnchorRecall = ({
                 ANCHOR MEMORY
               </h2>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Bring to mind a moment where you felt safe, at ease, or connected.
+                Bring to mind a moment that feels meaningful.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Use the prompts below if needed.
               </p>
+              <p>You can ask God to guide you.</p>
             </>
           )}
 
@@ -232,10 +232,14 @@ const AnchorRecall = ({
                   <div className="w-px flex-1 bg-border/40 my-1" />
                 </div>
                 <div className="pb-8 flex-1">
-                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">OBSERVATION</h2>
+                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    OBSERVATION
+                  </h2>
                   <p className="text-text-body text-base leading-relaxed">Notice where you are.</p>
                   <p className="text-text-body text-base leading-relaxed">Notice your age in this moment.</p>
-                  <p className="text-text-body text-base leading-relaxed">Notice whether you are alone or with someone else.</p>
+                  <p className="text-text-body text-base leading-relaxed">
+                    Notice whether you are alone or with someone else.
+                  </p>
                 </div>
               </div>
 
@@ -246,8 +250,12 @@ const AnchorRecall = ({
                   <div className="w-px flex-1 bg-border/40 my-1" />
                 </div>
                 <div className="pb-8 flex-1">
-                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">ENVIRONMENT</h2>
-                  <p className="text-text-body text-base leading-relaxed">Observe the light, the temperature, and the sounds around you.</p>
+                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    ENVIRONMENT
+                  </h2>
+                  <p className="text-text-body text-base leading-relaxed">
+                    Observe the light, the temperature, and the sounds around you.
+                  </p>
                 </div>
               </div>
 
@@ -258,8 +266,12 @@ const AnchorRecall = ({
                   <div className="w-px flex-1 bg-border/40 my-1" />
                 </div>
                 <div className="pb-8 flex-1">
-                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">PERSPECTIVE</h2>
-                  <p className="text-text-body text-base leading-relaxed">You may see the moment from a bird's-eye view, or you may find yourself inside the scene.</p>
+                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    PERSPECTIVE
+                  </h2>
+                  <p className="text-text-body text-base leading-relaxed">
+                    You may see the moment from a bird's-eye view, or you may find yourself inside the scene.
+                  </p>
                 </div>
               </div>
 
@@ -270,8 +282,12 @@ const AnchorRecall = ({
                   <div className="w-px flex-1 bg-border/40 my-1" />
                 </div>
                 <div className="pb-8 flex-1">
-                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">INNER EXPERIENCE</h2>
-                  <p className="text-text-body text-base leading-relaxed">Notice what you are doing, thinking, and feeling.</p>
+                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    INNER EXPERIENCE
+                  </h2>
+                  <p className="text-text-body text-base leading-relaxed">
+                    Notice what you are doing, thinking, and feeling.
+                  </p>
                 </div>
               </div>
 
@@ -282,9 +298,13 @@ const AnchorRecall = ({
                   <div className="w-px flex-1 bg-border/35 my-1" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">EMBODIMENT</h2>
+                  <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                    EMBODIMENT
+                  </h2>
                   <p className="text-text-body text-base leading-relaxed">Allow the scene to become tangible.</p>
-                  <p className="text-text-body text-base leading-relaxed">Let your body experience the moment as if it is happening now.</p>
+                  <p className="text-text-body text-base leading-relaxed">
+                    Let your body experience the moment as if it is happening now.
+                  </p>
                 </div>
               </div>
             </div>
@@ -294,7 +314,9 @@ const AnchorRecall = ({
               <Textarea
                 placeholder="e.g. I am in my grandmother’s garden. The air is cool and still. I can smell the soil and feel the ground beneath my feet. Everything feels unhurried. I feel safe here. I feel held. Nothing is demanding anything from me."
                 value={sceneText}
-                onChange={(e) => onSceneTextChange(sanitizeTextInput(e.target.value, { maxLength: 5000, multiline: true }))}
+                onChange={(e) =>
+                  onSceneTextChange(sanitizeTextInput(e.target.value, { maxLength: 5000, multiline: true }))
+                }
                 maxLength={5000}
                 className="min-h-[140px] bg-muted border-secondary border"
               />
