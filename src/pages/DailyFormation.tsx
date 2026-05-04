@@ -376,7 +376,7 @@ const DailyFormation = () => {
                       Let new meaning come into view.
                     </p>
                     <Textarea
-                      placeholder="We were full of joy and I saw Jesus thanking God for me!"
+                      placeholder="e.g. Creation celebrates me."
                       value={meaningConclusion}
                       onChange={(e) =>
                         setMeaningConclusion(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))
