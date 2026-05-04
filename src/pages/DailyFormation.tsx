@@ -297,7 +297,7 @@ const DailyFormation = () => {
 
   // CREATE ANCHOR
   if (screen === "create-anchor") {
-    const totalSteps = 3;
+    const totalSteps = 2;
 
     if (createStep === 0) {
       return (
@@ -320,11 +320,11 @@ const DailyFormation = () => {
 
     const canProceed = () => {
       if (createStep === 1) {
-        return meaningConclusion.trim().length > 0 && widenedMeaning.trim().length > 0;
-      }
-
-      if (createStep === 2) {
-        return anchorPhrase.trim().length > 0;
+        return (
+          meaningConclusion.trim().length > 0 &&
+          widenedMeaning.trim().length > 0 &&
+          anchorPhrase.trim().length > 0
+        );
       }
 
       return true;
@@ -486,7 +486,7 @@ const DailyFormation = () => {
                     <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
                     <div className="w-px flex-1 bg-border/35 my-1" />
                   </div>
-                  <div className="flex-1">
+                  <div className="pb-8 flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       INTEGRATION
                     </h2>
@@ -501,157 +501,39 @@ const DailyFormation = () => {
                     <p className="text-supporting leading-relaxed mt-2">Take one slow breath here.</p>
                   </div>
                 </div>
+
+                {/* Section 5: ANCHOR */}
+                <div className="relative flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                      ANCHOR
+                    </h2>
+                    <p className="text-supporting leading-relaxed mt-2">
+                      Create a phrase to update the old template that no longer serves you.
+                    </p>
+                    <div className="mt-4 space-y-2">
+                      <label className="text-sm font-medium text-text-heading text-primary">Anchor phrase</label>
+                      <Textarea
+                        placeholder="I thought I was forgotten, but I was not as alone."
+                        value={anchorPhrase}
+                        onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
+                        maxLength={500}
+                        className="min-h-[80px]"
+                      />
+                      <p className="text-xs text-text-supporting">
+                        Capture this in a few words to anchor the memory
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="h-8" />
             </div>
           )}
 
-          {/* Step 3: Anchor Phrase */}
-          {createStep === 2 && (
-            <div className="space-y-4">
-              <h2 className="font-semibold tracking-tight text-3xl">Anchor this moment</h2>
-              <div className="space-y-3 leading-relaxed">
-                <h2 className="text-sm font-medium uppercase tracking-widest text-primary font-sans mb-2">
-                  ANCHOR RECALL
-                </h2>
-                <p className="text-text-body text-primary">
-                  Your brain remembers stories. But it stabilizes around summaries.
-                </p>
-              </div>
-              <p className="font-normal text-secondary-foreground">
-                Your Anchor Phrase updates an old template that no longer serves you.
-              </p>
-              <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
-
-              <div className="pt-2 space-y-6">
-                <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 text-text-body border-primary">
-                  <p className="mb-2 font-medium text-text-heading text-primary text-sm">Examples of Anchor Phrases</p>
-                  <p className="italic text-muted-foreground text-sm">
-                    I thought I was forgotten, but I was not as alone.
-                  </p>
-                  <p className="italic text-muted-foreground text-sm">Even though I was afraid, I endured.</p>
-                  <p className="italic text-muted-foreground text-sm">I felt abandoned, but I was being championed.</p>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-text-heading text-primary">Write your anchor phrase</label>
-                  <Textarea
-                    placeholder="e.g. I believed no-one noticed, but God was always with me."
-                    value={anchorPhrase}
-                    onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
-                    maxLength={500}
-                    className="min-h-[80px]"
-                  />
-                  <p className="pt-3 text-text-body leading-relaxed">
-                    You’ll use this phrase in specific moments. You’ll learn how in Anchors.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Future Step: Use your Anchor Phrase */}
-          {createStep === 3 && (
-            <div>
-              <h2 className="font-semibold tracking-tight text-3xl mb-6">Use your Anchor Phrase</h2>
-
-              <div className="mb-10">
-                <p className="text-text-body leading-relaxed mb-4">
-                  This phrase helps your nervous system remember what this moment meant.
-                </p>
-                <p className="text-text-body leading-relaxed">
-                  It isn't something you repeat all day. It has three specific uses.
-                </p>
-              </div>
-
-              {/* Vertical pathway container */}
-              <div className="relative mb-10">
-                {/* Section 1: DAILY MOMENT */}
-                <div className="relative flex gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                    <div className="w-px flex-1 bg-border/40 my-1" />
-                  </div>
-                  <div className="pb-8 flex-1">
-                    <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      DAILY MOMENT
-                    </h2>
-                    <p className="text-text-body leading-relaxed mt-2">
-                      Attach it to one daily moment that already happens, for example:
-                    </p>
-                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
-                      <ul className="list-disc list-inside space-y-1 pl-2">
-                        <li>Before you brush your teeth</li>
-                        <li>When you close your laptop</li>
-                        <li>After you get into bed</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Section 2: DURING MOMENTS OF CONTRACTION */}
-                <div className="relative flex gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                    <div className="w-px flex-1 bg-border/40 my-1" />
-                  </div>
-                  <div className="pb-8 flex-1">
-                    <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      DURING MOMENTS OF CONTRACTION
-                    </h2>
-                    <p className="text-text-body leading-relaxed mt-2">
-                      Use your phrase when your system begins to tighten, for example:
-                    </p>
-                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
-                      <ul className="list-disc list-inside space-y-1 pl-2">
-                        <li>Tension</li>
-                        <li>Shame</li>
-                        <li>Fear</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Section 3: OLD THOUGHT PATTERNS */}
-                <div className="relative flex gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
-                    <div className="w-px flex-1 bg-border/40 my-1" />
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      OLD THOUGHT PATTERNS
-                    </h2>
-                    <p className="text-text-body leading-relaxed mt-2">
-                      Use your phrase when familiar internal narratives begin to surface, for example:
-                    </p>
-                    <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
-                      <ul className="list-disc list-inside space-y-1 pl-2">
-                        <li>I am alone</li>
-                        <li>I am not enough</li>
-                        <li>This will end badly</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10 rounded-2xl p-6 border border-solid bg-muted border-secondary">
-                <p className="text-muted-foreground font-semibold text-base mb-5">IN THAT MOMENT</p>
-                <div className="text-text-body space-y-4" style={{ lineHeight: "1.7" }}>
-                  <p className="font-medium">Pause for 10 seconds.</p>
-                  <p>Recall the memory briefly.</p>
-                  <p>Say your phrase once.</p>
-                </div>
-                <div className="mt-8">
-                  <p className="text-text-body leading-relaxed">A wider meaning sits inside a narrow moment.</p>
-                </div>
-              </div>
-
-              <p className="text-text-heading font-medium mt-8 py-0 my-[33px]">
-                Over time, the nervous system begins to expect steadiness.
-              </p>
-            </div>
-          )}
         </main>
 
         <div className="bottom-cta-flow px-5 pt-2 space-y-2 content-container">
@@ -659,7 +541,7 @@ const DailyFormation = () => {
             Back
           </Button>
           <Button className="w-full" size="lg" disabled={!canProceed() || saving} onClick={handleNext}>
-            {saving ? "Saving…" : createStep === 2 ? "Save anchor" : "Continue"}
+            {saving ? "Saving…" : createStep === 1 ? "Save anchor" : "Continue"}
           </Button>
         </div>
 
