@@ -549,13 +549,14 @@ const DailyFormation = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">You strengthened a new pattern</h1>
 
-          <div className="space-y-8">
+  
+
             <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
                 You trained your system
               </h2>
               <p>
-                You interrupted old patterns and reinforced what is true. This is how change is formed.
+                You interrupted old patterns and reinforced what is true.
               </p>
             </div>
 
@@ -563,14 +564,14 @@ const DailyFormation = () => {
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
                 You aligned with Truth
               </h2>
-              <p>You chose agreement with what God says over what you felt. This is how transformation takes root.</p>
+              <p>You chose agreement with what God says over what you felt.</p>
             </div>
 
            <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
                You completed a formation cycle
               </h2>
-              <p>Focus. Association. Repetition. This is how your system learns what to expect. </p>
+              <p>Focus. Association. Repetition.</p>
             </div>
 
 
