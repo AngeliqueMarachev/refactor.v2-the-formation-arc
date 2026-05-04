@@ -15,10 +15,7 @@ import { incrementUsageStat } from "@/lib/usage-stats";
 const PHASES = [
   {
     title: "Line In The Sand",
-    introduction: [
-      "Choose a phrase to pause the moment.",
-      "Choose a phrase that helps you pause and find yourself in the present.",
-    ],
+    introduction: ["Interrupt the spiral.", "Choose a phrase to pause the moment."],
     customLabel: "Write your own interruption",
     options: [
       "Breathe. Be calm.",
