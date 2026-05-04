@@ -146,7 +146,9 @@ const AnchorRecall = ({
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Use the prompts below if needed.
               </p>
-              <p>You can ask God to guide you.</p>
+              <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
+                You can ask God to guide you.
+              </p>
             </>
           )}
 
