@@ -40,32 +40,32 @@ const SCENE_SUGGESTIONS: Record<string, string[]> = {
   "before-life-changed": [
     "A birthday you enjoyed",
     "A special holiday",
-    "Your favorite place",
+    "A place you loved",
     "Your childhood backyard",
     "The smell of breakfast on a slow morning",
     "A different memory",
   ],
 
   "places-you-loved": [
-    "The beach on vacation with your family",
+    "The beach on a family vacation",
     "Your grandmother's garden",
     "A forest you used to wander",
     "A home where you felt welcome",
-    "Something else",
+    "A different memory",
   ],
 
   "activities-that-felt-free": [
     "Climbing a tree",
-    "Swinging without a concern in the world",
+    "Swinging without a concern",
     "Building an imaginary world",
-    "Making mud pies with your sister",
-    "Building a sand castle",
-    "Lying on the floor listening to your favorite band",
+    "Making mud pies",
+    "Building a sandcastle",
+    "Listening to your favorite band",
     "Dancing for an audience of one",
     "Playing with your pet",
     "Gardening",
-    "Basking quietly in the sun",
-    "Something else",
+    "Sitting quietly in the sun",
+    "A different memory",
   ],
 };
 
