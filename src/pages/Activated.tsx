@@ -32,7 +32,7 @@ const PHASES = [
       "My nervous system is trying to protect me.",
       "My brain is running an old prediction loop.",
       "This is a protective pattern, not a present danger.",
-      "My system is responding to false messages.",
+      "My system is misreading this moment as a threat.",
     ],
   },
   {
