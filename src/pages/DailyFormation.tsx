@@ -153,33 +153,12 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">The science behind daily formation</h1>
+          <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">Daily Formation</h1>
 
           <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-12">
-            <p className="text-secondary-foreground">
-              Every time you have a feeling, good or bad, a chemical is released into your system. This creates an
-              emotional signature, a measurable frequency, that changes the body over time.
-            </p>
+            <p className="text-secondary-foreground">This is your daily practice.</p>
 
-            <p>
-              Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body
-              when we experience disorder.
-            </p>
-            <p>
-              They create low frequency emotional signatures, which deplete our resources, often leading to a weakened
-              immune system and eventually, chronic symptoms.
-            </p>
-            <p>
-              Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into
-              the body when we experience alignment.
-            </p>
-            <p>
-              They create high frequency emotional signatures, which support and heal the body, and help us feel safe.
-            </p>
-            <p className="text-primary">
-              Daily formation provides the nervous system with new, positive information, producing life-giving DOSE
-              chemistry to counteract the effects of CAN chemistry stored in the body.
-            </p>
+            <p>It trains your system to expect safety and builds steady patterns over time.</p>
           </div>
 
           <p className="text-secondary-foreground leading-relaxed mb-10">It follows a simple rhythm:</p>
