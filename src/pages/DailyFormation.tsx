@@ -297,7 +297,7 @@ const DailyFormation = () => {
 
   // CREATE ANCHOR
   if (screen === "create-anchor") {
-    const totalSteps = 3;
+    const totalSteps = 2;
 
     if (createStep === 0) {
       return (
