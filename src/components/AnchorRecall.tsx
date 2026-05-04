@@ -297,7 +297,7 @@ const AnchorRecall = ({
                   <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                     EMBODIMENT
                   </h2>
-                  <p className="text-text-body text-base leading-relaxed">Allow the scene to become tangible.</p>
+
                   <p className="text-text-body text-base leading-relaxed">
                     Let your body experience the moment as if it is happening now.
                   </p>
@@ -307,7 +307,7 @@ const AnchorRecall = ({
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-text-heading text-primary">Stay with the moment</label>
-              <p className="text-xs text-text-supporting">Capture the moment in a few words</p>
+              <p className="text-xs text-text-supporting">Capture the moment in a few words.</p>
               <Textarea
                 placeholder="I am in my grandmother’s garden. The air is cool. I can feel the ground beneath my feet. I feel safe here."
                 value={sceneText}
@@ -335,7 +335,7 @@ const AnchorRecall = ({
             {/* Emotional layer */}
             <div className="space-y-3">
               <p className="text-sm font-medium text-text-heading">Notice how this felt</p>
-              <p className="text-xs text-text-supporting">Let your body register this</p>
+              <p className="text-xs text-text-supporting">Let your body register this.</p>
               <div className="flex flex-wrap gap-2">
                 {EMOTION_OPTIONS.map((tag) => {
                   const selected = emotionTags.includes(tag);
