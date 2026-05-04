@@ -158,7 +158,7 @@ const DailyFormation = () => {
           <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-12">
             <p className="text-secondary-foreground">This is your daily practice.</p>
 
-            <p>It trains your system to expect safety and builds steady patterns over time.</p>
+            <p>It builds patterns of safety through repetition.</p>
           </div>
 
           <p className="text-secondary-foreground leading-relaxed mb-10">It follows a simple rhythm:</p>
