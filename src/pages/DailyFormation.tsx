@@ -549,8 +549,7 @@ const DailyFormation = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">You strengthened a new pattern</h1>
 
-  
-
+          <div className="space-y-8">
             <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
                 You trained your system
