@@ -29,7 +29,7 @@ const PHASES = [
     introduction: [
       "What you feel is real.",
       "This step separates your emotional state from your physical state.",
-      "Choose the explanation that fits best.",
+      "Choose what fits.",
     ],
     customLabel: "Write your own explanation",
     options: [
