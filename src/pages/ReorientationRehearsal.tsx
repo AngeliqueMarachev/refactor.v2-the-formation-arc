@@ -67,7 +67,7 @@ const ReorientationRehearsal = () => {
         <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[22px]">
           REORIENTATION
         </h2>
-        <p className="text-text-body text-sm mt-3">Move through your sequence slowly.</p>
+        <p className="text-text-body text-sm mt-3">Move through your reorientation slowly.</p>
         <div className="mb-6" />
 
         <p className="text-text-supporting text-sm mb-0">Tap each step.</p>
@@ -106,9 +106,7 @@ const ReorientationRehearsal = () => {
         </div>
 
         <div className="pt-4 space-y-6">
-          <p className="text-text-body text-sm mt-4">
-            Now you will expand a memory to strengthen your expectations of safety.
-          </p>
+          <p className="text-text-body text-sm mt-4">Now expand a memory to strengthen your expectation of safety.</p>
           <div className="space-y-3">
             <Button className="w-full" size="lg" onClick={() => navigate("/daily-formation?screen=reframing-story")}>
               Find a memory
