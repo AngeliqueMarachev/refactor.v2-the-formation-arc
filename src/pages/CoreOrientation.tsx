@@ -24,11 +24,11 @@ const CoreOrientation = () => {
           <p>Your life experiences shape your interpretation of the world.</p>
           <p>Your thoughts create your reality, upholding this unique interpretation.</p>
 
-          <p>
+          <p className="text-primary">
             Traumatic events or prolonged stress can train your system be on high alert, scanning for patterns that
             signal danger to proactively protect you.{" "}
           </p>
-          <p>Over time, these patterns become physical structures in the brain and strongholds in our lives. </p>
+          <p className="text-primary">Over time, these patterns become physical structures in the brain and strongholds in our lives. </p>
           <p>
             Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies
             erected by the brain in an effort to ensure your survival.
