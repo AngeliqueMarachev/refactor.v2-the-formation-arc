@@ -335,7 +335,7 @@ const AnchorRecall = ({
             {/* Emotional layer */}
             <div className="space-y-3">
               <p className="text-sm font-medium text-text-heading">Notice how this felt</p>
-              <p className="text-xs text-text-supporting">Let your body register this.</p>
+              <p className="text-xs text-text-supporting">Let your body register this</p>
               <div className="flex flex-wrap gap-2">
                 {EMOTION_OPTIONS.map((tag) => {
                   const selected = emotionTags.includes(tag);
