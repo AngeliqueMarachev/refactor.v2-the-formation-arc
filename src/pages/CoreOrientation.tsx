@@ -50,32 +50,6 @@ const CoreOrientation = () => {
           </p>
         </div>
 
-        {/* Path cards */}
-        <div className="space-y-4">
-          <p className="text-base leading-relaxed text-text-body">There are two ways to use this space:</p>
-
-          {/* Card 2 */}
-          <div className="rounded-lg border bg-card p-5 sm:p-6 border-secondary">
-            <p className="mb-2 text-lg font-medium text-text-heading text-primary">When you want to expand slowly</p>
-
-            <p className="mt-1.5 leading-relaxed text-text-supporting text-base">
-              Daily Formation is a thoughtful, daily practice that strengthens pathways of safety and deepens your
-              sense of agency.
-            </p>
-          </div>
-
-          {/* Card 1 */}
-          <div className="rounded-lg border bg-card p-5 sm:p-6 border-secondary">
-            <p className="mb-2 text-lg font-medium text-text-heading text-primary">
-              When you want to return to safety quickly
-            </p>
-            <p className="mt-1.5 leading-relaxed text-text-supporting text-base">
-              Reorientation is a short sequence that quickly interrupts destructive thinking and restores
-              internal authority.
-            </p>
-          </div>
-        </div>
-
         {/* Closing reassurance */}
         <div className="space-y-1.5 text-base leading-relaxed text-text-body">
           <p>You do not need to do everything today.</p>
