@@ -70,16 +70,13 @@ const PHASES = [
   },
   {
     title: "Occupy Your Identity",
-    introduction: [
-      "Your current state does not define who you are.",
-      "Choose the identity that aligns with the truth of who God says you are.",
-    ],
+    introduction: ["This feeling doesn’t define you.", "Stand in what is true."],
     customLabel: "Write your true identity",
     options: [
-      "I am a chosen people, a royal priesthood, a holy nation, God’s special possession.",
-      "I am created in the image of God.",
-      "God chose me before the foundations of the world.",
-      "My body is a temple of the Holy Spirit who lives in me.",
+      "I am chosen by God.",
+      "I am created in God's image.",
+      "I am a new creation.",
+      "God’s Spirit lives in me.",
     ],
   },
 ];
