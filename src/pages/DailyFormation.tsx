@@ -217,7 +217,11 @@ const DailyFormation = () => {
               The nervous system responds strongly to signals of safety, connection and support.
             </p>
             <p className="font-normal text-secondary-foreground">Prayer communicates support to your system.</p>
-            ...
+            <p className="text-secondary-foreground">
+              You do not need the right words.
+              <br />
+              You do not need the right feeling.
+            </p>
             <p className="font-normal text-secondary-foreground">
               Pause, give thanks, and entrust God with the outcomes of this moment.
             </p>
