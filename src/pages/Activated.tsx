@@ -461,13 +461,9 @@ const Activated = () => {
           <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">
             <p className="text-text-body"> What you experience in moments of pressure isn't random.</p>
-            <p className="text-primary font-normal">It’s what your system has learned to expect.</p>
-
-            <p className="text-secondary-foreground font-normal">
-              This sequence helps you interrupt that pattern and return to what is true.
-            </p>
-
-            <p className="text-primary font-normal">You’re not trying to calm yourself.</p>
+            <p className="font-normal text-secondary-foreground">It’s what your system has learned to expect.</p>
+...
+            <p className="font-normal text-secondary-foreground">You’re not trying to calm yourself.</p>
             <p>You’re learning to reorient.</p>
           </div>
 
