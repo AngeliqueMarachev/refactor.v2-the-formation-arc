@@ -465,7 +465,7 @@ const Activated = () => {
             <p className="font-normal text-secondary-foreground">
               This sequence helps you interrupt that pattern and return to what is true.
             </p>
-            <p className="font-normal text-secondary-foreground">You’re not trying to calm yourself.</p>
+            <p className="font-normal text-primary">You’re not trying to calm yourself.</p>
             <p>You’re learning to reorient.</p>
           </div>
 
