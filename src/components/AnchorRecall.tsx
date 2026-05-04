@@ -159,7 +159,7 @@ const AnchorRecall = ({
                 Step back to a moment that felt safe, easy, or natural.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Slow this moment down as you let yourself step into it.
+                Slow it down. Let yourself be there again.
               </p>
             </>
           )}
