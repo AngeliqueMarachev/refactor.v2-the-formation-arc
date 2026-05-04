@@ -547,7 +547,11 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">You strengthened a new pattern</h1>
+          <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">You strengthened a new pattern</h1>
+
+          <p className="text-secondary-foreground leading-relaxed mb-10">
+            Old patterns were interrupted. New ones were reinforced. This is how steadiness is built.
+          </p>
 
           <div className="space-y-8">
             <div>
