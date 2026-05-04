@@ -217,7 +217,7 @@ const DailyFormation = () => {
             <p className="font-normal text-secondary-foreground">Give thanks, and place this moment in God’s hands.</p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                I give this to God
+                I've given this to God
               </Button>
             </div>
           </div>
@@ -276,38 +276,12 @@ const DailyFormation = () => {
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Create new associations</h1>
 
           <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
-            <p>
-              Your brain stores experiences as networks of meaning, making memory vital for setting and maintaining
-              expectations.
-            </p>
-
-            <p>Remembrance is a divine principle Jesus taught us.</p>
-            <p>
-              Recalling a positive memory in your life is a powerful way to recall God’s faithfulness into remembrance,
-              and enter into communion with Him.
-            </p>
-
-            <p>
-              When a memory is recalled, the neural network connected to it becomes open to new association, responding
-              in real time. As positive meaning expands, the brain registers safety and connection, producing DOSE
-              chemistry.
-            </p>
-
-            <p>
-              Repeated exposure to these signals retrains the nervous system to update expectations as we begin to
-              surrender to God’s will for us.
-            </p>
-
-            <p className="text-primary">
-              We begin to embody joy, health and grace with greater ease, until eventually, we are separated from
-              trauma, disconnected from old patterns, and established on Truth.
-            </p>
-
-            <p>
-              It’s important to know that when the nervous system has been under strain, creativity is obscured and
-              access to memory can narrow.
-            </p>
-            <p>With practice, however, access widens.</p>
+            <p>Finding a memory may not feel easy at first.</p>
+            <p>When your system has been under strain, access to memory can narrow.</p>
+            <p className="text-primary">With practice, however, access widens.</p>
+            <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
+            <p>Take your time.</p>
+            <p>You don’t need the perfect memory.</p>
           </div>
         </main>
 
