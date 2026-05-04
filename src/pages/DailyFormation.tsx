@@ -547,44 +547,35 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">This is how you transfrom</h1>
+          <h1 className="tracking-tight mb-12 mx-0 mt-[20px] pt-0 pb-[8px]">You strengthened a new pattern</h1>
 
-          <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg">
-            <p>There are three principles to neuroplasticity:</p>
+  
 
             <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">FOCUS</h2>
+              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
+                You trained your system
+              </h2>
               <p>
-                Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.
+                You interrupted old patterns and reinforced what is true. This is how change is formed.
               </p>
             </div>
 
             <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
-                ASSOCIATION
+                You aligned with Truth
               </h2>
-              <p>
-                Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see
-                yourself as a new creation, alive in victory.
-              </p>
+              <p>You chose agreement with what God says over what you felt. This is how transformation takes root.</p>
             </div>
 
-            <div>
+           <div>
               <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
-                REPETITION
+               You completed a formation cycle
               </h2>
-              <p>Change requires repetition to strengthen new neural pathways. Each repetition builds on the last.</p>
+              <p>Focus. Association. Repetition. This is how your system learns what to expect. </p>
             </div>
 
-            <p>
-              When we apply this framework together with God by aligning with Truth, we break our agreements with the
-              lies we’ve accepted.
-            </p>
 
-            <p className="text-primary">
-              Repeated DOSE chemistry released into the body drives changes in the brain long term, and we begin to
-              experience true transformation.
-            </p>
+        
           </div>
         </main>
 
