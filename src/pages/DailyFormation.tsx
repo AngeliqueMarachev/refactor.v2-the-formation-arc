@@ -403,7 +403,7 @@ const DailyFormation = () => {
                       Notice what changes as you feel supported.
                     </p>
                     <Textarea
-                      placeholder="e.g. We were full of joy and I saw Jesus thanking God for me!"
+                      placeholder="e.g. I saw Jesus thanking God for me!"
                       value={widenedMeaning}
                       onChange={(e) =>
                         setWidenedMeaning(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))
@@ -512,7 +512,7 @@ const DailyFormation = () => {
                     <p className="text-supporting leading-relaxed mt-2">Create a phrase to anchor the memory</p>
                     <div className="mt-4 space-y-2">
                       <Textarea
-                        placeholder="I thought I was forgotten, but I was not as alone."
+                        placeholder="e.g. I thought I was forgotten, but I was not as alone."
                         value={anchorPhrase}
                         onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
                         maxLength={500}
