@@ -504,6 +504,7 @@ const DailyFormation = () => {
                 <div className="relative flex gap-3">
                   <div className="flex flex-col items-center">
                     <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                    <div className="w-px flex-1 bg-border/40 my-1" />
                   </div>
                   <div className="flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
