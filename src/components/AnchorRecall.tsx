@@ -174,10 +174,6 @@ const AnchorRecall = ({
               <p className="text-supporting leading-relaxed mt-3 text-base text-primary">
                 Hold the scene gently. Use your senses to let the moment come alive.
               </p>
-              <p className="text-text-body mt-4 leading-relaxed text-base">
-                Memory is stored in sensation. Let sensation guide the memory., Allow the details to come naturally.
-                Nothing needs to be forced.
-              </p>
             </>
           )}
         </div>
