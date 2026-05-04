@@ -138,15 +138,15 @@ const DailyFormation = () => {
     const rhythmSteps = [
       {
         title: "PRAY",
-        body: "We give thanks to God for His kindness and release the outcomes of this process into His hands.",
+        body: "Begin with gratitude and release.",
       },
       {
         title: "REORIENT",
-        body: "We communicate safety to the nervous system by reorienting to Truth.",
+        body: "Return to what is true.",
       },
       {
         title: "ANCHOR MEMORY",
-        body: "We strengthen a memory that expands expectations of safety and draws us into communion.",
+        body: "Strengthen a memory of safety.",
       },
     ];
 
@@ -217,7 +217,7 @@ const DailyFormation = () => {
   if (screen === "reorientation") {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col px-5 pt-10 content-container pb-0">
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
           <div className="space-y-4 leading-relaxed mb-10">
@@ -227,26 +227,21 @@ const DailyFormation = () => {
               isSupported={wakeLock.isSupported}
               className="mt-4 pt-[15px] pb-[28px]"
             />
-
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
             <p className="text-text-body text-base">
               Your body responds to signals of safety before conscious thoughts fully form.
             </p>
-
             <p className="text-secondary-foreground">
               Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
             </p>
-
             <p className="text-primary">
               The nervous system responds strongly to signals of safety, connection and support.
             </p>
-
             <p className="font-normal text-secondary-foreground">Prayer communicates support to your system.</p>
-...
+            ...
             <p className="font-normal text-secondary-foreground">
               Pause, give thanks, and entrust God with the outcomes of this moment.
             </p>
-
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
                 I've given this to God
@@ -442,7 +437,9 @@ const DailyFormation = () => {
                     <Textarea
                       placeholder="e.g. Creation celebrates me. "
                       value={meaningConclusion}
-                      onChange={(e) => setMeaningConclusion(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))}
+                      onChange={(e) =>
+                        setMeaningConclusion(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))
+                      }
                       maxLength={2000}
                       className="min-h-[80px] text-muted-foreground mt-2"
                     />
@@ -467,7 +464,9 @@ const DailyFormation = () => {
                     <Textarea
                       placeholder="e.g. We were full of joy and I saw Jesus thanking God for me!"
                       value={widenedMeaning}
-                      onChange={(e) => setWidenedMeaning(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))}
+                      onChange={(e) =>
+                        setWidenedMeaning(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))
+                      }
                       maxLength={2000}
                       className="min-h-[80px] mt-2"
                     />
