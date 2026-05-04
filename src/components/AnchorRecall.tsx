@@ -144,6 +144,9 @@ const AnchorRecall = ({
                 Bring to mind a moment where you felt safe, at ease, or connected.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
+                Start with something small. It doesn’t have to be significant.
+              </p>
+              <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Use the prompts below if needed.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
