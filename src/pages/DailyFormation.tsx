@@ -552,8 +552,8 @@ const DailyFormation = () => {
           <p className="text-secondary-foreground leading-relaxed mb-10">
             Old patterns were interrupted. New ones were reinforced. This is how steadiness is built.
           </p>
-          <p>This is how your system changes.</p>
-          <p>Focus. Association. Repetition.</p>
+          <p className="text-primary">This is how your system changes.</p>
+          <p className="text-secondary-foreground leading-relaxed mb-10">Focus. Association. Repetition.</p>
         </main>
 
         <div className="bottom-cta-flow px-5 pt-2 content-container">
