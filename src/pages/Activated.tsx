@@ -460,27 +460,15 @@ const Activated = () => {
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">
-            <p className="text-text-body"> Before the brain can update expectations, it must first register safety.</p>
-            <p className="text-primary font-normal">
-              When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking and
-              retrain the brain to respond to life in ways that better serve us.
-            </p>
-            <p className="text-text-body">
-              Each time you move through this sequence you:
-              <ul className="mt-2 list-disc list-inside space-y-1 pl-2">
-                <li>interrupt negative cycles</li>
-                <li>update expectations</li>
-                <li>strengthen internal authority</li>
-                <li>stabilize identity over time</li>
-              </ul>
-            </p>
+            <p className="text-text-body"> What you experience in moments of pressure isn't random.</p>
+            <p className="text-primary font-normal">It’s what your system has learned to expect.</p>
 
             <p className="text-secondary-foreground font-normal">
-              When we rehearse reorientation, we signal stability to the nervous system, allowing the mind to become
-              receptive.
+              This sequence helps you interrupt that pattern and return to what is true.
             </p>
 
-            <p className="text-primary font-normal">A receptive system forms steadier expectations more easily.</p>
+            <p className="text-primary font-normal">You’re not trying to calm yourself.</p>
+            <p>You’re learning to reorient.</p>
           </div>
 
           <Button
