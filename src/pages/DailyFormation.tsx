@@ -552,7 +552,7 @@ const DailyFormation = () => {
           <p className="text-secondary-foreground leading-relaxed mb-10">
             Old patterns were interrupted. New ones were reinforced. This is how steadiness is built.
           </p>
-          <p className="text-primary">This is how your system changes.</p>
+          <p className="text-primary mb-6">This is how your system changes.</p>
           <p className="text-secondary-foreground leading-relaxed mb-10">Focus. Association. Repetition.</p>
         </main>
 
