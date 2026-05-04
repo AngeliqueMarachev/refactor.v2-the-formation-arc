@@ -26,11 +26,7 @@ const PHASES = [
   },
   {
     title: "Expose The Mechanism",
-    introduction: [
-      "What you feel is real.",
-      "This step separates your emotional state from your physical state.",
-      "Choose what fits.",
-    ],
+    introduction: ["This is a pattern. Not a signal of danger.", "Choose what fits."],
     customLabel: "Write your own explanation",
     options: [
       "My nervous system wants to protect me from danger.",
