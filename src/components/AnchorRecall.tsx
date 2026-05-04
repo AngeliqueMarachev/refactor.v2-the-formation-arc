@@ -241,7 +241,7 @@ const AnchorRecall = ({
                     OBSERVATION
                   </h2>
                   <p className="text-text-body text-base leading-relaxed">
-                    Where are you? How old are you? Who is with you?
+                    Notice where you are, your age, and who is with you.
                   </p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const AnchorRecall = ({
                     ENVIRONMENT
                   </h2>
                   <p className="text-text-body text-base leading-relaxed">
-                    Observe the light, the temperature, and the sounds around you.
+                    Take in the light, temperature, and sounds.
                   </p>
                 </div>
               </div>
@@ -273,7 +273,7 @@ const AnchorRecall = ({
                     PERSPECTIVE
                   </h2>
                   <p className="text-text-body text-base leading-relaxed">
-                    You may see the moment from a bird's-eye view, or you may find yourself inside the scene.
+                    Let yourself be inside the moment, or gently observe it.
                   </p>
                 </div>
               </div>
