@@ -486,7 +486,7 @@ const DailyFormation = () => {
                     <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
                     <div className="w-px flex-1 bg-border/35 my-1" />
                   </div>
-                  <div className="flex-1">
+                  <div className="pb-8 flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
                       INTEGRATION
                     </h2>
@@ -501,51 +501,36 @@ const DailyFormation = () => {
                     <p className="text-supporting leading-relaxed mt-2">Take one slow breath here.</p>
                   </div>
                 </div>
+
+                {/* Section 5: ANCHOR */}
+                <div className="relative flex gap-3">
+                  <div className="flex flex-col items-center">
+                    <div className="h-8 w-8 shrink-0 rounded-full border border-primary/30 bg-primary/10" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
+                      ANCHOR
+                    </h2>
+                    <p className="text-supporting leading-relaxed mt-2">
+                      Create a phrase to update the old template that no longer serves you.
+                    </p>
+                    <div className="mt-4 space-y-2">
+                      <label className="text-sm font-medium text-text-heading text-primary">Anchor phrase</label>
+                      <Textarea
+                        placeholder="I thought I was forgotten, but I was not as alone."
+                        value={anchorPhrase}
+                        onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
+                        maxLength={500}
+                        className="min-h-[80px]"
+                      />
+                      <p className="text-xs text-text-supporting">
+                        Capture this in a few words to anchor the memory
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="h-8" />
-            </div>
-          )}
-
-          {/* Step 3: Anchor Phrase */}
-          {createStep === 2 && (
-            <div className="space-y-4">
-              <h2 className="font-semibold tracking-tight text-3xl">Anchor this moment</h2>
-              <div className="space-y-3 leading-relaxed">
-                <h2 className="text-sm font-medium uppercase tracking-widest text-primary font-sans mb-2">
-                  ANCHOR RECALL
-                </h2>
-                <p className="text-text-body text-primary">
-                  Your brain remembers stories. But it stabilizes around summaries.
-                </p>
-              </div>
-              <p className="font-normal text-secondary-foreground">
-                Your Anchor Phrase updates an old template that no longer serves you.
-              </p>
-              <p className="text-text-body">It does not erase the memory. It widens the meaning. </p>
-
-              <div className="pt-2 space-y-6">
-                <div className="space-y-2 rounded-lg border bg-card p-5 sm:p-6 text-text-body border-primary">
-                  <p className="mb-2 font-medium text-text-heading text-primary text-sm">Examples of Anchor Phrases</p>
-                  <p className="italic text-muted-foreground text-sm">
-                    I thought I was forgotten, but I was not as alone.
-                  </p>
-                  <p className="italic text-muted-foreground text-sm">Even though I was afraid, I endured.</p>
-                  <p className="italic text-muted-foreground text-sm">I felt abandoned, but I was being championed.</p>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-text-heading text-primary">Write your anchor phrase</label>
-                  <Textarea
-                    placeholder="e.g. I believed no-one noticed, but God was always with me."
-                    value={anchorPhrase}
-                    onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
-                    maxLength={500}
-                    className="min-h-[80px]"
-                  />
-                  <p className="pt-3 text-text-body leading-relaxed">
-                    You’ll use this phrase in specific moments. You’ll learn how in Anchors.
-                  </p>
-                </div>
-              </div>
             </div>
           )}
 
