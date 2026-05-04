@@ -172,7 +172,7 @@ const AnchorRecall = ({
           {selectedScene && (
             <>
               <p className="text-supporting leading-relaxed mt-3 text-base text-primary">
-                Hold the scene gently. Use your senses to let the moment come alive.
+                Let the scene come into focus gently. Use your senses to allow the moment to become vivid.
               </p>
             </>
           )}
