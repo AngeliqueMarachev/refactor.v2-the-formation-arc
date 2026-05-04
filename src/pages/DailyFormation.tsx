@@ -217,7 +217,7 @@ const DailyFormation = () => {
   if (screen === "reorientation") {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
+        <main className="flex flex-1 flex-col px-5 pt-10 content-container pb-0">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
           <div className="space-y-4 leading-relaxed mb-10">
