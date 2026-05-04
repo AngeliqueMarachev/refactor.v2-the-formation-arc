@@ -25,7 +25,7 @@ const CoreOrientation = () => {
             Your life experiences shape your interpretation of the world. Your thoughts create your reality, upholding
             this unique interpretation.
           </p>
-          
+
           <p>
             Traumatic events or prolonged stress can program your system be on constant alert for recognizable patterns
             that signal danger to proactively protect you. Over time, these patterns become physical structures in the
@@ -46,15 +46,8 @@ const CoreOrientation = () => {
 
           <p className="text-primary">
             The Formation Arc is designed to help you retrain your system on Truth through awareness, alignment, and
-            reinforcement.
+            repetition.
           </p>
-        </div>
-
-        {/* Closing reassurance */}
-        <div className="space-y-1.5 text-base leading-relaxed text-text-body">
-          <p>You do not need to do everything today.</p>
-          <p>Begin where you are.</p>
-          <p>Return often.</p>
         </div>
 
         {/* CTA */}
