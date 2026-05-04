@@ -307,7 +307,7 @@ const AnchorRecall = ({
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-text-heading text-primary">Stay with the moment</label>
-              <p className="text-xs text-text-supporting">Capture the moment in a few words.</p>
+              <p className="text-xs text-text-supporting">Capture the moment in a few words</p>
               <Textarea
                 placeholder="I am in my grandmother’s garden. The air is cool. I can feel the ground beneath my feet. I feel safe here."
                 value={sceneText}
