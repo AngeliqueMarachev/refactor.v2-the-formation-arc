@@ -207,24 +207,14 @@ const DailyFormation = () => {
               className="mt-4 pt-[15px] pb-[28px]"
             />
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
-            <p className="text-text-body text-base">
-              Your body responds to signals of safety before conscious thoughts fully form.
-            </p>
-            <p className="text-secondary-foreground">
-              Much of what shapes fear or peace happens below conscious awareness, in systems designed to protect you.
-            </p>
-            <p className="text-primary">
-              The nervous system responds strongly to signals of safety, connection and support.
-            </p>
-            <p className="font-normal text-secondary-foreground">Prayer communicates support to your system.</p>
+            <p className="text-text-body text-base">Pause for a moment.</p>
+
             <p className="text-secondary-foreground">
               You do not need the right words.
               <br />
               You do not need the right feeling.
             </p>
-            <p className="font-normal text-secondary-foreground">
-              Pause, give thanks, and entrust God with the outcomes of this moment.
-            </p>
+            <p className="font-normal text-secondary-foreground">Give thanks, and place this moment in God’s hands.</p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
                 I've given this to God
