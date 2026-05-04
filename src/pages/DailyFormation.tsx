@@ -553,33 +553,7 @@ const DailyFormation = () => {
             Old patterns were interrupted. New ones were reinforced. This is how steadiness is built.
           </p>
 
-          <div className="space-y-8">
-            <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
-                You trained your system
-              </h2>
-              <p>
-                You interrupted old patterns and reinforced what is true.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
-                You aligned with Truth
-              </h2>
-              <p>You chose agreement with what God says over what you felt.</p>
-            </div>
-
-           <div>
-              <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">
-               You completed a formation cycle
-              </h2>
-              <p>Focus. Association. Repetition.</p>
-            </div>
-
-
-        
-          </div>
+          <p>Focus. Association. Repetition.</p>
         </main>
 
         <div className="bottom-cta-flow px-5 pt-2 content-container">
