@@ -207,7 +207,7 @@ const DailyFormation = () => {
               className="mt-4 pt-[15px] pb-[28px]"
             />
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
-            <p className="text-text-body text-base">Pause for a moment.</p>
+            <p className="text-text-body text-secondary-foreground">Pause for a moment.</p>
 
             <p className="text-secondary-foreground">
               You do not need the right words.
