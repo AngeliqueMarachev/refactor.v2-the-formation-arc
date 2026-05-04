@@ -279,7 +279,6 @@ const DailyFormation = () => {
             <p>Finding a memory may not feel easy at first.</p>
             <p>When your system has been under strain, access to memory can narrow.</p>
             <p className="text-primary">With practice, however, access widens.</p>
-            <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
             <p>Take your time.</p>
             <p>You don’t need the perfect memory.</p>
           </div>
