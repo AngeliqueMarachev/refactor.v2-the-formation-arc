@@ -2,51 +2,67 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
-const content: Record<string, { title: string; subtitle: string; body: string[]; closing: string }> = {
+type TopicBlock = string | { heading: string; text: string } | { list: string[] };
+
+const content: Record<string, { title: string; subtitle: string; body: TopicBlock[]; closing?: string }> = {
   "return-to-truth": {
     title: "Return to Truth",
     subtitle: "Use Truth to interrupt patterns and signal safety",
     body: [
-      "When the system reads a moment as threat, perception narrows. Returning to Truth interrupts that pattern by introducing a steadier signal.",
-      "Truth, repeated with attention, becomes the cue your system uses to feel safe again.",
+      "Before the brain can update, it must first register safety.",
+      "Reorientation interrupts destructive loops and signals stability to your system.",
+      "Each time you return:",
+      { list: [
+        "patterns are interrupted",
+        "expectations begin to shift",
+        "your system becomes more receptive",
+      ] },
     ],
-    closing: "Truth, returned to often, becomes the ground you stand on.",
+    closing: "A receptive system forms steadier expectations.",
   },
   "create-new-associations": {
     title: "Create new associations",
     subtitle: "Update meaning through memory",
     body: [
-      "Memory is not static. Each time you revisit it with a steadier presence, the meaning attached to it can shift.",
-      "New associations form when an old memory is paired with a new sense of safety.",
+      "Your brain stores experiences as networks of meaning.",
+      "When a memory is recalled, it becomes open to new association.",
+      "As meaning expands, your system registers safety and connection.",
+      "With repetition, these new associations begin to replace old patterns.",
     ],
-    closing: "What you revisit with safety begins to change.",
+    closing: "What you reinforce becomes what your system expects.",
   },
   "neuroplasticity": {
     title: "The science behind neuroplasticity",
     subtitle: "Understand how your system responds",
     body: [
-      "Neuroplasticity is your nervous system's ability to reshape itself in response to repeated experience.",
-      "Small, repeated returns to steadiness train the system more effectively than rare, intense effort.",
+      "Every experience releases chemistry into your system.",
+      "Stress states produce survival chemistry that keeps the body on alert.",
+      "States of safety produce chemistry that support healing and regulation.",
+      "Daily formation introduces consistent signals of safety, allowing your system to update over time.",
     ],
-    closing: "What you practice, your system learns to expect.",
+    closing: "Your body follows what is repeated.",
   },
   "begin-with-stability": {
     title: "Begin with stability",
     subtitle: "Establish safety before change",
     body: [
-      "Lasting change is built on a felt sense of safety. Without it, the system defends rather than learns.",
-      "Begin by establishing stability — then growth can follow.",
+      "Your system responds to signals of safety before conscious thought fully forms.",
+      "Much of what shapes fear or peace happens below awareness, in systems designed to protect you.",
+      "The nervous system responds strongly to signals of safety, connection, and support.",
+      "Prayer communicates support to your system.",
+      "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
     ],
-    closing: "Safety first. Then everything else can move.",
   },
   "how-transformation-happens": {
     title: "How transformation happens",
     subtitle: "Focus, association, repetition",
     body: [
-      "Transformation follows a simple rhythm: focused attention, meaningful association, and patient repetition.",
-      "Each return strengthens the pattern. Over time, what was rehearsed becomes the default.",
+      { heading: "FOCUS", text: "Direct your attention toward what is true." },
+      { heading: "ASSOCIATION", text: "Attach new meaning to familiar experiences." },
+      { heading: "REPETITION", text: "Reinforce these patterns consistently." },
+      "When applied together, these form new pathways over time.",
     ],
-    closing: "Repetition with presence is how the new becomes natural.",
+    closing: "This is how steadiness is formed.",
   },
 };
 
@@ -86,11 +102,32 @@ const KnowledgeTopic = () => {
       </header>
 
       <main className="flex-1 px-5 content-container space-y-4">
-        {topic.body.map((p, i) => (
-          <p key={i} className="text-text-body">{p}</p>
-        ))}
-        <div className="h-4" />
-        <p className="text-primary font-medium">{topic.closing}</p>
+        {topic.body.map((block, i) => {
+          if (typeof block === "string") {
+            return <p key={i} className="text-text-body">{block}</p>;
+          }
+          if ("list" in block) {
+            return (
+              <ul key={i} className="list-disc pl-5 space-y-2 text-text-body">
+                {block.list.map((item, j) => (
+                  <li key={j}>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          return (
+            <div key={i} className="space-y-1">
+              <h3 className="text-primary font-semibold tracking-wide text-sm">{block.heading}</h3>
+              <p className="text-text-body">{block.text}</p>
+            </div>
+          );
+        })}
+        {topic.closing && (
+          <>
+            <div className="h-4" />
+            <p className="text-primary font-medium">{topic.closing}</p>
+          </>
+        )}
       </main>
 
       <BottomNav />
