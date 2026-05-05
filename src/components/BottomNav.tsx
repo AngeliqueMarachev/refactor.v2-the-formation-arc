@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { House, Compass, AudioLines, LibraryBig } from "lucide-react";
+import { House, Compass, AudioLines, LibraryBig, BookOpen } from "lucide-react";
 import { useKeyboardVisible } from "@/hooks/use-keyboard-visible";
 import { useAuth } from "@/lib/auth";
 import {
@@ -17,6 +17,7 @@ const tabs = [
   { label: "Formation", icon: AudioLines, path: "/daily-formation" },
   { label: "Reorient", icon: Compass, path: "/activated" },
   { label: "Library", icon: LibraryBig, path: "/anchors" },
+  { label: "Knowledge", icon: BookOpen, path: "/knowledge" },
 ];
 
 interface BottomNavProps {

@@ -12,6 +12,7 @@ import CoreOrientation from "./pages/CoreOrientation";
 import Activated from "./pages/Activated";
 import DailyFormation from "./pages/DailyFormation";
 import Anchors from "./pages/Anchors";
+import Knowledge from "./pages/Knowledge";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
 import ReorientationRehearsal from "./pages/ReorientationRehearsal";
@@ -85,6 +86,7 @@ const App = () => (
             <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
             <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
             <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+            <Route path="/knowledge" element={<ProtectedRoute><ReorientationGate><Knowledge /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="*" element={<NotFound />} />
