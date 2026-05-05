@@ -7,7 +7,7 @@ const topics = [
   {
     slug: "return-to-truth",
     title: "Return to Truth",
-    subtitle: "Use Truth to interrupt patterns and signal safety",
+    subtitle: "Truth interrupts patterns and signal safety",
     icon: ShieldCheck,
   },
   {
@@ -59,9 +59,7 @@ const Knowledge = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <CardTitle className="text-lg">{topic.title}</CardTitle>
-                <CardDescription className="text-text-supporting text-sm">
-                  {topic.subtitle}
-                </CardDescription>
+                <CardDescription className="text-text-supporting text-sm">{topic.subtitle}</CardDescription>
               </div>
               <ChevronRight className="h-5 w-5 shrink-0 text-text-supporting/60" />
             </CardHeader>
