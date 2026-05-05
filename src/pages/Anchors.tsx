@@ -370,7 +370,7 @@ const Anchors = () => {
                   </div>
                   <div>
                     <p className="text-[10px] font-medium uppercase tracking-widest text-text-supporting/70 mb-1.5">
-                      Anchor
+                      Anchor phrase
                     </p>
                     <p className="font-serif text-base italic text-text-body">"{anchor.anchor_phrase}"</p>
                   </div>
