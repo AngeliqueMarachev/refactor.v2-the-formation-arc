@@ -423,7 +423,7 @@ const Activated = () => {
                     setScreen("phase");
                   }}
                 >
-                  Refine my Reorientation
+                  Refine my reorientation
                 </Button>
               </div>
             </div>
