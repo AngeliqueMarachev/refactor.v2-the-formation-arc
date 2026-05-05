@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
-const content: Record<string, { title: string; subtitle: string; body: string[] }> = {
+const content: Record<string, { title: string; subtitle: string; body: string[]; closing: string }> = {
   "return-to-truth": {
     title: "Return to Truth",
     subtitle: "Use Truth to interrupt patterns and signal safety",
@@ -10,6 +10,7 @@ const content: Record<string, { title: string; subtitle: string; body: string[] 
       "When the system reads a moment as threat, perception narrows. Returning to Truth interrupts that pattern by introducing a steadier signal.",
       "Truth, repeated with attention, becomes the cue your system uses to feel safe again.",
     ],
+    closing: "Truth, returned to often, becomes the ground you stand on.",
   },
   "create-new-associations": {
     title: "Create new associations",
@@ -18,6 +19,7 @@ const content: Record<string, { title: string; subtitle: string; body: string[] 
       "Memory is not static. Each time you revisit it with a steadier presence, the meaning attached to it can shift.",
       "New associations form when an old memory is paired with a new sense of safety.",
     ],
+    closing: "What you revisit with safety begins to change.",
   },
   "neuroplasticity": {
     title: "The science behind neuroplasticity",
@@ -26,6 +28,7 @@ const content: Record<string, { title: string; subtitle: string; body: string[] 
       "Neuroplasticity is your nervous system's ability to reshape itself in response to repeated experience.",
       "Small, repeated returns to steadiness train the system more effectively than rare, intense effort.",
     ],
+    closing: "What you practice, your system learns to expect.",
   },
   "begin-with-stability": {
     title: "Begin with stability",
@@ -34,6 +37,7 @@ const content: Record<string, { title: string; subtitle: string; body: string[] 
       "Lasting change is built on a felt sense of safety. Without it, the system defends rather than learns.",
       "Begin by establishing stability — then growth can follow.",
     ],
+    closing: "Safety first. Then everything else can move.",
   },
   "how-transformation-happens": {
     title: "How transformation happens",
@@ -42,6 +46,7 @@ const content: Record<string, { title: string; subtitle: string; body: string[] 
       "Transformation follows a simple rhythm: focused attention, meaningful association, and patient repetition.",
       "Each return strengthens the pattern. Over time, what was rehearsed becomes the default.",
     ],
+    closing: "Repetition with presence is how the new becomes natural.",
   },
 };
 
@@ -84,6 +89,8 @@ const KnowledgeTopic = () => {
         {topic.body.map((p, i) => (
           <p key={i} className="text-text-body">{p}</p>
         ))}
+        <div className="h-4" />
+        <p className="text-primary font-medium">{topic.closing}</p>
       </main>
 
       <BottomNav />
