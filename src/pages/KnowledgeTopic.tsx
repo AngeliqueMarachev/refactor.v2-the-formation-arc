@@ -117,7 +117,7 @@ const KnowledgeTopic = () => {
           }
           return (
             <div key={i} className="space-y-1">
-              <h3 className="text-primary font-semibold tracking-wide text-sm">{block.heading}</h3>
+              <h3 className="text-primary font-semibold tracking-wide text-sm font-sans">{block.heading}</h3>
               <p className="text-text-body">{block.text}</p>
             </div>
           );
