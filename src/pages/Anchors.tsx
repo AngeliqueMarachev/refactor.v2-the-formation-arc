@@ -359,11 +359,21 @@ const Anchors = () => {
                 }}
               >
                 <CardContent className="p-5 space-y-6">
-                  <p className="text-base leading-relaxed text-primary">
-                    {anchor.anchor_title ||
-                      (anchor.scene_text.length > 120 ? anchor.scene_text.slice(0, 120) + "…" : anchor.scene_text)}
-                  </p>
-                  <p className="font-serif text-base italic text-text-body">"{anchor.anchor_phrase}"</p>
+                  <div>
+                    <p className="text-[10px] font-medium uppercase tracking-widest text-text-supporting/70 mb-1.5">
+                      Memory
+                    </p>
+                    <p className="text-base leading-relaxed text-primary">
+                      {anchor.anchor_title ||
+                        (anchor.scene_text.length > 120 ? anchor.scene_text.slice(0, 120) + "…" : anchor.scene_text)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-medium uppercase tracking-widest text-text-supporting/70 mb-1.5">
+                      Anchor
+                    </p>
+                    <p className="font-serif text-base italic text-text-body">"{anchor.anchor_phrase}"</p>
+                  </div>
                   <p className="text-xs text-text-supporting">
                     Created {formatDistanceToNow(new Date(anchor.created_at), { addSuffix: true })}
                   </p>
