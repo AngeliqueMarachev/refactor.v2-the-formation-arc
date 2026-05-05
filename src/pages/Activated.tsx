@@ -300,7 +300,7 @@ const Activated = () => {
 
           <p className="text-supporting leading-relaxed mb-6">
             Move through each line slowly.
-            <br /> Let each statement interrupt destructive thinking patterns and reorient you to steadiness.
+            <br /> Let each statement interrupt the old pattern and guide you back to steadiness.
           </p>
 
           <div className="relative mb-12">
