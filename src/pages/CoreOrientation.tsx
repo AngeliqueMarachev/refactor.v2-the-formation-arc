@@ -21,30 +21,16 @@ const CoreOrientation = () => {
 
         {/* Intro text */}
         <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-0 pb-0">
-          <p>Your life experiences shape your interpretation of the world.</p>
-          <p>Your thoughts create your reality, upholding this unique interpretation.</p>
+          <p>Your life experiences shape how you see the world.</p>
+          <p>Over time, your brain learns patterns to protect you, scanning for danger and preparing you to respond.</p>
+
+          <p>These patterns can become automatic, shaping your thoughts, your reactions, and even your body.</p>
+          <p className="text-primary">But what was learned can be updated.</p>
+          <p>With steady repetition, the brain begins to expect safety again.</p>
+          <p>This is neuroplasticity.</p>
 
           <p className="text-primary">
-            Traumatic events or prolonged stress can train your system be on high alert, scanning for patterns that
-            signal danger to proactively protect you.{" "}
-          </p>
-          <p className="text-primary">Over time, these patterns become physical structures in the brain and strongholds in our lives. </p>
-          <p>
-            Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies
-            erected by the brain in an effort to ensure your survival.
-          </p>
-          <p>
-            But learned prediction patterns are not permanent. With reassuring repetition, the brain can update
-            expectations and safety can be restored.
-          </p>
-          <p>
-            This process is known as neuroplasticity, and when we align our thoughts with Truth, the renewing of the
-            mind touches all areas of our lives.
-          </p>
-
-          <p className="text-primary">
-            The Formation Arc is designed to help you retrain your system on Truth through awareness, alignment, and
-            repetition.
+            The Formation Arc helps you retrain your system on Truth through awareness, alignment, and repetition.
           </p>
         </div>
 
