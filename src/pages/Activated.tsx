@@ -385,21 +385,6 @@ const Activated = () => {
           {scriptComplete && (
             <div className="space-y-6" style={{ animation: "fade-in 400ms ease-out forwards" }}>
               <div className="text-left py-4 max-w-md mx-auto">
-                {/* Section 1 */}
-                <div className="mb-9">
-                  <p className="text-primary text-base leading-relaxed font-thin mb-4">
-                    Your nervous system just experienced safety.
-                  </p>
-                  <p className="text-text-body text-base leading-relaxed mb-3">Each time you return:</p>
-                  <ul className="list-disc pl-5 space-y-2.5">
-                    <li className="text-text-body text-base leading-relaxed">Recovery becomes faster.</li>
-                    <li className="text-text-body text-base leading-relaxed">Your system learns steadiness.</li>
-                    <li className="text-text-body text-base leading-relaxed">
-                      Your identity becomes more stable than the moment.
-                    </li>
-                  </ul>
-                </div>
-
                 {/* Section 2 */}
                 <div>
                   <p className="text-primary text-base leading-relaxed font-thin mb-1.5">
