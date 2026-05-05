@@ -330,14 +330,10 @@ const Anchors = () => {
             <LibraryBig className="h-7 w-7 text-primary" />
           </div>
           <h2 className="font-semibold">Your anchor library is empty</h2>
-          <p className="max-w-xs text-supporting">
-            Anchors are memories and phrases that help your nervous system learn steadiness.
-          </p>
           <p className="max-w-xs text-supporting">Anchors are created during daily formation.</p>
-          <p className="max-w-xs text-supporting">Your library will grow over time as you create new anchors.</p>
-          <p className="max-w-xs text-supporting">
-            Each time you return to an anchor, the pathway becomes easier to access and safety is reinforced.
-          </p>
+          <p className="max-w-xs text-supporting">They help your system return to steadiness.</p>
+          <p className="max-w-xs text-supporting">Create your first anchor.</p>
+
           <Button
             variant="outline"
             className="w-full border-primary text-primary hover:bg-primary/10"
