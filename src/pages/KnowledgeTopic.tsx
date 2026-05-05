@@ -102,11 +102,32 @@ const KnowledgeTopic = () => {
       </header>
 
       <main className="flex-1 px-5 content-container space-y-4">
-        {topic.body.map((p, i) => (
-          <p key={i} className="text-text-body">{p}</p>
-        ))}
-        <div className="h-4" />
-        <p className="text-primary font-medium">{topic.closing}</p>
+        {topic.body.map((block, i) => {
+          if (typeof block === "string") {
+            return <p key={i} className="text-text-body">{block}</p>;
+          }
+          if ("list" in block) {
+            return (
+              <ul key={i} className="list-disc pl-5 space-y-2 text-text-body">
+                {block.list.map((item, j) => (
+                  <li key={j}>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          return (
+            <div key={i} className="space-y-1">
+              <h3 className="text-primary font-semibold tracking-wide text-sm">{block.heading}</h3>
+              <p className="text-text-body">{block.text}</p>
+            </div>
+          );
+        })}
+        {topic.closing && (
+          <>
+            <div className="h-4" />
+            <p className="text-primary font-medium">{topic.closing}</p>
+          </>
+        )}
       </main>
 
       <BottomNav />
