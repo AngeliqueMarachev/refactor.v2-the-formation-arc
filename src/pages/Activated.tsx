@@ -299,7 +299,7 @@ const Activated = () => {
           />
 
           <p className="text-supporting leading-relaxed mb-6">
-            Read each line slowly.
+            Move through each line slowly.
             <br /> Let each statement interrupt destructive thinking patterns and reorient you to steadiness.
           </p>
 
@@ -388,7 +388,7 @@ const Activated = () => {
                 {/* Section 2 */}
                 <div>
                   <p className="text-primary text-base leading-relaxed font-thin mb-1.5">
-                    This is how formation happens.
+                    This is how your system learns steadiness.
                   </p>
                   <p className="text-text-body text-base leading-relaxed mb-1.5">Not in dramatic breakthroughs.</p>
                   <p className="text-text-body text-base leading-relaxed">But in quiet returns like this.</p>
@@ -408,7 +408,7 @@ const Activated = () => {
                     setScreen("phase");
                   }}
                 >
-                  Refine my reorientation
+                  Refine reorientation
                 </Button>
               </div>
             </div>
