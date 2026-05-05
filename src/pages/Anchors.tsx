@@ -123,7 +123,7 @@ const Anchors = () => {
 
             {/* Scene Snapshot */}
             <div className="mt-4">
-              <h2 className="text-xs font-medium uppercase tracking-widest text-primary font-sans mb-2">Scene</h2>
+              <h2 className="text-xs font-medium uppercase tracking-widest text-primary font-sans mb-2">MEMORY</h2>
               <div className="relative">
                 <div
                   className="overflow-hidden transition-all duration-200 ease-out"
