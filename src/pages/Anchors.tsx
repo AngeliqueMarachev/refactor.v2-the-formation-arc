@@ -318,8 +318,8 @@ const Anchors = () => {
         <h1 className="tracking-tight font-serif">Return to your anchors</h1>
         {!isEmpty && (
           <>
-            <p className="text-supporting mt-4 text-primary">Return to the memories that anchor you in steadiness.</p>
-            <p className="text-supporting mt-4">Anchors deepen with repetition. Tap an anchor to revisit the memory.</p>
+            <p className="text-supporting mt-4 text-primary">Return to what steadies you.</p>
+            <p className="text-supporting mt-4">Tap an anchor. Re-enter the moment.</p>
           </>
         )}
       </header>
