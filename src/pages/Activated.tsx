@@ -396,7 +396,7 @@ const Activated = () => {
               </div>
               <div className="space-y-3">
                 <Button className="w-full" size="lg" onClick={handleUseComplete} disabled={saving}>
-                  {saving ? "Saving…" : "Return home"}
+                  {saving ? "Saving…" : "Return to today"}
                 </Button>
                 <Button
                   className="w-full"
