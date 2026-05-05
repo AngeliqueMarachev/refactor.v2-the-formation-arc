@@ -376,7 +376,7 @@ const Anchors = () => {
                 className="w-full border-primary text-primary hover:bg-primary/10"
                 onClick={() => navigate("/daily-formation")}
               >
-                Create new anchor
+                Build a new anchor
               </Button>
             </div>
           </div>
