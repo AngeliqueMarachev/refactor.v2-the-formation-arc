@@ -220,7 +220,7 @@ const Anchors = () => {
                   </div>
                   <div className="pb-8 flex-1">
                     <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      DAILY MOMENT
+                      DAILY RHYTHM
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
                       Attach it to one daily moment that already happens, for example:
@@ -242,7 +242,7 @@ const Anchors = () => {
                   </div>
                   <div className="pb-8 flex-1">
                     <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      DURING MOMENTS OF CONTRACTION
+                      IN MOMENTS OF TENSION
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
                       Use your phrase when your system begins to tighten, for example:
@@ -264,7 +264,7 @@ const Anchors = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      OLD THOUGHT PATTERNS
+                      WHEN OLD PATTERNS RESURFACE
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
                       Use your phrase when familiar internal narratives begin to surface, for example:
@@ -285,8 +285,8 @@ const Anchors = () => {
               <div className="rounded-2xl p-6 border border-solid bg-muted border-secondary">
                 <p className="text-muted-foreground font-semibold text-base mb-5">IN THAT MOMENT</p>
                 <div className="text-text-body space-y-4" style={{ lineHeight: "1.7" }}>
-                  <p className="font-medium">Pause for 10 seconds.</p>
-                  <p>Recall the memory briefly.</p>
+                  <p className="font-medium">Pause.</p>
+                  <p>Recall the memory.</p>
                   <p>Say your phrase once.</p>
                 </div>
                 <div className="h-8" aria-hidden="true" />
@@ -296,12 +296,12 @@ const Anchors = () => {
               <div className="h-8" aria-hidden="true" />
 
               <p className="text-text-heading font-medium leading-relaxed">
-                Over time, the nervous system begins to expect steadiness.
+                Over time, your system learns to expect steadiness.
               </p>
             </section>
             <div className="h-8" aria-hidden="true" />
             <Button className="w-full" onClick={() => setView("list")}>
-              Choose an anchor
+              Choose your anchor
             </Button>
           </div>
         </ScrollArea>
