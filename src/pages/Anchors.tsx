@@ -82,11 +82,11 @@ const Anchors = () => {
         <main className="flex flex-1 flex-col items-center justify-center px-5 text-center content-container">
           <div>
             <p className="text-supporting leading-relaxed max-w-xs">Take 10–20 seconds to return to this moment.</p>
-            <p className="text-supporting leading-relaxed max-w-xs">Let the feeling become familiar again.</p>
+            <p className="text-supporting leading-relaxed max-w-xs">Let your body recognize it again.</p>
           </div>
           <p className="font-serif text-lg italic text-text-heading max-w-sm mt-8">"{selected.anchor_phrase}"</p>
-          <p className="text-sm text-text-supporting mt-4">Each return makes this pathway easier to access.</p>
-          <p className="text-sm text-text-supporting mt-4">You are strengthening steadiness.</p>
+          <p className="text-sm text-text-supporting mt-4">Each return strengthens this pattern.</p>
+          <p className="text-sm text-text-supporting mt-4">Steadiness is becoming more familiar.</p>
           <Button onClick={handleRecallDone} className="w-full max-w-xs mt-7">
             Return to today
           </Button>
