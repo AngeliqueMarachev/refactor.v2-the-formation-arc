@@ -53,7 +53,7 @@ const Index = () => {
     },
     {
       title: "Anchor Library",
-      subtitle: "Return to what anchors you. Reinforce it through repetition.",
+      subtitle: "Reinforce what anchors you with repetition.",
       icon: LibraryBig,
       path: "/anchors",
     },
