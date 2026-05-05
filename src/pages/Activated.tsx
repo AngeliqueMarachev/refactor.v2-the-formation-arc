@@ -390,8 +390,8 @@ const Activated = () => {
                   <p className="text-primary text-base leading-relaxed font-thin mb-1.5">
                     This is how your system learns steadiness.
                   </p>
-                  <p className="text-text-body text-base leading-relaxed mb-1.5">Not in dramatic breakthroughs.</p>
-                  <p className="text-text-body text-base leading-relaxed">But in quiet returns like this.</p>
+                  <p className="text-text-body text-base leading-relaxed mb-1.5">Not by force.</p>
+                  <p className="text-text-body text-base leading-relaxed">But through repeated return.</p>
                 </div>
               </div>
               <div className="space-y-3">
