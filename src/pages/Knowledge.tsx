@@ -7,7 +7,7 @@ const topics = [
   {
     slug: "return-to-truth",
     title: "Return to Truth",
-    subtitle: "Truth interrupts patterns and signal safety",
+    subtitle: "Truth interrupts patterns and signals safety",
     icon: ShieldCheck,
   },
   {
