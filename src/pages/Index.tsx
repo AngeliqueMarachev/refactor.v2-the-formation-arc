@@ -38,24 +38,22 @@ const Index = () => {
     enabled: !!user,
   });
 
-
   const cards = [
     {
       title: "Daily Formation",
-      subtitle:
-        "Use this practice to train your system and strengthen new patterns of safety.",
+      subtitle: "Train your system daily. Build steady patterns over time.",
       icon: AudioLines,
       path: "/daily-formation",
     },
     {
       title: "Reorientation",
-      subtitle: "Use this method to quickly interrupt the spiral and regain steadiness.",
+      subtitle: "Interrupt the pattern and return to steadiness.",
       icon: Compass,
       path: "/activated",
     },
     {
       title: "Anchor Library",
-      subtitle: "Return here to revisit established moments of safety.",
+      subtitle: "Return to what anchors you. Reinforce it through repetition.",
       icon: LibraryBig,
       path: "/anchors",
     },
@@ -64,7 +62,9 @@ const Index = () => {
   const reorientations = stats?.reorient_return_count ?? 0;
   const anchorsCreated = stats?.anchors_created ?? 0;
   const recalls = (stats as any)?.anchor_recall_count ?? 0;
-  const lastActivityLabel = stats?.last_active_at ? formatDistanceToNow(new Date(stats.last_active_at), { addSuffix: true }) : "—";
+  const lastActivityLabel = stats?.last_active_at
+    ? formatDistanceToNow(new Date(stats.last_active_at), { addSuffix: true })
+    : "—";
 
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
@@ -78,7 +78,12 @@ const Index = () => {
           </button>
         </div>
         <div className="flex justify-center mt-2">
-          <img src={logo} alt="The Formation Arc" className="h-auto object-contain" style={{ width: "min(85vw, 420px)" }} />
+          <img
+            src={logo}
+            alt="The Formation Arc"
+            className="h-auto object-contain"
+            style={{ width: "min(85vw, 420px)" }}
+          />
         </div>
       </header>
 
@@ -112,7 +117,7 @@ const Index = () => {
                 {[
                   { value: String(anchorsCreated), label: "Anchors" },
                   { value: String(reorientations), label: "Reorientations" },
-                  { value: String(recalls), label: "Recalls" },
+                  { value: String(recalls), label: "Returns" },
                 ].map((metric) => (
                   <div key={metric.label} className="flex flex-col items-center gap-1.5">
                     <div
