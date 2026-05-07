@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import logo from "@/assets/formation-arc-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
@@ -6,8 +7,9 @@ import { sanitizeEmail } from "@/lib/sanitize";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useSearchParams } from "react-router-dom";
-import { getAuthRedirectUrl } from "@/lib/auth-redirects";
+import OtpInput from "@/components/OtpInput";
+
+const RESEND_COOLDOWN_S = 30;
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -19,22 +21,38 @@ const GoogleIcon = () => (
 );
 
 const Auth = () => {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [step, setStep] = useState<"email" | "code">("email");
+
   const [email, setEmail] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
   const [emailError, setEmailError] = useState("");
+
+  const [sentTo, setSentTo] = useState("");
+  const [code, setCode] = useState("");
+  const [codeError, setCodeError] = useState("");
+
   const [loading, setLoading] = useState(false);
+  const [verifying, setVerifying] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
-  const [sentTo, setSentTo] = useState<string | null>(null);
+
   const [statusMessage, setStatusMessage] = useState("");
-  const [expiredMessage, setExpiredMessage] = useState("");
+  const [cooldown, setCooldown] = useState(0);
+  const verifiedRef = useRef(false);
 
   useEffect(() => {
     if (searchParams.get("expired") === "true") {
-      setExpiredMessage("Your link has expired. Request a new one.");
+      setCodeError("Your code has expired. Request a new one.");
       setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const t = setInterval(() => setCooldown((c) => (c <= 1 ? 0 : c - 1)), 1000);
+    return () => clearInterval(t);
+  }, [cooldown]);
 
   const validateEmail = (value: string): string => {
     const trimmed = value.trim();
@@ -46,51 +64,99 @@ const Auth = () => {
   const handleEmailChange = (value: string) => {
     const lower = sanitizeEmail(value);
     setEmail(lower);
-    setExpiredMessage("");
     if (emailTouched) setEmailError(validateEmail(lower));
   };
 
-  const sendMagicLink = async (target: string) => {
+  const sendCode = async (target: string): Promise<boolean> => {
     const { error } = await supabase.auth.signInWithOtp({
       email: target,
-      options: { emailRedirectTo: getAuthRedirectUrl("/auth/callback") },
+      options: { shouldCreateUser: true },
     });
     if (error) {
-      setStatusMessage("We couldn't send the link. Please try again.");
+      setStatusMessage("We couldn't send the code. Please try again.");
       return false;
     }
+    setCooldown(RESEND_COOLDOWN_S);
     return true;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSendCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setEmailTouched(true);
     setStatusMessage("");
-    const error = validateEmail(email);
-    setEmailError(error);
-    if (error) return;
+    const err = validateEmail(email);
+    setEmailError(err);
+    if (err) return;
     setLoading(true);
     try {
-      const ok = await sendMagicLink(email);
-      if (ok) setSentTo(email);
-    } catch {
-      setStatusMessage("We couldn't send the link. Please try again.");
+      const ok = await sendCode(email);
+      if (ok) {
+        setSentTo(email);
+        setCode("");
+        setCodeError("");
+        setStep("code");
+      }
     } finally {
       setLoading(false);
     }
   };
 
   const handleResend = async () => {
-    if (!sentTo) return;
+    if (!sentTo || cooldown > 0 || loading) return;
     setLoading(true);
     setStatusMessage("");
+    setCodeError("");
     try {
-      const ok = await sendMagicLink(sentTo);
-      if (ok) setStatusMessage("Link resent. Check your inbox.");
-    } catch {
-      setStatusMessage("We couldn't resend the link. Please try again.");
+      const ok = await sendCode(sentTo);
+      if (ok) {
+        setCode("");
+        setStatusMessage("Code resent. Check your inbox.");
+      }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleUseDifferentEmail = () => {
+    setStep("email");
+    setSentTo("");
+    setCode("");
+    setCodeError("");
+    setStatusMessage("");
+    setEmail("");
+    setEmailTouched(false);
+    setEmailError("");
+    setCooldown(0);
+    verifiedRef.current = false;
+  };
+
+  const handleVerify = async (codeToVerify?: string) => {
+    const token = (codeToVerify ?? code).trim();
+    if (token.length !== 6 || verifying || verifiedRef.current) return;
+    setVerifying(true);
+    setCodeError("");
+    setStatusMessage("");
+    try {
+      const { error } = await supabase.auth.verifyOtp({
+        email: sentTo,
+        token,
+        type: "email",
+      });
+      if (error) {
+        const msg = (error.message || "").toLowerCase();
+        if (msg.includes("expired")) {
+          setCodeError("Your code has expired. Request a new one.");
+        } else {
+          setCodeError("That code didn't work. Check it and try again, or request a new one.");
+        }
+        return;
+      }
+      verifiedRef.current = true;
+      navigate("/", { replace: true });
+    } catch {
+      setCodeError("That code didn't work. Check it and try again, or request a new one.");
+    } finally {
+      setVerifying(false);
     }
   };
 
@@ -110,7 +176,7 @@ const Auth = () => {
     }
   };
 
-  if (sentTo) {
+  if (step === "code") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5 pb-12">
         <div className="w-full max-w-sm space-y-6">
@@ -122,13 +188,37 @@ const Auth = () => {
           />
           <div className="space-y-3 text-center pt-4">
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium">
-              CHECK YOUR EMAIL
+              ENTER YOUR CODE
             </h1>
             <p className="text-text-supporting text-sm">
-              We've sent you a secure link to continue.
+              We sent a 6-digit code to <span className="text-foreground break-all">{sentTo}</span>.
             </p>
-            <p className="text-foreground text-sm break-all pt-2">{sentTo}</p>
           </div>
+
+          <div className="space-y-3">
+            <OtpInput
+              value={code}
+              onChange={(v) => {
+                setCode(v);
+                if (codeError) setCodeError("");
+              }}
+              onComplete={(v) => handleVerify(v)}
+              error={!!codeError}
+              autoFocus
+              disabled={verifying}
+            />
+            {codeError && (
+              <p className="text-sm text-muted-foreground text-center">{codeError}</p>
+            )}
+          </div>
+
+          <Button
+            onClick={() => handleVerify()}
+            className="w-full"
+            disabled={code.length !== 6 || verifying}
+          >
+            {verifying ? "..." : "Verify"}
+          </Button>
 
           {statusMessage && (
             <div
@@ -140,19 +230,23 @@ const Auth = () => {
             </div>
           )}
 
-          <div className="space-y-3 pt-2">
-            <Button onClick={handleResend} className="w-full" disabled={loading}>
-              {loading ? "..." : "Resend link"}
-            </Button>
+          <div className="flex flex-col items-center gap-3 pt-1">
             <button
               type="button"
-              onClick={() => {
-                setSentTo(null);
-                setStatusMessage("");
-                setEmail("");
-                setEmailTouched(false);
-              }}
-              className="w-full text-center text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
+              onClick={handleResend}
+              disabled={cooldown > 0 || loading}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline disabled:opacity-50 disabled:hover:no-underline disabled:hover:text-muted-foreground"
+            >
+              {loading
+                ? "Sending..."
+                : cooldown > 0
+                  ? `Resend code in ${cooldown}s`
+                  : "Resend code"}
+            </button>
+            <button
+              type="button"
+              onClick={handleUseDifferentEmail}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
             >
               Use a different email
             </button>
@@ -189,7 +283,7 @@ const Auth = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        <form onSubmit={handleSendCode} className="space-y-5" noValidate>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -214,18 +308,8 @@ const Auth = () => {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "..." : "Send magic link"}
+            {loading ? "..." : "Send code"}
           </Button>
-
-          {expiredMessage && (
-            <div
-              role="status"
-              aria-live="polite"
-              className="rounded-md border border-border/40 bg-muted/40 px-3 py-2 text-sm text-muted-foreground text-center"
-            >
-              {expiredMessage}
-            </div>
-          )}
 
           {statusMessage && (
             <div
