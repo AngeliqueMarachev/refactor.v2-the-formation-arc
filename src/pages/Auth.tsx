@@ -68,16 +68,38 @@ const Auth = () => {
   };
 
   const sendCode = async (target: string): Promise<boolean> => {
-    const { error } = await supabase.auth.signInWithOtp({
-      email: target,
-      options: { shouldCreateUser: true },
-    });
-    if (error) {
-      setStatusMessage("We couldn't send the code. Please try again.");
+    if (!target) {
+      setStatusMessage("Enter your email before requesting a code.");
       return false;
     }
-    setCooldown(RESEND_COOLDOWN_S);
-    return true;
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email: target,
+        options: { shouldCreateUser: true },
+      });
+      if (error) {
+        const msg = (error.message || "").toLowerCase();
+        const status = (error as { status?: number }).status;
+        if (
+          status === 429 ||
+          msg.includes("rate limit") ||
+          msg.includes("for security purposes") ||
+          msg.includes("only request this after")
+        ) {
+          setStatusMessage("Please wait a few minutes before requesting another code.");
+          // Best-effort: keep button disabled until they wait
+          if (cooldown <= 0) setCooldown(RESEND_COOLDOWN_S);
+        } else {
+          setStatusMessage("Something went wrong. Check your connection and try again.");
+        }
+        return false;
+      }
+      setCooldown(RESEND_COOLDOWN_S);
+      return true;
+    } catch {
+      setStatusMessage("Something went wrong. Check your connection and try again.");
+      return false;
+    }
   };
 
   const handleSendCode = async (e: React.FormEvent) => {
