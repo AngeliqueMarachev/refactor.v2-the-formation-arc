@@ -9,38 +9,50 @@ const AuthCallback = () => {
   useEffect(() => {
     let cancelled = false;
 
-    const completeConfirmation = async () => {
-      const params = new URLSearchParams(window.location.search);
+    const completeAuth = async () => {
+      const url = new URL(window.location.href);
+      const params = url.searchParams;
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+
+      const errorParam =
+        params.get("error") ||
+        params.get("error_code") ||
+        hashParams.get("error") ||
+        hashParams.get("error_code");
+
+      const isExpired =
+        errorParam === "otp_expired" ||
+        errorParam === "access_denied" ||
+        (params.get("error_description") || hashParams.get("error_description") || "")
+          .toLowerCase()
+          .includes("expired");
+
+      if (errorParam) {
+        if (!cancelled) {
+          navigate(isExpired ? "/auth?expired=true" : "/auth", { replace: true });
+        }
+        return;
+      }
+
       const code = params.get("code");
-      const errorParam = params.get("error") || params.get("error_code");
-
-      let confirmationFailed = !!errorParam;
-
       if (code) {
         const { error } = await supabase.auth.exchangeCodeForSession(code);
         if (error) {
-          console.error("Email confirmation callback failed", error);
-          confirmationFailed = true;
+          console.error("Magic link callback failed", error);
+          if (!cancelled) {
+            navigate("/auth?expired=true", { replace: true });
+          }
+          return;
         }
       }
 
-      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-      const hashType = hashParams.get("type");
-      const hashError = hashParams.get("error") || hashParams.get("error_code");
-      if (hashError) confirmationFailed = true;
-
-      if (hashType === "signup" || code) {
-        localStorage.removeItem("last_route");
-        localStorage.removeItem("last_route_ts");
-        await supabase.auth.signOut();
-      }
-
       if (!cancelled) {
-        navigate(confirmationFailed ? "/auth?confirmed=false" : "/auth?confirmed=true", { replace: true });
+        // OrientationGate routes new users to /onboarding and returning users to home.
+        navigate("/", { replace: true });
       }
     };
 
-    completeConfirmation();
+    completeAuth();
 
     return () => {
       cancelled = true;
@@ -49,8 +61,13 @@ const AuthCallback = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-5">
-      <img src={logo} alt="The Formation Arc" className="h-auto object-contain mb-8" style={{ width: "min(85vw, 420px)" }} />
-      <p className="text-muted-foreground animate-pulse">Confirming your email…</p>
+      <img
+        src={logo}
+        alt="The Formation Arc"
+        className="h-auto object-contain mb-8"
+        style={{ width: "min(85vw, 420px)" }}
+      />
+      <p className="text-muted-foreground animate-pulse">Signing you in…</p>
     </div>
   );
 };
