@@ -237,7 +237,12 @@ const Auth = () => {
               type="button"
               onClick={handleResend}
               disabled={cooldown > 0 || loading}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline disabled:opacity-50 disabled:hover:no-underline disabled:hover:text-muted-foreground"
+              aria-disabled={cooldown > 0 || loading}
+              className={
+                cooldown > 0 || loading
+                  ? "text-sm text-muted-foreground opacity-50 cursor-not-allowed"
+                  : "text-sm text-primary underline underline-offset-4 transition-opacity hover:opacity-80 active:opacity-70 cursor-pointer"
+              }
             >
               {loading
                 ? "Sending..."
