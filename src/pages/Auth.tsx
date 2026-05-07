@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import OtpInput from "@/components/OtpInput";
 
-const RESEND_COOLDOWN_S = 30;
+const RESEND_COOLDOWN_S = 60;
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -86,8 +86,7 @@ const Auth = () => {
           msg.includes("for security purposes") ||
           msg.includes("only request this after")
         ) {
-          setStatusMessage("Please wait a few minutes before requesting another code.");
-          // Best-effort: keep button disabled until they wait
+          setStatusMessage("Please wait a little longer before requesting another code.");
           if (cooldown <= 0) setCooldown(RESEND_COOLDOWN_S);
         } else {
           setStatusMessage("Something went wrong. Check your connection and try again.");
