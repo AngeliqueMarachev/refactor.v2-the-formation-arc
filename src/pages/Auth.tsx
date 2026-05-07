@@ -190,7 +190,7 @@ const Auth = () => {
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium">
               ENTER YOUR CODE
             </h1>
-            <p className="text-text-supporting text-sm">
+            <p className="text-text-supporting text-sm leading-loose">
               We sent a 6-digit code to
               <br />
               <span className="text-foreground break-all">{sentTo}</span>
