@@ -4,36 +4,35 @@ import * as React from 'npm:react@18.3.1'
 
 import {
   Body,
-  Button,
   Container,
   Head,
   Heading,
   Html,
   Preview,
+  Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 
 interface MagicLinkEmailProps {
   siteName: string
-  confirmationUrl: string
+  token: string
 }
 
-export const MagicLinkEmail = ({ confirmationUrl }: MagicLinkEmailProps) => (
+export const MagicLinkEmail = ({ token }: MagicLinkEmailProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Your sign-in link for The Formation Arc</Preview>
+    <Preview>Your sign-in code for The Formation Arc</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Your sign-in link</Heading>
+        <Heading style={h1}>Your sign-in code</Heading>
         <Text style={text}>
-          Use the link below to sign in to The Formation Arc. It will expire
-          shortly.
+          Enter this code in The Formation Arc to continue. It expires shortly.
         </Text>
-        <Button style={button} href={confirmationUrl}>
-          Sign in
-        </Button>
+        <Section style={codeWrap}>
+          <Text style={code}>{token}</Text>
+        </Section>
         <Text style={footer}>
-          If you didn't request this link, you can safely ignore this email.
+          If you didn't request this code, you can safely ignore this email.
         </Text>
       </Container>
     </Body>
@@ -61,15 +60,21 @@ const text = {
   lineHeight: '1.6',
   margin: '0 0 24px',
 }
-const button = {
-  backgroundColor: '#0C4651',
-  color: '#ffffff',
-  fontSize: '15px',
-  fontWeight: 600 as const,
+const codeWrap = {
+  backgroundColor: '#F1F5F4',
   borderRadius: '14px',
-  padding: '14px 24px',
-  textDecoration: 'none',
-  display: 'inline-block',
+  padding: '20px 24px',
+  textAlign: 'center' as const,
+  margin: '0 0 24px',
+}
+const code = {
+  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  fontSize: '32px',
+  fontWeight: 600 as const,
+  color: '#0C4651',
+  letterSpacing: '0.4em',
+  margin: 0,
+  lineHeight: '1.2',
 }
 const footer = {
   fontSize: '13px',
