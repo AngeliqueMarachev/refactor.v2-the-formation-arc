@@ -191,7 +191,9 @@ const Auth = () => {
               ENTER YOUR CODE
             </h1>
             <p className="text-text-supporting text-sm">
-              We sent a 6-digit code to <span className="text-foreground break-all">{sentTo}</span>.
+              We sent a 6-digit code to
+              <br />
+              <span className="text-foreground break-all">{sentTo}</span>
             </p>
           </div>
 
