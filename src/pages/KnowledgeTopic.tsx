@@ -63,7 +63,14 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     title: "How transformation happens",
     subtitle: "Focus, association, repetition",
     body: [
-      "Neuroplasticity is established on three principles:",
+      "Your life experiences shape your interpretation of the world.",
+      "Your thoughts create your reality, upholding this unique interpretation.",
+      "Traumatic events or prolonged stress can train your system to be on high alert, scanning for patterns that signal danger to proactively protect you.",
+      "Over time, these patterns become physical structures in the brain and strongholds in our lives.",
+      "Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies erected by the brain in an effort to ensure your survival.",
+      "But learned prediction patterns are not permanent. With reassuring repetition, the brain can update expectations and safety can be restored.",
+      "This process is known as neuroplasticity."
+      "Change using neuroplasticity is built on three principles: "
       { heading: "FOCUS", text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight." },
       { heading: "ASSOCIATION", text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory." },
       { heading: "REPETITION", text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last." },
@@ -103,7 +110,7 @@ const KnowledgeTopic = () => {
           onClick={() => navigate("/knowledge")}
           className="flex items-center gap-1 text-text-supporting hover:text-primary text-sm mb-6"
         >
-          <ChevronLeft className="h-4 w-4" /> Understanding your divine design
+          <ChevronLeft className="h-4 w-4" /> Knowledge
         </button>
         <h1>{topic.title}</h1>
         <p className="text-text-supporting mt-2">{topic.subtitle}</p>
