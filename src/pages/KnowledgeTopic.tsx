@@ -69,8 +69,8 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "Over time, these patterns become physical structures in the brain and strongholds in our lives.",
       "Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies erected by the brain in an effort to ensure your survival.",
       "But learned prediction patterns are not permanent. With reassuring repetition, the brain can update expectations and safety can be restored.",
-      "This process is known as neuroplasticity."
-      "Change using neuroplasticity is built on three principles: "
+      "This process is known as neuroplasticity.",
+      "Change using neuroplasticity is built on three principles: ",
       { heading: "FOCUS", text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight." },
       { heading: "ASSOCIATION", text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory." },
       { heading: "REPETITION", text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last." },
