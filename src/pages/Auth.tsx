@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import OtpInput from "@/components/OtpInput";
 
-const RESEND_COOLDOWN_S = 45;
+const RESEND_COOLDOWN_S = 40;
 const RATE_LIMIT_COOLDOWN_S = 12;
 
 const GoogleIcon = () => (
