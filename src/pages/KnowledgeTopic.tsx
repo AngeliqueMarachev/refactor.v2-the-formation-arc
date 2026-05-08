@@ -103,7 +103,7 @@ const KnowledgeTopic = () => {
           onClick={() => navigate("/knowledge")}
           className="flex items-center gap-1 text-text-supporting hover:text-primary text-sm mb-6"
         >
-          <ChevronLeft className="h-4 w-4" /> Knowledge
+          <ChevronLeft className="h-4 w-4" /> Understanding your divine design
         </button>
         <h1>{topic.title}</h1>
         <p className="text-text-supporting mt-2">{topic.subtitle}</p>
