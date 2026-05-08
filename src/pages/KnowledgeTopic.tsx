@@ -63,7 +63,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     title: "How transformation happens",
     subtitle: "Focus, association, repetition",
     body: [
-      "Neuroplasticity is established on three principles: "
+      "Neuroplasticity is established on three principles:",
       { heading: "FOCUS", text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight." },
       { heading: "ASSOCIATION", text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory." },
       { heading: "REPETITION", text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last." },
