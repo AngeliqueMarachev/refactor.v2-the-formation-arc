@@ -50,9 +50,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "Much of what shapes fear or peace happens below awareness, in systems designed to protect you.",
       "The nervous system responds strongly to signals of safety, connection, and support.",
       "Prayer communicates support to your system.",
-      "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
     ],
-    closing: "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
   },
   "how-transformation-happens": {
     title: "How transformation happens",
