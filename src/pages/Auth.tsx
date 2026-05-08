@@ -9,15 +9,27 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import OtpInput from "@/components/OtpInput";
 
-const RESEND_COOLDOWN_S = 30;
+const RESEND_COOLDOWN_S = 45;
 const RATE_LIMIT_COOLDOWN_S = 12;
 
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615Z" fill="#4285F4" />
-    <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z" fill="#34A853" />
-    <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.997 8.997 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z" fill="#FBBC05" />
-    <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 2.58 9 3.58Z" fill="#EA4335" />
+    <path
+      d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615Z"
+      fill="#4285F4"
+    />
+    <path
+      d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z"
+      fill="#34A853"
+    />
+    <path
+      d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.997 8.997 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z"
+      fill="#FBBC05"
+    />
+    <path
+      d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 2.58 9 3.58Z"
+      fill="#EA4335"
+    />
   </svg>
 );
 
@@ -231,16 +243,10 @@ const Auth = () => {
               autoFocus
               disabled={verifying}
             />
-            {codeError && (
-              <p className="text-sm text-muted-foreground text-center">{codeError}</p>
-            )}
+            {codeError && <p className="text-sm text-muted-foreground text-center">{codeError}</p>}
           </div>
 
-          <Button
-            onClick={() => handleVerify()}
-            className="w-full"
-            disabled={code.length !== 6 || verifying}
-          >
+          <Button onClick={() => handleVerify()} className="w-full" disabled={code.length !== 6 || verifying}>
             {verifying ? "..." : "Verify"}
           </Button>
 
@@ -266,11 +272,7 @@ const Auth = () => {
                   : "text-sm text-primary underline underline-offset-4 transition-opacity hover:opacity-80 active:opacity-70 cursor-pointer"
               }
             >
-              {loading
-                ? "Sending..."
-                : cooldown > 0
-                  ? `Resend code in ${cooldown}s`
-                  : "Resend code"}
+              {loading ? "Sending..." : cooldown > 0 ? `Resend code in ${cooldown}s` : "Resend code"}
             </button>
             <button
               type="button"
@@ -306,9 +308,7 @@ const Auth = () => {
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
               BEGIN YOUR FORMATION
             </h1>
-            <p className="text-text-supporting text-sm text-center">
-              Enter your email to continue.
-            </p>
+            <p className="text-text-supporting text-sm text-center">Enter your email to continue.</p>
           </div>
         </div>
 
@@ -331,9 +331,7 @@ const Auth = () => {
               spellCheck={false}
               inputMode="email"
             />
-            {emailTouched && emailError && (
-              <p className="text-sm text-muted-foreground mt-1">{emailError}</p>
-            )}
+            {emailTouched && emailError && <p className="text-sm text-muted-foreground mt-1">{emailError}</p>}
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
