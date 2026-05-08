@@ -52,8 +52,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "Prayer communicates support to your system.",
       "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
     ],
-      closing:  "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
-  },
+    closing: "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
   },
   "how-transformation-happens": {
     title: "How transformation happens",
