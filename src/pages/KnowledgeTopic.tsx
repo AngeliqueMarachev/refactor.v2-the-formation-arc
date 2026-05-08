@@ -51,7 +51,6 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "The nervous system responds strongly to signals of safety, connection, and support.",
       "Prayer communicates support to your system.",
     ],
-    closing: "Before you begin your practice, pause, give thanks, and entrust God with the outcomes.",
   },
   "how-transformation-happens": {
     title: "How transformation happens",
