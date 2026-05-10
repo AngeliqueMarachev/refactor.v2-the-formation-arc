@@ -8,7 +8,7 @@ const topics = [
     slug: "how-your-system-learned-to-protect-you",
     title: "How your system learned to protect you",
     subtitle: "Your thoughts create your reality",
-    icon: ShieldCheck,
+    icon: AlarmClock,
   },
   {
     slug: "return-to-truth",
