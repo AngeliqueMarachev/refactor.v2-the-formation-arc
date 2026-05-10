@@ -5,6 +5,31 @@ import BottomNav from "@/components/BottomNav";
 type TopicBlock = string | { heading: string; text: string } | { list: string[] };
 
 const content: Record<string, { title: string; subtitle: string; body: TopicBlock[]; closing?: string }> = {
+  "how-your-system-protects": {
+    title: "How your system learned to protect you",
+    subtitle: "Your thoughts create your reality",
+    body: [
+      "Your life experiences shape your interpretation of the world.",
+      "Your thoughts create your reality, upholding this unique interpretation.",
+      "Over time, your brain learns patterns to protect you, scanning for danger and preparing you to respond.",
+      "This design is not working against you. On the contrary it is working to keep you safe.",
+
+      "Traumatic events or prolonged stress can train your system to be on high alert.",
+      "What once helped you survive can become your default way of moving through the world.",
+      "These patterns become embedded, manifesting as physical structures in the brain and strongholds in our lives.",
+      "They are reinforced through repetition until they feel automatic, shaping your thoughts, your reactions, and even your body.",
+      "What you experience today is often not the present moment, but a prediction based on what has been learned before.",
+      "Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are not random.",
+      "They are survival strategies erected by the brain in an effort to ensure your survival.",
+      "Your system is responding exactly as it was trained to.",
+      "But what was learned is not not permanent. With steady repetition, the brain can update what it expects.",
+      "It can begin to register safety again.",
+      "This process is known as neuroplasticity.",
+      "And when your system is repeatedly aligned with what is true, we break our agreements with the lies we’ve accepted.",
+    ],
+    closing: "What was formed through experience can be reshaped through repetition.",
+  },
+
   "return-to-truth": {
     title: "Return to Truth",
     subtitle: "Use Truth to interrupt patterns and signal safety",
@@ -12,16 +37,19 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "Before the brain can update, it must first register safety.",
       "When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking and retrain the brain to respond to life in ways that better serve us.",
       "Each time you return you:",
-      { list: [
-        "interrupt negative cycles",
-        "update expectations",
-        "strengthen internal authority",
-        "stabilize identity over time",
-      ] },
-      "When we return to updated expectations, we signal stability to the nervous system, allowing the mind to become receptive."
+      {
+        list: [
+          "interrupt negative cycles",
+          "update expectations",
+          "strengthen internal authority",
+          "stabilize identity over time",
+        ],
+      },
+      "When we return to updated expectations, we signal stability to the nervous system, allowing the mind to become receptive.",
     ],
     closing: "A receptive system forms steadier expectations.",
   },
+
   "create-new-associations": {
     title: "Create new associations",
     subtitle: "Update meaning through memory",
@@ -36,7 +64,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     ],
     closing: "What you reinforce becomes what your system expects.",
   },
-  "neuroplasticity": {
+  neuroplasticity: {
     title: "The science behind neuroplasticity",
     subtitle: "Understand how your system responds",
     body: [
@@ -46,7 +74,8 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into the body when we experience alignment.",
       "They create high frequency emotional signatures, which support and heal the body, and help us feel safe.",
     ],
-    closing: "Postive repetition provides the nervous system with new, positive information, producing life-giving DOSE chemistry to counteract the effects of CAN chemistry stored in the body.",
+    closing:
+      "Postive repetition provides the nervous system with new, positive information, producing life-giving DOSE chemistry to counteract the effects of CAN chemistry stored in the body.",
   },
   "begin-with-stability": {
     title: "Begin with stability",
@@ -63,17 +92,19 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     title: "How transformation happens",
     subtitle: "Focus, association, repetition",
     body: [
-      "Your life experiences shape your interpretation of the world.",
-      "Your thoughts create your reality, upholding this unique interpretation.",
-      "Traumatic events or prolonged stress can train your system to be on high alert, scanning for patterns that signal danger to proactively protect you.",
-      "Over time, these patterns become physical structures in the brain and strongholds in our lives.",
-      "Coping mechanisms, limiting beliefs, emotional walls, and even physical symptoms are survival strategies erected by the brain in an effort to ensure your survival.",
-      "But learned prediction patterns are not permanent. With reassuring repetition, the brain can update expectations and safety can be restored.",
-      "This process is known as neuroplasticity.",
       "Change using neuroplasticity is built on three principles: ",
-      { heading: "FOCUS", text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight." },
-      { heading: "ASSOCIATION", text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory." },
-      { heading: "REPETITION", text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last." },
+      {
+        heading: "FOCUS",
+        text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.",
+      },
+      {
+        heading: "ASSOCIATION",
+        text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory.",
+      },
+      {
+        heading: "REPETITION",
+        text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last.",
+      },
       "When we apply this framework together with God by aligning with Truth, we break our agreements with the lies we’ve accepted.",
       "Repeated DOSE chemistry released into the body drives changes in the brain long term, and we begin to experience true transformation.",
     ],
@@ -119,7 +150,11 @@ const KnowledgeTopic = () => {
       <main className="flex-1 px-5 content-container space-y-4">
         {topic.body.map((block, i) => {
           if (typeof block === "string") {
-            return <p key={i} className="text-text-body">{block}</p>;
+            return (
+              <p key={i} className="text-text-body">
+                {block}
+              </p>
+            );
           }
           if ("list" in block) {
             return (
