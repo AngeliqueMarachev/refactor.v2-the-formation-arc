@@ -12,8 +12,8 @@ const topics = [
   },
   {
     slug: "return-to-truth",
-    title: " Interrupt the pattern with Truth",
-    subtitle: "Truth interrupts patterns and signals safety",
+    title: "Interrupt the pattern with Truth",
+    subtitle: "Use Truth to interrupt patterns and signal safety",
     icon: ShieldCheck,
   },
   {
