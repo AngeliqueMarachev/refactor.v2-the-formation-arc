@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ShieldCheck, Link2, Brain, Anchor, Sparkles, ChevronRight } from "lucide-react";
+import { ShieldCheck, Link2, Brain, Anchor, Sparkles, ChevronRight, AlarmClock } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
 const topics = [
