@@ -5,6 +5,12 @@ import BottomNav from "@/components/BottomNav";
 
 const topics = [
   {
+    slug: "how-your-system-learned-to-protect-you",
+    title: "How your system learned to protect you",
+    subtitle: "Your thoughts create your reality",
+    icon: ShieldCheck,
+  },
+  {
     slug: "return-to-truth",
     title: "Return to Truth",
     subtitle: "Truth interrupts patterns and signals safety",

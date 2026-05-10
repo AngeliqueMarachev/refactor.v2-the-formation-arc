@@ -5,7 +5,7 @@ import BottomNav from "@/components/BottomNav";
 type TopicBlock = string | { heading: string; text: string } | { list: string[] };
 
 const content: Record<string, { title: string; subtitle: string; body: TopicBlock[]; closing?: string }> = {
-  "how-your-system-protects": {
+  "how-your-system-learned-to-protect-you": {
     title: "How your system learned to protect you",
     subtitle: "Your thoughts create your reality",
     body: [
