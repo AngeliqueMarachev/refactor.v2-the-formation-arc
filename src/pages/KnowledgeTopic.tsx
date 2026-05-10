@@ -31,11 +31,17 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
   },
 
   "return-to-truth": {
-    title: "Return to Truth",
+    title: "Interrupt the pattern with Truth",
     subtitle: "Use Truth to interrupt patterns and signal safety",
     body: [
-      "Before the brain can update, it must first register safety.",
-      "When we reorient ourselves to what God says about us, we interrupt destructive loops in our thinking and retrain the brain to respond to life in ways that better serve us.",
+      "Your system cannot update while it still perceives threat.",
+      "Before new patterns can form, your brain must first register safety.",
+      "When your mind is caught in a familiar loop, it is not choosing poorly.",
+      "It is following a learned prediction, trying to protect you based on what it learned in the past.",
+      "Left unchallenged, these loops reinforce themselves, becoming stronger and easier to access, until eventually, become the default.",
+      "Reorientation interrupts this process.",
+      "When you return to what is true, you override these loops with updated information.",
+      "This is not just a shift in thinking. It is a signal.",
       "Each time you return you:",
       {
         list: [
@@ -45,9 +51,10 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
           "stabilize identity over time",
         ],
       },
-      "When we return to updated expectations, we signal stability to the nervous system, allowing the mind to become receptive.",
+      "With repetition, your system begins to recognize these signals as safe.",
+      "The mind becomes more receptive. New patterns form more easily.",
     ],
-    closing: "A receptive system forms steadier expectations.",
+    closing: "Stability is not forced. It is learned through what you repeatedly return to.",
   },
 
   "create-new-associations": {
