@@ -7,7 +7,7 @@ type TopicBlock = string | { heading: string; text: string } | { list: string[] 
 const content: Record<string, { title: string; subtitle: string; body: TopicBlock[]; closing?: string }> = {
   "how-your-system-learned-to-protect-you": {
     title: "How your system learned to protect you",
-    subtitle: "Your thoughts create your reality",
+    subtitle: "Why your patterns formed",
     body: [
       "Your life experiences shape your interpretation of the world.",
       "Your thoughts create your reality, upholding this unique interpretation.",
@@ -31,8 +31,8 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
   },
 
   "return-to-truth": {
-    title: "Interrupt the pattern with Truth",
-    subtitle: "Use Truth to interrupt patterns and signal safety",
+    title: "Interrupting the pattern with Truth",
+    subtitle: "How you signal safety to your system",
     body: [
       "Your system cannot update while it still perceives threat.",
       "Before new patterns can form, your brain must first register safety.",
@@ -59,7 +59,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
 
   "create-new-associations": {
     title: "Creating new associations",
-    subtitle: "Update meaning through memory",
+    subtitle: "How meaning begins to change",
     body: [
       "Your brain stores experience as networks of meaning.",
       "What you have lived through does not just disappear. It is organized, connected, and remembered in ways that shape what you expect from life.",
@@ -88,7 +88,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
   },
   neuroplasticity: {
     title: "The science behind daily formation",
-    subtitle: "Understand how your system responds",
+    subtitle: "How your system responds to repetition",
     body: [
       "Every time you have a feeling, good or bad, a chemical is released into your system. This creates an emotional signature, a measurable frequency, that changes the body over time.",
       "Thoughts, emotions, and memories are not just mental; they are biological events that shape how your body functions over time.",
@@ -125,7 +125,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     closing: "Your system follows what it experiences most often.",
   },
   "begin-with-stability": {
-    title: "Starting from the right place",
+    title: "Start from stability",
     subtitle: "Why prayer precedes change",
     body: [
       "Before your system can shift, it needs to register safety.",
@@ -145,7 +145,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
   },
   "how-transformation-happens": {
     title: "The pattern of transformation",
-    subtitle: "Change is not random",
+    subtitle: "How change is formed over time",
     body: [
       "Your system follows a pattern, whether you are aware of it or not.",
       "Neuroplasticity works through three consistent principles.",
