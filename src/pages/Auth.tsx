@@ -338,7 +338,7 @@ const Auth = () => {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "..." : "Send code"}
+            {loading ? "..." : "Send code to continue"}
           </Button>
 
           {statusMessage && (
