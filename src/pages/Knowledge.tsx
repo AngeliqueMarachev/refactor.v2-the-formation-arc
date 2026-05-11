@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ShieldCheck, Link2, Brain, Power, Sparkles, ChevronRight, CircleDashed } from "lucide-react";
+import { ShieldCheck, Link2, Brain, Power, Blocks, ChevronRight, CircleDashed } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
 const topics = [
@@ -38,7 +38,7 @@ const topics = [
     slug: "how-transformation-happens",
     title: "The pattern of transformation",
     subtitle: "How change is formed over time",
-    icon: Sparkles,
+    icon: Blocks,
   },
 ];
 
