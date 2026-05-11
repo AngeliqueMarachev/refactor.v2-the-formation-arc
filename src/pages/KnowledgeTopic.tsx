@@ -87,17 +87,42 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     closing: "Meaning is not locked in the past. It is reshaped by what you return to with safety.",
   },
   neuroplasticity: {
-    title: "The science behind neuroplasticity",
+    title: "The science behind daily formation",
     subtitle: "Understand how your system responds",
     body: [
       "Every time you have a feeling, good or bad, a chemical is released into your system. This creates an emotional signature, a measurable frequency, that changes the body over time.",
+      "Thoughts, emotions, and memories are not just mental; they are biological events that shape how your body functions over time.",
       "Cortisol, adrenaline, and norepinephrine (CAN chemistry) are the stress hormones released into the body when we experience disorder.",
-      "They create low frequency emotional signatures, which deplete our resources, often leading to a weakened immune system and eventually, chronic symptoms.",
+      "They create a low frequency emotional signature in the body.",
+      "These states are useful in moments of danger, but when repeated, they keep the body in a state of strain.",
+      "Over time, repeated stress signals can:",
+      {
+        list: [
+          "deplete your resources",
+          "disrupt regulation",
+          "and contribute to ongoing physical and emotional symptoms",
+        ],
+      },
+      "When your system registers safety, a different response is activated.",
       "Dopamine, oxytocin, serotonin, and endorphins (DOSE chemistry) are the feel-good hormones released into the body when we experience alignment.",
-      "They create high frequency emotional signatures, which support and heal the body, and help us feel safe.",
+      "They create a high frequency emotional signature in the body.",
+      "These support:",
+      {
+        list: [
+          "regulation",
+          "connection",
+          "and repair within the body",
+        ],
+      },
+      "Your system learns from what is repeated.",
+      "If stress signals are frequent, the body begins to expect them.",
+      "If signals of safety are repeated, the system begins to reorganize around them.",
+      "Daily formation introduces consistent signals of safety.",
+      "Through focused attention, reorientation, and memory, your system begins to experience steadier states more often.",
+      "With repetition, this becomes familiar.",
+      "The body shifts from expecting threat to recognizing stability.",
     ],
-    closing:
-      "Postive repetition provides the nervous system with new, positive information, producing life-giving DOSE chemistry to counteract the effects of CAN chemistry stored in the body.",
+    closing: "Your system follows what it experiences most often.",
   },
   "begin-with-stability": {
     title: "Begin with stability",
