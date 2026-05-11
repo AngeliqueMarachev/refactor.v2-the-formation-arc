@@ -11,18 +11,6 @@ const topics = [
     icon: CircleDashed,
   },
   {
-    slug: "return-to-truth",
-    title: "Interrupting the pattern with Truth",
-    subtitle: "How you signal safety to your system",
-    icon: Zap,
-  },
-  {
-    slug: "create-new-associations",
-    title: "Creating new associations",
-    subtitle: "How meaning begins to change",
-    icon: Link2,
-  },
-  {
     slug: "neuroplasticity",
     title: "The science behind daily formation",
     subtitle: "How your system responds to repetition",
@@ -33,6 +21,18 @@ const topics = [
     title: "Start from stability",
     subtitle: "Why prayer precedes change",
     icon: Power,
+  },
+  {
+    slug: "return-to-truth",
+    title: "Interrupting the pattern with Truth",
+    subtitle: "How you signal safety to your system",
+    icon: Zap,
+  },
+  {
+    slug: "create-new-associations",
+    title: "Creating new associations",
+    subtitle: "How meaning begins to change",
+    icon: Link2,
   },
   {
     slug: "how-transformation-happens",
