@@ -144,7 +144,7 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     closing: "Stability begins with what your system experiences as safe.",
   },
   "how-transformation-happens": {
-    title: "How transformation happens",
+    title: "The pattern of transformation",
     subtitle: "Change is not random",
     body: [
       "Your system follows a pattern, whether you are aware of it or not.",
