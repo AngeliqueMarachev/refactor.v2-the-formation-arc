@@ -24,7 +24,7 @@ const topics = [
   },
   {
     slug: "neuroplasticity",
-    title: "The science behind neuroplasticity",
+    title: "The science behind daily formation",
     subtitle: "Understand how your system responds",
     icon: Brain,
   },
