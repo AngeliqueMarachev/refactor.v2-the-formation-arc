@@ -302,7 +302,7 @@ const Auth = () => {
             <p className="text-base text-destructive-foreground max-w-[520px] mx-auto leading-snug">
               A structured practice for retraining perception and stabilizing your system.
             </p>
-            <p className="text-xs text-text-supporting/70 max-w-[440px] mx-auto leading-snug">
+            <p className="text-text-supporting/70 max-w-[440px] mx-auto leading-snug text-sm">
               Built on neuroscience, structured repetition, and identity-based formation
             </p>
           </div>
