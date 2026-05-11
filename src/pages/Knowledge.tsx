@@ -74,7 +74,7 @@ const Knowledge = () => {
           </Card>
         ))}
 
-        <p className="text-xs leading-relaxed text-text-supporting/70 pt-12 pb-4">
+        <p className="text-xs leading-relaxed text-text-supporting/70 pt-12 pb-4 text-center">
           The Formation Arc is designed to support personal formation, nervous system awareness, and reflective practice. It is not intended to replace medical care, psychological treatment, therapy, or professional mental health support.
         </p>
       </main>
