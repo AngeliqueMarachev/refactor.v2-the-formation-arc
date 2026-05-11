@@ -303,7 +303,9 @@ const Auth = () => {
             <p className="text-base not-italic text-destructive-foreground text-center">
               A structured practice for retraining perception and stabilizing your system
             </p>
-            <p>Built on neuroscience, structured repetition, and identity-based formation</p>
+            <p className="text-base not-italic text-destructive-foreground text-center">
+              Built on neuroscience, structured repetition, and identity-based formation
+            </p>
           </div>
           <div className="space-y-3">
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
