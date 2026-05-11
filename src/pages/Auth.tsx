@@ -301,8 +301,9 @@ const Auth = () => {
             <p className="text-primary not-italic font-normal text-center">Overcome Fear. Restore identity.</p>
             <p></p>
             <p className="text-base not-italic text-destructive-foreground text-center">
-              A practice for retraining distress and strengthening stability.
+              A structured practice for retraining perception and stabilizing your system
             </p>
+            <p>Built on neuroscience, structured repetition, and identity-based formation</p>
           </div>
           <div className="space-y-3">
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
