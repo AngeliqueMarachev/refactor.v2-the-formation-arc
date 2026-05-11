@@ -38,6 +38,10 @@ const CoreOrientation = () => {
         <Button onClick={handleEnter} className="w-full" size="lg">
           Begin the journey
         </Button>
+
+        <p className="text-xs leading-relaxed text-text-supporting/70 pt-8 text-center">
+          Designed to support personal formation and reflection. Not a replacement for medical or mental health care.
+        </p>
       </div>
     </div>
   );
