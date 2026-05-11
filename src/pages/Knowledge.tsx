@@ -36,7 +36,7 @@ const topics = [
   },
   {
     slug: "how-transformation-happens",
-    title: "How transformation happens",
+    title: "The pattern of transformation",
     subtitle: "Change is not random",
     icon: Sparkles,
   },
