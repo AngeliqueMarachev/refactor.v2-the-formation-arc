@@ -30,8 +30,8 @@ const topics = [
   },
   {
     slug: "begin-with-stability",
-    title: "Begin with stability",
-    subtitle: "Establish safety before change",
+    title: "Starting from the right place",
+    subtitle: "Why prayer precedes change",
     icon: Anchor,
   },
   {
