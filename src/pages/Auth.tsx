@@ -297,18 +297,17 @@ const Auth = () => {
             className="h-auto object-contain mx-auto mt-[7px]"
             style={{ width: "min(85vw, 420px)" }}
           />
-          <div className="space-y-1.5 text-supporting italic leading-relaxed">
-            <p className="text-primary not-italic font-normal text-center">Overcome Fear. Restore identity.</p>
-            <p></p>
-            <p className="text-base not-italic text-destructive-foreground text-center">
-              A structured practice for retraining perception and stabilizing your system
+          <div className="space-y-3 text-center">
+            <p className="text-primary font-normal max-w-[520px] mx-auto">Overcome Fear. Restore identity.</p>
+            <p className="text-base text-destructive-foreground max-w-[520px] mx-auto leading-snug">
+              A structured practice for retraining perception and stabilizing your system.
             </p>
-            <p className="text-base not-italic text-destructive-foreground text-center">
+            <p className="text-xs text-text-supporting/70 max-w-[440px] mx-auto leading-snug">
               Built on neuroscience, structured repetition, and identity-based formation
             </p>
           </div>
-          <div className="space-y-3">
-            <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center pt-[20px]">
+          <div className="space-y-3 pt-10">
+            <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center">
               BEGIN YOUR FORMATION
             </h1>
             <p className="text-text-supporting text-sm text-center">Enter your email to continue.</p>
