@@ -48,7 +48,7 @@ const Knowledge = () => {
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-6 content-container">
-        <h1>Knowledge</h1>
+        <h1>Understanding the system</h1>
         <p className="text-text-supporting mt-2">
           How your mind, body, and faith work together to bring about lasting change
         </p>
