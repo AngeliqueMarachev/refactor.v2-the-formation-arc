@@ -300,7 +300,7 @@ const Auth = () => {
           <div className="space-y-3 text-center">
             <p className="text-primary font-normal max-w-[520px] mx-auto">Overcome Fear. Restore identity.</p>
             <p className="text-base text-destructive-foreground max-w-[520px] mx-auto leading-snug">
-              A structured practice for retraining perception and stabilizing your system.
+              A structured practice for retraining perception and stabilizing your system
             </p>
             <p className="text-text-supporting/70 max-w-[440px] mx-auto leading-snug text-sm">
               Built on neuroscience, structured repetition, and identity-based formation
@@ -310,7 +310,7 @@ const Auth = () => {
             <h1 className="text-foreground font-sans tracking-[0.12em] leading-6 text-base font-medium text-center">
               BEGIN YOUR FORMATION
             </h1>
-            <p className="text-text-supporting text-sm text-center">Enter your email to continue.</p>
+            <p className="text-text-supporting text-sm text-center">Enter your email to continue</p>
           </div>
         </div>
 
