@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ShieldCheck, Link2, Brain, Anchor, Sparkles, ChevronRight, AlarmClock } from "lucide-react";
+import { ShieldCheck, Link2, Brain, Anchor, Sparkles, ChevronRight, CircleDashed } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
 const topics = [
@@ -8,7 +8,7 @@ const topics = [
     slug: "how-your-system-learned-to-protect-you",
     title: "How your system learned to protect you",
     subtitle: "Why your patterns formed",
-    icon: AlarmClock,
+    icon: CircleDashed,
   },
   {
     slug: "return-to-truth",
