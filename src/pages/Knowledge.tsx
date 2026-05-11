@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ShieldCheck, Link2, Brain, Anchor, Sparkles, ChevronRight, CircleDashed } from "lucide-react";
+import { ShieldCheck, Link2, Brain, Power, Sparkles, ChevronRight, CircleDashed } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
 const topics = [
@@ -32,7 +32,7 @@ const topics = [
     slug: "begin-with-stability",
     title: "Start from stability",
     subtitle: "Why prayer precedes change",
-    icon: Anchor,
+    icon: Power,
   },
   {
     slug: "how-transformation-happens",
