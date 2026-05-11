@@ -145,25 +145,29 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
   },
   "how-transformation-happens": {
     title: "How transformation happens",
-    subtitle: "Focus, association, repetition",
+    subtitle: "Change is not random",
     body: [
-      "Change using neuroplasticity is built on three principles: ",
+      "Your system follows a pattern, whether you are aware of it or not.",
+      "Neuroplasticity works through three consistent principles.",
       {
         heading: "FOCUS",
-        text: "Focus on God and His promises. You are healed, accepted, whole, anointed, and precious in His sight.",
+        text: "What you give your attention to becomes active in your system. When your focus is directed toward what is true, particularly what God says about you, you begin to shift what your system responds to.",
       },
       {
         heading: "ASSOCIATION",
-        text: "Replace old, unhealthy associations with Kingdom reality, by making an intentional choice to see yourself as a new creation, alive in victory.",
+        text: "Your brain links meaning to experience. When a familiar moment is paired with a new understanding, the meaning attached to it begins to change. Old associations can be replaced when they are consistently met with Truth.",
       },
       {
         heading: "REPETITION",
-        text: "Change requires repetition to strengthen new neural pathways. Each repetition builds on the last.",
+        text: "What is repeated becomes reinforced. Each time you return to the same pattern, you strengthen the pathway connected to it. Over time, this becomes easier, faster, and more natural.",
       },
-      "When we apply this framework together with God by aligning with Truth, we break our agreements with the lies we’ve accepted.",
-      "Repeated DOSE chemistry released into the body drives changes in the brain long term, and we begin to experience true transformation.",
+      "When these three work together, something changes.",
+      "What once felt automatic begins to loosen.",
+      "New patterns begin to form.",
+      "You are not forcing transformation.",
+      "You are training your system to recognize and respond to what is true.",
     ],
-    closing: "This is how steadiness is formed.",
+    closing: "Transformation is formed through what you consistently focus on, associate, and repeat.",
   },
 };
 
