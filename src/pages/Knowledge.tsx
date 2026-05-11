@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { ShieldCheck, Link2, Brain, Power, Blocks, ChevronRight, CircleDashed } from "lucide-react";
+import { Zap, Link2, Brain, Power, Blocks, ChevronRight, CircleDashed } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
 const topics = [
@@ -14,7 +14,7 @@ const topics = [
     slug: "return-to-truth",
     title: "Interrupting the pattern with Truth",
     subtitle: "How you signal safety to your system",
-    icon: ShieldCheck,
+    icon: Zap,
   },
   {
     slug: "create-new-associations",
