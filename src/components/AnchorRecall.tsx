@@ -21,7 +21,7 @@ type MemoryCategory = "before-life-changed" | "places-you-loved" | "activities-t
 const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] = [
   {
     id: "before-life-changed",
-    label: "Times you felt free",
+    label: "Moments you felt free",
     description: "Moments of ease, play, or lightness",
   },
   {
