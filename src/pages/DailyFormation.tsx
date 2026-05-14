@@ -576,7 +576,10 @@ const DailyFormation = () => {
             className="w-full"
             size="lg"
             variant="secondary"
-            onClick={() => navigate("/knowledge")}
+            onClick={() => {
+              wakeLock.disable();
+              navigate("/knowledge");
+            }}
           >
             Learn why this works
           </Button>
