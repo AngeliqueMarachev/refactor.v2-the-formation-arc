@@ -162,7 +162,7 @@ const AnchorRecall = ({
                 Think back to a moment that felt peaceful, easy, or natural.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Slow it down. Let yourself be there again.
+                Choose something that resonates with you.
               </p>
               <p>Notice what it feels like in your body.</p>
             </>
