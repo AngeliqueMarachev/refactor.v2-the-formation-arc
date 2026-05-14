@@ -370,6 +370,30 @@ const Auth = () => {
           <GoogleIcon />
           <span>{googleLoading ? "..." : "Continue with Google"}</span>
         </button>
+
+        <div className="pt-10">
+          <div className="h-px bg-[rgba(255,255,255,0.1)]" />
+          <div className="space-y-4 pt-8 text-center">
+            <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
+              TAKE THE PERCEPTION PATTERN ASSESSMENT
+            </h2>
+            <p className="text-text-supporting/80 text-sm leading-snug max-w-[440px] mx-auto">
+              A 3-minute guided assessment designed to help you identify the protective patterns shaping your internal world.
+            </p>
+            <a
+              href="https://tally.so/r/EkvV7q"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium text-foreground transition-all duration-200 hover:brightness-110 active:scale-95"
+              style={{
+                border: "1px solid rgba(168, 192, 168, 0.35)",
+                backgroundColor: "transparent",
+              }}
+            >
+              Take the Assessment
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
