@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
+import { WakeLockProvider } from "@/lib/wake-lock-context";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
