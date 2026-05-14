@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import { useWakeLockContext } from "@/lib/wake-lock-context";
+import { useWakeLock } from "@/hooks/use-wake-lock";
 import WakeLockToggle from "@/components/WakeLockToggle";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
@@ -52,15 +52,8 @@ const DailyFormation = () => {
   const [whereIsGod, setWhereIsGod] = useState("");
   const [createStep, setCreateStep] = useState(0);
   const [saving, setSaving] = useState(false);
-  const wakeLock = useWakeLockContext();
+  const wakeLock = useWakeLock();
   const [wakeLockToggle, setWakeLockToggle] = useState(true);
-
-  useEffect(() => {
-    if (wakeLockToggle) {
-      wakeLock.enable();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleWakeLockToggle = (value: boolean) => {
     setWakeLockToggle(value);
@@ -221,7 +214,9 @@ const DailyFormation = () => {
               <br />
               You do not need the right feeling.
             </p>
-            <p className="font-normal text-secondary-foreground">Lift up a prayer of gratitude to God as you place this moment in His hands.</p>
+            <p className="font-normal text-secondary-foreground">
+              Lift up a prayer of gratitude to God as you place this moment in His hands.
+            </p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
                 I gave this to God
@@ -378,7 +373,9 @@ const DailyFormation = () => {
                       EXPANSION
                     </h2>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Allow yourself to see this moment from a bird's eye view. Let your awareness expand to hear what love wants to tell you.
+                      Stay with the memory.
+                      <br />
+                      Let new meaning come into view.
                     </p>
                     <Textarea
                       placeholder="e.g. Creation celebrates me."
@@ -405,7 +402,7 @@ const DailyFormation = () => {
                     <p className="text-supporting leading-relaxed mt-2">
                       Let yourself experience this moment with God present.
                       <br />
-                      Notice what changes as you feel supported.
+                      Notice what changes as you feel seen and connected.
                     </p>
                     <Textarea
                       placeholder="e.g. I saw Jesus thanking God for me!"
@@ -513,9 +510,9 @@ const DailyFormation = () => {
                   </div>
                   <div className="flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                    ANCHOR PHRASE
-                  </h2>
-                  <p className="text-supporting leading-relaxed mt-2">Create a phrase to anchor the memory and provide easy access in the future.</p>
+                      ANCHOR
+                    </h2>
+                    <p className="text-supporting leading-relaxed mt-2">Create a phrase to anchor the memory</p>
                     <div className="mt-4 space-y-2">
                       <Textarea
                         placeholder="e.g. I thought I was forgotten, but I was not as alone."
