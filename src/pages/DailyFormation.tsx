@@ -500,10 +500,9 @@ const DailyFormation = () => {
                       With your eyes closed, imagine this experience as a substance, a color, or a gentle current.
                     </p>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Let it to move slowly through you, from your head, through your chest, into your body.
+                      Let it to move slowly through you, from your head, through your chest, into your body, reaching
+                      every part of you.
                     </p>
-
-                    <p className="text-supporting leading-relaxed mt-2">Take one slow breath here.</p>
                   </div>
                 </div>
 
