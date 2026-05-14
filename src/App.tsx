@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { AuthProvider, useAuth } from "@/lib/auth";
+import { WakeLockProvider } from "@/lib/wake-lock-context";
 import { useRoutePersistence, useRouteRestoration } from "@/hooks/use-route-persistence";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
@@ -77,22 +78,24 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
-          <ScrollToTop />
-          <RoutePersistenceManager />
-          <Routes>
-            <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
-            <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
-            <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
-            <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/knowledge" element={<ProtectedRoute><ReorientationGate><Knowledge /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/knowledge/:slug" element={<ProtectedRoute><ReorientationGate><KnowledgeTopic /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <WakeLockProvider>
+            <ScrollToTop />
+            <RoutePersistenceManager />
+            <Routes>
+              <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/onboarding" element={<ProtectedRoute><CoreOrientation /></ProtectedRoute>} />
+              <Route path="/" element={<ProtectedRoute><OrientationGate><RouteRestorationGate><Index /></RouteRestorationGate></OrientationGate></ProtectedRoute>} />
+              <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
+              <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/knowledge" element={<ProtectedRoute><ReorientationGate><Knowledge /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/knowledge/:slug" element={<ProtectedRoute><ReorientationGate><KnowledgeTopic /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </WakeLockProvider>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import { useWakeLock } from "@/hooks/use-wake-lock";
+import { useWakeLockContext } from "@/lib/wake-lock-context";
 import WakeLockToggle from "@/components/WakeLockToggle";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
@@ -52,8 +52,15 @@ const DailyFormation = () => {
   const [whereIsGod, setWhereIsGod] = useState("");
   const [createStep, setCreateStep] = useState(0);
   const [saving, setSaving] = useState(false);
-  const wakeLock = useWakeLock();
+  const wakeLock = useWakeLockContext();
   const [wakeLockToggle, setWakeLockToggle] = useState(true);
+
+  useEffect(() => {
+    if (wakeLockToggle) {
+      wakeLock.enable();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleWakeLockToggle = (value: boolean) => {
     setWakeLockToggle(value);
