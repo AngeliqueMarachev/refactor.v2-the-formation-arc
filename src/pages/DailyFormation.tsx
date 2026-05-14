@@ -564,7 +564,15 @@ const DailyFormation = () => {
           <p className="text-secondary-foreground leading-relaxed mb-10">Focus. Association. Repetition.</p>
         </main>
 
-        <div className="bottom-cta-flow px-5 pt-2 content-container">
+        <div className="bottom-cta-flow px-5 pt-2 space-y-3 content-container">
+          <Button
+            className="w-full"
+            size="lg"
+            variant="secondary"
+            onClick={() => navigate("/knowledge")}
+          >
+            Learn why this works
+          </Button>
           <Button
             className="w-full"
             size="lg"
