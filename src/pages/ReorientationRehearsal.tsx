@@ -112,7 +112,7 @@ const ReorientationRehearsal = () => {
               Find a memory
             </Button>
             <Button className="w-full" size="lg" variant="secondary" onClick={() => navigate("/anchors")}>
-              Browse ​anchors
+              Browse your library
             </Button>
           </div>
         </div>
