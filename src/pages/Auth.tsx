@@ -378,8 +378,8 @@ const Auth = () => {
               FORMATION ASSESSMENT
             </h2>
             <p className="text-text-supporting/80 text-sm leading-snug max-w-[440px] mx-auto">
-              A 3-minute guided assessment designed to help you identify the protective patterns shaping your internal
-              world.
+              Take the 3-minute guided assessment designed to help you identify the protective patterns shaping your
+              internal world.
             </p>
             <a
               href="https://tally.so/r/EkvV7q"
