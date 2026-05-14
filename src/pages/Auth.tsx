@@ -371,7 +371,7 @@ const Auth = () => {
           <span>{googleLoading ? "..." : "Continue with Google"}</span>
         </button>
 
-        <div className="pt-10">
+        <div className="pt-[24px]">
           <div className="h-px bg-[rgba(255,255,255,0.1)]" />
           <div className="space-y-4 pt-8 text-center">
             <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
