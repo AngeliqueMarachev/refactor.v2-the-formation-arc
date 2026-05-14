@@ -214,7 +214,7 @@ const DailyFormation = () => {
               <br />
               You do not need the right feeling.
             </p>
-            <p className="font-normal text-secondary-foreground">Give thanks, and place this moment in God’s hands.</p>
+            <p className="font-normal text-secondary-foreground">Lift up a prayer of gratitude to God as you place this moment in His hands.</p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
                 I gave this to God
