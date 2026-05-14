@@ -497,7 +497,7 @@ const DailyFormation = () => {
                     )}
                     <p className="text-supporting leading-relaxed mt-2">Stay with the feeling this moment carries.</p>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Imagine this experience as a warmth, a color, or a gentle current.
+                      With your eyes closed, imagine this experience as a substance, a color, or a gentle current.
                     </p>
                     <p className="text-supporting leading-relaxed mt-2">
                       Let it to move slowly through you, from your head, through your chest, into your body.
