@@ -352,13 +352,7 @@ const DailyFormation = () => {
           {createStep === 1 && (
             <div className="space-y-4">
               <h1 className="tracking-tight">Expand the meaning</h1>
-              <p className="text-supporting leading-relaxed">
-                Let the meaning of this moment gently unfold.
-                <br />
-                Allow what is already there to become clear.
-                <br />
-                Write a few words that feel true now.
-              </p>
+              <p className="text-supporting leading-relaxed">Let the meaning of this moment gently unfold.</p>
 
               {/* Vertical pathway container */}
               <div className="relative">
