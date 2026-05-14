@@ -22,7 +22,7 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
   {
     id: "before-life-changed",
     label: "Moments you felt free",
-    description: "Moments of ease, play, or lightness",
+    description: "Memories of comfort, joy, or acceptance",
   },
   {
     id: "places-you-loved",
