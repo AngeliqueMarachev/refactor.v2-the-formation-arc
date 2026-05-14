@@ -503,7 +503,7 @@ const DailyFormation = () => {
                   </div>
                   <div className="flex-1">
                     <h2 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      ANCHOR
+                      ANCHOR PHRASE
                     </h2>
                     <p className="text-supporting leading-relaxed mt-2">Create a phrase to anchor the memory</p>
                     <div className="mt-4 space-y-2">
