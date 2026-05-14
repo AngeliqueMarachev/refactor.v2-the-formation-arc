@@ -72,7 +72,7 @@ const ReorientationRehearsal = () => {
 
         <p className="text-text-supporting text-sm mb-0">Tap each step.</p>
         <p className="text-text-supporting text-sm mb-0">Read it aloud, slowly.</p>
-        <p className="text-text-supporting text-sm mb-4">Let each line settle.</p>
+        <p className="text-text-supporting text-sm mb-4">Let each line settle in your spirit.</p>
 
         <div className="space-y-6 mb-12">
           {phases.map((phase) => {
