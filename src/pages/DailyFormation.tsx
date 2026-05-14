@@ -378,9 +378,7 @@ const DailyFormation = () => {
                       EXPANSION
                     </h2>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Stay with the memory.
-                      <br />
-                      Let new meaning come into view.
+                      Allow yourself to see this moment from a bird's eye view. Let your awareness expand to hear what love wants to tell you.
                     </p>
                     <Textarea
                       placeholder="e.g. Creation celebrates me."
