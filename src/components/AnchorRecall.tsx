@@ -164,7 +164,7 @@ const AnchorRecall = ({
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Choose something that resonates with you.
               </p>
-              <p>Notice what it feels like in your body.</p>
+              <p>It doesn't need to be spectacular; it's just a moment to connect.</p>
             </>
           )}
 
