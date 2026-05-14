@@ -52,8 +52,15 @@ const DailyFormation = () => {
   const [whereIsGod, setWhereIsGod] = useState("");
   const [createStep, setCreateStep] = useState(0);
   const [saving, setSaving] = useState(false);
-  const wakeLock = useWakeLock();
+  const wakeLock = useWakeLockContext();
   const [wakeLockToggle, setWakeLockToggle] = useState(true);
+
+  useEffect(() => {
+    if (wakeLockToggle) {
+      wakeLock.enable();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleWakeLockToggle = (value: boolean) => {
     setWakeLockToggle(value);
