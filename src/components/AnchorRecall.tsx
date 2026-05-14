@@ -32,7 +32,7 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
   {
     id: "activities-that-felt-free",
     label: "Activities that once felt free",
-    description: "Moments of play, ease, or unselfconsciousness",
+    description: "Moments of celebration, peace, or affirmation",
   },
 ];
 
