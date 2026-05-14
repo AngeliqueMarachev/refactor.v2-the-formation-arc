@@ -166,6 +166,11 @@
   }
 
   .screen-with-bottom-nav {
+    /* Use dynamic viewport height so iOS Safari's collapsing URL bar
+       doesn't push the CTA below the fixed bottom nav. */
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     padding-bottom: calc(5rem + env(safe-area-inset-bottom));
   }
 
