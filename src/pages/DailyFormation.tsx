@@ -69,6 +69,13 @@ const DailyFormation = () => {
   }, [createStep, screen]);
 
   useEffect(() => {
+    return () => {
+      wakeLock.disable();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     if (!user) return;
 
     const fetchData = async () => {
