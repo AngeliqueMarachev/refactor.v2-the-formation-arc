@@ -384,11 +384,7 @@ const Auth = () => {
               href="https://tally.so/r/EkvV7q"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium text-foreground transition-all duration-200 hover:brightness-110 active:scale-95"
-              style={{
-                border: "1px solid rgba(168, 192, 168, 0.35)",
-                backgroundColor: "transparent",
-              }}
+              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
             >
               Take the assessment
             </a>
