@@ -492,6 +492,22 @@ const DailyFormation = () => {
                     </p>
 
                     <p className="text-supporting leading-relaxed mt-2">Take one slow breath here.</p>
+
+                    {emotionTags.length > 0 && (
+                      <div className="mt-5">
+                        <p className="text-xs text-text-supporting mb-2">Let these feelings move with the breath</p>
+                        <div className="flex flex-wrap gap-2">
+                          {emotionTags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-text-supporting"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
