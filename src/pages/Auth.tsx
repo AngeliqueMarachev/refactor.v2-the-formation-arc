@@ -390,7 +390,7 @@ const Auth = () => {
                 backgroundColor: "transparent",
               }}
             >
-              Take the Assessment
+              Take the assessment
             </a>
           </div>
         </div>
