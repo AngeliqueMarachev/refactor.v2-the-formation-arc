@@ -27,7 +27,6 @@ const CoreOrientation = () => {
           <p>These patterns can become automatic, shaping your thoughts, your reactions, and even your body.</p>
           <p className="text-primary">But what was learned can be updated.</p>
           <p>With steady repetition, the brain begins to expect safety again.</p>
-          <p>This is neuroplasticity.</p>
 
           <p className="text-primary">
             The Formation Arc helps you retrain your system on Truth through awareness, alignment, and repetition.
