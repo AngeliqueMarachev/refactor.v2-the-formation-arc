@@ -159,7 +159,7 @@ const AnchorRecall = ({
           {!selectedScene && selectedCategory && (
             <>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Step back to a moment that felt safe, easy, or natural.
+                Step back to a moment that felt peaceful, easy, or natural.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
                 Slow it down. Let yourself be there again.
