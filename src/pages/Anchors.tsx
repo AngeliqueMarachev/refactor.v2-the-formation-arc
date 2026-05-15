@@ -167,21 +167,21 @@ const Anchors = () => {
               </h2>
               <p className="font-serif text-lg italic text-text-heading">"{selected.anchor_phrase}"</p>
             </div>
-
-            {/* CTA */}
-            <div className="mt-8">
-              <Button
-                onClick={() => {
-                  if (wakeLockToggle) wakeLock.enable();
-                  setView("recall-prompt");
-                }}
-                className="w-full"
-              >
-                Recall this anchor
-              </Button>
-            </div>
           </div>
         </ScrollArea>
+
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
+          <Button
+            onClick={() => {
+              if (wakeLockToggle) wakeLock.enable();
+              setView("recall-prompt");
+            }}
+            className="w-full"
+          >
+            Recall this anchor
+          </Button>
+        </div>
+
         <BottomNav />
       </div>
     );
