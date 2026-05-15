@@ -405,7 +405,7 @@ const DailyFormation = () => {
                       Notice what changes as you feel seen and connected.
                     </p>
                     <Textarea
-                      placeholder="e.g. I saw Jesus thanking God for me!"
+                      placeholder="e.g. I am of great value to God."
                       value={widenedMeaning}
                       onChange={(e) =>
                         setWidenedMeaning(sanitizeTextInput(e.target.value, { maxLength: 2000, multiline: true }))
