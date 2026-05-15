@@ -305,7 +305,7 @@ const Auth = () => {
               <span className="block h-2" aria-hidden="true" />
               Formation restores it.
             </h1>
-            <p className="text-text-supporting text-sm leading-snug pt-2">
+            <p className="text-text-supporting text-sm leading-snug pt-[16px]">
               A structured practice for retraining perception and stabilizing your internal world through neuroscience,
               structured repetition, and identity-based formation.
             </p>
