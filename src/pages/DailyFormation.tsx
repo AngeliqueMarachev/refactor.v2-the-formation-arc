@@ -226,7 +226,7 @@ const DailyFormation = () => {
             </p>
             <div className="pt-6">
               <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                I gave this to God
+                I've given this to God
               </Button>
             </div>
           </div>
