@@ -288,6 +288,12 @@ const DailyFormation = () => {
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Create new associations</h1>
 
           <div className="space-y-5 text-base leading-relaxed text-text-body sm:text-lg pb-8">
+            <p>Remembrance is a divine principle.</p>
+            <p>
+              When you bring a memory into awareness, which is grounded in Truth, you are not just remembering what
+              happened. You are expanding it's meaning.
+            </p>
+            <p>New associations form when an old memory is paired with a new sense of safety.</p>
             <p>Finding a memory may not feel easy at first.</p>
             <p>When your system has been under strain, access to memory can narrow.</p>
             <p className="text-primary">With practice, however, access widens.</p>
