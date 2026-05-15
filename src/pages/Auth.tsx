@@ -36,7 +36,7 @@ const GoogleIcon = () => (
 const Auth = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [step, setStep] = useState<"email" | "code">("email");
+  const [step, setStep] = useState<"landing" | "email" | "code">("landing");
 
   const [email, setEmail] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
@@ -287,59 +287,66 @@ const Auth = () => {
     );
   }
 
-  const scrollToAuth = () => {
-    document.getElementById("auth-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  if (step === "landing") {
+    return (
+      <div className="flex min-h-screen flex-col items-center px-5 pt-10 pb-12">
+        <div className="w-full max-w-sm space-y-8">
+          <div className="space-y-6 text-center">
+            <img
+              src={logo}
+              alt="The Formation Arc"
+              className="h-auto object-contain mx-auto mt-[7px]"
+              style={{ width: "min(85vw, 420px)" }}
+            />
+            <div className="space-y-3 pt-2">
+              <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-xl sm:text-2xl font-medium">
+                Fear conditions perception.
+                <br />
+                Formation restores it.
+              </h1>
+              <p className="text-text-supporting/90 text-sm sm:text-base leading-snug max-w-[440px] mx-auto">
+                A structured practice for retraining perception and stabilizing your internal world through neuroscience,
+                structured repetition, and identity-based formation.
+              </p>
+            </div>
 
-  return (
-    <div className="flex min-h-screen flex-col items-center px-5 pt-10 pb-12">
-      <div className="w-full max-w-sm space-y-8">
-        {/* HERO */}
-        <div className="space-y-6 text-center">
-          <img
-            src={logo}
-            alt="The Formation Arc"
-            className="h-auto object-contain mx-auto mt-[7px]"
-            style={{ width: "min(85vw, 420px)" }}
-          />
-          <div className="space-y-3 pt-2">
-            <h1 className="font-fraunces text-primary text-2xl sm:text-3xl leading-tight">
-              Fear conditions perception.
-              <br />
-              Formation restores it.
-            </h1>
-            <p className="text-text-supporting/90 text-sm sm:text-base leading-snug max-w-[440px] mx-auto">
-              A structured practice for retraining perception and stabilizing your internal world through neuroscience,
-              structured repetition, and identity-based formation.
-            </p>
-          </div>
-
-          {/* Stacked CTAs */}
-          <div className="space-y-3 pt-2">
-            <Button onClick={scrollToAuth} className="w-full" size="lg">
-              Begin your formation
-            </Button>
-            <a
-              href="https://tally.so/r/EkvV7q"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-md h-11 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
-            >
-              Take the assessment
-            </a>
+            <div className="space-y-3 pt-2">
+              <Button onClick={() => setStep("email")} className="w-full" size="lg">
+                Begin your formation
+              </Button>
+              <a
+                href="https://tally.so/r/EkvV7q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-md h-11 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
+              >
+                Take the assessment
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+    );
+  }
 
-        {/* AUTH SECTION */}
-        <div id="auth-section" className="pt-8 space-y-5">
-          <div className="space-y-1.5 text-center">
-            <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
-              START YOUR JOURNEY
-            </h2>
-            <p className="text-text-supporting text-sm">Enter your email to continue</p>
-          </div>
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center px-5 pt-10 pb-12">
+      <div className="w-full max-w-sm space-y-6">
+        <img
+          src={logo}
+          alt="The Formation Arc"
+          className="h-auto object-contain mx-auto mt-[7px]"
+          style={{ width: "min(85vw, 420px)" }}
+        />
 
-          <form onSubmit={handleSendCode} className="space-y-4" noValidate>
+        <div className="space-y-1.5 text-center pt-2">
+          <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
+            START YOUR JOURNEY
+          </h2>
+          <p className="text-text-supporting text-sm">Enter your email to continue</p>
+        </div>
+
+        <form onSubmit={handleSendCode} className="space-y-4" noValidate>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -395,6 +402,15 @@ const Auth = () => {
           <GoogleIcon />
           <span>{googleLoading ? "..." : "Continue with Google"}</span>
         </button>
+
+        <div className="text-center">
+          <button
+            type="button"
+            onClick={() => setStep("landing")}
+            className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
+          >
+            Back
+          </button>
         </div>
       </div>
     </div>
