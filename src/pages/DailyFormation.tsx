@@ -291,7 +291,7 @@ const DailyFormation = () => {
             <p>Remembrance is a divine principle.</p>
             <p>
               When you bring a memory into awareness, which is grounded in Truth, you are not just remembering what
-              happened. You are expanding it's meaning.
+              happened. You are expanding its meaning.
             </p>
             <p>New associations form when an old memory is paired with a new sense of safety.</p>
             <p>Finding a memory may not feel easy at first.</p>
