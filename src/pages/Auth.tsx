@@ -340,7 +340,7 @@ const Auth = () => {
         />
 
         <div className="space-y-1.5 text-center pt-2">
-          <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
+          <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 font-medium text-base">
             START YOUR JOURNEY
           </h2>
           <p className="text-text-supporting text-sm">Enter your email to continue</p>
