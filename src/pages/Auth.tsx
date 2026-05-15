@@ -289,8 +289,8 @@ const Auth = () => {
 
   if (step === "landing") {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center px-5 pt-10 pb-12">
-        <div className="w-full max-w-sm space-y-8">
+      <div className="flex min-h-screen flex-col items-center px-5 pb-12 pt-[12vh]">
+        <div className="w-full max-w-sm space-y-6">
           <img
             src={logo}
             alt="The Formation Arc"
@@ -331,7 +331,7 @@ const Auth = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-5 pt-10 pb-12">
+    <div className="flex min-h-screen flex-col items-center px-5 pb-12 pt-[12vh]">
       <div className="w-full max-w-sm space-y-6">
         <img
           src={logo}
