@@ -303,7 +303,7 @@ const Auth = () => {
             style={{ width: "min(85vw, 420px)" }}
           />
           <div className="space-y-3 pt-2">
-             <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
+            <h1 className="font-fraunces text-primary text-2xl sm:text-3xl leading-tight">
               Fear conditions perception.
               <br />
               Formation restores it.
