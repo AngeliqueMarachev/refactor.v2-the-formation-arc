@@ -321,7 +321,7 @@ const Anchors = () => {
         {!isEmpty && (
           <>
             <p className="text-supporting mt-4 text-primary">Return to what steadies you.</p>
-            <p className="text-supporting mt-4">Tap an anchor. Re-enter the moment.</p>
+            <p className="text-supporting mt-4">Select an anchor to access the moment.</p>
           </>
         )}
       </header>
