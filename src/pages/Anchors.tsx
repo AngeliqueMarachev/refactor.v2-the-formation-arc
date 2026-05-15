@@ -202,11 +202,13 @@ const Anchors = () => {
 
               <div>
                 <p className="text-text-body leading-relaxed">
-                  Anchor phrases help your nervous system remember the true meaning of moments in your life.
+                  An anchor phrase helps your nervous system remember the true meaning of moments in your life.
+                  <br />
+                  When you apply your anchor phrase, the new association reminds your system of safety.
                 </p>
                 <div className="h-4" aria-hidden="true" />
                 <p className="text-text-body leading-relaxed">
-                  An anchor phrase isn't something you repeat all day. It has three specific uses.
+                  You can use your anchor phrase whenever you need to. Here are three specific uses.
                 </p>
               </div>
 
