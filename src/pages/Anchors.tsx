@@ -246,7 +246,7 @@ const Anchors = () => {
                       IN MOMENTS OF TENSION
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
-                      Use your phrase when your system begins to tighten, for example:
+                      Use your phrase when your system begins to tighten, for example when you experience:
                     </p>
                     <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
                       <ul className="list-disc list-inside space-y-1 pl-2">
@@ -268,7 +268,8 @@ const Anchors = () => {
                       WHEN OLD PATTERNS RESURFACE
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
-                      Use your phrase when familiar internal narratives begin to surface, for example:
+                      Use your phrase when familiar internal narratives begin to surface, for example when you find
+                      yourself thinking:
                     </p>
                     <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
                       <ul className="list-disc list-inside space-y-1 pl-2">
