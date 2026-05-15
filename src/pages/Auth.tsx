@@ -303,6 +303,7 @@ const Auth = () => {
               Fear conditions perception.
               <br />
               <span className="block h-2" aria-hidden="true" />
+              <span className="block h-2" aria-hidden="true" />
               Formation restores it.
             </h1>
             <p className="text-text-supporting text-sm leading-snug pt-[16px]">
