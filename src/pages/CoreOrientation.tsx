@@ -39,10 +39,8 @@ const CoreOrientation = () => {
         </Button>
 
         <p className="text-xs leading-relaxed text-text-supporting/70 pt-8 text-center">
-          Designed to support personal formation and reflection.
-        </p>
-        <p className="text-xs leading-relaxed text-text-supporting/70 pt-8 text-center">
-          The Formation Arc is not a replacement for medical or mental health care.
+          Designed to support personal formation and reflection. The Formation Arc is not a replacement for medical or
+          mental health care.
         </p>
       </div>
     </div>
