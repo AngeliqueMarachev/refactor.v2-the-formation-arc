@@ -300,7 +300,8 @@ const Activated = () => {
 
           <p className="text-supporting leading-relaxed mb-6">
             Move through each line slowly.
-            <br /> Let each statement interrupt the old pattern and guide you back to steadiness.
+            <br /> Read your reorientation to yourself aloud, with intentionality.
+            <br /> Absorb each statement, allowing it to interrupt the old pattern and guide you back to steadiness.
           </p>
 
           <div className="relative mb-12">
