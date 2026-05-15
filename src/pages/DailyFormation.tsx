@@ -249,8 +249,8 @@ const DailyFormation = () => {
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
-          <h1 className="tracking-tight mb-8">Daily Anchor Loop</h1>
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
+          <h1 className="tracking-tight mb-8 mt-[20px]">Daily Anchor Loop</h1>
 
           <div className="rounded-lg border p-5 mb-6">
             <p className="text-xs uppercase mb-2">Scene</p>
@@ -267,11 +267,13 @@ const DailyFormation = () => {
             <br />
             Then say the Anchor Phrase once.
           </p>
+        </main>
 
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={handleDailyLoopDone}>
             Done
           </Button>
-        </main>
+        </div>
 
         <BottomNav />
       </div>
