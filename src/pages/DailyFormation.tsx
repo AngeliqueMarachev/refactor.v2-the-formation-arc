@@ -528,7 +528,7 @@ const DailyFormation = () => {
                     </p>
                     <div className="mt-4 space-y-2">
                       <Textarea
-                        placeholder="e.g. I thought I was forgotten, but I was not as alone."
+                        placeholder="e.g. The world is full of joy."
                         value={anchorPhrase}
                         onChange={(e) => setAnchorPhrase(sanitizeTextInput(e.target.value, { maxLength: 500 }))}
                         maxLength={500}
