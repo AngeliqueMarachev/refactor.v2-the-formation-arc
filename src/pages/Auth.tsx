@@ -290,7 +290,7 @@ const Auth = () => {
   if (step === "landing") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-5 pt-10 pb-12">
-        <div className="w-full max-w-sm space-y-6">
+        <div className="w-full max-w-sm space-y-8">
           <img
             src={logo}
             alt="The Formation Arc"
@@ -298,19 +298,19 @@ const Auth = () => {
             style={{ width: "min(85vw, 420px)" }}
           />
 
-          <div className="space-y-3 text-center pt-2">
+          <div className="space-y-1.5 text-center pt-2">
             <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-base sm:text-lg font-normal">
               Fear conditions perception.
               <br />
               Formation restores it.
             </h1>
-            <p className="text-text-supporting text-sm leading-snug">
+            <p className="text-text-supporting text-sm leading-snug pt-2">
               A structured practice for retraining perception and stabilizing your internal world through neuroscience,
               structured repetition, and identity-based formation.
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             <Button onClick={() => setStep("email")} className="w-full">
               Begin your formation
             </Button>
