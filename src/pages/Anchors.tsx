@@ -221,15 +221,15 @@ const Anchors = () => {
                   </div>
                   <div className="pb-8 flex-1">
                     <h3 className="font-sm uppercase tracking-widest text-primary font-sans mb-2 text-base leading-8">
-                      DAILY RHYTHM
+                      AS A DAILY RHYTHM
                     </h3>
                     <p className="text-text-body leading-relaxed mt-2">
                       Attach it to one daily moment that already happens, for example:
                     </p>
                     <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
                       <ul className="list-disc list-inside space-y-1 pl-2">
-                        <li>Before you brush your teeth</li>
-                        <li>When you close your laptop</li>
+                        <li>Before you drink your morning coffee</li>
+                        <li>When you finish work for the day</li>
                         <li>After you get into bed</li>
                       </ul>
                     </div>
@@ -250,7 +250,7 @@ const Anchors = () => {
                     </p>
                     <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
                       <ul className="list-disc list-inside space-y-1 pl-2">
-                        <li>Tension</li>
+                        <li>Stress</li>
                         <li>Shame</li>
                         <li>Fear</li>
                       </ul>
@@ -273,7 +273,7 @@ const Anchors = () => {
                     <div className="text-text-body text-medium space-y-1 pl-1 mt-2">
                       <ul className="list-disc list-inside space-y-1 pl-2">
                         <li>I am alone</li>
-                        <li>I am not enough</li>
+                        <li>I am not good enough</li>
                         <li>This will end badly</li>
                       </ul>
                     </div>
