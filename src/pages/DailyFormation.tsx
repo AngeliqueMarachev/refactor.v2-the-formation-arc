@@ -203,10 +203,10 @@ const DailyFormation = () => {
   if (screen === "reorientation") {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
-          <div className="space-y-4 leading-relaxed mb-10">
+          <div className="space-y-4 leading-relaxed">
             <WakeLockToggle
               enabled={wakeLockToggle}
               onToggle={handleWakeLockToggle}
@@ -224,13 +224,14 @@ const DailyFormation = () => {
             <p className="font-normal text-secondary-foreground">
               Lift up a prayer of gratitude to God as you place this moment in His hands.
             </p>
-            <div className="pt-6">
-              <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                I've given this to God
-              </Button>
-            </div>
           </div>
         </main>
+
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
+          <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
+            I've given this to God
+          </Button>
+        </div>
 
         <BottomNav />
       </div>
@@ -248,8 +249,8 @@ const DailyFormation = () => {
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
-          <h1 className="tracking-tight mb-8">Daily Anchor Loop</h1>
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
+          <h1 className="tracking-tight mb-8 mt-[20px]">Daily Anchor Loop</h1>
 
           <div className="rounded-lg border p-5 mb-6">
             <p className="text-xs uppercase mb-2">Scene</p>
@@ -266,11 +267,13 @@ const DailyFormation = () => {
             <br />
             Then say the Anchor Phrase once.
           </p>
+        </main>
 
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={handleDailyLoopDone}>
             Done
           </Button>
-        </main>
+        </div>
 
         <BottomNav />
       </div>
