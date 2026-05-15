@@ -299,9 +299,10 @@ const Auth = () => {
           />
 
           <div className="space-y-1.5 text-center pt-2">
-            <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-base sm:text-lg font-normal">
+            <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-sm font-normal">
               Fear conditions perception.
               <br />
+              <span className="block h-2" aria-hidden="true" />
               Formation restores it.
             </h1>
             <p className="text-text-supporting text-sm leading-snug pt-2">
