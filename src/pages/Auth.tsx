@@ -395,26 +395,6 @@ const Auth = () => {
           <GoogleIcon />
           <span>{googleLoading ? "..." : "Continue with Google"}</span>
         </button>
-
-        <div className="pt-[24px]">
-          <div className="h-px bg-[rgba(255,255,255,0.1)]" />
-          <div className="space-y-4 pt-8 text-center">
-            <h2 className="text-foreground font-sans tracking-[0.12em] leading-6 text-sm font-medium">
-              FORMATION ASSESSMENT
-            </h2>
-            <p className="text-text-supporting/80 text-sm leading-snug max-w-[440px] mx-auto">
-              Take the 3-minute guided assessment designed to help you identify the protective patterns shaping your
-              internal world.
-            </p>
-            <a
-              href="https://tally.so/r/EkvV7q"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
-            >
-              Take the assessment
-            </a>
-          </div>
         </div>
       </div>
     </div>
