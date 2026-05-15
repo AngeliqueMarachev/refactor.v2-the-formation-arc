@@ -36,7 +36,7 @@ const GoogleIcon = () => (
 const Auth = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [step, setStep] = useState<"email" | "code">("email");
+  const [step, setStep] = useState<"landing" | "email" | "code">("landing");
 
   const [email, setEmail] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
