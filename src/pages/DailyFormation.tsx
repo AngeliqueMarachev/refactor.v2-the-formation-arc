@@ -203,10 +203,10 @@ const DailyFormation = () => {
   if (screen === "reorientation") {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
-        <main className="flex flex-1 flex-col px-5 pt-10 pb-12 content-container">
+        <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
-          <div className="space-y-4 leading-relaxed mb-10">
+          <div className="space-y-4 leading-relaxed">
             <WakeLockToggle
               enabled={wakeLockToggle}
               onToggle={handleWakeLockToggle}
@@ -224,13 +224,14 @@ const DailyFormation = () => {
             <p className="font-normal text-secondary-foreground">
               Lift up a prayer of gratitude to God as you place this moment in His hands.
             </p>
-            <div className="pt-6">
-              <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-                I've given this to God
-              </Button>
-            </div>
           </div>
         </main>
+
+        <div className="bottom-cta-flow px-5 pt-2 content-container">
+          <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
+            I've given this to God
+          </Button>
+        </div>
 
         <BottomNav />
       </div>
