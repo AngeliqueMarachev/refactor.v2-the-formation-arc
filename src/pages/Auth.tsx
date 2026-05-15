@@ -289,40 +289,39 @@ const Auth = () => {
 
   if (step === "landing") {
     return (
-      <div className="flex min-h-screen flex-col items-center px-5 pt-10 pb-12">
-        <div className="w-full max-w-sm space-y-8">
-          <div className="space-y-6 text-center">
-            <img
-              src={logo}
-              alt="The Formation Arc"
-              className="h-auto object-contain mx-auto mt-[7px]"
-              style={{ width: "min(85vw, 420px)" }}
-            />
-            <div className="space-y-3 pt-2">
-              <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-xl sm:text-2xl font-medium">
-                Fear conditions perception.
-                <br />
-                Formation restores it.
-              </h1>
-              <p className="text-text-supporting/90 text-sm sm:text-base leading-snug max-w-[440px] mx-auto">
-                A structured practice for retraining perception and stabilizing your internal world through neuroscience,
-                structured repetition, and identity-based formation.
-              </p>
-            </div>
+      <div className="flex min-h-screen flex-col items-center justify-center px-5 pt-10 pb-12">
+        <div className="w-full max-w-sm space-y-6">
+          <img
+            src={logo}
+            alt="The Formation Arc"
+            className="h-auto object-contain mx-auto mt-[7px]"
+            style={{ width: "min(85vw, 420px)" }}
+          />
 
-            <div className="space-y-3 pt-2">
-              <Button onClick={() => setStep("email")} className="w-full" size="lg">
-                Begin your formation
-              </Button>
-              <a
-                href="https://tally.so/r/EkvV7q"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-md h-11 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
-              >
-                Take the assessment
-              </a>
-            </div>
+          <div className="space-y-3 text-center pt-2">
+            <h1 className="text-foreground font-sans tracking-[0.12em] uppercase leading-tight text-base sm:text-lg font-medium">
+              Fear conditions perception.
+              <br />
+              Formation restores it.
+            </h1>
+            <p className="text-text-supporting text-sm leading-snug">
+              A structured practice for retraining perception and stabilizing your internal world through neuroscience,
+              structured repetition, and identity-based formation.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <Button onClick={() => setStep("email")} className="w-full">
+              Begin your formation
+            </Button>
+            <a
+              href="https://tally.so/r/EkvV7q"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
+            >
+              Take the assessment
+            </a>
           </div>
         </div>
       </div>
