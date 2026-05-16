@@ -44,18 +44,21 @@ const Index = () => {
       subtitle: "Train your system daily. Build steady patterns over time.",
       icon: AudioLines,
       path: "/daily-formation",
+      lockable: true,
     },
     {
       title: "Reorientation",
       subtitle: "Interrupt the pattern and return to steadiness.",
       icon: Compass,
       path: "/activated",
+      lockable: false,
     },
     {
       title: "Anchor Library",
       subtitle: "Reinforce what anchors you with repetition.",
       icon: LibraryBig,
       path: "/anchors",
+      lockable: true,
     },
   ];
 
