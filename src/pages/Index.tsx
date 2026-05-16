@@ -11,7 +11,7 @@ import { ensureUsageStats } from "@/lib/usage-stats";
 
 const Index = () => {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
+  const { user, signOut, hasActiveReorientation } = useAuth();
 
   const { data: profile, isLoading: profileLoading } = useQuery({
     queryKey: ["profile", user?.id],
