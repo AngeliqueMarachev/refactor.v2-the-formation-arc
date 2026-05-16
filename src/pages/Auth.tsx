@@ -343,7 +343,7 @@ const Auth = () => {
                 Begin your formation
               </Button>
               <p className="text-text-supporting/70 text-xs leading-snug text-center">
-                Access the guided practice.
+                Get instant access to your guided formation practice.
               </p>
             </div>
           </div>
