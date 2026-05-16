@@ -30,10 +30,9 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function OrientationGate({ children }: { children: React.ReactNode }) {
-  const { orientationSeen, hasActiveReorientation, onboardingStateLoading } = useAuth();
+  const { orientationSeen, onboardingStateLoading } = useAuth();
   if (onboardingStateLoading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Loading…</div>;
   if (!orientationSeen) return <Navigate to="/onboarding" replace />;
-  if (!hasActiveReorientation) return <Navigate to="/activated" replace />;
   return <>{children}</>;
 }
 

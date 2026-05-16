@@ -103,7 +103,10 @@ const Index = () => {
               }
               style={locked ? { opacity: 0.55 } : undefined}
               onClick={() => {
-                if (locked) return;
+                if (locked) {
+                  navigate("/activated");
+                  return;
+                }
                 navigate(card.path);
               }}
               aria-disabled={locked || undefined}
