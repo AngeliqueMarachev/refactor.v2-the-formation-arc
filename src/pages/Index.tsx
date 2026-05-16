@@ -144,7 +144,7 @@ const Index = () => {
               style={locked ? { opacity: 0.55 } : undefined}
               onClick={() => {
                 if (locked) {
-                  navigate("/activated");
+                  if (card.modalKey) setLockedModal(card.modalKey);
                   return;
                 }
                 navigate(card.path);
