@@ -427,7 +427,7 @@ const Activated = () => {
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">
-            <p className="text-text-body"> Reorientation is the starting point for the practices that follow.</p>
+            <p className="text-primary"> Reorientation is the starting point for the practices that follow.</p>
             <p className="font-normal text-secondary-foreground">
               {" "}
               In moments of fear, shame, urgency, or overwhelm, the system falls back on what it has learned to expect.
