@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Compass, AudioLines, LibraryBig } from "lucide-react";
+import { Compass, AudioLines, LibraryBig, Lock } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
 import { ensureUsageStats } from "@/lib/usage-stats";
