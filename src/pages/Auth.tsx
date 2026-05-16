@@ -307,8 +307,9 @@ const Auth = () => {
               Formation restores it.
             </h1>
             <p className="text-text-supporting text-sm leading-snug pt-[16px]">
-              A structured practice for retraining perception and stabilizing your internal world through neuroscience,
-              structured repetition, and identity-based formation.
+              Dismantle the invisible walls of chronic stress, childhood labels, and unhealed wounds. Stabilize your
+              internal world through a daily, structured practice combining applied neuroscience and identity-based
+              formation.
             </p>
           </div>
 
@@ -322,7 +323,7 @@ const Auth = () => {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium border border-primary text-primary hover:bg-primary/10 transition-colors"
             >
-              Take the assessment
+              Take the free assessment
             </a>
           </div>
         </div>
