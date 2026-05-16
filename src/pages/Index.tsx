@@ -24,7 +24,7 @@ type LockedModalKey = "daily-formation" | "anchors";
 
 const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] }> = {
   "daily-formation": {
-    title: "COMPLETE REORIENTATION",
+    title: "​COMPLETE REORIENTATION",
     body: [
       "Reorientation establishes the foundation for the practices that follow.",
       "Daily Formation becomes more effective once your reorientation path is in place.",
