@@ -32,17 +32,11 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   const lockedTabs = new Set(["/daily-formation", "/anchors"]);
+  const isLocked = (path: string) => !hasActiveReorientation && lockedTabs.has(path);
 
   const handleNavigate = (path: string) => {
-    if (!hasActiveReorientation && lockedTabs.has(path)) {
-      return;
-    }
-    if (!hasActiveReorientation && path !== "/" && path !== "/activated") {
-      setConfirmOpen(true);
-      return;
-    }
+    if (isLocked(path)) return;
     if (!hasActiveReorientation && location.pathname === "/activated" && path !== "/activated") {
-      // User is mid-onboarding reorientation flow; confirm before leaving
       setConfirmOpen(true);
       return;
     }
