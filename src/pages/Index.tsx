@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/formation-arc-logo.png";
 import { useAuth } from "@/lib/auth";
@@ -8,6 +9,35 @@ import { Compass, AudioLines, LibraryBig, Lock } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
 import { ensureUsageStats } from "@/lib/usage-stats";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+type LockedModalKey = "daily-formation" | "anchors";
+
+const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] }> = {
+  "daily-formation": {
+    title: "Complete reorientation first",
+    body: [
+      "Reorientation establishes the foundation for the practices that follow.",
+      "Daily Formation becomes more effective once your reorientation path is in place.",
+    ],
+  },
+  anchors: {
+    title: "Your anchor library builds over time",
+    body: [
+      "Anchors are created during Daily Formation.",
+      "Complete your reorientation first to begin building your library.",
+    ],
+  },
+};
 
 const Index = () => {
   const navigate = useNavigate();
