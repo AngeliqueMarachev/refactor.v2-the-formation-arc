@@ -91,19 +91,48 @@ const Index = () => {
       </header>
 
       <main className="flex-1 px-5 space-y-6 content-container">
-        {cards.map((card) => (
-          <Card key={card.path} className="hover:border-primary/40" onClick={() => navigate(card.path)}>
-            <CardHeader className="flex-row items-center gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-secondary">
-                <card.icon className="h-7 w-7 text-primary" />
-              </div>
-              <div>
-                <CardTitle className="text-lg">{card.title}</CardTitle>
-                <CardDescription className="text-text-supporting text-sm">{card.subtitle}</CardDescription>
-              </div>
-            </CardHeader>
-          </Card>
-        ))}
+        {cards.map((card) => {
+          const locked = card.lockable && !hasActiveReorientation;
+          return (
+            <Card
+              key={card.path}
+              className={
+                locked
+                  ? "border-border/30 cursor-not-allowed hover:scale-100 active:scale-100"
+                  : "hover:border-primary/40"
+              }
+              style={locked ? { opacity: 0.55 } : undefined}
+              onClick={() => {
+                if (locked) return;
+                navigate(card.path);
+              }}
+              aria-disabled={locked || undefined}
+            >
+              <CardHeader className="flex-row items-start gap-5">
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-secondary">
+                  <card.icon className="h-7 w-7 text-primary" />
+                  {locked && (
+                    <div className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-background/90 border border-border/50">
+                      <Lock className="h-2.5 w-2.5 text-text-supporting" strokeWidth={2.5} />
+                    </div>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <CardTitle className="text-lg">{card.title}</CardTitle>
+                  <CardDescription className="text-text-supporting text-sm">{card.subtitle}</CardDescription>
+                  {locked && (
+                    <p
+                      className="text-text-supporting text-xs mt-2 leading-relaxed"
+                      style={{ opacity: 0.85 }}
+                    >
+                      Complete your Reorientation to continue your formation.
+                    </p>
+                  )}
+                </div>
+              </CardHeader>
+            </Card>
+          );
+        })}
 
         <div className="pt-3">
           <Card className="border-none">
