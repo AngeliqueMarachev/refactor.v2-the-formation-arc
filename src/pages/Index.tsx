@@ -125,10 +125,10 @@ const Index = () => {
                   <CardDescription className="text-text-supporting text-sm">{card.subtitle}</CardDescription>
                   {locked && (
                     <p
-                      className="text-text-supporting text-xs mt-2 leading-relaxed"
+                      className="text-primary text-xs mt-2 leading-relaxed"
                       style={{ opacity: 0.85 }}
                     >
-                      Complete your Reorientation to continue your formation.
+                      Complete reorientation to continue your formation
                     </p>
                   )}
                 </div>
