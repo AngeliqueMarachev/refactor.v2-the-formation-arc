@@ -31,22 +31,27 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   const { hasActiveReorientation } = useAuth();
   const [confirmOpen, setConfirmOpen] = useState(false);
 
+  const lockedTabs = new Set(["/daily-formation", "/anchors"]);
+
   const handleNavigate = (path: string) => {
-    if (!hasActiveReorientation) {
+    if (!hasActiveReorientation && lockedTabs.has(path)) {
+      return;
+    }
+    if (!hasActiveReorientation && path !== "/" && path !== "/activated") {
       setConfirmOpen(true);
       return;
     }
-
+    if (!hasActiveReorientation && location.pathname === "/activated" && path !== "/activated") {
+      // User is mid-onboarding reorientation flow; confirm before leaving
+      setConfirmOpen(true);
+      return;
+    }
     navigate(path);
   };
 
   const handleContinue = () => {
     setConfirmOpen(false);
-    if (onUnsavedReorientationContinue) {
-      onUnsavedReorientationContinue();
-      return;
-    }
-    navigate("/activated", { replace: true, state: { resetReorientation: true } });
+    navigate("/", { replace: true });
   };
 
   if (keyboardVisible) return null;
