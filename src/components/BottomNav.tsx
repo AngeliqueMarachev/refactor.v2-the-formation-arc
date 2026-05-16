@@ -35,11 +35,11 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   const isLocked = (path: string) => !hasActiveReorientation && lockedTabs.has(path);
 
   const handleNavigate = (path: string) => {
-    if (isLocked(path)) return;
     if (!hasActiveReorientation && location.pathname === "/activated" && path !== "/activated") {
       setConfirmOpen(true);
       return;
     }
+    if (isLocked(path)) return;
     navigate(path);
   };
 
@@ -63,7 +63,8 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
         <div className="flex h-16 items-center justify-around">
           {tabs.map((tab) => {
             const active = location.pathname === tab.path;
-            const locked = isLocked(tab.path);
+            const onActivated = location.pathname === "/activated" && !hasActiveReorientation;
+            const locked = isLocked(tab.path) && !onActivated;
             return (
               <button
                 key={tab.path}
