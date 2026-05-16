@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/formation-arc-logo.png";
 import { useAuth } from "@/lib/auth";
@@ -8,10 +9,40 @@ import { Compass, AudioLines, LibraryBig, Lock } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
 import { ensureUsageStats } from "@/lib/usage-stats";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+type LockedModalKey = "daily-formation" | "anchors";
+
+const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] }> = {
+  "daily-formation": {
+    title: "Complete reorientation first",
+    body: [
+      "Reorientation establishes the foundation for the practices that follow.",
+      "Daily Formation becomes more effective once your reorientation path is in place.",
+    ],
+  },
+  anchors: {
+    title: "Your anchor library builds over time",
+    body: [
+      "Anchors are created during Daily Formation.",
+      "Complete your reorientation first to begin building your library.",
+    ],
+  },
+};
 
 const Index = () => {
   const navigate = useNavigate();
   const { user, signOut, hasActiveReorientation } = useAuth();
+  const [lockedModal, setLockedModal] = useState<LockedModalKey | null>(null);
 
   const { data: profile, isLoading: profileLoading } = useQuery({
     queryKey: ["profile", user?.id],
@@ -38,13 +69,21 @@ const Index = () => {
     enabled: !!user,
   });
 
-  const cards = [
+  const cards: Array<{
+    title: string;
+    subtitle: string;
+    icon: typeof AudioLines;
+    path: string;
+    lockable: boolean;
+    modalKey?: LockedModalKey;
+  }> = [
     {
       title: "Daily Formation",
       subtitle: "Train your system daily. Build steady patterns over time.",
       icon: AudioLines,
       path: "/daily-formation",
       lockable: true,
+      modalKey: "daily-formation",
     },
     {
       title: "Reorientation",
@@ -59,6 +98,7 @@ const Index = () => {
       icon: LibraryBig,
       path: "/anchors",
       lockable: true,
+      modalKey: "anchors",
     },
   ];
 
@@ -104,7 +144,7 @@ const Index = () => {
               style={locked ? { opacity: 0.55 } : undefined}
               onClick={() => {
                 if (locked) {
-                  navigate("/activated");
+                  if (card.modalKey) setLockedModal(card.modalKey);
                   return;
                 }
                 navigate(card.path);
@@ -179,6 +219,37 @@ const Index = () => {
       </main>
 
       <BottomNav />
+
+      <AlertDialog open={lockedModal !== null} onOpenChange={(open) => !open && setLockedModal(null)}>
+        <AlertDialogContent>
+          {lockedModal && (
+            <>
+              <AlertDialogHeader>
+                <AlertDialogTitle>{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
+                <AlertDialogDescription className="text-text-body leading-relaxed space-y-3">
+                  {LOCKED_MODAL_COPY[lockedModal].body.map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter className="flex-row gap-3 sm:space-x-0">
+                <AlertDialogCancel className="mt-0 flex-1 whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10">
+                  Not now
+                </AlertDialogCancel>
+                <AlertDialogAction
+                  className="flex-1 whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => {
+                    setLockedModal(null);
+                    navigate("/activated");
+                  }}
+                >
+                  Begin reorientation
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </>
+          )}
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
