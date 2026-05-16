@@ -314,24 +314,38 @@ const Auth = () => {
           </div>
 
           <div className="space-y-4">
-            <a
-              href="https://tally.so/r/EkvV7q"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-            >
-              Take the free assessment
-            </a>
-            <p className="text-text-supporting/70 text-xs leading-snug text-center -mt-1">
-              A 5-minute tool to identify how fear is conditioning your perception.
-            </p>
-            <Button
-              onClick={() => setStep("email")}
-              variant="outline"
-              className="w-full border-primary text-primary hover:bg-primary/10 bg-transparent"
-            >
-              Begin your formation
-            </Button>
+            <div className="space-y-1.5">
+              <a
+                href="https://tally.so/r/EkvV7q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Take the free assessment
+              </a>
+              <p className="text-text-supporting/70 text-xs leading-snug text-center">
+                A 5-minute tool to identify how fear is conditioning your perception.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 py-0">
+              <div className="flex-1 h-px bg-[rgba(255,255,255,0.15)]" />
+              <span className="text-sm text-muted-foreground">or</span>
+              <div className="flex-1 h-px bg-[rgba(255,255,255,0.15)]" />
+            </div>
+
+            <div className="space-y-1.5">
+              <Button
+                onClick={() => setStep("email")}
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary/10 bg-transparent"
+              >
+                Begin your formation
+              </Button>
+              <p className="text-text-supporting/70 text-xs leading-snug text-center">
+                Access the guided practice.
+              </p>
+            </div>
           </div>
         </div>
       </div>
