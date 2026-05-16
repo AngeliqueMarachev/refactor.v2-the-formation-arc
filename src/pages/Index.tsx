@@ -138,7 +138,7 @@ const Index = () => {
               key={card.path}
               className={
                 locked
-                  ? "border-border/30 cursor-not-allowed hover:scale-100 active:scale-100"
+                  ? "border-border/30 cursor-pointer hover:scale-100 active:scale-100"
                   : "hover:border-primary/40"
               }
               style={locked ? { opacity: 0.55 } : undefined}
