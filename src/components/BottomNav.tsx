@@ -80,7 +80,7 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
                 onClick={() => handleNavigate(tab.path)}
                 disabled={locked}
                 aria-disabled={locked || undefined}
-                className="nav-tab relative flex flex-col items-center gap-1 text-xs group disabled:cursor-not-allowed"
+                className="nav-tab relative flex flex-col items-center gap-1 text-xs group disabled:cursor-pointer"
                 data-active={active || undefined}
                 style={{
                   color: active ? "#DDFF2C" : "rgba(248, 247, 242, 0.45)",
