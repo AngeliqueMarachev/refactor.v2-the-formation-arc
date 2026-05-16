@@ -103,7 +103,7 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
         </div>
       </nav>
 
-      <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+      <AlertDialog open={confirmOpen} onOpenChange={handleOpenChange}>
         <AlertDialogContent>
           <AlertDialogDescription className="text-text-body leading-relaxed">
             Your reorientation isn’t saved yet. Leaving now will discard your progress. How do you want to continue?
