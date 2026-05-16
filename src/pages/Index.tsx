@@ -42,6 +42,7 @@ const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] 
 const Index = () => {
   const navigate = useNavigate();
   const { user, signOut, hasActiveReorientation } = useAuth();
+  const [lockedModal, setLockedModal] = useState<LockedModalKey | null>(null);
 
   const { data: profile, isLoading: profileLoading } = useQuery({
     queryKey: ["profile", user?.id],
