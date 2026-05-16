@@ -69,13 +69,21 @@ const Index = () => {
     enabled: !!user,
   });
 
-  const cards = [
+  const cards: Array<{
+    title: string;
+    subtitle: string;
+    icon: typeof AudioLines;
+    path: string;
+    lockable: boolean;
+    modalKey?: LockedModalKey;
+  }> = [
     {
       title: "Daily Formation",
       subtitle: "Train your system daily. Build steady patterns over time.",
       icon: AudioLines,
       path: "/daily-formation",
       lockable: true,
+      modalKey: "daily-formation",
     },
     {
       title: "Reorientation",
@@ -90,6 +98,7 @@ const Index = () => {
       icon: LibraryBig,
       path: "/anchors",
       lockable: true,
+      modalKey: "anchors",
     },
   ];
 
