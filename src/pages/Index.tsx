@@ -31,7 +31,7 @@ const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] 
     ],
   },
   anchors: {
-    title: "Your anchor library builds over time",
+    title: "YOUR ANCHOR LIBRARY BUILDS OVER TIME",
     body: [
       "Anchors are created during Daily Formation.",
       "Complete your reorientation first to begin building your library.",
