@@ -88,8 +88,8 @@ const App = () => (
               <Route path="/activated" element={<ProtectedRoute><CreateReorientationRoute><Activated /></CreateReorientationRoute></ProtectedRoute>} />
               <Route path="/daily-formation" element={<ProtectedRoute><ReorientationGate><DailyFormation /></ReorientationGate></ProtectedRoute>} />
               <Route path="/anchors" element={<ProtectedRoute><ReorientationGate><Anchors /></ReorientationGate></ProtectedRoute>} />
-              <Route path="/knowledge" element={<ProtectedRoute><ReorientationGate><Knowledge /></ReorientationGate></ProtectedRoute>} />
-              <Route path="/knowledge/:slug" element={<ProtectedRoute><ReorientationGate><KnowledgeTopic /></ReorientationGate></ProtectedRoute>} />
+              <Route path="/knowledge" element={<ProtectedRoute><OrientationGate><Knowledge /></OrientationGate></ProtectedRoute>} />
+              <Route path="/knowledge/:slug" element={<ProtectedRoute><OrientationGate><KnowledgeTopic /></OrientationGate></ProtectedRoute>} />
               <Route path="/reorientation-rehearsal" element={<ProtectedRoute><ReorientationGate><ReorientationRehearsal /></ReorientationGate></ProtectedRoute>} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="*" element={<NotFound />} />
