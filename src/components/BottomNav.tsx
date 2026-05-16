@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { House, Compass, AudioLines, LibraryBig, BookOpen } from "lucide-react";
+import { House, Compass, AudioLines, LibraryBig, BookOpen, Lock } from "lucide-react";
 import { useKeyboardVisible } from "@/hooks/use-keyboard-visible";
 import { useAuth } from "@/lib/auth";
 import {
@@ -31,22 +31,21 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   const { hasActiveReorientation } = useAuth();
   const [confirmOpen, setConfirmOpen] = useState(false);
 
+  const lockedTabs = new Set(["/daily-formation", "/anchors"]);
+  const isLocked = (path: string) => !hasActiveReorientation && lockedTabs.has(path);
+
   const handleNavigate = (path: string) => {
-    if (!hasActiveReorientation) {
+    if (isLocked(path)) return;
+    if (!hasActiveReorientation && location.pathname === "/activated" && path !== "/activated") {
       setConfirmOpen(true);
       return;
     }
-
     navigate(path);
   };
 
   const handleContinue = () => {
     setConfirmOpen(false);
-    if (onUnsavedReorientationContinue) {
-      onUnsavedReorientationContinue();
-      return;
-    }
-    navigate("/activated", { replace: true, state: { resetReorientation: true } });
+    navigate("/", { replace: true });
   };
 
   if (keyboardVisible) return null;
@@ -64,20 +63,29 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
         <div className="flex h-16 items-center justify-around">
           {tabs.map((tab) => {
             const active = location.pathname === tab.path;
+            const locked = isLocked(tab.path);
             return (
               <button
                 key={tab.path}
                 onClick={() => handleNavigate(tab.path)}
-                className="nav-tab flex flex-col items-center gap-1 text-xs group"
+                disabled={locked}
+                aria-disabled={locked || undefined}
+                className="nav-tab relative flex flex-col items-center gap-1 text-xs group disabled:cursor-not-allowed"
                 data-active={active || undefined}
                 style={{
                   color: active ? "#DDFF2C" : "rgba(248, 247, 242, 0.45)",
+                  opacity: locked ? 0.4 : 1,
                   transition: "color 180ms ease, transform 180ms ease, opacity 180ms ease",
                 }}
               >
-                <tab.icon
-                  className="h-5 w-5 transition-transform duration-[180ms] ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] group-active:scale-95"
-                />
+                <div className="relative">
+                  <tab.icon
+                    className="h-5 w-5 transition-transform duration-[180ms] ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.04] group-active:scale-95"
+                  />
+                  {locked && (
+                    <Lock className="absolute -right-1.5 -top-1 h-2.5 w-2.5" strokeWidth={2.5} />
+                  )}
+                </div>
                 <span>{tab.label}</span>
               </button>
             );
