@@ -30,12 +30,14 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   const keyboardVisible = useKeyboardVisible();
   const { hasActiveReorientation } = useAuth();
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingPath, setPendingPath] = useState<string | null>(null);
 
   const lockedTabs = new Set(["/daily-formation", "/anchors"]);
   const isLocked = (path: string) => !hasActiveReorientation && lockedTabs.has(path);
 
   const handleNavigate = (path: string) => {
     if (!hasActiveReorientation && location.pathname === "/activated" && path !== "/activated") {
+      setPendingPath(path);
       setConfirmOpen(true);
       return;
     }
@@ -44,8 +46,15 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
   };
 
   const handleContinue = () => {
+    const target = pendingPath ?? "/";
+    setPendingPath(null);
     setConfirmOpen(false);
-    navigate("/", { replace: true });
+    navigate(target, { replace: true });
+  };
+
+  const handleOpenChange = (open: boolean) => {
+    setConfirmOpen(open);
+    if (!open) setPendingPath(null);
   };
 
   if (keyboardVisible) return null;
@@ -94,7 +103,7 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
         </div>
       </nav>
 
-      <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+      <AlertDialog open={confirmOpen} onOpenChange={handleOpenChange}>
         <AlertDialogContent>
           <AlertDialogDescription className="text-text-body leading-relaxed">
             Your reorientation isn’t saved yet. Leaving now will discard your progress. How do you want to continue?
