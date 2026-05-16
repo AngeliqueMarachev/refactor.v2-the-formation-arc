@@ -219,6 +219,37 @@ const Index = () => {
       </main>
 
       <BottomNav />
+
+      <AlertDialog open={lockedModal !== null} onOpenChange={(open) => !open && setLockedModal(null)}>
+        <AlertDialogContent>
+          {lockedModal && (
+            <>
+              <AlertDialogHeader>
+                <AlertDialogTitle>{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
+                <AlertDialogDescription className="text-text-body leading-relaxed space-y-3">
+                  {LOCKED_MODAL_COPY[lockedModal].body.map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter className="flex-row gap-3 sm:space-x-0">
+                <AlertDialogCancel className="mt-0 flex-1 whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10">
+                  Not now
+                </AlertDialogCancel>
+                <AlertDialogAction
+                  className="flex-1 whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => {
+                    setLockedModal(null);
+                    navigate("/activated");
+                  }}
+                >
+                  Begin reorientation
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </>
+          )}
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
