@@ -4,13 +4,13 @@ import * as React from 'npm:react@18.3.1'
 
 import {
   Body,
-  Button,
   Container,
   Head,
   Heading,
   Html,
   Link,
   Preview,
+  Section,
   Text,
 } from 'npm:@react-email/components@0.0.22'
 
@@ -19,6 +19,7 @@ interface SignupEmailProps {
   siteUrl: string
   recipient: string
   confirmationUrl: string
+  token?: string
 }
 
 export const SignupEmail = ({
@@ -26,24 +27,34 @@ export const SignupEmail = ({
   siteUrl,
   recipient,
   confirmationUrl,
+  token,
 }: SignupEmailProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Confirm your email to begin with The Formation Arc</Preview>
+    <Preview>Your sign-in code for The Formation Arc</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>Welcome to The Formation Arc</Heading>
         <Text style={text}>
           You've taken the first step into a quieter way of paying attention.
-          Confirm your email{' '}
+          Enter the code below in the app to confirm{' '}
           <Link href={`mailto:${recipient}`} style={link}>
             ({recipient})
           </Link>{' '}
-          to begin.
+          and begin.
         </Text>
-        <Button style={button} href={confirmationUrl}>
-          Confirm and begin
-        </Button>
+        {token ? (
+          <Section style={codeWrap}>
+            <Text style={code}>{token}</Text>
+          </Section>
+        ) : null}
+        <Text style={smallText}>
+          The code expires shortly. You can also{' '}
+          <Link href={confirmationUrl} style={link}>
+            confirm via this link
+          </Link>
+          .
+        </Text>
         <Text style={footer}>
           If you didn't create an account with{' '}
           <Link href={siteUrl} style={link}>
@@ -77,16 +88,28 @@ const text = {
   lineHeight: '1.6',
   margin: '0 0 24px',
 }
+const smallText = {
+  fontSize: '13px',
+  color: '#8a9598',
+  lineHeight: '1.6',
+  margin: '0 0 24px',
+}
 const link = { color: '#0C4651', textDecoration: 'underline' }
-const button = {
-  backgroundColor: '#0C4651',
-  color: '#ffffff',
-  fontSize: '15px',
-  fontWeight: 600 as const,
+const codeWrap = {
+  backgroundColor: '#F1F5F4',
   borderRadius: '14px',
-  padding: '14px 24px',
-  textDecoration: 'none',
-  display: 'inline-block',
+  padding: '20px 24px',
+  textAlign: 'center' as const,
+  margin: '0 0 16px',
+}
+const code = {
+  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  fontSize: '32px',
+  fontWeight: 600 as const,
+  color: '#0C4651',
+  letterSpacing: '0.4em',
+  margin: 0,
+  lineHeight: '1.2',
 }
 const footer = {
   fontSize: '13px',
