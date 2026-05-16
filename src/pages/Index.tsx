@@ -24,7 +24,7 @@ type LockedModalKey = "daily-formation" | "anchors";
 
 const LOCKED_MODAL_COPY: Record<LockedModalKey, { title: string; body: string[] }> = {
   "daily-formation": {
-    title: "Complete reorientation first",
+    title: "COMPLETE REORIENTATION",
     body: [
       "Reorientation establishes the foundation for the practices that follow.",
       "Daily Formation becomes more effective once your reorientation path is in place.",
@@ -225,7 +225,7 @@ const Index = () => {
           {lockedModal && (
             <>
               <AlertDialogHeader>
-                <AlertDialogTitle>{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
+                <AlertDialogTitle className="font-sans text-base font-semibold">{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
                 <AlertDialogDescription className="text-text-body leading-relaxed space-y-3">
                   {LOCKED_MODAL_COPY[lockedModal].body.map((line, i) => (
                     <span key={i} className="block">{line}</span>
