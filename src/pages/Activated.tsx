@@ -427,17 +427,21 @@ const Activated = () => {
         <main className="flex flex-1 flex-col justify-center px-5 py-12 content-container">
           <h1 className="tracking-tight mb-8">Return to Truth</h1>
           <div className="space-y-4 leading-relaxed">
-            <p className="text-primary"> Reorientation is the starting point for the practices that follow.</p>
+            <p className="text-text-body"> Reorientation is the starting point for the practices that follow.</p>
             <p className="font-normal text-secondary-foreground">
               {" "}
-              What you experience in moments of pressure isn't random.
+              In moments of fear, shame, urgency, or overwhelm, the system falls back on what it has learned to expect.
+            </p>
+            <p className="font-normal text-secondary-foreground">
+              What you experience in those moments is not random. It is patterned.
             </p>
             <p className="font-normal text-secondary-foreground">It’s what your system learned to expect.</p>
             <p className="font-normal text-secondary-foreground">
-              This sequence helps you interrupt that pattern and return to what is true.
+              Reorientation interrupts that pattern. It helps your system return to stability, truth, and steadier
+              expectation.
             </p>
-            <p className="font-normal text-secondary-foreground">You’re not trying to calm yourself.</p>
-            <p className="font-normal text-primary">You’re learning to reorient.</p>
+            <p className="font-normal text-secondary-foreground">You are not trying to force calm.</p>
+            <p className="font-normal text-primary">You’re learning to return to Truth.</p>
           </div>
 
           <Button
@@ -448,7 +452,7 @@ const Activated = () => {
               setScreen("phase");
             }}
           >
-            Start reorientation
+            Begin reorientation
           </Button>
         </main>
         <BottomNav onUnsavedReorientationContinue={resetInProgressReorientation} />
