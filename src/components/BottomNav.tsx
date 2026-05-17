@@ -104,13 +104,13 @@ const BottomNav = ({ onUnsavedReorientationContinue }: BottomNavProps) => {
       </nav>
 
       <AlertDialog open={confirmOpen} onOpenChange={handleOpenChange}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-w-[calc(100%-2rem)] sm:max-w-lg">
           <AlertDialogDescription className="text-text-body leading-relaxed">
             Your reorientation isn’t saved yet. Leaving now will discard your progress. How do you want to continue?
           </AlertDialogDescription>
-          <AlertDialogFooter className="flex-row gap-3 sm:space-x-0">
-            <AlertDialogAction className="flex-1 whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10" onClick={handleContinue}>Exit for now</AlertDialogAction>
-            <AlertDialogCancel className="mt-0 flex-1 whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90">Continue reorientation</AlertDialogCancel>
+          <AlertDialogFooter className="flex flex-col gap-3 sm:flex-row sm:space-x-0">
+            <AlertDialogCancel className="mt-0 w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:order-2 sm:flex-1">Continue reorientation</AlertDialogCancel>
+            <AlertDialogAction className="w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:order-1 sm:flex-1" onClick={handleContinue}>Exit for now</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
