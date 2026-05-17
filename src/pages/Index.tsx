@@ -232,18 +232,21 @@ const Index = () => {
                   ))}
                 </AlertDialogDescription>
               </AlertDialogHeader>
-              <AlertDialogFooter className="flex flex-col-reverse gap-3 sm:flex-row sm:space-x-0">
-                <AlertDialogCancel className="mt-0 w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:flex-1">
-                  Not now
-                </AlertDialogCancel>
-                <AlertDialogAction
-                  className="w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:flex-1"
+              <AlertDialogFooter className="flex flex-col gap-3 sm:flex-row sm:space-x-0">
+                <AlertDialogCancel
+                  className="mt-0 w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:order-2 sm:flex-1"
                   onClick={() => {
                     setLockedModal(null);
                     navigate("/activated");
                   }}
                 >
                   Begin reorientation
+                </AlertDialogCancel>
+                <AlertDialogAction
+                  className="w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:order-1 sm:flex-1"
+                  onClick={() => setLockedModal(null)}
+                >
+                  Not now
                 </AlertDialogAction>
               </AlertDialogFooter>
             </>
