@@ -221,7 +221,7 @@ const Index = () => {
       <BottomNav />
 
       <AlertDialog open={lockedModal !== null} onOpenChange={(open) => !open && setLockedModal(null)}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-w-[calc(100%-2rem)] sm:max-w-lg">
           {lockedModal && (
             <>
               <AlertDialogHeader>
@@ -232,12 +232,12 @@ const Index = () => {
                   ))}
                 </AlertDialogDescription>
               </AlertDialogHeader>
-              <AlertDialogFooter className="flex-row gap-3 sm:space-x-0">
-                <AlertDialogCancel className="mt-0 flex-1 whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10">
+              <AlertDialogFooter className="flex flex-col-reverse gap-3 sm:flex-row sm:space-x-0">
+                <AlertDialogCancel className="mt-0 w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:flex-1">
                   Not now
                 </AlertDialogCancel>
                 <AlertDialogAction
-                  className="flex-1 whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:flex-1"
                   onClick={() => {
                     setLockedModal(null);
                     navigate("/activated");
