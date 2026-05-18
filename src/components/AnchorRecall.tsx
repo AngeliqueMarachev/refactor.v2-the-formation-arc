@@ -323,7 +323,7 @@ const AnchorRecall = ({
               <label className="text-sm font-medium text-text-heading text-primary">Name this moment</label>
               <p className="text-xs text-text-supporting">A few words to help you return here</p>
               <Input
-                placeholder="e.g. He lays me down in green pastures"
+                placeholder="e.g. Greener pastures"
                 value={anchorTitle}
                 onChange={(e) => onAnchorTitleChange(sanitizeTextInput(e.target.value, { maxLength: 60 }))}
                 maxLength={60}
