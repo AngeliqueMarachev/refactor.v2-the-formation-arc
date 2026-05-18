@@ -229,7 +229,7 @@ const DailyFormation = () => {
 
         <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button className="w-full" size="lg" onClick={() => navigate("/reorientation-rehearsal")}>
-            I've given this to God
+            I've surrendered this moment
           </Button>
         </div>
 
