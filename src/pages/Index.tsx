@@ -79,7 +79,7 @@ const Index = () => {
   }> = [
     {
       title: "Daily Formation",
-      subtitle: "Train your system daily. Build steady patterns over time.",
+      subtitle: "Train daily to build steady patterns over time.",
       icon: AudioLines,
       path: "/daily-formation",
       lockable: true,
@@ -94,7 +94,7 @@ const Index = () => {
     },
     {
       title: "Anchor Library",
-      subtitle: "Reinforce what anchors you with repetition.",
+      subtitle: "Reinforce what anchors you through repetition.",
       icon: LibraryBig,
       path: "/anchors",
       lockable: true,
@@ -137,9 +137,7 @@ const Index = () => {
             <Card
               key={card.path}
               className={
-                locked
-                  ? "border-border/30 cursor-pointer hover:scale-100 active:scale-100"
-                  : "hover:border-primary/40"
+                locked ? "border-border/30 cursor-pointer hover:scale-100 active:scale-100" : "hover:border-primary/40"
               }
               style={locked ? { opacity: 0.55 } : undefined}
               onClick={() => {
@@ -217,10 +215,14 @@ const Index = () => {
           {lockedModal && (
             <>
               <AlertDialogHeader>
-                <AlertDialogTitle className="font-sans text-base font-semibold tracking-wider">{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
+                <AlertDialogTitle className="font-sans text-base font-semibold tracking-wider">
+                  {LOCKED_MODAL_COPY[lockedModal].title}
+                </AlertDialogTitle>
                 <AlertDialogDescription className="text-text-body leading-relaxed space-y-3">
                   {LOCKED_MODAL_COPY[lockedModal].body.map((line, i) => (
-                    <span key={i} className="block">{line}</span>
+                    <span key={i} className="block">
+                      {line}
+                    </span>
                   ))}
                 </AlertDialogDescription>
               </AlertDialogHeader>
