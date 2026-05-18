@@ -163,14 +163,6 @@ const Index = () => {
                 <div className="flex-1">
                   <CardTitle className="text-lg">{card.title}</CardTitle>
                   <CardDescription className="text-text-supporting text-sm">{card.subtitle}</CardDescription>
-                  {locked && (
-                    <p
-                      className="text-primary text-xs mt-2 leading-relaxed"
-                      style={{ opacity: 0.85 }}
-                    >
-                      Complete reorientation to continue your formation
-                    </p>
-                  )}
                 </div>
               </CardHeader>
             </Card>
