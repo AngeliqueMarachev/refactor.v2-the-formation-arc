@@ -87,7 +87,7 @@ const Index = () => {
     },
     {
       title: "Reorientation",
-      subtitle: "Interrupt the pattern and return to steadiness.",
+      subtitle: "Interrupt the pattern to return to steadiness.",
       icon: Compass,
       path: "/activated",
       lockable: false,
