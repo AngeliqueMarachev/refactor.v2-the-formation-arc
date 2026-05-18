@@ -147,10 +147,10 @@ const AnchorRecall = ({
                 Start with something small. It doesn’t have to be significant.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                Use the prompts below if needed.
+                Use the prompts below to get started.
               </p>
               <p className="text-supporting leading-relaxed mt-3 text-destructive-foreground">
-                You can ask God to guide you.
+                Trust your inner compass to guide you.
               </p>
             </>
           )}
@@ -172,8 +172,8 @@ const AnchorRecall = ({
           {selectedScene && (
             <>
               <p className="text-supporting leading-relaxed mt-3 text-base text-destructive-foreground">
-                Close your eyes as you let the scene gently come into focus. Use your senses to allow the moment become more tangible. Nothing needs
-                to be forced.
+                Close your eyes as you let the scene gently come into focus. Use your senses to allow the moment become
+                more tangible. Nothing needs to be forced.
               </p>
             </>
           )}
