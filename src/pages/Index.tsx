@@ -217,7 +217,7 @@ const Index = () => {
           {lockedModal && (
             <>
               <AlertDialogHeader>
-                <AlertDialogTitle className="font-sans text-base font-semibold">{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
+                <AlertDialogTitle className="font-sans text-base font-semibold tracking-wider">{LOCKED_MODAL_COPY[lockedModal].title}</AlertDialogTitle>
                 <AlertDialogDescription className="text-text-body leading-relaxed space-y-3">
                   {LOCKED_MODAL_COPY[lockedModal].body.map((line, i) => (
                     <span key={i} className="block">{line}</span>
@@ -225,21 +225,21 @@ const Index = () => {
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter className="flex flex-col gap-3 sm:flex-row sm:space-x-0">
-                <AlertDialogCancel
-                  className="mt-0 w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:order-2 sm:flex-1"
+                <AlertDialogAction
+                  className="w-full whitespace-nowrap border-transparent bg-primary text-primary-foreground hover:bg-primary/90 sm:order-2 sm:flex-1"
                   onClick={() => {
                     setLockedModal(null);
                     navigate("/activated");
                   }}
                 >
                   Begin reorientation
-                </AlertDialogCancel>
-                <AlertDialogAction
-                  className="w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:order-1 sm:flex-1"
+                </AlertDialogAction>
+                <AlertDialogCancel
+                  className="mt-0 w-full whitespace-nowrap border border-primary bg-transparent text-primary hover:bg-primary/10 sm:order-1 sm:flex-1"
                   onClick={() => setLockedModal(null)}
                 >
                   Not now
-                </AlertDialogAction>
+                </AlertDialogCancel>
               </AlertDialogFooter>
             </>
           )}
