@@ -316,7 +316,7 @@ const Auth = () => {
           <div className="space-y-4">
             <div className="space-y-1.5">
               <a
-                href="https://tally.so/r/EkvV7q"
+                href="https://tally.so/r/BzjQa4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-md h-10 px-4 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
