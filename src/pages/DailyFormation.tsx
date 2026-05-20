@@ -144,8 +144,8 @@ const DailyFormation = () => {
   if (screen === "daily-rhythm") {
     const rhythmSteps = [
       {
-        title: "PRAY",
-        body: "Begin with gratitude and release.",
+        title: "RELEASE",
+        body: "Begin with gratitude and trust the process.",
       },
       {
         title: "REORIENT",
