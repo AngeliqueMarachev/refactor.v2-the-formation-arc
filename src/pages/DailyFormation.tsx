@@ -214,12 +214,12 @@ const DailyFormation = () => {
               className="mt-4 pt-[15px] pb-[28px]"
             />
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">RELEASE</h2>
-            <p className="text-text-body text-secondary-foreground">Pause for a moment.</p>
+            <p className="text-text-body text-secondary-foreground">Pause in the present.</p>
 
             <p className="text-secondary-foreground">
-              You do not need the right words.
-              <br />
               You do not need the right feeling.
+              <br />
+              You do not need the right words.
             </p>
             <p className="font-normal text-secondary-foreground">
               Take a moment to express gratitude for your life and release the need to carry this alone.
