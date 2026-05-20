@@ -222,7 +222,7 @@ const DailyFormation = () => {
               You do not need the right feeling.
             </p>
             <p className="font-normal text-secondary-foreground">
-              Lift up a prayer of gratitude to your Creator as you place this moment in His hands.
+              Take a moment to express gratitude for your life and release the need to carry this alone.
             </p>
           </div>
         </main>
