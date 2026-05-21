@@ -51,10 +51,10 @@ const PHASES = [
     introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
     customLabel: "Write your own statement",
     options: [
-      "I choose to align with God, not of fear.",
-      "I am safe in God right now.",
-      "No weapon formed against me shall prosper.",
-      "God has given me a sound mind, not a spirit of fear.",
+      "I return to Truth instead of fear.",
+      "I move through moment without fear leading me.",
+      "Fear has no power over me.",
+      "I have a sound mind.",
     ],
   },
   {
@@ -72,12 +72,7 @@ const PHASES = [
     title: "Occupy Your Identity",
     introduction: ["This feeling doesn’t define you.", "Stand in what is true."],
     customLabel: "Write your true identity",
-    options: [
-      "I am chosen by God.",
-      "I am created in God's image.",
-      "I am a new creation.",
-      "God’s Spirit lives in me.",
-    ],
+    options: ["I don't need to earn my place.", "I am accepted as I am.", "I am of great value.", "I belong."],
   },
 ];
 
