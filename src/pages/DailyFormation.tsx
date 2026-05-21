@@ -145,7 +145,7 @@ const DailyFormation = () => {
     const rhythmSteps = [
       {
         title: "RELEASE",
-        body: "Begin with gratitude and trust the process.",
+        body: "Begin with gratitude.",
       },
       {
         title: "REORIENT",
