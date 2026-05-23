@@ -9,8 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import BottomNav from "@/components/BottomNav";
 import { formatDistanceToNow } from "date-fns";
-import { useWakeLock } from "@/hooks/use-wake-lock";
-import WakeLockToggle from "@/components/WakeLockToggle";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
 interface AnchorEntry {

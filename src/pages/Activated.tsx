@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
-import { useWakeLock } from "@/hooks/use-wake-lock";
-import WakeLockToggle from "@/components/WakeLockToggle";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
 const PHASES = [
