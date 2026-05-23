@@ -272,11 +272,12 @@ const Activated = () => {
           <h1 className="tracking-tight mb-2 pb-[10px]">Your reorientation path</h1>
 
 
-          <p className="text-supporting leading-relaxed mb-6">
-            Move through each line slowly.
-            <br /> Read your reorientation to yourself aloud, with intentionality.
-            <br /> Absorb each statement, allowing it to interrupt the old pattern and guide you back to steadiness.
-          </p>
+          <div className="text-supporting leading-relaxed mb-6 space-y-3">
+            <p>Move through each line slowly, one line at a time.</p>
+            <p>Notice what feels active in you right now without becoming consumed by it.</p>
+            <p>Read your reorientation aloud, with intention.</p>
+            <p>Allow your system to experience a different response.</p>
+          </div>
 
           <div className="relative mb-12">
             {lines.map((line, i) => {
