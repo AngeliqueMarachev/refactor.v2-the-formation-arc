@@ -71,6 +71,18 @@ const Anchors = () => {
             <p className="text-supporting leading-relaxed max-w-xs">Take 10–20 seconds to return to this moment.</p>
             <p className="text-supporting leading-relaxed max-w-xs">Let your body recognize it again.</p>
           </div>
+          {selected.emotion_tags && selected.emotion_tags.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2 mt-6 max-w-xs">
+              {selected.emotion_tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-text-supporting"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
           <p className="font-serif text-lg italic text-text-heading max-w-sm mt-8">"{selected.anchor_phrase}"</p>
           <p className="text-sm text-text-supporting mt-4">Each return strengthens this pattern.</p>
           <p className="text-sm text-text-supporting mt-4">Steadiness is becoming more familiar.</p>
@@ -144,25 +156,6 @@ const Anchors = () => {
                   Widened Meaning
                 </h2>
                 <p className="text-sm leading-relaxed text-text-heading">{selected.widened_meaning}</p>
-              </div>
-            )}
-
-            {/* Emotion Tags */}
-            {selected.emotion_tags && selected.emotion_tags.length > 0 && (
-              <div className="mt-5">
-                <h2 className="text-xs font-medium uppercase tracking-widest text-primary font-sans mb-2">
-                  What it felt like
-                </h2>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {selected.emotion_tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-text-supporting"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             )}
 
