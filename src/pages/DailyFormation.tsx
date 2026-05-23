@@ -386,9 +386,9 @@ const DailyFormation = () => {
                       PRESENCE
                     </h2>
                     <p className="text-supporting leading-relaxed mt-2">
-                      Let yourself experience this moment with God present.
+                      Let yourself remain here without needing to hide or perform.
                       <br />
-                      Notice what changes as you feel seen and connected.
+                      Notice what changes as you feel seen, supported and connected.
                     </p>
                     <Textarea
                       placeholder="e.g. I am of great value."
