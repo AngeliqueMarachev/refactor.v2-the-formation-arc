@@ -253,7 +253,7 @@ const Activated = () => {
       await incrementUsageStat("reorient_return_count", user.id);
 
       setSaving(false);
-      
+
       navigate("/");
     };
 
@@ -271,11 +271,10 @@ const Activated = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 content-container pb-0">
           <h1 className="tracking-tight mb-2 pb-[10px]">Your reorientation path</h1>
 
-
           <div className="text-supporting leading-relaxed mb-6 space-y-3">
-            <p>Move through each line slowly, one line at a time.</p>
             <p>Notice what feels active in you right now without becoming consumed by it.</p>
-            <p>Read your reorientation aloud, with intention.</p>
+            <p>Move through your reorientation slowly, one line at a time.</p>
+            <p>Read it aloud, with intention.</p>
             <p>Allow your system to experience a different response.</p>
           </div>
 
@@ -421,7 +420,6 @@ const Activated = () => {
             className="mt-10 w-full"
             size="lg"
             onClick={() => {
-              
               setScreen("phase");
             }}
           >
