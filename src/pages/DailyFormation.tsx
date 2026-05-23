@@ -11,6 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
 import { useAutoWakeLock } from "@/hooks/use-auto-wake-lock";
+import { incrementUsageStat } from "@/lib/usage-stats";
 
 type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "reframing-story" | "create-anchor" | "completion";
 
