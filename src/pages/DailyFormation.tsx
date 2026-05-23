@@ -10,8 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import { useWakeLock } from "@/hooks/use-wake-lock";
-import WakeLockToggle from "@/components/WakeLockToggle";
+import AutoWakeLock from "@/components/AutoWakeLock";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
 type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "reframing-story" | "create-anchor" | "completion";
@@ -52,28 +51,9 @@ const DailyFormation = () => {
   const [whereIsGod, setWhereIsGod] = useState("");
   const [createStep, setCreateStep] = useState(0);
   const [saving, setSaving] = useState(false);
-  const wakeLock = useWakeLock();
-  const [wakeLockToggle, setWakeLockToggle] = useState(true);
-
-  const handleWakeLockToggle = (value: boolean) => {
-    setWakeLockToggle(value);
-    if (value) {
-      wakeLock.enable();
-    } else {
-      wakeLock.disable();
-    }
-  };
-
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [createStep, screen]);
-
-  useEffect(() => {
-    return () => {
-      wakeLock.disable();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     if (!user) return;
@@ -207,12 +187,6 @@ const DailyFormation = () => {
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
           <div className="space-y-4 leading-relaxed">
-            <WakeLockToggle
-              enabled={wakeLockToggle}
-              onToggle={handleWakeLockToggle}
-              isSupported={wakeLock.isSupported}
-              className="mt-4 pt-[15px] pb-[28px]"
-            />
             <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">RELEASE</h2>
             <p className="text-text-body text-secondary-foreground">Pause in the present.</p>
 
@@ -586,7 +560,6 @@ const DailyFormation = () => {
             size="lg"
             variant="secondary"
             onClick={() => {
-              wakeLock.disable();
               navigate("/knowledge");
             }}
           >
@@ -596,7 +569,6 @@ const DailyFormation = () => {
             className="w-full"
             size="lg"
             onClick={() => {
-              wakeLock.disable();
               navigate("/");
             }}
           >
