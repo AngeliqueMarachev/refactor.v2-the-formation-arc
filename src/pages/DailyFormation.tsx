@@ -143,7 +143,7 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">Daily Formation</h1>
+          <h1 className="tracking-tight mb-4 mx-0 mt-[20px] pt-0 pb-[8px]">Daily formation</h1>
 
           <div className="space-y-4 text-base leading-relaxed text-text-body sm:text-lg mb-12">
             <p className="text-secondary-foreground">This is your daily practice.</p>
@@ -227,7 +227,7 @@ const DailyFormation = () => {
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
         <main className="flex flex-1 flex-col px-5 pt-10 pb-8 content-container">
-          <h1 className="tracking-tight mb-8 mt-[20px]">Daily Anchor Loop</h1>
+          <h1 className="tracking-tight mb-8 mt-[20px]">Daily anchor loop</h1>
 
           <div className="rounded-lg border p-5 mb-6">
             <p className="text-xs uppercase mb-2">Scene</p>
