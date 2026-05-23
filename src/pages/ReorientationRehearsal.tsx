@@ -71,12 +71,26 @@ const ReorientationRehearsal = () => {
         <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base pt-[22px]">
           REORIENTATION
         </h2>
-        <p className="text-text-body text-sm mt-3">Move through your reorientation with intention.</p>
+        <p className="text-text-body text-sm mt-3">
+          For new patterns to form, the old pattern must briefly become active.
+        </p>
+        <div className="h-4" />
+        <p className="text-text-body text-sm">
+          Take a moment to notice what feels activated in you right now: a fear, pressure, a familiar thought pattern.
+        </p>
+        <div className="h-4" />
+        <p className="text-text-body text-sm">
+          Then move through your reorientation slowly, with intention.
+        </p>
+        <div className="h-4" />
+        <p className="text-text-body text-sm">
+          This is how the brain begins updating association and expectation.
+        </p>
         <div className="mb-6" />
 
         <p className="text-text-supporting text-sm mb-0">Tap each step.</p>
         <p className="text-text-supporting text-sm mb-0">Read it aloud, slowly.</p>
-        <p className="text-text-supporting text-sm mb-4">Let each line settle in your spirit.</p>
+        <p className="text-text-supporting text-sm mb-4">Allow your system to experience a different response.</p>
 
         <div className="space-y-6 mb-12">
           {phases.map((phase) => {
