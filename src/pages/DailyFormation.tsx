@@ -10,8 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
 import AnchorRecall from "@/components/AnchorRecall";
-import AutoWakeLock from "@/components/AutoWakeLock";
-import { incrementUsageStat } from "@/lib/usage-stats";
+import { useAutoWakeLock } from "@/hooks/use-auto-wake-lock";
 
 type Screen = "daily-rhythm" | "reorientation" | "daily-loop" | "reframing-story" | "create-anchor" | "completion";
 
