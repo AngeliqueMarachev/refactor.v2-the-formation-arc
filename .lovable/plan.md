@@ -1,51 +1,34 @@
 ## Goal
+Change the From address on outgoing auth emails (signup, password reset, magic link, etc.) from `noreply@theformationarc.com` to `hello@theformationarc.com`.
 
-Replace the manual "Keep screen awake" toggle with automatic, Kindle-style wake-lock that activates whenever the user is inside the daily formation flow, and releases when they leave it.
+## Good news about Proton Mail
+Your Proton Mail setup is unaffected and no DNS changes are required.
 
-## Scope: which screens stay awake
+- Lovable sends mail through a delegated subdomain (`notify.theformationarc.com`) using its own SPF/DKIM there.
+- The `From:` header just *displays* `@theformationarc.com` — Lovable does not need to receive mail at that address.
+- Proton Mail owns the MX records on the root `theformationarc.com`, so replies to `hello@theformationarc.com` will land in your Proton inbox as long as that address exists in Proton (create it as an address/alias if you haven't already).
 
-Auto-enable wake lock on these routes:
+So the only requirement on your side: make sure `hello@theformationarc.com` exists in Proton Mail so users who reply get through.
 
-- `/daily-formation` — covers "Begin with stability", "Create new associations", step 1 "Return to a moment of safety", and step 2 "Expand meaning" (all rendered inside this page via internal screen state)
-- `/reorientation-rehearsal` — "Repetition rewires your system"
+## Code change
+One line in `supabase/functions/auth-email-hook/index.ts`:
 
-All other routes (`/`, `/anchors`, `/knowledge`, `/activated`, `/auth`, `/onboarding`) get normal device sleep behavior.
+```
+from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
+```
+becomes
+```
+from: `${SITE_NAME} <hello@${FROM_DOMAIN}>`,
+```
 
-This is more battery-friendly than keeping the whole authenticated app awake, and matches the actual "reading / practicing" surfaces. If later you want to extend it to more screens, it's a one-line addition.
+Then redeploy the `auth-email-hook` edge function so the change takes effect.
 
-## Behavior
+## Steps
+1. Update the `from` field in `supabase/functions/auth-email-hook/index.ts`.
+2. Redeploy the `auth-email-hook` edge function.
+3. (On your side, outside Lovable) Confirm `hello@theformationarc.com` exists in Proton so replies are received.
 
-- Enter a covered route → wake lock requested automatically
-- Leave the route (navigate away, close tab, background app) → released automatically
-- Return to the route after backgrounding → re-acquired on `visibilitychange` (already handled in the hook)
-- No UI: the toggle is removed entirely
-
-## Caveat to communicate
-
-iOS Safari in a regular browser tab does not reliably hold a wake lock — Apple only honors it consistently when the app is launched from the Home Screen as an installed PWA. Low Power Mode also disables it silently. This is a platform limitation, not something we can code around without adding a hidden-video fallback (not in this plan; can be a follow-up if needed).
-
-## Technical changes
-
-1. **New component `AutoWakeLock`** (`src/components/AutoWakeLock.tsx`)
-   - Uses `useWakeLockContext()`
-   - On mount: calls `enable()`
-   - On unmount: calls `disable()`
-   - Renders nothing
-
-2. **Mount it on the two pages**
-   - `src/pages/DailyFormation.tsx` — add `<AutoWakeLock />` at the top of the returned tree
-   - `src/pages/ReorientationRehearsal.tsx` — same
-
-3. **Remove the toggle UI**
-   - Delete `src/components/WakeLockToggle.tsx`
-   - Remove any imports/usages of `WakeLockToggle` (search the codebase; likely in `DailyFormation.tsx` and/or `ReorientationRehearsal.tsx`)
-
-4. **Keep `WakeLockProvider` and `useWakeLock`** as-is — the existing visibility-change reacquire logic is exactly what we want for backgrounding.
-
-## Out of scope
-
-- iOS Safari hidden-video fallback
-- Persisting a user "disable auto wake" preference
-- Status indicator showing whether the lock is actually held
-
-Say the word and I'll switch to build mode to ship it.
+## Not included
+- No DNS changes.
+- No changes to transactional/app emails (none are scaffolded).
+- No change to the display name "theformationarc" — let me know if you'd also like to update that.
