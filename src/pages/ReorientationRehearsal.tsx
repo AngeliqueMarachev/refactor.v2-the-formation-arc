@@ -4,6 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/BottomNav";
+import { useAutoWakeLock } from "@/hooks/use-auto-wake-lock";
 
 interface ReorientLines {
   line_1: string | null;
@@ -29,6 +30,9 @@ const ReorientationRehearsal = () => {
   const [lines, setLines] = useState<ReorientLines | null>(null);
   const [loading, setLoading] = useState(true);
   const [glowingLine, setGlowingLine] = useState<number | null>(null);
+
+  useAutoWakeLock();
+
 
   useEffect(() => {
     if (!user) return;

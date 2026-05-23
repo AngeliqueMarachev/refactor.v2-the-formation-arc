@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
 import BottomNav from "@/components/BottomNav";
-import { useWakeLock } from "@/hooks/use-wake-lock";
-import WakeLockToggle from "@/components/WakeLockToggle";
 import { incrementUsageStat } from "@/lib/usage-stats";
 
 const PHASES = [
@@ -107,17 +105,6 @@ const Activated = () => {
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
   const [scriptComplete, setScriptComplete] = useState(false);
-  const wakeLock = useWakeLock();
-  const [wakeLockToggle, setWakeLockToggle] = useState(true);
-
-  const handleWakeLockToggle = (value: boolean) => {
-    setWakeLockToggle(value);
-    if (value) {
-      wakeLock.enable();
-    } else {
-      wakeLock.disable();
-    }
-  };
 
   const resetInProgressReorientation = () => {
     setScreen("entry");
@@ -129,7 +116,6 @@ const Activated = () => {
     setRevealedCount(1);
     setJustRevealed(null);
     setScriptComplete(false);
-    wakeLock.disable();
     navigate("/activated", { replace: true, state: null });
   };
 
@@ -242,7 +228,6 @@ const Activated = () => {
     await refreshOnboardingState();
 
     setSaving(false);
-    wakeLock.disable();
     navigate("/");
   };
 
@@ -268,7 +253,7 @@ const Activated = () => {
       await incrementUsageStat("reorient_return_count", user.id);
 
       setSaving(false);
-      wakeLock.disable();
+      
       navigate("/");
     };
 
@@ -286,12 +271,6 @@ const Activated = () => {
         <main className="flex flex-1 flex-col px-5 pt-10 content-container pb-0">
           <h1 className="tracking-tight mb-2 pb-[10px]">Your reorientation path</h1>
 
-          <WakeLockToggle
-            enabled={wakeLockToggle}
-            onToggle={handleWakeLockToggle}
-            isSupported={wakeLock.isSupported}
-            className="mb-6 pb-[20px] pt-[20px]"
-          />
 
           <p className="text-supporting leading-relaxed mb-6">
             Move through each line slowly.
@@ -338,9 +317,7 @@ const Activated = () => {
                   <button
                     onClick={() => {
                       if (!isTappable) return;
-                      if (revealedCount === 1 && wakeLockToggle) {
-                        wakeLock.enable();
-                      }
+
                       if (isLastStep) {
                         setScriptComplete(true);
                       } else {
@@ -443,7 +420,7 @@ const Activated = () => {
             className="mt-10 w-full"
             size="lg"
             onClick={() => {
-              if (wakeLockToggle) wakeLock.enable();
+              
               setScreen("phase");
             }}
           >
