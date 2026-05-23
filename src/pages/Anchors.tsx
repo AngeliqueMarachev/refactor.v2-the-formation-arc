@@ -159,25 +159,6 @@ const Anchors = () => {
               </div>
             )}
 
-            {/* Emotion Tags */}
-            {selected.emotion_tags && selected.emotion_tags.length > 0 && (
-              <div className="mt-5">
-                <h2 className="text-xs font-medium uppercase tracking-widest text-primary font-sans mb-2">
-                  What it felt like
-                </h2>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {selected.emotion_tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border/40 px-2.5 py-1 text-xs text-text-supporting"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Anchor Phrase */}
             <div className="mt-5">
               <h2 className="text-xs font-medium uppercase tracking-widest text-primary font-sans mb-2">
