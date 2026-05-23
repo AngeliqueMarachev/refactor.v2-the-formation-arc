@@ -105,17 +105,6 @@ const Activated = () => {
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
   const [scriptComplete, setScriptComplete] = useState(false);
-  const wakeLock = useWakeLock();
-  const [wakeLockToggle, setWakeLockToggle] = useState(true);
-
-  const handleWakeLockToggle = (value: boolean) => {
-    setWakeLockToggle(value);
-    if (value) {
-      wakeLock.enable();
-    } else {
-      wakeLock.disable();
-    }
-  };
 
   const resetInProgressReorientation = () => {
     setScreen("entry");
