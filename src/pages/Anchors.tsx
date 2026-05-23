@@ -35,17 +35,6 @@ const Anchors = () => {
   const [view, setView] = useState<View>("intro");
   const [selected, setSelected] = useState<AnchorEntry | null>(null);
   const [sceneExpanded, setSceneExpanded] = useState(false);
-  const wakeLock = useWakeLock();
-  const [wakeLockToggle, setWakeLockToggle] = useState(true);
-
-  const handleWakeLockToggle = (value: boolean) => {
-    setWakeLockToggle(value);
-    if (value) {
-      wakeLock.enable();
-    } else {
-      wakeLock.disable();
-    }
-  };
   useEffect(() => {
     if (!user) return;
     supabase
@@ -69,7 +58,7 @@ const Anchors = () => {
       console.error("Failed to update anchor recall session count", updateError);
     }
     await incrementUsageStat("anchor_recall_count", user.id);
-    wakeLock.disable();
+    
     navigate("/");
   };
 
@@ -171,7 +160,7 @@ const Anchors = () => {
         <div className="bottom-cta-flow px-5 pt-2 content-container">
           <Button
             onClick={() => {
-              if (wakeLockToggle) wakeLock.enable();
+              
               setView("recall-prompt");
             }}
             className="w-full"
