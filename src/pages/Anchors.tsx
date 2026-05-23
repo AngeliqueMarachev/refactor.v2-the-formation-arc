@@ -48,6 +48,14 @@ const Anchors = () => {
       });
   }, [user]);
 
+  useEffect(() => {
+    if (view === "list") {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [view]);
+
   const handleRecallDone = async () => {
     if (!selected || !user) return;
     const { error: updateError } = await supabase
