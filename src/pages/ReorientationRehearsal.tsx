@@ -31,6 +31,9 @@ const ReorientationRehearsal = () => {
   const [loading, setLoading] = useState(true);
   const [glowingLine, setGlowingLine] = useState<number | null>(null);
 
+  useAutoWakeLock();
+
+
   useEffect(() => {
     if (!user) return;
     const fetch = async () => {
