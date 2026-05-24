@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 
-type TopicBlock = string | { heading: string; text: string } | { list: string[] };
+type TopicBlock = string | { heading: string; text: string } | { list: string[] } | { group: string[] };
 
 const content: Record<string, { title: string; subtitle: string; body: TopicBlock[]; closing?: string }> = {
   "how-your-system-learned-to-protect-you": {
@@ -22,10 +22,14 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
       "This is not weakness.",
       "It is survival intelligence.",
       "For some people, this adaptation happens after a major traumatic event. For others, it forms slowly through years of pressure, criticism, instability, fear, emotional neglect, or chronic stress. Eventually, the brain stops treating these responses as temporary, and begins processing them as necessary. This is how protective patterns form.",
-      "Your system learns to scan for danger before danger arrives.",
-      "It learns to anticipate rejection before connection.",
-      "It learns to brace before resting.",
-      "It learns to stay prepared instead of settled.",
+      {
+        group: [
+          "Your system learns to scan for danger before danger arrives.",
+          "It learns to anticipate rejection before connection.",
+          "It learns to brace before resting.",
+          "It learns to stay prepared instead of settled.",
+        ],
+      },
       "At first, these patterns may have genuinely helped you survive difficult environments. But what protects us in one season can begin limiting us in another. Over time, repeated thoughts, emotional reactions, stress responses, and behaviors become reinforced through repetition.",
       "The brain strengthens whatever it practices most often. This is why certain reactions can begin feeling automatic. You may notice:",
       {
@@ -243,6 +247,15 @@ const KnowledgeTopic = () => {
                   <li key={j}>{item}</li>
                 ))}
               </ul>
+            );
+          }
+          if ("group" in block) {
+            return (
+              <div key={i} className="space-y-1 text-text-body">
+                {block.group.map((line, j) => (
+                  <p key={j}>{line}</p>
+                ))}
+              </div>
             );
           }
           return (
