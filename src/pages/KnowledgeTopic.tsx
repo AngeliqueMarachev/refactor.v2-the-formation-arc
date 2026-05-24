@@ -162,21 +162,70 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
     title: "Start from stability",
     subtitle: "Why prayer precedes change",
     body: [
-      "Before your system can shift, it needs to register safety.",
-      "Your body responds to signals of support before conscious thought fully forms.",
-      "When you pause, even briefly, and turn toward God, something changes.",
-      "The system begins to settle.",
-      "The mind becomes more receptive.",
-      "Prayer is not about saying the right words.",
-      "It is a signal of connection.",
-      "You do not need the right words.",
-      "You do not need the right feeling.",
-      "Pause.",
-      "Give thanks.",
-      "Entrust this moment to God.",
+      "Before the brain can learn something new, the nervous system first needs to register enough safety to become receptive.",
+      "When the body feels highly threatened, survival responses become prioritized. The system narrows its focus toward:",
+      {
+        list: [
+          "protection",
+          "urgency",
+          "prediction",
+          "control",
+          "self-preservation",
+        ],
+      },
+      "In these states, it becomes harder to:",
+      {
+        list: [
+          "think clearly",
+          "reflect honestly",
+          "receive comfort",
+          "feel connected",
+          "remain present",
+        ],
+      },
+      "This is why lasting change rarely begins through pressure, fear, striving, or self-condemnation.",
+      "The nervous system learns best from steadiness. Even brief moments of safety and connection can begin shifting the body into a more receptive state. This is one reason prayer matters.",
+      {
+        group: [
+          "Not because you say the perfect words.",
+          "Not because you force the right emotions.",
+          "Not because God only responds when you perform correctly.",
+        ],
+      },
+      "But because turning toward the Creator interrupts isolation.",
+      {
+        group: [
+          "It signals relationship.",
+          "Connection.",
+          "Support.",
+          "Nearness.",
+        ],
+      },
+      "And the body responds to those signals.",
+      "Research consistently shows that the nervous system is deeply shaped by attachment, connection, and perceived support. Your body often responds to relational safety before conscious thought fully forms. This is why even a brief pause can matter.",
+      {
+        group: [
+          "A moment of gratitude.",
+          "A quiet prayer.",
+          "A simple acknowledgment of a loving presence.",
+        ],
+      },
+      "These moments can begin reducing internal threat signaling and increasing receptivity within the system.",
+      {
+        group: [
+          "The mind becomes less braced.",
+          "The body softens slightly.",
+          "Attention becomes more open.",
+        ],
+      },
+      "This does not mean all fear disappears instantly. It means the nervous system is no longer relating to the moment entirely alone.",
+      "Prayer is not performance. It is relational orientation.",
+      "You do not need the perfect words, or perfect emotional state. You do not need to force certainty. You can simply pause. Breathe. Give thanks for one thing and trust that you are not alone.",
+      "Over time, repeated moments of connection begin teaching the nervous system something important: You are not abandoned inside your experience.",
     ],
-    closing: "Stability begins with what your system experiences as safe.",
+    closing: "From that place of increasing steadiness, formation becomes possible.",
   },
+
   "how-transformation-happens": {
     title: "The pattern of transformation",
     subtitle: "How change is formed over time",
