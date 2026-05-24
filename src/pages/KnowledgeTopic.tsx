@@ -154,17 +154,11 @@ const content: Record<string, { title: string; subtitle: string; body: TopicBloc
           "“Perhaps this moment does not define my identity.”",
         ],
       },
-      "This is why remembrance matters. Throughout Scripture, remembrance was never merely intellectual recall. It was relational reorientation. Again and again, God instructed His people to remember:",
-      {
-        list: [
-          "His faithfulness",
-          "His nearness",
-          "His provision",
-          "His presence within difficult seasons",
-        ],
-      },
-      "Why? Because remembrance reshapes interpretation. When you bring a memory into awareness with God, you are not pretending the pain did not happen. You are allowing the memory to be seen from a wider and steadier perspective than the one your nervous system originally formed under fear, shame, or survival.",
-      "As meaning begins to widen, the nervous system responds.",
+      "This is why remembrance matters.",
+      "Human beings naturally return to emotionally significant moments again and again. But most of the time, we revisit them from the same fearful, contracted, or self-protective state in which they were originally formed. The nervous system then continues reinforcing the same interpretation.",
+      "But when a memory is revisited with increased safety, support, steadiness, or compassionate awareness, the experience can begin organizing differently inside the body.",
+      "The past is not erased. But the meaning attached to it can expand. As meaning widens, the nervous system responds.",
+
       {
         group: [
           "The body registers increased safety.",
