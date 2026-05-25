@@ -16,23 +16,39 @@ interface AnchorRecallProps {
   totalSteps: number;
 }
 
-type MemoryCategory = "before-life-changed" | "places-you-loved" | "activities-that-felt-free" | null;
+type MemoryCategory =
+  | "before-life-changed"
+  | "places-you-loved"
+  | "activities-that-felt-free"
+  | "freedom-and-play"
+  | "memories-of-connection"
+  | null;
 
 const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] = [
   {
     id: "before-life-changed",
     label: "Moments you felt seen",
-    description: "Memories of comfort, joy, or acceptance",
+    description: "Memories of acceptance, encouragement, or feeling valued",
   },
   {
     id: "places-you-loved",
     label: "Places you used to love",
-    description: "Spaces where you once felt at home",
+    description: "Places that once felt peaceful, alive, or familiar",
   },
   {
     id: "activities-that-felt-free",
     label: "Simple everyday moments",
-    description: "Moments of celebration, peace, or affirmation",
+    description: "Quiet moments of comfort, presence, or calm",
+  },
+  {
+    id: "freedom-and-play",
+    label: "Moments of freedom and play",
+    description: "Experiences of joy, curiosity, or movement",
+  },
+  {
+    id: "memories-of-connection",
+    label: "Memories of connection",
+    description: "Moments of closeness, warmth, or emotional safety",
   },
 ];
 
@@ -75,7 +91,34 @@ const SCENE_SUGGESTIONS: Record<string, string[]> = {
     "Watching the sky change color",
     "A different memory",
   ],
+
+  "freedom-and-play": [
+    "Climbing a tree",
+    "Swinging without concern",
+    "Riding a bike with nowhere to be",
+    "Building imaginary worlds",
+    "Dancing alone",
+    "Singing in private",
+    "Exploring outdoors for hours",
+    "Playing with a pet",
+    "Running through sprinklers",
+    "Staying up late with friends",
+    "A different memory",
+  ],
+
+  "memories-of-connection": [
+    "A hug you still remember",
+    "Sitting beside someone without needing words",
+    "Feeling emotionally safe with someone",
+    "A family gathering that felt warm",
+    "Laughing around a dinner table",
+    "Feeling deeply connected to a friend",
+    "Someone showing up for you unexpectedly",
+    "A happy memory with your pet",
+    "A different memory",
+  ],
 };
+
 
 const EMOTION_OPTIONS = [
   "Relaxed",
