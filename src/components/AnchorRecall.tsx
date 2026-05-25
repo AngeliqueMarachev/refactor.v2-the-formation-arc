@@ -31,7 +31,7 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
   },
   {
     id: "activities-that-felt-free",
-    label: "Activities that brought life",
+    label: "Simple everyday moments",
     description: "Moments of celebration, peace, or affirmation",
   },
 ];
