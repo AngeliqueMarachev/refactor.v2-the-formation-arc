@@ -16,18 +16,12 @@ interface AnchorRecallProps {
   totalSteps: number;
 }
 
-type MemoryCategory =
-  | "before-life-changed"
-  | "places-you-loved"
-  | "activities-that-felt-free"
-  | "freedom-and-play"
-  | "memories-of-connection"
-  | null;
+type MemoryCategory = "before-life-changed" | "places-you-loved" | "activities-that-felt-free" | null;
 
 const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] = [
   {
     id: "before-life-changed",
-    label: "Moments you felt seen",
+    label: "Moments you remember before life changed",
     description: "Memories of acceptance, encouragement, or feeling valued",
   },
   {
@@ -40,85 +34,46 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
     label: "Simple everyday moments",
     description: "Quiet moments of comfort, presence, or calm",
   },
-  {
-    id: "freedom-and-play",
-    label: "Moments of freedom and play",
-    description: "Experiences of joy, curiosity, or movement",
-  },
-  {
-    id: "memories-of-connection",
-    label: "Memories of connection",
-    description: "Moments of closeness, warmth, or emotional safety",
-  },
 ];
 
 const SCENE_SUGGESTIONS: Record<string, string[]> = {
   "before-life-changed": [
-    "Someone truly listened to you",
-    "A teacher believed in you",
-    "A compliment you still remember",
-    "Being welcomed into a group",
-    "A conversation that made you happy",
-    "Someone noticing effort you thought nobody saw",
-    "Feeling chosen and included",
-    "A moment you felt appreciated",
+    "A family gathering to celebrate your birthday",
+    "Sitting on your porch",
+    "Watching the stars",
+    "Eating your favorite meal",
+    "A special moment with someone who cared for you",
+    "Laughing around the dinner table",
+    "A hug that made you feel safe",
     "A different memory",
   ],
 
   "places-you-loved": [
     "Your childhood backyard",
-    "A grandparent’s home",
-    "The beach on vacation",
-    "A room that felt comforting",
-    "A forest or hiking trail",
-    "Sitting in the car in the rain",
-    "A town that felt comforting",
-    "A place you visited and never forgot",
-    "A corner of home that felt peaceful",
-    "Warm sunlight through your window",
+    "A grandparent’s garden",
+    "A beach you visited as a child",
+    "A place your family returned to every year",
+    "A room in your home that was comforting",
+    "Swimming in your pool",
+    "A forest walk",
+    "A home where you always felt welcome",
+    "A café you loved to visit",
     "A different memory",
   ],
 
   "activities-that-felt-free": [
-    "The smell of breakfast on a slow morning",
+    "Collecting shells on the beach",
     "Falling asleep after a good day",
     "Fresh sheets after a shower",
-    "Music playing while everyone else slept",
-    "Drinking your favorite drink",
-    "Laughing so hard you lost track of time",
-    "A peaceful drive at night",
-    "The feeling of arriving home",
-    "Watching the sky change color",
-    "A different memory",
-  ],
-
-  "freedom-and-play": [
-    "Climbing a tree",
-    "Swinging without concern",
-    "Riding a bike with nowhere to be",
+    "Climbing your favorite tree",
+    "Riding your bicycle",
     "Building imaginary worlds",
-    "Dancing alone",
-    "Singing in private",
-    "Exploring outdoors for hours",
-    "Playing with a pet",
-    "Running through sprinklers",
-    "Staying up late with friends",
-    "A different memory",
-  ],
-
-  "memories-of-connection": [
-    "A hug you still remember",
-    "Sitting beside someone without needing words",
-    "Feeling emotionally safe with someone",
-    "A family gathering that felt warm",
-    "Laughing around a dinner table",
-    "Feeling deeply connected to a friend",
-    "Someone showing up for you unexpectedly",
-    "A happy memory with your pet",
+    "Dancing in your bedroom",
+    "Playing with your pet",
+    "Running through the sprinklers on a summer's day",
     "A different memory",
   ],
 };
-
 
 const EMOTION_OPTIONS = [
   "Relaxed",
