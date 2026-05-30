@@ -21,8 +21,8 @@ type MemoryCategory = "before-life-changed" | "places-you-loved" | "activities-t
 const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] = [
   {
     id: "before-life-changed",
-    label: "Moments you remember before life changed",
-    description: "Memories of acceptance, encouragement, or feeling valued",
+    label: "Moments before life changed",
+    description: "Memories of acceptance, encouragement, or joy",
   },
   {
     id: "places-you-loved",
@@ -31,7 +31,7 @@ const CATEGORIES: { id: MemoryCategory; label: string; description: string }[] =
   },
   {
     id: "activities-that-felt-free",
-    label: "Simple everyday moments",
+    label: "Activities you enjoyed",
     description: "Quiet moments of comfort, presence, or calm",
   },
 ];
