@@ -70,7 +70,6 @@ const SCENE_SUGGESTIONS: Record<string, string[]> = {
     "Building imaginary worlds",
     "Dancing in your bedroom",
     "Playing with your pet",
-    "Running through the sprinklers on a summer's day",
     "A different memory",
   ],
 };
