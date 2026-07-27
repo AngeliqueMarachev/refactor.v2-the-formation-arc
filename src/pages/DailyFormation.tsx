@@ -127,7 +127,7 @@ const DailyFormation = () => {
   if (screen === "daily-rhythm") {
     const rhythmSteps = [
       {
-        title: "RELEASE",
+        title: "PRAY",
         body: "Begin with gratitude and release the outcome.",
       },
       {
@@ -190,7 +190,7 @@ const DailyFormation = () => {
           <h1 className="tracking-tight mb-[20px] mx-0 mt-[20px]">Begin with stability</h1>
 
           <div className="space-y-4 leading-relaxed">
-            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">RELEASE</h2>
+            <h2 className="font-medium uppercase tracking-widest text-primary font-sans mb-2 text-base">PRAY</h2>
             <p className="text-text-body text-secondary-foreground">Pause in the present.</p>
 
             <p className="text-secondary-foreground">
