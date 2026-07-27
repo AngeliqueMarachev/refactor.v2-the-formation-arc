@@ -143,31 +143,35 @@ const Activated = () => {
     }
   }, [scriptLoading, existingScript]);
 
+  // Index of the underlying line/PHASE for the current display step
+  const lineIndex = LINE_ORDER[phaseIndex];
+
   const handleSelectOption = (option: string) => {
     const next = [...selections];
-    next[phaseIndex] = option;
+    next[lineIndex] = option;
     setSelections(next);
     const nextCustom = [...useCustom];
-    nextCustom[phaseIndex] = false;
+    nextCustom[lineIndex] = false;
     setUseCustom(nextCustom);
   };
 
   const handleCustomToggle = () => {
     const next = [...useCustom];
-    next[phaseIndex] = true;
+    next[lineIndex] = true;
     setUseCustom(next);
     const nextSel = [...selections];
-    nextSel[phaseIndex] = null;
+    nextSel[lineIndex] = null;
     setSelections(nextSel);
   };
 
   const handleCustomChange = (val: string) => {
     const next = [...customTexts];
-    next[phaseIndex] = sanitizeTextInput(val, { maxLength: 500 });
+    next[lineIndex] = sanitizeTextInput(val, { maxLength: 500 });
     setCustomTexts(next);
   };
 
-  const currentSelection = useCustom[phaseIndex] ? customTexts[phaseIndex] : selections[phaseIndex];
+  const currentSelection = useCustom[lineIndex] ? customTexts[lineIndex] : selections[lineIndex];
+
 
   const canContinue = !!currentSelection && currentSelection.trim().length > 0;
 
