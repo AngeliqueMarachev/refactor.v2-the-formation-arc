@@ -66,21 +66,16 @@ const PHASES = [
       "This feeling doesn’t control you.",
     ],
   },
-  {
-    title: "Occupy Your Identity",
-    introduction: ["This feeling doesn’t define you.", "Stand in what is true."],
-    customLabel: "Write your true identity",
-    options: ["I don't need to earn my place.", "I am accepted as I am.", "I am of great value.", "I belong."],
-  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_6 / PHASES indices).
- * Shepherd Your Soul (index 4) now comes before Choose Your Agreement (index 3),
+ * database columns (line_1..line_5 / PHASES indices).
+ * Shepherd Your Soul (index 4) comes before Choose Your Agreement (index 3),
  * so saved statements keep mapping to the same columns.
  */
-const LINE_ORDER = [0, 1, 2, 4, 3, 5];
+const LINE_ORDER = [0, 1, 2, 4, 3];
+const TOTAL_STEPS = LINE_ORDER.length;
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
