@@ -113,9 +113,9 @@ const Activated = () => {
   const resetInProgressReorientation = () => {
     setScreen("entry");
     setPhaseIndex(0);
-    setSelections(Array(6).fill(null));
-    setCustomTexts(Array(6).fill(""));
-    setUseCustom(Array(6).fill(false));
+    setSelections(Array(5).fill(null));
+    setCustomTexts(Array(5).fill(""));
+    setUseCustom(Array(5).fill(false));
     setSaving(false);
     setRevealedCount(1);
     setJustRevealed(null);
