@@ -19,8 +19,9 @@ const phases = [
   { title: "LINE IN THE SAND", lineIndex: 0 },
   { title: "EXPOSE THE MECHANISM", lineIndex: 1 },
   { title: "UNTANGLE TIME", lineIndex: 2 },
-  { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3 },
   { title: "SHEPHERD YOUR SOUL", lineIndex: 4 },
+  { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3 },
+
   { title: "OCCUPY YOUR IDENTITY", lineIndex: 5 },
 ];
 
