@@ -66,21 +66,16 @@ const PHASES = [
       "This feeling doesn’t control you.",
     ],
   },
-  {
-    title: "Occupy Your Identity",
-    introduction: ["This feeling doesn’t define you.", "Stand in what is true."],
-    customLabel: "Write your true identity",
-    options: ["I don't need to earn my place.", "I am accepted as I am.", "I am of great value.", "I belong."],
-  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_6 / PHASES indices).
- * Shepherd Your Soul (index 4) now comes before Choose Your Agreement (index 3),
+ * database columns (line_1..line_5 / PHASES indices).
+ * Shepherd Your Soul (index 4) comes before Choose Your Agreement (index 3),
  * so saved statements keep mapping to the same columns.
  */
-const LINE_ORDER = [0, 1, 2, 4, 3, 5];
+const LINE_ORDER = [0, 1, 2, 4, 3];
+const TOTAL_STEPS = LINE_ORDER.length;
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
@@ -95,7 +90,7 @@ const Activated = () => {
     queryFn: async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data } = await reorientTemplates
-        .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("id, line_1, line_2, line_3, line_4, line_5")
         .eq("user_id", user!.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -107,9 +102,9 @@ const Activated = () => {
 
   const [screen, setScreen] = useState<Screen>("loading");
   const [phaseIndex, setPhaseIndex] = useState(0);
-  const [selections, setSelections] = useState<(string | null)[]>(Array(6).fill(null));
-  const [customTexts, setCustomTexts] = useState<string[]>(Array(6).fill(""));
-  const [useCustom, setUseCustom] = useState<boolean[]>(Array(6).fill(false));
+  const [selections, setSelections] = useState<(string | null)[]>(Array(5).fill(null));
+  const [customTexts, setCustomTexts] = useState<string[]>(Array(5).fill(""));
+  const [useCustom, setUseCustom] = useState<boolean[]>(Array(5).fill(false));
   const [saving, setSaving] = useState(false);
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
@@ -118,9 +113,9 @@ const Activated = () => {
   const resetInProgressReorientation = () => {
     setScreen("entry");
     setPhaseIndex(0);
-    setSelections(Array(6).fill(null));
-    setCustomTexts(Array(6).fill(""));
-    setUseCustom(Array(6).fill(false));
+    setSelections(Array(5).fill(null));
+    setCustomTexts(Array(5).fill(""));
+    setUseCustom(Array(5).fill(false));
     setSaving(false);
     setRevealedCount(1);
     setJustRevealed(null);
@@ -176,7 +171,7 @@ const Activated = () => {
   const canContinue = !!currentSelection && currentSelection.trim().length > 0;
 
   const handleContinue = () => {
-    if (phaseIndex < 5) {
+    if (phaseIndex < TOTAL_STEPS - 1) {
       setPhaseIndex(phaseIndex + 1);
     } else {
       setScreen("complete");
@@ -189,15 +184,14 @@ const Activated = () => {
     line_3: string | null;
     line_4: string | null;
     line_5: string | null;
-    line_6: string | null;
   }) => {
-    const lines = [script.line_1, script.line_2, script.line_3, script.line_4, script.line_5, script.line_6];
-    const newSelections: (string | null)[] = Array(6).fill(null);
-    const newCustomTexts = Array(6).fill("");
-    const newUseCustom = Array(6).fill(false);
+    const lines = [script.line_1, script.line_2, script.line_3, script.line_4, script.line_5];
+    const newSelections: (string | null)[] = Array(5).fill(null);
+    const newCustomTexts = Array(5).fill("");
+    const newUseCustom = Array(5).fill(false);
 
     lines.forEach((line, i) => {
-      if (!line) return;
+      if (!line || !PHASES[i]) return;
       const isPreset = PHASES[i].options.includes(line);
       if (isPreset) {
         newSelections[i] = line;
@@ -222,10 +216,11 @@ const Activated = () => {
     setSaving(true);
 
     const lines: Record<string, string | null> = {};
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
       const val = useCustom[i] ? customTexts[i] : selections[i];
       lines[`line_${i + 1}`] = sanitizeText(val, { maxLength: 500 });
     }
+    lines.line_6 = null;
 
     // Upsert: delete old template then insert new one
     await supabase.from("reorient_templates").delete().eq("user_id", user.id);
@@ -257,7 +252,6 @@ const Activated = () => {
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
-      existingScript.line_6,
     ];
 
     const allStepLabels = [
@@ -266,7 +260,6 @@ const Activated = () => {
       "UNTANGLE TIME",
       "CHOOSE YOUR AGREEMENT",
       "SHEPHERD YOUR SOUL",
-      "OCCUPY YOUR IDENTITY",
     ];
 
     const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
@@ -460,7 +453,6 @@ const Activated = () => {
       "Untangle Time",
       "Choose Your Agreement",
       "Shepherd Your Soul",
-      "Occupy Your Identity",
     ];
 
     const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
@@ -513,8 +505,9 @@ const Activated = () => {
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
-        <p className="text-xs text-text-supporting mb-2">Step {phaseIndex + 1} of 6</p>
-        <Progress value={((phaseIndex + 1) / 6) * 100} className="h-1.5 mb-6" />
+        <p className="text-xs text-text-supporting mb-2">Step {phaseIndex + 1} of {TOTAL_STEPS}</p>
+        <Progress value={((phaseIndex + 1) / TOTAL_STEPS) * 100} className="h-1.5 mb-6" />
+
         <h2 className="font-semibold tracking-tight">{phase.title}</h2>
         {phase.introduction.map((line, i) => (
           <p key={i} className="text-supporting mt-1 text-sm">

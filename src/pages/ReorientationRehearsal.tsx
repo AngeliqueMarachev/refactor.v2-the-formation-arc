@@ -12,7 +12,6 @@ interface ReorientLines {
   line_3: string | null;
   line_4: string | null;
   line_5: string | null;
-  line_6: string | null;
 }
 
 const phases = [
@@ -21,8 +20,6 @@ const phases = [
   { title: "UNTANGLE TIME", lineIndex: 2 },
   { title: "SHEPHERD YOUR SOUL", lineIndex: 4 },
   { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3 },
-
-  { title: "OCCUPY YOUR IDENTITY", lineIndex: 5 },
 ];
 
 const ReorientationRehearsal = () => {
@@ -40,7 +37,7 @@ const ReorientationRehearsal = () => {
     const fetch = async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data: templates } = await reorientTemplates
-        .select("line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("line_1, line_2, line_3, line_4, line_5")
         .eq("user_id", user.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
