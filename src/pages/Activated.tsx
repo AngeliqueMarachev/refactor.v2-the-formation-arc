@@ -505,8 +505,9 @@ const Activated = () => {
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
       <header className="px-5 pt-8 pb-2 content-container">
-        <p className="text-xs text-text-supporting mb-2">Step {phaseIndex + 1} of 6</p>
-        <Progress value={((phaseIndex + 1) / 6) * 100} className="h-1.5 mb-6" />
+        <p className="text-xs text-text-supporting mb-2">Step {phaseIndex + 1} of {TOTAL_STEPS}</p>
+        <Progress value={((phaseIndex + 1) / TOTAL_STEPS) * 100} className="h-1.5 mb-6" />
+
         <h2 className="font-semibold tracking-tight">{phase.title}</h2>
         {phase.introduction.map((line, i) => (
           <p key={i} className="text-supporting mt-1 text-sm">
