@@ -454,7 +454,7 @@ const Activated = () => {
 
   // COMPLETE — Reorientation Review
   if (screen === "complete") {
-    const stepTitles = [
+    const allStepTitles = [
       "Line in the Sand",
       "Expose the Mechanism",
       "Untangle Time",
@@ -463,7 +463,10 @@ const Activated = () => {
       "Occupy Your Identity",
     ];
 
-    const userSelections = PHASES.map((_, i) => (useCustom[i] ? customTexts[i] : selections[i])?.trim() || "—");
+    const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
+
+    const userSelections = LINE_ORDER.map((idx) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—");
+
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
