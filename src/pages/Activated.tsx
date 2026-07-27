@@ -74,7 +74,16 @@ const PHASES = [
   },
 ];
 
+/**
+ * Display order of the reorientation steps, mapped onto the stable
+ * database columns (line_1..line_6 / PHASES indices).
+ * Shepherd Your Soul (index 4) now comes before Choose Your Agreement (index 3),
+ * so saved statements keep mapping to the same columns.
+ */
+const LINE_ORDER = [0, 1, 2, 4, 3, 5];
+
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
+
 
 const Activated = () => {
   const navigate = useNavigate();
