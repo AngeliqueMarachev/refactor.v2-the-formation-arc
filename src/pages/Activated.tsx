@@ -251,14 +251,30 @@ const Activated = () => {
 
   // USE EXISTING SCRIPT
   if (screen === "use-script" && existingScript) {
-    const lines = [
+    const allLines = [
       existingScript.line_1,
       existingScript.line_2,
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
       existingScript.line_6,
-    ].filter(Boolean) as string[];
+    ];
+
+    const allStepLabels = [
+      "LINE IN THE SAND",
+      "EXPOSE THE MECHANISM",
+      "UNTANGLE TIME",
+      "CHOOSE YOUR AGREEMENT",
+      "SHEPHERD YOUR SOUL",
+      "OCCUPY YOUR IDENTITY",
+    ];
+
+    const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
+      (s) => !!s.line,
+    ) as { label: string; line: string }[];
+
+    const lines = orderedSteps.map((s) => s.line);
+    const stepLabels = orderedSteps.map((s) => s.label);
 
     const handleUseComplete = async () => {
       if (!user) return;
@@ -270,14 +286,6 @@ const Activated = () => {
       navigate("/");
     };
 
-    const stepLabels = [
-      "LINE IN THE SAND",
-      "EXPOSE THE MECHANISM",
-      "UNTANGLE TIME",
-      "CHOOSE YOUR AGREEMENT",
-      "SHEPHERD YOUR SOUL",
-      "OCCUPY YOUR IDENTITY",
-    ];
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
