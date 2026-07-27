@@ -102,9 +102,9 @@ const Activated = () => {
 
   const [screen, setScreen] = useState<Screen>("loading");
   const [phaseIndex, setPhaseIndex] = useState(0);
-  const [selections, setSelections] = useState<(string | null)[]>(Array(6).fill(null));
-  const [customTexts, setCustomTexts] = useState<string[]>(Array(6).fill(""));
-  const [useCustom, setUseCustom] = useState<boolean[]>(Array(6).fill(false));
+  const [selections, setSelections] = useState<(string | null)[]>(Array(5).fill(null));
+  const [customTexts, setCustomTexts] = useState<string[]>(Array(5).fill(""));
+  const [useCustom, setUseCustom] = useState<boolean[]>(Array(5).fill(false));
   const [saving, setSaving] = useState(false);
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
