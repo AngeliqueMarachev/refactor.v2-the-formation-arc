@@ -74,7 +74,16 @@ const PHASES = [
   },
 ];
 
+/**
+ * Display order of the reorientation steps, mapped onto the stable
+ * database columns (line_1..line_6 / PHASES indices).
+ * Shepherd Your Soul (index 4) now comes before Choose Your Agreement (index 3),
+ * so saved statements keep mapping to the same columns.
+ */
+const LINE_ORDER = [0, 1, 2, 4, 3, 5];
+
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
+
 
 const Activated = () => {
   const navigate = useNavigate();
@@ -134,31 +143,35 @@ const Activated = () => {
     }
   }, [scriptLoading, existingScript]);
 
+  // Index of the underlying line/PHASE for the current display step
+  const lineIndex = LINE_ORDER[phaseIndex];
+
   const handleSelectOption = (option: string) => {
     const next = [...selections];
-    next[phaseIndex] = option;
+    next[lineIndex] = option;
     setSelections(next);
     const nextCustom = [...useCustom];
-    nextCustom[phaseIndex] = false;
+    nextCustom[lineIndex] = false;
     setUseCustom(nextCustom);
   };
 
   const handleCustomToggle = () => {
     const next = [...useCustom];
-    next[phaseIndex] = true;
+    next[lineIndex] = true;
     setUseCustom(next);
     const nextSel = [...selections];
-    nextSel[phaseIndex] = null;
+    nextSel[lineIndex] = null;
     setSelections(nextSel);
   };
 
   const handleCustomChange = (val: string) => {
     const next = [...customTexts];
-    next[phaseIndex] = sanitizeTextInput(val, { maxLength: 500 });
+    next[lineIndex] = sanitizeTextInput(val, { maxLength: 500 });
     setCustomTexts(next);
   };
 
-  const currentSelection = useCustom[phaseIndex] ? customTexts[phaseIndex] : selections[phaseIndex];
+  const currentSelection = useCustom[lineIndex] ? customTexts[lineIndex] : selections[lineIndex];
+
 
   const canContinue = !!currentSelection && currentSelection.trim().length > 0;
 
@@ -238,14 +251,30 @@ const Activated = () => {
 
   // USE EXISTING SCRIPT
   if (screen === "use-script" && existingScript) {
-    const lines = [
+    const allLines = [
       existingScript.line_1,
       existingScript.line_2,
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
       existingScript.line_6,
-    ].filter(Boolean) as string[];
+    ];
+
+    const allStepLabels = [
+      "LINE IN THE SAND",
+      "EXPOSE THE MECHANISM",
+      "UNTANGLE TIME",
+      "CHOOSE YOUR AGREEMENT",
+      "SHEPHERD YOUR SOUL",
+      "OCCUPY YOUR IDENTITY",
+    ];
+
+    const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
+      (s) => !!s.line,
+    ) as { label: string; line: string }[];
+
+    const lines = orderedSteps.map((s) => s.line);
+    const stepLabels = orderedSteps.map((s) => s.label);
 
     const handleUseComplete = async () => {
       if (!user) return;
@@ -257,14 +286,6 @@ const Activated = () => {
       navigate("/");
     };
 
-    const stepLabels = [
-      "LINE IN THE SAND",
-      "EXPOSE THE MECHANISM",
-      "UNTANGLE TIME",
-      "CHOOSE YOUR AGREEMENT",
-      "SHEPHERD YOUR SOUL",
-      "OCCUPY YOUR IDENTITY",
-    ];
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col rounded-lg">
@@ -433,7 +454,7 @@ const Activated = () => {
 
   // COMPLETE — Reorientation Review
   if (screen === "complete") {
-    const stepTitles = [
+    const allStepTitles = [
       "Line in the Sand",
       "Expose the Mechanism",
       "Untangle Time",
@@ -442,7 +463,10 @@ const Activated = () => {
       "Occupy Your Identity",
     ];
 
-    const userSelections = PHASES.map((_, i) => (useCustom[i] ? customTexts[i] : selections[i])?.trim() || "—");
+    const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
+
+    const userSelections = LINE_ORDER.map((idx) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—");
+
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
@@ -484,7 +508,7 @@ const Activated = () => {
   }
 
   // PHASE SCREENS
-  const phase = PHASES[phaseIndex];
+  const phase = PHASES[lineIndex];
 
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
@@ -501,7 +525,7 @@ const Activated = () => {
 
       <main className="flex-1 px-5 pt-4 space-y-3 content-container">
         {phase.options.map((option) => {
-          const isSelected = !useCustom[phaseIndex] && selections[phaseIndex] === option;
+          const isSelected = !useCustom[lineIndex] && selections[lineIndex] === option;
           return (
             <button
               key={option}
@@ -518,10 +542,10 @@ const Activated = () => {
         })}
 
         <div className="pt-2">
-          {useCustom[phaseIndex] ? (
+          {useCustom[lineIndex] ? (
             <Textarea
               placeholder={`${phase.customLabel}…`}
-              value={customTexts[phaseIndex]}
+              value={customTexts[lineIndex]}
               onChange={(e) => handleCustomChange(e.target.value)}
               maxLength={500}
               className="min-h-[80px]"
