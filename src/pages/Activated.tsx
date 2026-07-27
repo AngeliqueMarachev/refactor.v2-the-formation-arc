@@ -508,7 +508,7 @@ const Activated = () => {
   }
 
   // PHASE SCREENS
-  const phase = PHASES[phaseIndex];
+  const phase = PHASES[lineIndex];
 
   return (
     <div className="screen-with-bottom-nav flex min-h-screen flex-col">
@@ -525,7 +525,7 @@ const Activated = () => {
 
       <main className="flex-1 px-5 pt-4 space-y-3 content-container">
         {phase.options.map((option) => {
-          const isSelected = !useCustom[phaseIndex] && selections[phaseIndex] === option;
+          const isSelected = !useCustom[lineIndex] && selections[lineIndex] === option;
           return (
             <button
               key={option}
@@ -542,10 +542,10 @@ const Activated = () => {
         })}
 
         <div className="pt-2">
-          {useCustom[phaseIndex] ? (
+          {useCustom[lineIndex] ? (
             <Textarea
               placeholder={`${phase.customLabel}…`}
-              value={customTexts[phaseIndex]}
+              value={customTexts[lineIndex]}
               onChange={(e) => handleCustomChange(e.target.value)}
               maxLength={500}
               className="min-h-[80px]"
