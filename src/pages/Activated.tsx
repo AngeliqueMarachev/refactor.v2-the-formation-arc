@@ -252,7 +252,6 @@ const Activated = () => {
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
-      existingScript.line_6,
     ];
 
     const allStepLabels = [
@@ -261,7 +260,6 @@ const Activated = () => {
       "UNTANGLE TIME",
       "CHOOSE YOUR AGREEMENT",
       "SHEPHERD YOUR SOUL",
-      "OCCUPY YOUR IDENTITY",
     ];
 
     const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
