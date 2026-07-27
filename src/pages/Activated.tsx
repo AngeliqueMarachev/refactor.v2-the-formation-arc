@@ -90,7 +90,7 @@ const Activated = () => {
     queryFn: async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data } = await reorientTemplates
-        .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("id, line_1, line_2, line_3, line_4, line_5")
         .eq("user_id", user!.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
