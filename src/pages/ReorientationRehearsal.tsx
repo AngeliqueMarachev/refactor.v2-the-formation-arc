@@ -12,7 +12,6 @@ interface ReorientLines {
   line_3: string | null;
   line_4: string | null;
   line_5: string | null;
-  line_6: string | null;
 }
 
 const phases = [
@@ -21,8 +20,6 @@ const phases = [
   { title: "UNTANGLE TIME", lineIndex: 2 },
   { title: "SHEPHERD YOUR SOUL", lineIndex: 4 },
   { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3 },
-
-  { title: "OCCUPY YOUR IDENTITY", lineIndex: 5 },
 ];
 
 const ReorientationRehearsal = () => {
