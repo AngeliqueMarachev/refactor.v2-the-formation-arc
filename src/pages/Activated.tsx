@@ -453,7 +453,6 @@ const Activated = () => {
       "Untangle Time",
       "Choose Your Agreement",
       "Shepherd Your Soul",
-      "Occupy Your Identity",
     ];
 
     const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
