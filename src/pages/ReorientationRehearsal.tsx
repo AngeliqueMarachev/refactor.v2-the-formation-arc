@@ -12,14 +12,22 @@ interface ReorientLines {
   line_3: string | null;
   line_4: string | null;
   line_5: string | null;
+  line_6: string | null;
 }
 
-const phases = [
-  { title: "LINE IN THE SAND", lineIndex: 0 },
-  { title: "EXPOSE THE MECHANISM", lineIndex: 1 },
-  { title: "UNTANGLE TIME", lineIndex: 2 },
-  { title: "SHEPHERD YOUR SOUL", lineIndex: 4 },
-  { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3 },
+const phases: { title: string; lineIndex: number; parts: { sub?: string; lineIndex: number }[] }[] = [
+  { title: "LINE IN THE SAND", lineIndex: 0, parts: [{ lineIndex: 0 }] },
+  { title: "EXPOSE THE MECHANISM", lineIndex: 1, parts: [{ lineIndex: 1 }] },
+  {
+    title: "UNTANGLE TIME",
+    lineIndex: 2,
+    parts: [
+      { sub: "Then", lineIndex: 2 },
+      { sub: "Now", lineIndex: 5 },
+    ],
+  },
+  { title: "SHEPHERD YOUR SOUL", lineIndex: 4, parts: [{ lineIndex: 4 }] },
+  { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3, parts: [{ lineIndex: 3 }] },
 ];
 
 const ReorientationRehearsal = () => {
@@ -37,7 +45,7 @@ const ReorientationRehearsal = () => {
     const fetch = async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data: templates } = await reorientTemplates
-        .select("line_1, line_2, line_3, line_4, line_5")
+        .select("line_1, line_2, line_3, line_4, line_5, line_6")
         .eq("user_id", user.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -92,8 +100,11 @@ const ReorientationRehearsal = () => {
 
         <div className="space-y-6 mb-12">
           {phases.map((phase) => {
-            const line = Object.values(lines!)[phase.lineIndex];
-            if (!line) return null;
+            const allLines = [lines!.line_1, lines!.line_2, lines!.line_3, lines!.line_4, lines!.line_5, lines!.line_6];
+            const parts = phase.parts
+              .map((p) => ({ sub: p.sub, line: allLines[p.lineIndex] }))
+              .filter((p) => !!p.line) as { sub?: string; line: string }[];
+            if (parts.length === 0) return null;
 
             const isReturnPhase = phase.lineIndex === 5;
 
@@ -115,7 +126,16 @@ const ReorientationRehearsal = () => {
                 }`}
               >
                 <p className="text-[10px] font-semibold tracking-widest uppercase mb-2 text-primary">{phase.title}</p>
-                <p className="text-sm leading-relaxed text-text-heading">{line}</p>
+                {parts.map((part, pi) => (
+                  <div key={pi} className={pi > 0 ? "mt-3" : undefined}>
+                    {part.sub && (
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/70 mb-1">
+                        {part.sub}
+                      </p>
+                    )}
+                    <p className="text-sm leading-relaxed text-text-heading">{part.line}</p>
+                  </div>
+                ))}
               </button>
             );
           })}
