@@ -35,15 +35,21 @@ const PHASES = [
   },
   {
     title: "Untangle Time",
-    introduction: ["This is not the past. This is now.", "Choose what feels true."],
+    subtitle: "Then",
+    introduction: [
+      "Fear can make old experiences feel as though they are happening again.",
+      "This step helps you recognize what belonged to another season of your life.",
+      "Choose a statement that best describes your past experience.",
+    ],
     customLabel: "Write your own statement",
     options: [
-      "That season is over. This is a different moment.",
-      "I survived that chapter. I am here now.",
-      "My body is remembering, but I am safe now.",
-      "I am not back there. I am here.",
+      "That season is over.",
+      "I survived that chapter.",
+      "What happened then was real, but it belonged to that time.",
+      "My body learned to brace in that season.",
     ],
   },
+
   {
     title: "Choose Your Agreement",
     introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
