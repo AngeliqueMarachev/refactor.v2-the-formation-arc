@@ -209,8 +209,16 @@ const Activated = () => {
     line_3: string | null;
     line_4: string | null;
     line_5: string | null;
+    line_6?: string | null;
   }) => {
-    const lines = [script.line_1, script.line_2, script.line_3, script.line_4, script.line_5];
+    const lines = [
+      script.line_1,
+      script.line_2,
+      script.line_3,
+      script.line_4,
+      script.line_5,
+      script.line_6 ?? null,
+    ];
     const newSelections: (string | null)[] = Array(6).fill(null);
     const newCustomTexts = Array(6).fill("");
     const newUseCustom = Array(6).fill(false);
@@ -241,11 +249,11 @@ const Activated = () => {
     setSaving(true);
 
     const lines: Record<string, string | null> = {};
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const val = useCustom[i] ? customTexts[i] : selections[i];
       lines[`line_${i + 1}`] = sanitizeText(val, { maxLength: 500 });
     }
-    lines.line_6 = null;
+
 
     // Upsert: delete old template then insert new one
     await supabase.from("reorient_templates").delete().eq("user_id", user.id);
