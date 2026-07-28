@@ -569,6 +569,9 @@ const Activated = () => {
         <Progress value={((phaseIndex + 1) / TOTAL_STEPS) * 100} className="h-1.5 mb-6" />
 
         <h2 className="font-semibold tracking-tight">{phase.title}</h2>
+        {"subtitle" in phase && phase.subtitle && (
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-primary mt-1">{phase.subtitle}</p>
+        )}
         {phase.introduction.map((line, i) => (
           <p key={i} className="text-supporting mt-1 text-sm">
             {line}
