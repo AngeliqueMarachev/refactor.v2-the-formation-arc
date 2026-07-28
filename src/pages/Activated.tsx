@@ -493,18 +493,22 @@ const Activated = () => {
 
   // COMPLETE — Reorientation Review
   if (screen === "complete") {
-    const allStepTitles = [
-      "Line in the Sand",
-      "Expose the Mechanism",
-      "Untangle Time",
-      "Choose Your Agreement",
-      "Shepherd Your Soul",
+    const valueAt = (idx: number) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—";
+
+    type ReviewPart = { sub?: string; value: string };
+    const reviewSteps: { title: string; parts: ReviewPart[] }[] = [
+      { title: "Line in the Sand", parts: [{ value: valueAt(0) }] },
+      { title: "Expose the Mechanism", parts: [{ value: valueAt(1) }] },
+      {
+        title: "Untangle Time",
+        parts: [
+          { sub: "Then", value: valueAt(2) },
+          { sub: "Now", value: valueAt(5) },
+        ],
+      },
+      { title: "Shepherd Your Soul", parts: [{ value: valueAt(4) }] },
+      { title: "Choose Your Agreement", parts: [{ value: valueAt(3) }] },
     ];
-
-    const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
-
-    const userSelections = LINE_ORDER.map((idx) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—");
-
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
@@ -516,13 +520,23 @@ const Activated = () => {
           </div>
 
           <div className="space-y-3 mb-8">
-            {stepTitles.map((title, i) => (
+            {reviewSteps.map((step, i) => (
               <div key={i} className="rounded-lg border bg-card p-5 border-secondary">
-                <p className="text-xs text-text-supporting uppercase tracking-wider mb-2 text-primary">{title}</p>
-                <p className="text-text-heading text-base leading-relaxed text-primary">{userSelections[i]}</p>
+                <p className="text-xs text-text-supporting uppercase tracking-wider mb-2 text-primary">{step.title}</p>
+                {step.parts.map((part, pi) => (
+                  <div key={pi} className={pi > 0 ? "mt-3" : undefined}>
+                    {part.sub && (
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/70 mb-1">
+                        {part.sub}
+                      </p>
+                    )}
+                    <p className="text-text-heading text-base leading-relaxed text-primary">{part.value}</p>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
+
 
           <div className="space-y-4 leading-relaxed mb-10">
             <p className="text-text-body">Each time you return, old patterns weaken.</p>
