@@ -72,16 +72,35 @@ const PHASES = [
       "This feeling doesn’t control you.",
     ],
   },
+  {
+    title: "Untangle Time",
+    subtitle: "Now",
+    introduction: [
+      "Your body may remember the past, but your life is happening here.",
+      "This step helps your brain recognize the difference between memory and present reality.",
+      "Choose what is true today.",
+    ],
+    customLabel: "Write your own statement",
+    options: [
+      "This is a different moment.",
+      "I am here now.",
+      "My body is remembering, but I am safe now.",
+      "I am not back there. I am here.",
+    ],
+  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_5 / PHASES indices).
- * Shepherd Your Soul (index 4) comes before Choose Your Agreement (index 3),
- * so saved statements keep mapping to the same columns.
+ * database columns (line_1..line_6 / PHASES indices).
+ * Untangle Time is split across two screens: "Then" (index 2 / line_3)
+ * and "Now" (index 5 / line_6). Shepherd Your Soul (index 4) comes before
+ * Choose Your Agreement (index 3), so saved statements keep mapping to the
+ * same columns.
  */
-const LINE_ORDER = [0, 1, 2, 4, 3];
+const LINE_ORDER = [0, 1, 2, 5, 4, 3];
 const TOTAL_STEPS = LINE_ORDER.length;
+
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
