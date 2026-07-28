@@ -330,10 +330,10 @@ const Activated = () => {
           </div>
 
           <div className="relative mb-12">
-            {lines.map((line, i) => {
+            {steps.map((step, i) => {
               if (i >= revealedCount) return null;
               const isLatest = i === revealedCount - 1;
-              const isLastStep = i === lines.length - 1;
+              const isLastStep = i === steps.length - 1;
               const isTappable = isLatest && !scriptComplete;
               const wasJustRevealed = justRevealed === i;
 
@@ -386,7 +386,7 @@ const Activated = () => {
                         isLatest && !scriptComplete ? "text-primary" : "text-primary/40"
                       }`}
                     >
-                      {stepLabels[i] || `Step ${i + 1}`}
+                      {step.label || `Step ${i + 1}`}
                     </p>
                     <div
                       className={`rounded-lg border p-4 text-sm leading-relaxed backdrop-blur-sm transition-all duration-500 ${
@@ -395,7 +395,16 @@ const Activated = () => {
                           : "border-border/30 bg-card/30 text-text-supporting"
                       }`}
                     >
-                      {line}
+                      {step.parts.map((part, pi) => (
+                        <div key={pi} className={pi > 0 ? "mt-3" : undefined}>
+                          {part.sub && (
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/70 mb-1">
+                              {part.sub}
+                            </p>
+                          )}
+                          <p>{part.line}</p>
+                        </div>
+                      ))}
                     </div>
                     {isTappable && (
                       <p className="text-[10px] text-text-supporting mt-2.5 text-center">Tap to continue</p>
