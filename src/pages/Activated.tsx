@@ -285,22 +285,26 @@ const Activated = () => {
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
+      existingScript.line_6 ?? null,
     ];
 
-    const allStepLabels = [
-      "LINE IN THE SAND",
-      "EXPOSE THE MECHANISM",
-      "UNTANGLE TIME",
-      "CHOOSE YOUR AGREEMENT",
-      "SHEPHERD YOUR SOUL",
-    ];
+    type StepPart = { sub?: string; line: string };
+    const steps: { label: string; parts: StepPart[] }[] = [
+      { label: "LINE IN THE SAND", parts: [{ line: allLines[0] }] },
+      { label: "EXPOSE THE MECHANISM", parts: [{ line: allLines[1] }] },
+      {
+        label: "UNTANGLE TIME",
+        parts: [
+          { sub: "Then", line: allLines[2] },
+          { sub: "Now", line: allLines[5] },
+        ],
+      },
+      { label: "SHEPHERD YOUR SOUL", parts: [{ line: allLines[4] }] },
+      { label: "CHOOSE YOUR AGREEMENT", parts: [{ line: allLines[3] }] },
+    ]
+      .map((s) => ({ label: s.label, parts: s.parts.filter((p) => !!p.line) as StepPart[] }))
+      .filter((s) => s.parts.length > 0);
 
-    const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
-      (s) => !!s.line,
-    ) as { label: string; line: string }[];
-
-    const lines = orderedSteps.map((s) => s.line);
-    const stepLabels = orderedSteps.map((s) => s.label);
 
     const handleUseComplete = async () => {
       if (!user) return;
