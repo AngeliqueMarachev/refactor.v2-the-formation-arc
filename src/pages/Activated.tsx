@@ -35,15 +35,21 @@ const PHASES = [
   },
   {
     title: "Untangle Time",
-    introduction: ["This is not the past. This is now.", "Choose what feels true."],
+    subtitle: "Then",
+    introduction: [
+      "Fear can make old experiences feel as though they are happening again.",
+      "This step helps you recognize what belonged to another season of your life.",
+      "Choose a statement that best describes your past experience.",
+    ],
     customLabel: "Write your own statement",
     options: [
-      "That season is over. This is a different moment.",
-      "I survived that chapter. I am here now.",
-      "My body is remembering, but I am safe now.",
-      "I am not back there. I am here.",
+      "That season is over.",
+      "I survived that chapter.",
+      "What happened then was real, but it belonged to that time.",
+      "My body learned to brace in that season.",
     ],
   },
+
   {
     title: "Choose Your Agreement",
     introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
@@ -66,16 +72,35 @@ const PHASES = [
       "This feeling doesn’t control you.",
     ],
   },
+  {
+    title: "Untangle Time",
+    subtitle: "Now",
+    introduction: [
+      "Your body may remember the past, but your life is happening here.",
+      "This step helps your brain recognize the difference between memory and present reality.",
+      "Choose what is true today.",
+    ],
+    customLabel: "Write your own statement",
+    options: [
+      "This is a different moment.",
+      "I am here now.",
+      "My body is remembering, but I am safe now.",
+      "I am not back there. I am here.",
+    ],
+  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_5 / PHASES indices).
- * Shepherd Your Soul (index 4) comes before Choose Your Agreement (index 3),
- * so saved statements keep mapping to the same columns.
+ * database columns (line_1..line_6 / PHASES indices).
+ * Untangle Time is split across two screens: "Then" (index 2 / line_3)
+ * and "Now" (index 5 / line_6). Shepherd Your Soul (index 4) comes before
+ * Choose Your Agreement (index 3), so saved statements keep mapping to the
+ * same columns.
  */
-const LINE_ORDER = [0, 1, 2, 4, 3];
+const LINE_ORDER = [0, 1, 2, 5, 4, 3];
 const TOTAL_STEPS = LINE_ORDER.length;
+
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
 
@@ -90,7 +115,7 @@ const Activated = () => {
     queryFn: async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data } = await reorientTemplates
-        .select("id, line_1, line_2, line_3, line_4, line_5")
+        .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
         .eq("user_id", user!.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -102,9 +127,9 @@ const Activated = () => {
 
   const [screen, setScreen] = useState<Screen>("loading");
   const [phaseIndex, setPhaseIndex] = useState(0);
-  const [selections, setSelections] = useState<(string | null)[]>(Array(5).fill(null));
-  const [customTexts, setCustomTexts] = useState<string[]>(Array(5).fill(""));
-  const [useCustom, setUseCustom] = useState<boolean[]>(Array(5).fill(false));
+  const [selections, setSelections] = useState<(string | null)[]>(Array(6).fill(null));
+  const [customTexts, setCustomTexts] = useState<string[]>(Array(6).fill(""));
+  const [useCustom, setUseCustom] = useState<boolean[]>(Array(6).fill(false));
   const [saving, setSaving] = useState(false);
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
@@ -113,9 +138,9 @@ const Activated = () => {
   const resetInProgressReorientation = () => {
     setScreen("entry");
     setPhaseIndex(0);
-    setSelections(Array(5).fill(null));
-    setCustomTexts(Array(5).fill(""));
-    setUseCustom(Array(5).fill(false));
+    setSelections(Array(6).fill(null));
+    setCustomTexts(Array(6).fill(""));
+    setUseCustom(Array(6).fill(false));
     setSaving(false);
     setRevealedCount(1);
     setJustRevealed(null);
@@ -184,11 +209,19 @@ const Activated = () => {
     line_3: string | null;
     line_4: string | null;
     line_5: string | null;
+    line_6?: string | null;
   }) => {
-    const lines = [script.line_1, script.line_2, script.line_3, script.line_4, script.line_5];
-    const newSelections: (string | null)[] = Array(5).fill(null);
-    const newCustomTexts = Array(5).fill("");
-    const newUseCustom = Array(5).fill(false);
+    const lines = [
+      script.line_1,
+      script.line_2,
+      script.line_3,
+      script.line_4,
+      script.line_5,
+      script.line_6 ?? null,
+    ];
+    const newSelections: (string | null)[] = Array(6).fill(null);
+    const newCustomTexts = Array(6).fill("");
+    const newUseCustom = Array(6).fill(false);
 
     lines.forEach((line, i) => {
       if (!line || !PHASES[i]) return;
@@ -216,11 +249,11 @@ const Activated = () => {
     setSaving(true);
 
     const lines: Record<string, string | null> = {};
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const val = useCustom[i] ? customTexts[i] : selections[i];
       lines[`line_${i + 1}`] = sanitizeText(val, { maxLength: 500 });
     }
-    lines.line_6 = null;
+
 
     // Upsert: delete old template then insert new one
     await supabase.from("reorient_templates").delete().eq("user_id", user.id);
@@ -252,22 +285,26 @@ const Activated = () => {
       existingScript.line_3,
       existingScript.line_4,
       existingScript.line_5,
+      existingScript.line_6 ?? null,
     ];
 
-    const allStepLabels = [
-      "LINE IN THE SAND",
-      "EXPOSE THE MECHANISM",
-      "UNTANGLE TIME",
-      "CHOOSE YOUR AGREEMENT",
-      "SHEPHERD YOUR SOUL",
-    ];
+    type StepPart = { sub?: string; line: string };
+    const steps: { label: string; parts: StepPart[] }[] = [
+      { label: "LINE IN THE SAND", parts: [{ line: allLines[0] }] },
+      { label: "EXPOSE THE MECHANISM", parts: [{ line: allLines[1] }] },
+      {
+        label: "UNTANGLE TIME",
+        parts: [
+          { sub: "Then", line: allLines[2] },
+          { sub: "Now", line: allLines[5] },
+        ],
+      },
+      { label: "SHEPHERD YOUR SOUL", parts: [{ line: allLines[4] }] },
+      { label: "CHOOSE YOUR AGREEMENT", parts: [{ line: allLines[3] }] },
+    ]
+      .map((s) => ({ label: s.label, parts: s.parts.filter((p) => !!p.line) as StepPart[] }))
+      .filter((s) => s.parts.length > 0);
 
-    const orderedSteps = LINE_ORDER.map((idx) => ({ label: allStepLabels[idx], line: allLines[idx] })).filter(
-      (s) => !!s.line,
-    ) as { label: string; line: string }[];
-
-    const lines = orderedSteps.map((s) => s.line);
-    const stepLabels = orderedSteps.map((s) => s.label);
 
     const handleUseComplete = async () => {
       if (!user) return;
@@ -293,10 +330,10 @@ const Activated = () => {
           </div>
 
           <div className="relative mb-12">
-            {lines.map((line, i) => {
+            {steps.map((step, i) => {
               if (i >= revealedCount) return null;
               const isLatest = i === revealedCount - 1;
-              const isLastStep = i === lines.length - 1;
+              const isLastStep = i === steps.length - 1;
               const isTappable = isLatest && !scriptComplete;
               const wasJustRevealed = justRevealed === i;
 
@@ -349,7 +386,7 @@ const Activated = () => {
                         isLatest && !scriptComplete ? "text-primary" : "text-primary/40"
                       }`}
                     >
-                      {stepLabels[i] || `Step ${i + 1}`}
+                      {step.label || `Step ${i + 1}`}
                     </p>
                     <div
                       className={`rounded-lg border p-4 text-sm leading-relaxed backdrop-blur-sm transition-all duration-500 ${
@@ -358,7 +395,16 @@ const Activated = () => {
                           : "border-border/30 bg-card/30 text-text-supporting"
                       }`}
                     >
-                      {line}
+                      {step.parts.map((part, pi) => (
+                        <div key={pi} className={pi > 0 ? "mt-3" : undefined}>
+                          {part.sub && (
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/70 mb-1">
+                              {part.sub}
+                            </p>
+                          )}
+                          <p>{part.line}</p>
+                        </div>
+                      ))}
                     </div>
                     {isTappable && (
                       <p className="text-[10px] text-text-supporting mt-2.5 text-center">Tap to continue</p>
@@ -447,18 +493,22 @@ const Activated = () => {
 
   // COMPLETE — Reorientation Review
   if (screen === "complete") {
-    const allStepTitles = [
-      "Line in the Sand",
-      "Expose the Mechanism",
-      "Untangle Time",
-      "Choose Your Agreement",
-      "Shepherd Your Soul",
+    const valueAt = (idx: number) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—";
+
+    type ReviewPart = { sub?: string; value: string };
+    const reviewSteps: { title: string; parts: ReviewPart[] }[] = [
+      { title: "Line in the Sand", parts: [{ value: valueAt(0) }] },
+      { title: "Expose the Mechanism", parts: [{ value: valueAt(1) }] },
+      {
+        title: "Untangle Time",
+        parts: [
+          { sub: "Then", value: valueAt(2) },
+          { sub: "Now", value: valueAt(5) },
+        ],
+      },
+      { title: "Shepherd Your Soul", parts: [{ value: valueAt(4) }] },
+      { title: "Choose Your Agreement", parts: [{ value: valueAt(3) }] },
     ];
-
-    const stepTitles = LINE_ORDER.map((idx) => allStepTitles[idx]);
-
-    const userSelections = LINE_ORDER.map((idx) => (useCustom[idx] ? customTexts[idx] : selections[idx])?.trim() || "—");
-
 
     return (
       <div className="screen-with-bottom-nav flex min-h-screen flex-col">
@@ -470,13 +520,23 @@ const Activated = () => {
           </div>
 
           <div className="space-y-3 mb-8">
-            {stepTitles.map((title, i) => (
+            {reviewSteps.map((step, i) => (
               <div key={i} className="rounded-lg border bg-card p-5 border-secondary">
-                <p className="text-xs text-text-supporting uppercase tracking-wider mb-2 text-primary">{title}</p>
-                <p className="text-text-heading text-base leading-relaxed text-primary">{userSelections[i]}</p>
+                <p className="text-xs text-text-supporting uppercase tracking-wider mb-2 text-primary">{step.title}</p>
+                {step.parts.map((part, pi) => (
+                  <div key={pi} className={pi > 0 ? "mt-3" : undefined}>
+                    {part.sub && (
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/70 mb-1">
+                        {part.sub}
+                      </p>
+                    )}
+                    <p className="text-text-heading text-base leading-relaxed text-primary">{part.value}</p>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
+
 
           <div className="space-y-4 leading-relaxed mb-10">
             <p className="text-text-body">Each time you return, old patterns weaken.</p>
@@ -509,6 +569,9 @@ const Activated = () => {
         <Progress value={((phaseIndex + 1) / TOTAL_STEPS) * 100} className="h-1.5 mb-6" />
 
         <h2 className="font-semibold tracking-tight">{phase.title}</h2>
+        {"subtitle" in phase && phase.subtitle && (
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-primary mt-1">{phase.subtitle}</p>
+        )}
         {phase.introduction.map((line, i) => (
           <p key={i} className="text-supporting mt-1 text-sm">
             {line}
