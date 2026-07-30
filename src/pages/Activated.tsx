@@ -63,13 +63,14 @@ const PHASES = [
   },
   {
     title: "Shepherd Your Soul",
-    introduction: ["Be gentle with yourself in this moment.", "Choose what you need to hear."],
-    customLabel: "Write your own encouragement",
+    subtitle: "Encourage yourself",
+    introduction: ["Speak to yourself with the kindness you need in this moment."],
+    customLabel: "Write your own statement",
     options: [
-      "You're not broken. Your body is protecting you.",
-      "You are allowed to need time.",
-      "You are learning to stand differently.",
-      "This feeling doesn’t control you.",
+      "I'm proud of you for coming back.",
+      "You chose truth today.",
+      "You're becoming steadier.",
+      "This feeling doesn't define you.",
     ],
   },
   {
@@ -88,18 +89,31 @@ const PHASES = [
       "I am not back there. I am here.",
     ],
   },
+  {
+    title: "Shepherd Your Soul",
+    subtitle: "Thank your body",
+    introduction: ["Your body has worked hard to protect you.", "Speak to it with understanding."],
+    customLabel: "Write your own statement",
+    options: [
+      "Thank you for protecting me.",
+      "You don't have to carry this alone anymore.",
+      "You've kept me safe for a long time.",
+      "We can learn a new way together.",
+    ],
+  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_6 / PHASES indices).
- * Untangle Time is split across two screens: "Then" (index 2 / line_3)
- * and "Now" (index 5 / line_6). Shepherd Your Soul (index 4) comes before
- * Choose Your Agreement (index 3), so saved statements keep mapping to the
- * same columns.
+ * database columns (line_1..line_7 / PHASES indices).
+ * Untangle Time is split across "Then" (index 2 / line_3) and "Now"
+ * (index 5 / line_6). Shepherd Your Soul is split across "Encourage
+ * yourself" (index 4 / line_5) and "Thank your body" (index 6 / line_7).
+ * Choose Your Agreement (index 3 / line_4) comes last.
  */
-const LINE_ORDER = [0, 1, 2, 5, 4, 3];
+const LINE_ORDER = [0, 1, 2, 5, 4, 6, 3];
 const TOTAL_STEPS = LINE_ORDER.length;
+const LINE_COUNT = 7;
 
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
