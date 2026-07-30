@@ -265,7 +265,7 @@ const Activated = () => {
     setSaving(true);
 
     const lines: Record<string, string | null> = {};
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < LINE_COUNT; i++) {
       const val = useCustom[i] ? customTexts[i] : selections[i];
       lines[`line_${i + 1}`] = sanitizeText(val, { maxLength: 500 });
     }
