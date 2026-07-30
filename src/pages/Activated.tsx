@@ -63,13 +63,14 @@ const PHASES = [
   },
   {
     title: "Shepherd Your Soul",
-    introduction: ["Be gentle with yourself in this moment.", "Choose what you need to hear."],
-    customLabel: "Write your own encouragement",
+    subtitle: "Encourage yourself",
+    introduction: ["Speak to yourself with the kindness you need in this moment."],
+    customLabel: "Write your own statement",
     options: [
-      "You're not broken. Your body is protecting you.",
-      "You are allowed to need time.",
-      "You are learning to stand differently.",
-      "This feeling doesn’t control you.",
+      "I'm proud of you for coming back.",
+      "You chose truth today.",
+      "You're becoming steadier.",
+      "This feeling doesn't define you.",
     ],
   },
   {
@@ -88,18 +89,31 @@ const PHASES = [
       "I am not back there. I am here.",
     ],
   },
+  {
+    title: "Shepherd Your Soul",
+    subtitle: "Thank your body",
+    introduction: ["Your body has worked hard to protect you.", "Speak to it with understanding."],
+    customLabel: "Write your own statement",
+    options: [
+      "Thank you for protecting me.",
+      "You don't have to carry this alone anymore.",
+      "You've kept me safe for a long time.",
+      "We can learn a new way together.",
+    ],
+  },
 ];
 
 /**
  * Display order of the reorientation steps, mapped onto the stable
- * database columns (line_1..line_6 / PHASES indices).
- * Untangle Time is split across two screens: "Then" (index 2 / line_3)
- * and "Now" (index 5 / line_6). Shepherd Your Soul (index 4) comes before
- * Choose Your Agreement (index 3), so saved statements keep mapping to the
- * same columns.
+ * database columns (line_1..line_7 / PHASES indices).
+ * Untangle Time is split across "Then" (index 2 / line_3) and "Now"
+ * (index 5 / line_6). Shepherd Your Soul is split across "Encourage
+ * yourself" (index 4 / line_5) and "Thank your body" (index 6 / line_7).
+ * Choose Your Agreement (index 3 / line_4) comes last.
  */
-const LINE_ORDER = [0, 1, 2, 5, 4, 3];
+const LINE_ORDER = [0, 1, 2, 5, 4, 6, 3];
 const TOTAL_STEPS = LINE_ORDER.length;
+const LINE_COUNT = 7;
 
 
 type Screen = "loading" | "use-script" | "entry" | "phase" | "complete";
@@ -115,7 +129,7 @@ const Activated = () => {
     queryFn: async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data } = await reorientTemplates
-        .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("id, line_1, line_2, line_3, line_4, line_5, line_6, line_7")
         .eq("user_id", user!.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -127,9 +141,9 @@ const Activated = () => {
 
   const [screen, setScreen] = useState<Screen>("loading");
   const [phaseIndex, setPhaseIndex] = useState(0);
-  const [selections, setSelections] = useState<(string | null)[]>(Array(6).fill(null));
-  const [customTexts, setCustomTexts] = useState<string[]>(Array(6).fill(""));
-  const [useCustom, setUseCustom] = useState<boolean[]>(Array(6).fill(false));
+  const [selections, setSelections] = useState<(string | null)[]>(Array(LINE_COUNT).fill(null));
+  const [customTexts, setCustomTexts] = useState<string[]>(Array(LINE_COUNT).fill(""));
+  const [useCustom, setUseCustom] = useState<boolean[]>(Array(LINE_COUNT).fill(false));
   const [saving, setSaving] = useState(false);
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
@@ -138,9 +152,9 @@ const Activated = () => {
   const resetInProgressReorientation = () => {
     setScreen("entry");
     setPhaseIndex(0);
-    setSelections(Array(6).fill(null));
-    setCustomTexts(Array(6).fill(""));
-    setUseCustom(Array(6).fill(false));
+    setSelections(Array(LINE_COUNT).fill(null));
+    setCustomTexts(Array(LINE_COUNT).fill(""));
+    setUseCustom(Array(LINE_COUNT).fill(false));
     setSaving(false);
     setRevealedCount(1);
     setJustRevealed(null);
@@ -210,6 +224,7 @@ const Activated = () => {
     line_4: string | null;
     line_5: string | null;
     line_6?: string | null;
+    line_7?: string | null;
   }) => {
     const lines = [
       script.line_1,
@@ -218,10 +233,11 @@ const Activated = () => {
       script.line_4,
       script.line_5,
       script.line_6 ?? null,
+      script.line_7 ?? null,
     ];
-    const newSelections: (string | null)[] = Array(6).fill(null);
-    const newCustomTexts = Array(6).fill("");
-    const newUseCustom = Array(6).fill(false);
+    const newSelections: (string | null)[] = Array(LINE_COUNT).fill(null);
+    const newCustomTexts = Array(LINE_COUNT).fill("");
+    const newUseCustom = Array(LINE_COUNT).fill(false);
 
     lines.forEach((line, i) => {
       if (!line || !PHASES[i]) return;
@@ -249,7 +265,7 @@ const Activated = () => {
     setSaving(true);
 
     const lines: Record<string, string | null> = {};
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < LINE_COUNT; i++) {
       const val = useCustom[i] ? customTexts[i] : selections[i];
       lines[`line_${i + 1}`] = sanitizeText(val, { maxLength: 500 });
     }
@@ -286,6 +302,7 @@ const Activated = () => {
       existingScript.line_4,
       existingScript.line_5,
       existingScript.line_6 ?? null,
+      existingScript.line_7 ?? null,
     ];
 
     type StepPart = { sub?: string; line: string };
@@ -299,7 +316,13 @@ const Activated = () => {
           { sub: "Now", line: allLines[5] },
         ],
       },
-      { label: "SHEPHERD YOUR SOUL", parts: [{ line: allLines[4] }] },
+      {
+        label: "SHEPHERD YOUR SOUL",
+        parts: [
+          { sub: "Encourage yourself", line: allLines[4] },
+          { sub: "Thank your body", line: allLines[6] },
+        ],
+      },
       { label: "CHOOSE YOUR AGREEMENT", parts: [{ line: allLines[3] }] },
     ]
       .map((s) => ({ label: s.label, parts: s.parts.filter((p) => !!p.line) as StepPart[] }))
@@ -506,7 +529,13 @@ const Activated = () => {
           { sub: "Now", value: valueAt(5) },
         ],
       },
-      { title: "Shepherd Your Soul", parts: [{ value: valueAt(4) }] },
+      {
+        title: "Shepherd Your Soul",
+        parts: [
+          { sub: "Encourage yourself", value: valueAt(4) },
+          { sub: "Thank your body", value: valueAt(6) },
+        ],
+      },
       { title: "Choose Your Agreement", parts: [{ value: valueAt(3) }] },
     ];
 

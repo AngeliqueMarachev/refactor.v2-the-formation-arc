@@ -13,6 +13,7 @@ interface ReorientLines {
   line_4: string | null;
   line_5: string | null;
   line_6: string | null;
+  line_7: string | null;
 }
 
 const phases: { title: string; lineIndex: number; parts: { sub?: string; lineIndex: number }[] }[] = [
@@ -26,7 +27,14 @@ const phases: { title: string; lineIndex: number; parts: { sub?: string; lineInd
       { sub: "Now", lineIndex: 5 },
     ],
   },
-  { title: "SHEPHERD YOUR SOUL", lineIndex: 4, parts: [{ lineIndex: 4 }] },
+  {
+    title: "SHEPHERD YOUR SOUL",
+    lineIndex: 4,
+    parts: [
+      { sub: "Encourage yourself", lineIndex: 4 },
+      { sub: "Thank your body", lineIndex: 6 },
+    ],
+  },
   { title: "CHOOSE YOUR AGREEMENT", lineIndex: 3, parts: [{ lineIndex: 3 }] },
 ];
 
@@ -45,7 +53,7 @@ const ReorientationRehearsal = () => {
     const fetch = async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data: templates } = await reorientTemplates
-        .select("line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("line_1, line_2, line_3, line_4, line_5, line_6, line_7")
         .eq("user_id", user.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -100,7 +108,7 @@ const ReorientationRehearsal = () => {
 
         <div className="space-y-6 mb-12">
           {phases.map((phase) => {
-            const allLines = [lines!.line_1, lines!.line_2, lines!.line_3, lines!.line_4, lines!.line_5, lines!.line_6];
+            const allLines = [lines!.line_1, lines!.line_2, lines!.line_3, lines!.line_4, lines!.line_5, lines!.line_6, lines!.line_7];
             const parts = phase.parts
               .map((p) => ({ sub: p.sub, line: allLines[p.lineIndex] }))
               .filter((p) => !!p.line) as { sub?: string; line: string }[];
