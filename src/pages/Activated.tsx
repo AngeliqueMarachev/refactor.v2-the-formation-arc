@@ -302,6 +302,7 @@ const Activated = () => {
       existingScript.line_4,
       existingScript.line_5,
       existingScript.line_6 ?? null,
+      existingScript.line_7 ?? null,
     ];
 
     type StepPart = { sub?: string; line: string };
@@ -315,7 +316,13 @@ const Activated = () => {
           { sub: "Now", line: allLines[5] },
         ],
       },
-      { label: "SHEPHERD YOUR SOUL", parts: [{ line: allLines[4] }] },
+      {
+        label: "SHEPHERD YOUR SOUL",
+        parts: [
+          { sub: "Encourage yourself", line: allLines[4] },
+          { sub: "Thank your body", line: allLines[6] },
+        ],
+      },
       { label: "CHOOSE YOUR AGREEMENT", parts: [{ line: allLines[3] }] },
     ]
       .map((s) => ({ label: s.label, parts: s.parts.filter((p) => !!p.line) as StepPart[] }))
