@@ -529,7 +529,13 @@ const Activated = () => {
           { sub: "Now", value: valueAt(5) },
         ],
       },
-      { title: "Shepherd Your Soul", parts: [{ value: valueAt(4) }] },
+      {
+        title: "Shepherd Your Soul",
+        parts: [
+          { sub: "Encourage yourself", value: valueAt(4) },
+          { sub: "Thank your body", value: valueAt(6) },
+        ],
+      },
       { title: "Choose Your Agreement", parts: [{ value: valueAt(3) }] },
     ];
 
