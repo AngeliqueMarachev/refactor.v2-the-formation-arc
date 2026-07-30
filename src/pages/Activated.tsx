@@ -224,6 +224,7 @@ const Activated = () => {
     line_4: string | null;
     line_5: string | null;
     line_6?: string | null;
+    line_7?: string | null;
   }) => {
     const lines = [
       script.line_1,
@@ -232,6 +233,7 @@ const Activated = () => {
       script.line_4,
       script.line_5,
       script.line_6 ?? null,
+      script.line_7 ?? null,
     ];
     const newSelections: (string | null)[] = Array(LINE_COUNT).fill(null);
     const newCustomTexts = Array(LINE_COUNT).fill("");
