@@ -129,7 +129,7 @@ const Activated = () => {
     queryFn: async () => {
       const reorientTemplates = supabase.from("reorient_templates") as any;
       const { data } = await reorientTemplates
-        .select("id, line_1, line_2, line_3, line_4, line_5, line_6")
+        .select("id, line_1, line_2, line_3, line_4, line_5, line_6, line_7")
         .eq("user_id", user!.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
@@ -141,9 +141,9 @@ const Activated = () => {
 
   const [screen, setScreen] = useState<Screen>("loading");
   const [phaseIndex, setPhaseIndex] = useState(0);
-  const [selections, setSelections] = useState<(string | null)[]>(Array(6).fill(null));
-  const [customTexts, setCustomTexts] = useState<string[]>(Array(6).fill(""));
-  const [useCustom, setUseCustom] = useState<boolean[]>(Array(6).fill(false));
+  const [selections, setSelections] = useState<(string | null)[]>(Array(LINE_COUNT).fill(null));
+  const [customTexts, setCustomTexts] = useState<string[]>(Array(LINE_COUNT).fill(""));
+  const [useCustom, setUseCustom] = useState<boolean[]>(Array(LINE_COUNT).fill(false));
   const [saving, setSaving] = useState(false);
   const [revealedCount, setRevealedCount] = useState(1);
   const [justRevealed, setJustRevealed] = useState<number | null>(null);
@@ -152,9 +152,9 @@ const Activated = () => {
   const resetInProgressReorientation = () => {
     setScreen("entry");
     setPhaseIndex(0);
-    setSelections(Array(6).fill(null));
-    setCustomTexts(Array(6).fill(""));
-    setUseCustom(Array(6).fill(false));
+    setSelections(Array(LINE_COUNT).fill(null));
+    setCustomTexts(Array(LINE_COUNT).fill(""));
+    setUseCustom(Array(LINE_COUNT).fill(false));
     setSaving(false);
     setRevealedCount(1);
     setJustRevealed(null);
@@ -233,9 +233,9 @@ const Activated = () => {
       script.line_5,
       script.line_6 ?? null,
     ];
-    const newSelections: (string | null)[] = Array(6).fill(null);
-    const newCustomTexts = Array(6).fill("");
-    const newUseCustom = Array(6).fill(false);
+    const newSelections: (string | null)[] = Array(LINE_COUNT).fill(null);
+    const newCustomTexts = Array(LINE_COUNT).fill("");
+    const newUseCustom = Array(LINE_COUNT).fill(false);
 
     lines.forEach((line, i) => {
       if (!line || !PHASES[i]) return;
