@@ -16,10 +16,10 @@ const PHASES = [
     introduction: ["Interrupt the spiral.", "Choose a phrase to pause the moment."],
     customLabel: "Write your own interruption",
     options: [
-      "Breathe. Be calm.",
-      "I speak peace to you, oh my soul.",
-      "Be still, of whom shall I be afraid?",
-      "Gently now, you're okay.",
+      "Stop, stop, stop.",
+      "Peace, be still.",
+      "It's okay.",
+      "Shhh, shhh, shhh.",
     ],
   },
   {
@@ -27,10 +27,10 @@ const PHASES = [
     introduction: ["This is a pattern. Not a signal of danger.", "Choose what fits."],
     customLabel: "Write your own explanation",
     options: [
-      "My nervous system is trying to protect me.",
-      "My brain is running an old prediction loop.",
-      "This is a protective pattern, not a present danger.",
-      "My system is misreading this moment as a threat.",
+      "I was following a path that wasn't from God, which taught my nervous system to remain in fight, flight, or freeze.",
+      "My brain is stuck in a trauma loop and is sending false messages to my mind and body.",
+      "My mind and body are receiving false warning signals from a brain that has become trapped in a trauma pattern.",
+      "I believed the lies of the enemy, which conditioned my nervous system into a maladapted stress response.",
     ],
   },
   {
@@ -43,10 +43,10 @@ const PHASES = [
     ],
     customLabel: "Write your own statement",
     options: [
-      "That season is over.",
-      "I survived that chapter.",
-      "What happened then was real, but it belonged to that time.",
-      "My body learned to brace in that season.",
+      "In the past, I was deceived by the enemy, which taught my body to protect itself instead of trusting God's protection.",
+      "In the past, fear led to the over-firing of my stress hormones.",
+      "In the past, feeling separated from God contributed to a dysregulated nervous system.",
+      "Living from the need to perform created a cycle of fear and a maladapted stress response.",
     ],
   },
 
@@ -55,10 +55,10 @@ const PHASES = [
     introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
     customLabel: "Write your own statement",
     options: [
-      "I return to Truth instead of fear.",
-      "I move through moment without fear leading me.",
-      "Fear has no power over me.",
-      "I have a sound mind.",
+      "I am the head and not the tail. I am above and not beneath.",
+      "I walk in victory with God, who goes before me and follows behind me.",
+      "I am whole and connected to God in spirit, soul, and body.",
+      "I am blessed when I come in and blessed when I go out.",
     ],
   },
   {
@@ -67,10 +67,10 @@ const PHASES = [
     introduction: ["Speak to yourself with the kindness you need in this moment."],
     customLabel: "Write your own statement",
     options: [
-      "I'm proud of you for coming back.",
-      "You chose truth today.",
-      "You're becoming steadier.",
-      "This feeling doesn't define you.",
+      "I am so proud of you for making this choice today. You are His beloved, and you walk in victory with Him.",
+      "I love you. You have chosen to believe the Truth. Keep going.",
+      "You are God's treasured child, and He delights that you are choosing to trust Him.",
+      "Smile and see His face shining upon you. This is a powerful step, and God will strengthen you as you walk with Him.",
     ],
   },
   {
@@ -83,10 +83,10 @@ const PHASES = [
     ],
     customLabel: "Write your own statement",
     options: [
-      "This is a different moment.",
-      "I am here now.",
-      "My body is remembering, but I am safe now.",
-      "I am not back there. I am here.",
+      "But now I know that fear and sickness have no authority over me, and I choose to be transformed by the renewing of my mind.",
+      "But now I know that I no longer need to live in fear, and I choose to believe the Truth.",
+      "But now I know that I am free from sin, and I choose to let go and receive God's perfect love.",
+      "But now I know that this is a maladapted stress response, and I choose to let God lead me into His rest.",
     ],
   },
   {
@@ -95,10 +95,10 @@ const PHASES = [
     introduction: ["Your body has worked hard to protect you.", "Speak to it with understanding."],
     customLabel: "Write your own statement",
     options: [
-      "Thank you for protecting me.",
-      "You don't have to carry this alone anymore.",
-      "You've kept me safe for a long time.",
-      "We can learn a new way together.",
+      "Thank you, body, for working so hard to protect me. You can rest now—God will take it from here.",
+      "Thank you, soul. You no longer have to carry this on your own. Let go and rest in Him.",
+      "Thank you, brain. We didn't understand before, but now we do. You can let go because God is holding us.",
+      "Thank you, nervous system, for always trying to protect me. You can rest now as we entrust everything to God.",
     ],
   },
 ];
