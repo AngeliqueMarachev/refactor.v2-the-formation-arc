@@ -37,8 +37,7 @@ const PHASES = [
     title: "Untangle Time",
     subtitle: "Then",
     introduction: [
-      "Fear can make old experiences feel as though they are happening again.",
-      "This step helps you recognize what belonged to another season of your life.",
+      "Fear can make old experiences feel as though they are happening now. This step helps you recognize what belongs to the past.",
       "Choose a statement that best describes your past experience.",
     ],
     customLabel: "Write your own statement",
