@@ -38,7 +38,7 @@ const PHASES = [
     subtitle: "Then",
     introduction: [
       "Fear can make old experiences feel as though they are happening now. This step helps you recognize what belongs to the past.",
-      "Choose a statement that best describes your past experience.",
+      "Focus on a separate yourself from your past.",
     ],
     customLabel: "Write your own statement",
     options: [
