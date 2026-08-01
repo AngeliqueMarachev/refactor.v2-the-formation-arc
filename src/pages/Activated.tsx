@@ -24,7 +24,7 @@ const PHASES = [
   },
   {
     title: "Expose The Mechanism",
-    introduction: ["This is a pattern. Not a signal of danger.", "Choose what fits."],
+    introduction: ["This is a pattern. Not a signal of danger.", "Acknowledge the role of the enemy on your body."],
     customLabel: "Write your own explanation",
     options: [
       "I was following a path that wasn't from God, which taught my nervous system to remain in fight, flight, or freeze.",
@@ -38,7 +38,7 @@ const PHASES = [
     subtitle: "Then",
     introduction: [
       "Fear can make old experiences feel as though they are happening now. This step helps you recognize what belongs to the past.",
-      "Focus on a separate yourself from your past.",
+      "Focus on and separate yourself from your past.",
     ],
     customLabel: "Write your own statement",
     options: [
@@ -51,7 +51,7 @@ const PHASES = [
 
   {
     title: "Choose Your Agreement",
-    introduction: ["You don’t have to agree with fear.", "Choose what you want to align with."],
+    introduction: ["You don’t have to agree with fear.", "Declare the Truth you are choosing to stand on."],
     customLabel: "Write your own statement",
     options: [
       "I am the head and not the tail. I am above and not beneath.",
@@ -77,8 +77,8 @@ const PHASES = [
     subtitle: "Now",
     introduction: [
       "Your body may remember the past, but your life is happening here.",
+      "Make the choice to rewire your brain with God.",
       "This step helps your brain recognize the difference between memory and present reality.",
-      "Choose what is true today.",
     ],
     customLabel: "Write your own statement",
     options: [
